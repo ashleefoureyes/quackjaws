@@ -17,9 +17,15 @@ Feature Implementation:          40%
 DETAILED OVERVIEW:
 ==================
 
+Introduction
+------------
+
 * Write introduction document which pulls from the project description to
   explain what the goals of the project are. Also provide an overview of the
   entire Deliverable #1 document.
+
+Requirements
+------------
 
 * Create a requirements document in a spreadsheet which details the requirements
   of the project. The spreadsheet will have two categories: functional and
@@ -32,3 +38,33 @@ DETAILED OVERVIEW:
 
 * Take the basic numbering, names, and descriptions from the internal
   requirements document and add it to the final deliverable documentation.
+
+Use Cases
+---------
+
+*  Set of use cases, uniquely numbered, represented with a UML diagram and a
+   table-based description, which cover all functional requirements.
+
+    * Must include high level use cases for abstract functionality and detailed
+      use cases with refinements. Detail should match ARENA case study.
+
+    * Must represent all relationships between use cases (e.g. includes,
+      extends, etc).
+
+      * High level and detailed cases must be depicted together using includes
+        relationship.
+
+      * Exceptions must be depicted as separate use cases with extends
+        relationship to the original use case.
+
+    * Every use case must be linked to one or more requirements for
+      traceability.
+
+Object Model
+------------
+
+* Entity objects must be identified and described in a data dictionary.
+  Inclusion of control and boundary objects optional.
+
+  * Entries in data dictionary must include object name, description, list of
+    attributes, and all associations.
