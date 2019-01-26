@@ -1,4 +1,14 @@
 TODO for Deliverable #1
 ***********************
 
+* Write introduction document which pulls from the project description to
+  explain what the goals of the project are. Also provide an overview of the
+  entire Deliverable #1 document.
+
+* Create a requirements document in a spreadsheet which details the requirements
+  of the project. The spreadsheet will have two categories: functional and
+  non-functional requirements. In each category, the columsn will be:
+  Requirement Number, Requirement Name, Requirement Description, Completion
+  Satus (as a % or as "Complete", "In Progress", etc), Person Assigned.
+
 
