@@ -1,14 +1,34 @@
 TODO for Deliverable #1
 ***********************
 
+MAIN PRODUCTS:
+==============
+Requirements Analysis Document:  60%
+    Introduction                  5%
+    Functional Requirements      10%
+    Non-Functional Requirements  10%
+    Use Cases                    25%
+    Object Model                 10%
+
+Feature Implementation:          40%
+    View Animals                 15%
+    Add Animal                   25%
+
+DETAILED OVERVIEW:
+==================
+
 * Write introduction document which pulls from the project description to
   explain what the goals of the project are. Also provide an overview of the
   entire Deliverable #1 document.
 
 * Create a requirements document in a spreadsheet which details the requirements
   of the project. The spreadsheet will have two categories: functional and
-  non-functional requirements. In each category, the columsn will be:
+  non-functional requirements. In each category, the columns will be:
   Requirement Number, Requirement Name, Requirement Description, Completion
-  Satus (as a % or as "Complete", "In Progress", etc), Person Assigned.
+  Status (as a % or as "Complete", "In Progress", etc), Person Assigned.
 
+    * There must be at least three different non-functional requirements for
+      each of the 9 functional requirement categories (see S2.2 Slide 41).
 
+* Take the basic numbering, names, and descriptions from the internal
+  requirements document and add it to the final deliverable documentation.
