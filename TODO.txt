@@ -14,6 +14,8 @@ Feature Implementation:          40%
     View Animals                 15%
     Add Animal                   25%
 
+Packaging Requirements:          We get a zero if not done properly.
+
 DETAILED OVERVIEW:
 ==================
 
@@ -68,3 +70,39 @@ Object Model
 
   * Entries in data dictionary must include object name, description, list of
     attributes, and all associations.
+
+  * All associations between objects must be modelled using UML class diagrams.
+    Information on the diagrams must include dependencies between objects,
+    directionality, multiplicity, inheritance, and aggregation.
+
+  * All classes must be uniquely numbered for traceability and must be linked to
+    one or more use cases.
+
+Feature Implementation
+----------------------
+
+* GUI implemented in Qt (using Qt Creator is allowed)
+
+* Staff feature: View all animals
+
+* Staff feature: Add animal (with basic profile information)
+
+* Minimum of 5 different animal profiles in persistent storage (plain text files
+  are good for this deliverable). Animal profiles must be loaded into memory
+  when the program launches. Animal profiles must include the basic physical
+  attributes.
+
+Packaging Requirements
+----------------------
+
+* All documentation must be professional (cover page, table of contents, page
+  numbers, table of figures, section numbers/names, etc). All diagrams and
+  tables must be introduced and explained in the text. Everything must be in own
+  words.
+
+* Documentation must be submitted as a PDF.
+
+* Write a script and use a makefile to compile the program.
+
+* Provide all code and code-based stuff in a tar file. Do not provide compiled
+  code or object files, just source code and scripts/readme.
