@@ -1,0 +1,30 @@
+Species:
+    Dogs
+    Cats
+
+Physical Attributes:
+    Breed
+    Size (Teacup, Small, Med, Large)
+    Health -> Vaccination
+    Age
+    Gender
+    Spayed/Neutered
+    Fur Length (fluffy, hairless, etc)
+    Hypoallergenic
+
+Non-Physical Attributes:
+    1.  Easy to travel with
+    2.  Good with children
+    3.  Good with other animals
+    4.  Level of energy
+    5.  Level of cowardice
+    6.  Good at protecting a home
+    7.  Good with strangers
+    8.  Good in crowds
+    9.  Nocturnal/Sleeping pattern
+    10. Level of Affection
+    11. Good with loud noises
+    12. Messiness
+    13. Previous home (street animal, rescue, given up for adoption)
+    14. Indoor/Outdoor
+    15. Level of exercise needed
