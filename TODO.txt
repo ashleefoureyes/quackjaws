@@ -46,7 +46,9 @@ Requirements
   Status (as a % or as "Complete", "In Progress", etc), Person Assigned.
 
     * There must be at least three different non-functional requirements for
-      each of the 9 functional requirement categories (see S2.2 Slide 41).
+      each of the 9 functional requirement categories (see S2.2 Slide 41). We
+      are not bound to complete the ones we make up which are not in the
+      project description.
 
 * Take the basic numbering, names, and descriptions from the internal
   requirements document and add it to the final deliverable documentation.
@@ -76,14 +78,17 @@ Object Model
 ------------
 
 * Entity objects must be identified and described in a data dictionary.
-  Inclusion of control and boundary objects optional.
+  Inclusion of control and boundary objects optional. (This comes from the
+  application domain).
 
   * Entries in data dictionary must include object name, description, list of
     attributes, and all associations.
 
   * All associations between objects must be modelled using UML class diagrams.
     Information on the diagrams must include dependencies between objects,
-    directionality, multiplicity, inheritance, and aggregation.
+    directionality, multiplicity, inheritance, and aggregation. Make sure
+    associations do not show up in the attributes. Entry objects never access
+    boundary or control objects.
 
   * All classes must be uniquely numbered for traceability and must be linked to
     one or more use cases.
