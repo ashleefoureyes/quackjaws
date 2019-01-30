@@ -39,13 +39,13 @@ Introduction
 Requirements
 ------------
 
-* Create a requirements document in a spreadsheet which details the requirements
+DONE * Create a requirements document in a spreadsheet which details the requirements
   of the project. The spreadsheet will have two categories: functional and
   non-functional requirements. In each category, the columns will be:
   Requirement Number, Requirement Name, Requirement Description, Completion
   Status (as a % or as "Complete", "In Progress", etc), Person Assigned.
 
-    * There must be at least three different non-functional requirements for
+    DONE * There must be at least three different non-functional requirements for
       each of the 9 functional requirement categories (see S2.2 Slide 41). We
       are not bound to complete the ones we make up which are not in the
       project description.
