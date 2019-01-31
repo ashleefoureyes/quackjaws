@@ -5,11 +5,8 @@
 #include <iostream>
 
 /** Function: displayMenu()
- *  in: N/A
  *  out: int userChoice
- * 
- *  Purpose: Prompts user for their choice until they enter a valid input
-*/
+ *  Purpose: Prompts user for their choice until they enter a valid input*/
 int View::displayMenu()
 {
     int userChoice = -1;
@@ -28,22 +25,26 @@ int View::displayMenu()
 }
 
 /** Function: getAnimalInfoFromUser()
- *  in: N/A
  *  in-out: Animal attributes
- *  out: N/A
- * 
  *  Purpose: Prompts user for animal information then puts this in arguments
- *           that are passed by reference
-*/
+ *           that are passed by reference */
 void View::getAnimalInfoFromUser(std::string &breed, std::string &name, int &size, int &age, char &gender, int &fur, bool &hypo)
 {
     // To get char then convert to bool
     char hypoYesNo;
 
+    char tempName[100];
+    char tempBreed[100];
+
+    // Used to clear cin buffer of "\n" char
+    // If not cleared getline() doesn't wait for
+    // user input
+    std::cin.ignore();
+
     std::cout << "Name: ";
-    std::cin >> name;
+    std::getline(std::cin, name);
     std::cout << "Breed: ";
-    std::cin >> breed;
+    std::getline(std::cin, breed);
     std::cout << "0 = Teacup, 1 = Small, 2 = Medium, 3 = Large\nSize: ";
     std::cin >> size;
     std::cout << "Age in years: ";
@@ -61,24 +62,18 @@ void View::getAnimalInfoFromUser(std::string &breed, std::string &name, int &siz
 
 /** Function: viewAnimals(Storage* animalStorage)
  *  in: Storage* animalStorage
- *  out: N/A
- * 
  *  Purpose: Creates a header and prints the string returned
- *           by the animalStorage's getFormattedInfo() function
-*/
+ *           by the animalStorage's getFormattedInfo() function */
 void View::viewAnimals(Storage* animalStorage)
 {
     std::cout << "\n___Animals___\n" << animalStorage->getFormattedInfo();
 }
 
 /** Function: getIdForAnimal()
- *  in: N/A
  *  out: int returnId
- * 
  *  Purpose: Prompts the user for animal Id.
  *           This can then be used to find or remove the
- *           animal with that ID
-*/
+ *           animal with that ID */
 int View::getIdForAnimal()
 {
     int returnId;

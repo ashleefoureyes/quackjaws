@@ -2,9 +2,6 @@ PRODUCTION README
 
 TODO:
 - Ensure any input cannot contain ')' or '('. This will mess up parsing of saved data
-- Allow for input strings to contain spaces for breeds like: "Egyptian Mau"
-- Create Dog and Cat classes that inherit from the Animal class
-- Create a .txt file if one doesn't currently exist in the directory. Currently program locks up if .txt file isn't present
 - Fix "clock skew detected" error from makefile. Doesn't seem to actually affect program however
 
 

@@ -10,9 +10,9 @@ class Animal
     int idNumber;
     std::string name;
     
-    // ###################
-    // Physical Attributes
-    // ###################
+    // ######################
+    // # Physical Attributes#
+    // ######################
     std::string breed;
     // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
     int size;

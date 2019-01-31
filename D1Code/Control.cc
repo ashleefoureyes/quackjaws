@@ -5,30 +5,18 @@
 #include "Animal.h"
 
 /** Function: Control()
- *  in: N/A
- *  out: N/A
- * 
  *  Purpose: On creation of the control object the file with
  *           saved animal information is read and animals are created
- *           and put in the Control's storage variable
-*/
+ *           and put in the Control's storage variable */
 Control::Control() { fileSaver.readFromFile(SAVE_FILE_NAME, &storage); }
 
 /** Function: ~Control()
- *  in: N/A
- *  out: N/A
- * 
  *  Purpose: On destruction of Control object all animals in storage are
- *           written to the file
-*/
+ *           written to the file */
 Control::~Control() { fileSaver.saveToFile(SAVE_FILE_NAME, &storage); }
 
 /** Function launch()
- *  in: N/A
- *  out: N/A
- * 
- *  Purpose: Called by main.cc. 
-*/
+ *  Purpose: Called by main.cc. */
 void Control::launch()
 {
 
@@ -49,13 +37,9 @@ void Control::launch()
 }
 
 /** Function: createNewAnimal()
- *  in: N/A
- *  out: N/A
- * 
  *  Purpose: Prepares variables and uses View object's getAnimalInfoFromUser()
  *           function to popualate variables. It then creates an animal instance
- *           and puts it in the storage object.
-*/
+ *           and puts it in the storage object. */
 void Control::createNewAnimal()
 {
     std::string name, breed;
@@ -71,12 +55,8 @@ void Control::createNewAnimal()
 }
 
 /** Function: removeAnimal()
- *  in: N/A
- *  out: N/A
- * 
  *  Purpose: Uses View object's getIdForAnimal() function to get Id from user
- *           then tries to remove the animal with that Id from storage.
-*/
+ *           then tries to remove the animal with that Id from storage. */
 void Control::removeAnimal()
 {
     int idToRemove = view.getIdForAnimal();

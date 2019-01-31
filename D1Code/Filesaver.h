@@ -7,6 +7,8 @@
 #include "Storage.h"
 #include "Animal.h"
 
+#define NUM_OF_ATTRIBUTES 8
+
 class Filesaver
 {
     public:

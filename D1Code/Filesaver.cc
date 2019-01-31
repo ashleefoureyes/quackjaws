@@ -6,13 +6,10 @@
 
 /** Function: saveToFile(string fileName, animalStorage)
  *  in: string fileName, Storage* animalStorage
- *  out: N/A
- * 
  *  Purpose: Takes all the animal information from the animalStorage
  *           object and saves it to a text file.
  *           Uses animalStorage's getSaveInfo() function to get
- *           the formatted string to save
-*/
+ *           the formatted string to save */
 void Filesaver::saveToFile(std::string fileName, Storage* animalStorage)
 {
     std::ofstream outfile(fileName);
@@ -23,21 +20,17 @@ void Filesaver::saveToFile(std::string fileName, Storage* animalStorage)
 /** Function: readFromFile(string fileName, Storage* animalStorage)
  *  in: fileName
  *  in-out: Storage* animalStorage
- *  out: N/A
- * 
  *  Purpose: Loads the file and reads through each line.
  *           Every line of the file is a different Animal object
  *           that gets passed to parseData(). Once the attributes are
  *           parsed from the data it creates a new Animal instane and puts
- *           the pointer in the Storage* passed as an argument
-*/
+ *           the pointer in the Storage* passed as an argument */
 void Filesaver::readFromFile(std::string fileName, Storage* animalStorage)
 {
-    // ######################################
-    // TODO: If no file in directory with name of fileName
-    //       program will not start correctly
-    // ######################################
     std::ifstream infile(fileName, std::ifstream::in);
+
+    // Checks to make sure the file exists, is open and isn't corrupt
+    if(!infile.good() || !infile.is_open()) { return; }
 
     // Used to find largest id so each new animal added will have
     // a unique ID
@@ -71,51 +64,35 @@ void Filesaver::readFromFile(std::string fileName, Storage* animalStorage)
     }
 
     animalStorage->setLargestId(largestId);
+    infile.close();
 }
 
 /** Function: parseData(args)
  *  in: std::string fileLine
  *  in-out: Attributes for creation of animal instance
- *  out: N/A
- * 
  *  Purpose: Takes the string fileLine and parses through it giving the
  *           values to the relevant function argument.
  *           Does this by creating substrings between the parenthesis
- * 
  * The order of the fileLine string is as follows:
- *              (Id)(Name)(Breed)(Age)(Size)(Gender)(Fur)(IsHypo)
-*/
+ *              (Id)(Name)(Breed)(Age)(Size)(Gender)(Fur)(IsHypo) */
 void Filesaver::parseData(std::string fileLine, std::string &breed, std::string &name, 
                             int &size, int &age, char &gender, int &fur, bool &hypo, int &id)
 {
-    // ID
-    id = std::stoi(fileLine.substr(fileLine.find("(") + 1, fileLine.find(")") - 1), nullptr, 10);
-    std::string cutString = fileLine.substr(fileLine.find(")") + 1);
-    
-    // Name
-    name = cutString.substr(cutString.find("(") + 1, cutString.find(")") - 1);
-    cutString = cutString.substr(cutString.find(")") + 1);
+    std::string strArray[NUM_OF_ATTRIBUTES];
 
-    // Breed
-    breed = cutString.substr(cutString.find("(") + 1, cutString.find(")") - 1);
-    cutString = cutString.substr(cutString.find(")") + 1);
+    for(int i = 0; i < NUM_OF_ATTRIBUTES; ++i)
+    {
+        strArray[i] = fileLine.substr(fileLine.find("(") + 1, fileLine.find(")") - 1);
+        fileLine = fileLine.substr(fileLine.find(")") + 1);
+    }
 
-    // Age
-    age = std::stoi(cutString.substr(cutString.find("(") + 1, cutString.find(")") - 1), nullptr, 10);
-    cutString = cutString.substr(cutString.find(")") + 1);
+    id = std::stoi(strArray[0], nullptr, 10);
+    name = strArray[1];
+    breed = strArray[2];
+    age = std::stoi(strArray[3], nullptr, 10);
+    size = std::stoi(strArray[4], nullptr, 10);
+    gender = std::stoi(strArray[5], nullptr, 10);
+    fur = std::stoi(strArray[6], nullptr, 10);
+    hypo = std::stoi(strArray[7], nullptr, 10);
 
-    // Size
-    size = std::stoi(cutString.substr(cutString.find("(") + 1, cutString.find(")") - 1), nullptr, 10);
-    cutString = cutString.substr(cutString.find(")") + 1);
-
-    // Gender
-    gender = std::stoi(cutString.substr(cutString.find("(") + 1, cutString.find(")") - 1), nullptr, 10);
-    cutString = cutString.substr(cutString.find(")") + 1);
-
-    // Fur
-    fur = std::stoi(cutString.substr(cutString.find("(") + 1, cutString.find(")") - 1), nullptr, 10);
-    cutString = cutString.substr(cutString.find(")") + 1);
-
-    // Is hypoallergenic
-    hypo = std::stoi(cutString.substr(cutString.find("(") + 1, cutString.find(")") - 1), nullptr, 10);
 }

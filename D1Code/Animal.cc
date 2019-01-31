@@ -27,13 +27,9 @@ int Animal::getId() { return idNumber; }
 void Animal::setIdNumber(int newId) { this->idNumber = newId; }
 
 /** Function getFormattedInfo
- *  in: N/A
  *  out: Formatted string of animal info
- * 
  *  Purpose: Takes the Animal's attributes and returns a
- *           formatted string create from this info
- * 
-*/
+ *           formatted string create from this info */
 std::string Animal::getFormattedInfo()
 {
     std::string returnStr = "";
@@ -48,16 +44,12 @@ std::string Animal::getFormattedInfo()
 }
 
 /** Function: getSaveInfo()
- *  in: N/A
  *  out: string returnStr
- * 
  *  Purpose: Takes the attributes of the Animal objects and creates
  *           a formatted string to be saved to a text file and to be
  *           parsed into new Animal objects on program execution.
- * 
  *  Format of data:
- *              (Id)(Name)(Breed)(Age)(Size)(Gender)(Fur)(IsHypo)
-*/
+ *              (Id)(Name)(Breed)(Age)(Size)(Gender)(Fur)(IsHypo) */
 std::string Animal::getSaveInfo()
 {
     std::string returnStr = "";
