@@ -2,14 +2,10 @@ TODO for Deliverable #1
 ***********************
 
 Assignments for next meeting (Wednesday 30th @ 4pm in ML 466):
-    Ashlee:  Introduction ­— Finish introduction and create document skeleton
-    Skyler:  Feature Implementation — Most likely done implementing all
-                features needed
-    Jake:    Requirements Document — Create template and fill out as many
-                requirements as possible (at least 75%), create template and fill
-                out some use case diagrams
-    William: Object Model — Come up with list of objects/classes, start creating
-                data dictionary, help with filling out use case diagrams
+    Ashlee:
+    Skyler:
+    Jake:
+    William:
 
 MAIN PRODUCTS:
 ==============
