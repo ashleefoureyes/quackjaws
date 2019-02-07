@@ -1,5 +1,4 @@
-.swp
-.~lock.*
-.o
-.out
-D1Code/*
+**/*.swp
+**/.~lock.*
+**/*.o
+**/*.out
