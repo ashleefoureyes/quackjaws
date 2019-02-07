@@ -7,7 +7,7 @@
 #include "Storage.h"
 #include "Animal.h"
 
-#define NUM_OF_ATTRIBUTES 8
+#define NUM_OF_ATTRIBUTES 9
 
 class Filesaver
 {
@@ -17,7 +17,7 @@ class Filesaver
 
     private:
     void parseData(std::string fileLine, std::string &breed, std::string &name, 
-                    int &size, int &age, char &gender, int &fur, bool &hypo, int &id);
+                    int &size, int &age, char &gender, int &fur, bool &hypo, int &id, int &species);
 };
 
 #endif

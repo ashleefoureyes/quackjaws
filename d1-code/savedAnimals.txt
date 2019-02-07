@@ -1,3 +1,3 @@
-A:(1000)(Gypsy)(Egyptian Mau)(12)(1)(102)(1)(0)
-A:(1001)(Bullet)(Sphynx)(4)(1)(109)(0)(1)
+A:(1000)(Gypsy)(Egyptian Mau)(0)(12)(1)(102)(1)(0)
+A:(1001)(Xena)(Yorkshire Terrier)(1)(3)(1)(102)(1)(0)
 

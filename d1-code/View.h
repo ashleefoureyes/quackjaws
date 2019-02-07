@@ -10,7 +10,7 @@ class View
 {
     public:
     int displayMenu();
-    void getAnimalInfoFromUser(std::string &breed, std::string &name, int &size, int &age, char &gender, int &fur, bool &hypo);
+    void getAnimalInfoFromUser(std::string &breed, std::string &name, int &size, int &age, char &gender, int &fur, bool &hypo, int &species);
     void viewAnimals(Storage*);
     int getIdForAnimal();
 };

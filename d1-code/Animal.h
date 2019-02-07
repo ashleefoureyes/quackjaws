@@ -17,6 +17,8 @@ class Animal
     // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
     int size;
     int age;
+    // 0 = Cat, 1 = Dog
+    int species;
     char gender;
     // 0 = hairless, 1 = shorthair, 2 = longhair
     int fur;
@@ -24,7 +26,7 @@ class Animal
 
     // TODO turn public to protected once inherited classes created
     public:
-    Animal(std::string="n/a", std::string="n/a", int = -1, int = -1, char = '?', int=-1, bool=false);
+    Animal(std::string="n/a", std::string="n/a", int = -1, int = -1, char = '?', int=-1, bool=false, int=-1);
 
     // TODO add non-physical attributes for later Deliverable
 
@@ -36,6 +38,8 @@ class Animal
     int getFur();
     bool isHypo();
     int getId();
+    std::string getSpecies();
+    int getSpeciesNum();
 
     void setIdNumber(int);
 

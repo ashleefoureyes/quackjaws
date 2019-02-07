@@ -43,13 +43,13 @@ void Control::launch()
 void Control::createNewAnimal()
 {
     std::string name, breed;
-    int age, size, fur;
+    int age, size, fur, species;
     char gender;
     bool isHypo;
 
     Animal* newAnimal;
-    view.getAnimalInfoFromUser(breed, name, size, age, gender, fur, isHypo);
-    newAnimal = new Animal(breed, name, size, age, gender, fur, isHypo );
+    view.getAnimalInfoFromUser(breed, name, size, age, gender, fur, isHypo, species);
+    newAnimal = new Animal(breed, name, size, age, gender, fur, isHypo, species);
 
     storage.add(newAnimal);
 }

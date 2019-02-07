@@ -28,7 +28,7 @@ int View::displayMenu()
  *  in-out: Animal attributes
  *  Purpose: Prompts user for animal information then puts this in arguments
  *           that are passed by reference */
-void View::getAnimalInfoFromUser(std::string &breed, std::string &name, int &size, int &age, char &gender, int &fur, bool &hypo)
+void View::getAnimalInfoFromUser(std::string &breed, std::string &name, int &size, int &age, char &gender, int &fur, bool &hypo, int &species)
 {
     // To get char then convert to bool
     char hypoYesNo;
@@ -43,7 +43,10 @@ void View::getAnimalInfoFromUser(std::string &breed, std::string &name, int &siz
 
     std::cout << "Name: ";
     std::getline(std::cin, name);
+    std::cout << "0 = Cat, 1 = Dog\nSpecies: ";
+    std::cin >> species;
     std::cout << "Breed: ";
+    std::cin.ignore();
     std::getline(std::cin, breed);
     std::cout << "0 = Teacup, 1 = Small, 2 = Medium, 3 = Large\nSize: ";
     std::cin >> size;
