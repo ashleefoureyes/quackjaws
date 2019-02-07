@@ -1,25 +1,28 @@
+CPP = g++
+CFLAGS = -c -Wall -Wextra
 OBJS = main.o Control.o View.o Animal.o Filesaver.o Storage.o
+EXE = d1.out
 
 d1.out: main.o Control.o View.o Animal.o Filesaver.o Storage.o
-	g++ -o d1.out $(OBJS)
+	$(CPP) -o $(EXE) $(OBJS)
 
 main.o: main.cc
-	g++ -c main.cc
+	$(CPP) $(CFLAGS) main.cc
 
 Control.o: Control.h Control.cc
-	g++ -c Control.cc
+	$(CPP) $(CFLAGS) Control.cc
 
 View.o: View.h View.cc
-	g++ -c View.cc
+	$(CPP) $(CFLAGS) View.cc
 
 Animal.o: Animal.h Animal.cc
-	g++ -c Animal.cc
+	$(CPP) $(CFLAGS) Animal.cc
 
 Filesaver.o: Filesaver.h Filesaver.cc
-	g++ -c Filesaver.cc
+	$(CPP) $(CFLAGS) Filesaver.cc
 
 Storage.o: Storage.h Storage.cc
-	g++ -c Storage.cc
+	$(CPP) $(CFLAGS) Storage.cc
 
 clean:
-	rm -f $(OBJS) d1.out
+	rm -f $(OBJS) $(EXE)
