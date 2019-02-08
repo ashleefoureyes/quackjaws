@@ -33,9 +33,6 @@ void View::getAnimalInfoFromUser(std::string &breed, std::string &name, int &siz
     // To get char then convert to bool
     char hypoYesNo;
 
-    char tempName[100];
-    char tempBreed[100];
-
     // Used to clear cin buffer of "\n" char
     // If not cleared getline() doesn't wait for
     // user input
