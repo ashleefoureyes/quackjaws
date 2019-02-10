@@ -18,9 +18,14 @@ public:
     explicit View(QWidget *parent = nullptr);
     ~View();
     int displayMenu();
-    void getAnimalInfoFromUser(std::string &breed, std::string &name, int &size, int &age, char &gender, int &fur, bool &hypo, int &species);
+//    void getAnimalInfoFromUser(std::string &breed, std::string &name, int &size, int &age, char &gender, int &fur, bool &hypo, int &species);
     void viewAnimals(Storage*);
     int getIdForAnimal();
+
+private slots:
+    void on_viewButton_clicked();
+
+    void on_addButton_clicked();
 
 private:
     Ui::View *ui;

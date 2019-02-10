@@ -1,22 +1,31 @@
 #ifndef CONTROL_H
 #define CONTROL_H
 
-#include <QWidget>
+#include "animal.h"
+#include "storage.h"
+#include "view.h"
+#include "filesaver.h"
 
-namespace Ui {
-class Control;
-}
 
-class Control : public QWidget
+#define SAVE_FILE_NAME "savedAnimals.txt"
+
+class Control
 {
-    Q_OBJECT
-
-public:
-    explicit Control(QWidget *parent = nullptr);
+    public:
+    void launch();
+    Control();
     ~Control();
 
-private:
-    Ui::Control *ui;
+    private:
+    View view;
+    Storage storage;
+    Filesaver fileSaver;
+
+
+//    void createNewAnimal();
+    void removeAnimal();
+    void viewAnimals();
+    void clearStorage();
 };
 
-#endif // CONTROL_H
+#endif

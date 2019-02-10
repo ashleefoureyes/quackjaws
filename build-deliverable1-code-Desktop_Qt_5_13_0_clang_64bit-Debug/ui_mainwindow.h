@@ -11,8 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -25,7 +27,9 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QPushButton *enterButton;
-    QMenuBar *menuBar;
+    QLabel *label;
+    QFrame *line;
+    QGraphicsView *graphicsView;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -33,22 +37,52 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(625, 423);
+        MainWindow->resize(461, 317);
         MainWindow->setAutoFillBackground(false);
         MainWindow->setStyleSheet(QString::fromUtf8(""));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         enterButton = new QPushButton(centralWidget);
         enterButton->setObjectName(QString::fromUtf8("enterButton"));
-        enterButton->setGeometry(QRect(220, 190, 190, 40));
+        enterButton->setGeometry(QRect(140, 140, 190, 40));
         QFont font;
         font.setFamily(QString::fromUtf8("Helvetica Neue"));
         enterButton->setFont(font);
+        enterButton->setAutoFillBackground(false);
+        enterButton->setStyleSheet(QString::fromUtf8("QPushButton#enterButton{\n"
+"	color: black;\n"
+"}\n"
+"\n"
+"QPushButton#enterButton:hover {\n"
+"	color: rgb(78, 130, 123);\n"
+"}"));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(210, 60, 59, 16));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Helvetica Neue"));
+        font1.setPointSize(18);
+        label->setFont(font1);
+        line = new QFrame(centralWidget);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setGeometry(QRect(110, 80, 261, 31));
+        line->setStyleSheet(QString::fromUtf8("Line{\n"
+"	color: rgb(60, 60, 60);\n"
+"	border-color: black;\n"
+"}"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        graphicsView = new QGraphicsView(centralWidget);
+        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        graphicsView->setGeometry(QRect(0, 0, 461, 281));
+        graphicsView->setStyleSheet(QString::fromUtf8("QGraphicsView{\n"
+"	background-color: rgb(195, 255, 231);\n"
+"}"));
         MainWindow->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 625, 22));
-        MainWindow->setMenuBar(menuBar);
+        graphicsView->raise();
+        enterButton->raise();
+        label->raise();
+        line->raise();
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
@@ -65,6 +99,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         enterButton->setText(QCoreApplication::translate("MainWindow", "Enter", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "cuACS", nullptr));
     } // retranslateUi
 
 };

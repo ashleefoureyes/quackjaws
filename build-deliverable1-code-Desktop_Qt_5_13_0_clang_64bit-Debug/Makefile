@@ -57,20 +57,22 @@ SOURCES       = ../deliverable1-code/main.cpp \
 		../deliverable1-code/storage.cpp \
 		../deliverable1-code/animal.cpp \
 		../deliverable1-code/filesaver.cpp \
+		../deliverable1-code/view.cpp \
 		../deliverable1-code/control.cpp \
-		../deliverable1-code/view.cpp moc_mainwindow.cpp \
-		moc_control.cpp \
-		moc_view.cpp
+		../deliverable1-code/addanimalview.cpp moc_mainwindow.cpp \
+		moc_view.cpp \
+		moc_addanimalview.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		storage.o \
 		animal.o \
 		filesaver.o \
-		control.o \
 		view.o \
+		control.o \
+		addanimalview.o \
 		moc_mainwindow.o \
-		moc_control.o \
-		moc_view.o
+		moc_view.o \
+		moc_addanimalview.o
 DIST          = ../../../Qt/5.13.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.13.0/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/device_config.prf \
@@ -268,14 +270,16 @@ DIST          = ../../../Qt/5.13.0/clang_64/mkspecs/features/spec_pre.prf \
 		../deliverable1-code/storage.h \
 		../deliverable1-code/animal.h \
 		../deliverable1-code/filesaver.h \
+		../deliverable1-code/view.h \
 		../deliverable1-code/control.h \
-		../deliverable1-code/view.h ../deliverable1-code/main.cpp \
+		../deliverable1-code/addanimalview.h ../deliverable1-code/main.cpp \
 		../deliverable1-code/mainwindow.cpp \
 		../deliverable1-code/storage.cpp \
 		../deliverable1-code/animal.cpp \
 		../deliverable1-code/filesaver.cpp \
+		../deliverable1-code/view.cpp \
 		../deliverable1-code/control.cpp \
-		../deliverable1-code/view.cpp
+		../deliverable1-code/addanimalview.cpp
 QMAKE_TARGET  = deliverable1-code
 DESTDIR       = 
 TARGET        = deliverable1-code.app/Contents/MacOS/deliverable1-code
@@ -294,7 +298,7 @@ include /Users/ashleefoureyes/Qt/5.13.0/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-deliverable1-code.app/Contents/MacOS/deliverable1-code: ui_mainwindow.h ui_control.h ui_view.h $(OBJECTS)  
+deliverable1-code.app/Contents/MacOS/deliverable1-code: ui_mainwindow.h ui_view.h ui_addanimalview.h $(OBJECTS)  
 	@test -d deliverable1-code.app/Contents/MacOS/ || mkdir -p deliverable1-code.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -723,9 +727,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.13.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../deliverable1-code/mainwindow.h ../deliverable1-code/storage.h ../deliverable1-code/animal.h ../deliverable1-code/filesaver.h ../deliverable1-code/control.h ../deliverable1-code/view.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../deliverable1-code/main.cpp ../deliverable1-code/mainwindow.cpp ../deliverable1-code/storage.cpp ../deliverable1-code/animal.cpp ../deliverable1-code/filesaver.cpp ../deliverable1-code/control.cpp ../deliverable1-code/view.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../deliverable1-code/mainwindow.ui ../deliverable1-code/control.ui ../deliverable1-code/view.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../deliverable1-code/mainwindow.h ../deliverable1-code/storage.h ../deliverable1-code/animal.h ../deliverable1-code/filesaver.h ../deliverable1-code/view.h ../deliverable1-code/control.h ../deliverable1-code/addanimalview.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../deliverable1-code/main.cpp ../deliverable1-code/mainwindow.cpp ../deliverable1-code/storage.cpp ../deliverable1-code/animal.cpp ../deliverable1-code/filesaver.cpp ../deliverable1-code/view.cpp ../deliverable1-code/control.cpp ../deliverable1-code/addanimalview.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../deliverable1-code/mainwindow.ui ../deliverable1-code/view.ui ../deliverable1-code/addanimalview.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -760,22 +764,15 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../Qt/5.13.0/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.12 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.13.0/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_control.cpp moc_view.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_view.cpp moc_addanimalview.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_control.cpp moc_view.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_view.cpp moc_addanimalview.cpp
 moc_mainwindow.cpp: ../deliverable1-code/mainwindow.h \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		moc_predefs.h \
 		../../../Qt/5.13.0/clang_64/bin/moc
 	/Users/ashleefoureyes/Qt/5.13.0/clang_64/bin/moc $(DEFINES) --include /Users/ashleefoureyes/winter2019/quackjaws/build-deliverable1-code-Desktop_Qt_5_13_0_clang_64bit-Debug/moc_predefs.h -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/mkspecs/macx-clang -I/Users/ashleefoureyes/winter2019/quackjaws/deliverable1-code -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtGui.framework/Headers -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib ../deliverable1-code/mainwindow.h -o moc_mainwindow.cpp
-
-moc_control.cpp: ../deliverable1-code/control.h \
-		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		moc_predefs.h \
-		../../../Qt/5.13.0/clang_64/bin/moc
-	/Users/ashleefoureyes/Qt/5.13.0/clang_64/bin/moc $(DEFINES) --include /Users/ashleefoureyes/winter2019/quackjaws/build-deliverable1-code-Desktop_Qt_5_13_0_clang_64bit-Debug/moc_predefs.h -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/mkspecs/macx-clang -I/Users/ashleefoureyes/winter2019/quackjaws/deliverable1-code -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtGui.framework/Headers -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib ../deliverable1-code/control.h -o moc_control.cpp
 
 moc_view.cpp: ../deliverable1-code/view.h \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -786,24 +783,34 @@ moc_view.cpp: ../deliverable1-code/view.h \
 		../../../Qt/5.13.0/clang_64/bin/moc
 	/Users/ashleefoureyes/Qt/5.13.0/clang_64/bin/moc $(DEFINES) --include /Users/ashleefoureyes/winter2019/quackjaws/build-deliverable1-code-Desktop_Qt_5_13_0_clang_64bit-Debug/moc_predefs.h -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/mkspecs/macx-clang -I/Users/ashleefoureyes/winter2019/quackjaws/deliverable1-code -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtGui.framework/Headers -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib ../deliverable1-code/view.h -o moc_view.cpp
 
+moc_addanimalview.cpp: ../deliverable1-code/addanimalview.h \
+		../deliverable1-code/animal.h \
+		../deliverable1-code/storage.h \
+		../deliverable1-code/filesaver.h \
+		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		moc_predefs.h \
+		../../../Qt/5.13.0/clang_64/bin/moc
+	/Users/ashleefoureyes/Qt/5.13.0/clang_64/bin/moc $(DEFINES) --include /Users/ashleefoureyes/winter2019/quackjaws/build-deliverable1-code-Desktop_Qt_5_13_0_clang_64bit-Debug/moc_predefs.h -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/mkspecs/macx-clang -I/Users/ashleefoureyes/winter2019/quackjaws/deliverable1-code -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtGui.framework/Headers -I/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/ashleefoureyes/Qt/5.13.0/clang_64/lib ../deliverable1-code/addanimalview.h -o moc_addanimalview.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_control.h ui_view.h
+compiler_uic_make_all: ui_mainwindow.h ui_view.h ui_addanimalview.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_control.h ui_view.h
+	-$(DEL_FILE) ui_mainwindow.h ui_view.h ui_addanimalview.h
 ui_mainwindow.h: ../deliverable1-code/mainwindow.ui \
 		../../../Qt/5.13.0/clang_64/bin/uic
 	/Users/ashleefoureyes/Qt/5.13.0/clang_64/bin/uic ../deliverable1-code/mainwindow.ui -o ui_mainwindow.h
 
-ui_control.h: ../deliverable1-code/control.ui \
-		../../../Qt/5.13.0/clang_64/bin/uic
-	/Users/ashleefoureyes/Qt/5.13.0/clang_64/bin/uic ../deliverable1-code/control.ui -o ui_control.h
-
 ui_view.h: ../deliverable1-code/view.ui \
 		../../../Qt/5.13.0/clang_64/bin/uic
 	/Users/ashleefoureyes/Qt/5.13.0/clang_64/bin/uic ../deliverable1-code/view.ui -o ui_view.h
+
+ui_addanimalview.h: ../deliverable1-code/addanimalview.ui \
+		../../../Qt/5.13.0/clang_64/bin/uic
+	/Users/ashleefoureyes/Qt/5.13.0/clang_64/bin/uic ../deliverable1-code/addanimalview.ui -o ui_addanimalview.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -827,7 +834,12 @@ main.o: ../deliverable1-code/main.cpp ../deliverable1-code/mainwindow.h \
 mainwindow.o: ../deliverable1-code/mainwindow.cpp ../deliverable1-code/mainwindow.h \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../deliverable1-code/view.h \
+		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../deliverable1-code/storage.h \
+		../deliverable1-code/animal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../deliverable1-code/mainwindow.cpp
 
 storage.o: ../deliverable1-code/storage.cpp ../deliverable1-code/storage.h \
@@ -842,28 +854,42 @@ filesaver.o: ../deliverable1-code/filesaver.cpp ../deliverable1-code/filesaver.h
 		../deliverable1-code/animal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filesaver.o ../deliverable1-code/filesaver.cpp
 
-control.o: ../deliverable1-code/control.cpp ../deliverable1-code/control.h \
-		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		ui_control.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o control.o ../deliverable1-code/control.cpp
-
 view.o: ../deliverable1-code/view.cpp ../deliverable1-code/view.h \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../deliverable1-code/storage.h \
 		../deliverable1-code/animal.h \
-		ui_view.h
+		ui_view.h \
+		../deliverable1-code/addanimalview.h \
+		../deliverable1-code/filesaver.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o view.o ../deliverable1-code/view.cpp
+
+control.o: ../deliverable1-code/control.cpp ../deliverable1-code/control.h \
+		../deliverable1-code/animal.h \
+		../deliverable1-code/storage.h \
+		../deliverable1-code/view.h \
+		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../deliverable1-code/filesaver.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o control.o ../deliverable1-code/control.cpp
+
+addanimalview.o: ../deliverable1-code/addanimalview.cpp ../deliverable1-code/addanimalview.h \
+		../deliverable1-code/animal.h \
+		../deliverable1-code/storage.h \
+		../deliverable1-code/filesaver.h \
+		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		ui_addanimalview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addanimalview.o ../deliverable1-code/addanimalview.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
-moc_control.o: moc_control.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_control.o moc_control.cpp
-
 moc_view.o: moc_view.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_view.o moc_view.cpp
+
+moc_addanimalview.o: moc_addanimalview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addanimalview.o moc_addanimalview.cpp
 
 ####### Install
 

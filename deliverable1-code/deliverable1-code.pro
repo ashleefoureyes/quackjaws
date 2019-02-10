@@ -30,23 +30,27 @@ SOURCES += \
     storage.cpp \
     animal.cpp \
     filesaver.cpp \
+    view.cpp \
     control.cpp \
-    view.cpp
+    addanimalview.cpp
 
 HEADERS += \
         mainwindow.h \
     storage.h \
     animal.h \
     filesaver.h \
+    view.h \
     control.h \
-    view.h
+    addanimalview.h
 
 FORMS += \
         mainwindow.ui \
-    control.ui \
-    view.ui
+    view.ui \
+    addanimalview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=
