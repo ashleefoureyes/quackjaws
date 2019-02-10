@@ -39,11 +39,10 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton#enterButton{
-	color: black;
-}
+	border: 1px lightgrey;
+	border-radius: 10px;
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 lightgrey);
 
-QPushButton#enterButton:hover {
-	color: rgb(78, 130, 123);
 }</string>
     </property>
     <property name="text">
@@ -99,7 +98,9 @@ QPushButton#enterButton:hover {
     </property>
     <property name="styleSheet">
      <string notr="true">QGraphicsView{
-	background-color: rgb(195, 255, 231);
+
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 lightBlue);
+
 }</string>
     </property>
    </widget>

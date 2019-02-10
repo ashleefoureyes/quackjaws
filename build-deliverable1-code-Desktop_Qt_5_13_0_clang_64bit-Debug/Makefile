@@ -238,7 +238,6 @@ DIST          = ../../../Qt/5.13.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.13.0/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/spec_post.prf \
-		../deliverable1-code/.qmake.stash \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/toolchain.prf \
@@ -467,7 +466,6 @@ Makefile: ../deliverable1-code/deliverable1-code.pro ../../../Qt/5.13.0/clang_64
 		../../../Qt/5.13.0/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.13.0/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.13.0/clang_64/mkspecs/features/toolchain.prf \
@@ -665,7 +663,6 @@ Makefile: ../deliverable1-code/deliverable1-code.pro ../../../Qt/5.13.0/clang_64
 ../../../Qt/5.13.0/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.13.0/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.13.0/clang_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 ../../../Qt/5.13.0/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.13.0/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../Qt/5.13.0/clang_64/mkspecs/features/toolchain.prf:
@@ -739,7 +736,6 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r deliverable1-code.app
-	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -787,6 +783,7 @@ moc_addanimalview.cpp: ../deliverable1-code/addanimalview.h \
 		../deliverable1-code/animal.h \
 		../deliverable1-code/storage.h \
 		../deliverable1-code/filesaver.h \
+		../deliverable1-code/view.h \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		moc_predefs.h \
@@ -877,6 +874,7 @@ addanimalview.o: ../deliverable1-code/addanimalview.cpp ../deliverable1-code/add
 		../deliverable1-code/animal.h \
 		../deliverable1-code/storage.h \
 		../deliverable1-code/filesaver.h \
+		../deliverable1-code/view.h \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.13.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		ui_addanimalview.h

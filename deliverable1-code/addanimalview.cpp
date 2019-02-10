@@ -16,8 +16,6 @@ AddAnimalView::~AddAnimalView()
     fileSaver.saveToFile(SAVE_FILE_NAME, &storage);
 }
 
-
-
 void AddAnimalView::on_submitButton_clicked()
 {
 

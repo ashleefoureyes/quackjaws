@@ -78,10 +78,13 @@ void View::on_viewButton_clicked()
 
 }
 
-
-
 void View::on_addButton_clicked()
 {
     AddAnimalView *addAni = new AddAnimalView();
     addAni->show();
+}
+
+void View::on_exitButton_clicked()
+{
+    close();
 }

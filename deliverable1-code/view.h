@@ -27,6 +27,8 @@ private slots:
 
     void on_addButton_clicked();
 
+    void on_exitButton_clicked();
+
 private:
     Ui::View *ui;
 };

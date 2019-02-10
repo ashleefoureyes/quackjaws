@@ -50,11 +50,10 @@ public:
         enterButton->setFont(font);
         enterButton->setAutoFillBackground(false);
         enterButton->setStyleSheet(QString::fromUtf8("QPushButton#enterButton{\n"
-"	color: black;\n"
-"}\n"
+"	border: 1px lightgrey;\n"
+"	border-radius: 10px;\n"
+"	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 lightgrey);\n"
 "\n"
-"QPushButton#enterButton:hover {\n"
-"	color: rgb(78, 130, 123);\n"
 "}"));
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
@@ -76,7 +75,9 @@ public:
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setGeometry(QRect(0, 0, 461, 281));
         graphicsView->setStyleSheet(QString::fromUtf8("QGraphicsView{\n"
-"	background-color: rgb(195, 255, 231);\n"
+"\n"
+"	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 lightBlue);\n"
+"\n"
 "}"));
         MainWindow->setCentralWidget(centralWidget);
         graphicsView->raise();
