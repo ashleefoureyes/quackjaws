@@ -52,7 +52,7 @@ Control::~Control() { fileSaver.saveToFile(SAVE_FILE_NAME, &storage); }
 //    bool isHypo;
 
 //    Animal* newAnimal;
-//   view.getAnimalInfoFromUser(breed, name, size, age, gender, fur, isHypo, species);
+//    view.getAnimalInfoFromUser(breed, name, size, age, gender, fur, isHypo, species);
 //    newAnimal = new Animal(breed, name, size, age, gender, fur, isHypo, species);
 
 //    storage.add(newAnimal);

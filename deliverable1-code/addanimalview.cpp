@@ -2,6 +2,7 @@
 #include "ui_addanimalview.h"
 
 #include "animal.h"
+#include <QMessageBox>
 
 AddAnimalView::AddAnimalView(QWidget *parent) :
     QWidget(parent),
@@ -49,11 +50,11 @@ void AddAnimalView::on_submitButton_clicked()
     /*Assign male(0) or female(1)*/
     if(ui->maleSelect->isCheckable())
     {
-        gender = 0;
+        gender = 'M';
     }
     if(ui->femaleSelect->isCheckable())
     {
-        gender = 1;
+        gender = 'F';
     }
 
     /* Check if hypo checkbox is clicked */
@@ -72,8 +73,16 @@ void AddAnimalView::on_submitButton_clicked()
 
     newAnimal = new Animal(name,breed,age,size,gender,fur,isHypo,species);
 
+    QMessageBox msgBox;
     storage.add(newAnimal);
+    QString qst = QString::fromStdString(storage.getFormattedInfo());
 
-    close();
+    msgBox.setText(qst);
+    msgBox.exec();
+
+
+
+    hide();
+
 
 }

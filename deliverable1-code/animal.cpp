@@ -52,7 +52,6 @@ std::string Animal::getFormattedInfo()
                     std::to_string(getFur()) + " is HypoAllergenic: " + std::to_string(isHypo());
 
     return returnStr;
-
 }
 
 /** Function: getSaveInfo()
