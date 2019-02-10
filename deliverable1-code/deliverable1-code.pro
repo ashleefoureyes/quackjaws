@@ -27,14 +27,23 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
+    storage.cpp \
+    animal.cpp \
+    filesaver.cpp \
+    control.cpp \
     view.cpp
 
 HEADERS += \
         mainwindow.h \
+    storage.h \
+    animal.h \
+    filesaver.h \
+    control.h \
     view.h
 
 FORMS += \
         mainwindow.ui \
+    control.ui \
     view.ui
 
 # Default rules for deployment.

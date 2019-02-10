@@ -11,8 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -20,26 +18,12 @@ QT_BEGIN_NAMESPACE
 class Ui_View
 {
 public:
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
-    QPushButton *pushButton;
 
     void setupUi(QWidget *View)
     {
         if (View->objectName().isEmpty())
             View->setObjectName(QString::fromUtf8("View"));
         View->resize(400, 300);
-        verticalLayoutWidget = new QWidget(View);
-        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(120, 60, 160, 181));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(verticalLayoutWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        verticalLayout->addWidget(pushButton);
-
 
         retranslateUi(View);
 
@@ -49,7 +33,6 @@ public:
     void retranslateUi(QWidget *View)
     {
         View->setWindowTitle(QCoreApplication::translate("View", "Form", nullptr));
-        pushButton->setText(QCoreApplication::translate("View", "PushButton", nullptr));
     } // retranslateUi
 
 };

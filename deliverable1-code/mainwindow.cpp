@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "view.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,9 +15,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_enterButton_clicked()
 {
-    View *view = new View();
-    view->show();
-    hide();
-
 
 }
