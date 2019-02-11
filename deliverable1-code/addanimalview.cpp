@@ -44,9 +44,10 @@ void AddAnimalView::on_submitButton_clicked()
     {
         species = 0;
     }
-    else{
-        species = 0;
+    if(ui->dogSelect->isCheckable()){
+        species = 1;
     }
+
 
     /*Assign male(0) or female(1)*/
     if(ui->maleSelect->isCheckable())
