@@ -1,9 +1,9 @@
 Program: cuACS Deliverable 1
 
 Authors: 
-Jake Bauer
+Jake Bauer 101040373
 Ashlee Foureyes 101050609
-Will Watt
+Will Watt 100973531
 Skyler Gubbels 100885506
 
 Purpose: To store and display Animals and their attributes. Animals are stored in persistent 		 storage and loaded in at the startup.
