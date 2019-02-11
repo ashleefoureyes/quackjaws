@@ -80,7 +80,7 @@ void View::on_viewButton_clicked()
 
 void View::on_addButton_clicked()
 {
-    AddAnimalView *addAni = new AddAnimalView();
+    AddAnimalView *addAni = new AddAnimalView(nullptr, &storage);
     addAni->show();
 }
 

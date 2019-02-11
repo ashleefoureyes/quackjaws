@@ -31,6 +31,7 @@ private slots:
 
 private:
     Ui::View *ui;
+    Storage storage;
 };
 
 #endif // VIEW_H

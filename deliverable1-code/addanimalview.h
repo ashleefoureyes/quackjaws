@@ -18,7 +18,7 @@ class AddAnimalView : public QWidget
     Q_OBJECT
 
 public:
-    explicit AddAnimalView(QWidget *parent = nullptr);
+    explicit AddAnimalView(QWidget *parent = nullptr, Storage* str = nullptr);
     ~AddAnimalView();
 
 private slots:
@@ -26,7 +26,7 @@ private slots:
 
 private:
     Ui::AddAnimalView *ui;
-    Storage storage;
+    Storage *storage;
     Filesaver fileSaver;
 };
 

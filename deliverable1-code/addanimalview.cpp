@@ -3,18 +3,20 @@
 
 #include "animal.h"
 #include <QMessageBox>
+#include "storage.h"
 
-AddAnimalView::AddAnimalView(QWidget *parent) :
+AddAnimalView::AddAnimalView(QWidget *parent, Storage* store) :
     QWidget(parent),
     ui(new Ui::AddAnimalView)
 {
     ui->setupUi(this);
+    storage = store;
 }
 
 AddAnimalView::~AddAnimalView()
 {
     delete ui;
-    fileSaver.saveToFile(SAVE_FILE_NAME, &storage);
+    //fileSaver.saveToFile(SAVE_FILE_NAME, &storage);
 }
 
 void AddAnimalView::on_submitButton_clicked()
@@ -74,8 +76,8 @@ void AddAnimalView::on_submitButton_clicked()
     newAnimal = new Animal(name,breed,age,size,gender,fur,isHypo,species);
 
     QMessageBox msgBox;
-    storage.add(newAnimal);
-    QString qst = QString::fromStdString(storage.getFormattedInfo());
+    storage->add(newAnimal);
+    QString qst = QString::fromStdString(storage->getFormattedInfo());
 
     msgBox.setText(qst);
     msgBox.exec();
