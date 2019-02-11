@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <QFile>
 
 #include "storage.h"
 #include "animal.h"

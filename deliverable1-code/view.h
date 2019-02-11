@@ -3,8 +3,11 @@
 
 #include <QWidget>
 #include "storage.h"
+#include "filesaver.h"
 #include <iostream>
 #include <string>
+
+#define SAVE_FILE_NAME "savedAnimals.txt"
 
 namespace Ui {
 class View;
@@ -32,6 +35,7 @@ private slots:
 private:
     Ui::View *ui;
     Storage storage;
+    Filesaver fileSaver;
 };
 
 #endif // VIEW_H

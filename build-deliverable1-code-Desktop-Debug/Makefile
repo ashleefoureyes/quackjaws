@@ -431,6 +431,7 @@ moc_mainwindow.cpp: ../deliverable1-code/mainwindow.h \
 
 moc_view.cpp: ../deliverable1-code/storage.h \
 		../deliverable1-code/animal.h \
+		../deliverable1-code/filesaver.h \
 		../deliverable1-code/view.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -479,7 +480,8 @@ mainwindow.o: ../deliverable1-code/mainwindow.cpp ../deliverable1-code/mainwindo
 		ui_mainwindow.h \
 		../deliverable1-code/view.h \
 		../deliverable1-code/storage.h \
-		../deliverable1-code/animal.h
+		../deliverable1-code/animal.h \
+		../deliverable1-code/filesaver.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../deliverable1-code/mainwindow.cpp
 
 storage.o: ../deliverable1-code/storage.cpp ../deliverable1-code/storage.h \
@@ -497,9 +499,9 @@ filesaver.o: ../deliverable1-code/filesaver.cpp ../deliverable1-code/filesaver.h
 view.o: ../deliverable1-code/view.cpp ../deliverable1-code/view.h \
 		../deliverable1-code/storage.h \
 		../deliverable1-code/animal.h \
+		../deliverable1-code/filesaver.h \
 		ui_view.h \
-		../deliverable1-code/addanimalview.h \
-		../deliverable1-code/filesaver.h
+		../deliverable1-code/addanimalview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o view.o ../deliverable1-code/view.cpp
 
 control.o: ../deliverable1-code/control.cpp ../deliverable1-code/control.h \

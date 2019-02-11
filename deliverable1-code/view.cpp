@@ -11,11 +11,13 @@ View::View(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::View)
 {
+    fileSaver.readFromFile(SAVE_FILE_NAME, &storage);
     ui->setupUi(this);
 }
 
 View::~View()
 {
+    //fileSaver.saveToFile(SAVE_FILE_NAME, &storage);
     delete ui;
 }
 
@@ -86,5 +88,7 @@ void View::on_addButton_clicked()
 
 void View::on_exitButton_clicked()
 {
+    fileSaver.saveToFile(SAVE_FILE_NAME, &storage);
+
     close();
 }

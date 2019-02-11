@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <QTextStream>
+#include <QFile>
 
 /** Function: saveToFile(string fileName, animalStorage)
  *  in: string fileName, Storage* animalStorage
@@ -15,6 +17,7 @@ void Filesaver::saveToFile(std::string fileName, Storage* animalStorage)
     std::ofstream outfile(fileName);
     outfile << animalStorage->getSaveInfo() << std::endl;
     outfile.close();
+
 }
 
 /** Function: readFromFile(string fileName, Storage* animalStorage)

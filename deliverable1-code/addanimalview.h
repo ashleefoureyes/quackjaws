@@ -7,8 +7,6 @@
 #include "view.h"
 #include <QWidget>
 
-#define SAVE_FILE_NAME "savedAnimals.txt"
-
 namespace Ui {
 class AddAnimalView;
 }
