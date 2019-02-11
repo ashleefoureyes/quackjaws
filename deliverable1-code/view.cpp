@@ -2,6 +2,7 @@
 #include "ui_view.h"
 #include "storage.h"
 #include "addanimalview.h"
+#include <QMessageBox>
 
 #include <string>
 #include <iostream>
@@ -77,7 +78,11 @@ int View::getIdForAnimal()
 
 void View::on_viewButton_clicked()
 {
+    QMessageBox msgBox;
+    QString qst = QString::fromStdString(storage.getFormattedInfo());
 
+    msgBox.setText(qst);
+    msgBox.exec();
 }
 
 void View::on_addButton_clicked()

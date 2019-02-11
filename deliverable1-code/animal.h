@@ -43,6 +43,12 @@ class Animal
 
     void setIdNumber(int);
 
+
+    std::string getSizeStr();
+    std::string getFurStr();
+    std::string getAllergyStr();
+
+
     std::string getFormattedInfo();
     std::string getSaveInfo();
 };

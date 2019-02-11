@@ -48,8 +48,8 @@ std::string Animal::getFormattedInfo()
     std::string charStr(1, getGender());
 
     returnStr += "Id: " + std::to_string(getId()) + " Name: " + getName() + " Species: " + getSpecies() + " Breed:" + getBreed() +
-                    " Age: " + std::to_string(getAge()) + " Size: " + std::to_string(getSize()) + " Gender: " + charStr + " Fur Type: " +
-                    std::to_string(getFur()) + " is HypoAllergenic: " + std::to_string(isHypo());
+                    " Age: " + std::to_string(getAge()) + " Size: " + getSizeStr() + " Gender: " + charStr + " Fur Type: " +
+                    getFurStr() + " is HypoAllergenic: " + getAllergyStr();
 
     return returnStr;
 }
@@ -71,4 +71,38 @@ std::string Animal::getSaveInfo()
 
     return returnStr;
 
+}
+
+
+std::string Animal::getSizeStr()
+{
+    switch(size)
+    {
+    case 0: return "Teacup";
+    case 1: return "Small";
+    case 2: return "Medium";
+    case 3: return "Large";
+    default: return "N/A";
+    }
+}
+
+
+std::string Animal::getFurStr()
+{
+    switch(fur)
+    {
+    case 0: return "Hairless";
+    case 1: return "Shorthair";
+    case 2: return "Longhair";
+    default: return "N/A";
+    }
+}
+std::string Animal::getAllergyStr()
+{
+    switch(isHypoAllergenic)
+    {
+    case 0: return "No";
+    case 1: return "Yes";
+    default: return "No";
+    }
 }
