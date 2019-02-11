@@ -44,9 +44,8 @@ void AddAnimalView::on_submitButton_clicked()
     {
         species = 0;
     }
-    if(ui->dogSelect->isCheckable())
-    {
-        species = 1;
+    else{
+        species = 0;
     }
 
     /*Assign male(0) or female(1)*/
@@ -73,7 +72,7 @@ void AddAnimalView::on_submitButton_clicked()
     fur = ui->hairBox->currentIndex();
     size = ui->hairBox->currentIndex();
 
-    newAnimal = new Animal(name,breed,age,size,gender,fur,isHypo,species);
+    newAnimal = new Animal(breed,name,size,age,gender,fur,isHypo,species);
 
     QMessageBox msgBox;
     storage->add(newAnimal);
