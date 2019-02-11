@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete view;
 }
 
 /**
@@ -21,7 +22,7 @@ MainWindow::~MainWindow()
  */
 void MainWindow::on_enterButton_clicked()
 {
-    View *view = new View();
+    view = new View();
     view->show();
     hide();
 

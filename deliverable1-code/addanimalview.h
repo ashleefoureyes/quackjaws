@@ -6,6 +6,7 @@
 #include "filesaver.h"
 #include "view.h"
 #include <QWidget>
+#include <string>
 
 namespace Ui {
 class AddAnimalView;

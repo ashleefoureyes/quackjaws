@@ -2,6 +2,8 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 
 Animal::Animal(std::string breed, std::string name, int size, int age, char gender, int fur, bool hypo, int species)
 {
@@ -45,13 +47,24 @@ void Animal::setIdNumber(int newId) { this->idNumber = newId; }
 std::string Animal::getFormattedInfo()
 {
     std::string returnStr = "";
-    std::string charStr(1, getGender());
+    std::ostringstream formattedReturn;
 
-    returnStr += "Id: " + std::to_string(getId()) + " Name: " + getName() + " Species: " + getSpecies() + " Breed:" + getBreed() +
-                    " Age: " + std::to_string(getAge()) + " Size: " + getSizeStr() + " Gender: " + charStr + " Fur Type: " +
-                    getFurStr() + " is HypoAllergenic: " + getAllergyStr();
+    std::string sep = " | ";
+
+    formattedReturn << std::left << "Id: " << std::to_string(getId()) << sep
+                    << std::left << "Name: " << std::setw(10) << getName() << sep
+                    << std::left << "Species: " << std::setw(3) << getSpecies() << sep
+                    << std::left << "Breed: " << std::setw(14) << getBreed() << sep
+                    << std::left << "Age: " << std::setw(3) << std::to_string(getAge()) << sep
+                    << std::left << "Size: " << std::setw(7) << getSizeStr() << sep
+                    << std::left << "Gender: " << std::setw(2) << getGender() << sep
+                    << std::left << "Fur Type: " << std::setw(12) << getFurStr() << sep;
+
+
+    returnStr = formattedReturn.str();
 
     return returnStr;
+
 }
 
 /** Function: getSaveInfo()
@@ -91,18 +104,14 @@ std::string Animal::getFurStr()
 {
     switch(fur)
     {
-    case 0: return "Hairless";
-    case 1: return "Shorthair";
-    case 2: return "Longhair";
+    case 0: return "None";
+    case 1: return "Short";
+    case 2: return "Long";
     default: return "N/A";
     }
 }
 std::string Animal::getAllergyStr()
 {
-    switch(isHypoAllergenic)
-    {
-    case 0: return "No";
-    case 1: return "Yes";
-    default: return "No";
-    }
+    if (isHypoAllergenic == true) { return "Yes"; }
+    return "No";
 }

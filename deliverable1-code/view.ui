@@ -62,28 +62,6 @@
     <string>Add Animals</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="deleteButton">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>200</y>
-     <width>130</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton#deleteButton{
-	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 white, stop: 1 lightblue);
-	border-style: solid;
-	border-color: lightgrey;
-	border-width: 1px;
-	border-radius: 10px;
-}</string>
-   </property>
-   <property name="text">
-    <string>Delete Animals</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="exitButton">
    <property name="geometry">
     <rect>
@@ -167,7 +145,6 @@
   <zorder>graphicsView</zorder>
   <zorder>viewButton</zorder>
   <zorder>addButton</zorder>
-  <zorder>deleteButton</zorder>
   <zorder>exitButton</zorder>
   <zorder>label</zorder>
   <zorder>label_2</zorder>

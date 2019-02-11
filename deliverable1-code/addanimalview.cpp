@@ -40,21 +40,21 @@ void AddAnimalView::on_submitButton_clicked()
     age = Qage.toInt();
 
     /* Assign cat (0) or dog (1)*/
-    if(ui->catSelect->isCheckable())
+    if(ui->catSelect->isChecked())
     {
         species = 0;
     }
-    if(ui->dogSelect->isCheckable()){
+    if(ui->dogSelect->isChecked()){
         species = 1;
     }
 
 
     /*Assign male(0) or female(1)*/
-    if(ui->maleSelect->isCheckable())
+    if(ui->maleSelect->isChecked())
     {
         gender = 'M';
     }
-    if(ui->femaleSelect->isCheckable())
+    if(ui->femaleSelect->isChecked())
     {
         gender = 'F';
     }
@@ -71,16 +71,11 @@ void AddAnimalView::on_submitButton_clicked()
 
     /* fur and size selection indexes in group box align with int options */
     fur = ui->hairBox->currentIndex();
-    size = ui->hairBox->currentIndex();
+    size = ui->sizeBox->currentIndex();
 
     newAnimal = new Animal(breed,name,size,age,gender,fur,isHypo,species);
 
-    QMessageBox msgBox;
     storage->add(newAnimal);
-    QString qst = QString::fromStdString(storage->getFormattedInfo());
-
-    msgBox.setText(qst);
-    msgBox.exec();
 
 
 
