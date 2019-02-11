@@ -1,7 +1,7 @@
 #ifndef STORAGE_H
 #define STORAGE_H
 
-#include "Animal.h"
+#include "animal.h"
 
 #include <string>
 #include <iostream>

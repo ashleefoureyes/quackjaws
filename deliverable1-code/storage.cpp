@@ -1,5 +1,5 @@
-#include "Storage.h"
-#include "Animal.h"
+#include "storage.h"
+#include "animal.h"
 
 #define STARTING_ID 1000;
 
@@ -33,7 +33,7 @@ void Storage::add(Animal* newAnimal)
 {
     // If animalId is -1 then they don't have an id yet and need to be assigned one
     if (newAnimal->getId() < 0) { newAnimal->setIdNumber(getNextId()); }
-    
+
     animalList.push_back(newAnimal);
     ++numOfElements;
 }
@@ -42,7 +42,7 @@ void Storage::add(Animal* newAnimal)
     out: The new id to give to the animal
     Purpose: Gets a new unique id to give the animal before it is stored
              Having a unique id is important for searching and storage in
-             the database.   
+             the database.
     Note: STARTING_ID is a constant. This ensures that if the list is completely
           emtied we can restart at the initial id without needing to worry about
           an animal having a non-unique id. */
@@ -106,7 +106,7 @@ bool Storage::getAnimalWithId(Animal** foundAnimal ,int animalId)
        }
     }
 
-    *foundAnimal = NULL;
+    *foundAnimal = nullptr;
     return false;
 }
 
@@ -144,7 +144,7 @@ bool Storage::remove(Animal** removedAnimal, int animalId)
         return true;
     }
 
-    *removedAnimal = NULL;
+    *removedAnimal = nullptr;
     return false;
 
 

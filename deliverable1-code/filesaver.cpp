@@ -1,8 +1,10 @@
-#include "Filesaver.h"
+#include "filesaver.h"
 
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <QTextStream>
+#include <QFile>
 
 /** Function: saveToFile(string fileName, animalStorage)
  *  in: string fileName, Storage* animalStorage
@@ -15,6 +17,7 @@ void Filesaver::saveToFile(std::string fileName, Storage* animalStorage)
     std::ofstream outfile(fileName);
     outfile << animalStorage->getSaveInfo() << std::endl;
     outfile.close();
+
 }
 
 /** Function: readFromFile(string fileName, Storage* animalStorage)
@@ -40,19 +43,19 @@ void Filesaver::readFromFile(std::string fileName, Storage* animalStorage)
     {
         std::string fileLine;
         std::getline(infile, fileLine);
-        
+
         // If a line starts with A that means it's an animal
         // This information can then be used to parse the data
-        if(fileLine.length() != 0 && fileLine.at(0) == 'A') 
-        { 
+        if(fileLine.length() != 0 && fileLine.at(0) == 'A')
+        {
             std::string name, breed;
             int age, size, fur, id, species;
             char gender;
             bool isHypo;
 
             // All arguments besides fileLine.substr(2) passed by reference
-            parseData(fileLine.substr(2), breed, name, size, age, gender, fur, isHypo, id, species); 
-            
+            parseData(fileLine.substr(2), breed, name, size, age, gender, fur, isHypo, id, species);
+
             // Uses data from parseData() to build Animal instances
             Animal* newAnimal;
             newAnimal = new Animal(breed, name, size, age, gender, fur, isHypo, species);
@@ -75,7 +78,7 @@ void Filesaver::readFromFile(std::string fileName, Storage* animalStorage)
  *           Does this by creating substrings between the parenthesis
  * The order of the fileLine string is as follows:
  *              (Id)(Name)(Breed)(Species)(Age)(Size)(Gender)(Fur)(IsHypo) */
-void Filesaver::parseData(std::string fileLine, std::string &breed, std::string &name, 
+void Filesaver::parseData(std::string fileLine, std::string &breed, std::string &name,
                             int &size, int &age, char &gender, int &fur, bool &hypo, int &id, int &species)
 {
     //std::cout << fileLine << std::endl;

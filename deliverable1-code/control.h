@@ -1,10 +1,11 @@
 #ifndef CONTROL_H
 #define CONTROL_H
 
-#include "Animal.h"
-#include "Storage.h"
-#include "View.h"
-#include "Filesaver.h"
+#include "animal.h"
+#include "storage.h"
+#include "view.h"
+#include "filesaver.h"
+
 
 #define SAVE_FILE_NAME "savedAnimals.txt"
 
@@ -20,7 +21,8 @@ class Control
     Storage storage;
     Filesaver fileSaver;
 
-    void createNewAnimal();
+
+//    void createNewAnimal();
     void removeAnimal();
     void viewAnimals();
     void clearStorage();

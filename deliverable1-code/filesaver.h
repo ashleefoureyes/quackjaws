@@ -3,9 +3,10 @@
 
 #include <iostream>
 #include <string>
+#include <QFile>
 
-#include "Storage.h"
-#include "Animal.h"
+#include "storage.h"
+#include "animal.h"
 
 #define NUM_OF_ATTRIBUTES 9
 
@@ -16,7 +17,7 @@ class Filesaver
     void readFromFile(std::string, Storage*);
 
     private:
-    void parseData(std::string fileLine, std::string &breed, std::string &name, 
+    void parseData(std::string fileLine, std::string &breed, std::string &name,
                     int &size, int &age, char &gender, int &fur, bool &hypo, int &id, int &species);
 };
 

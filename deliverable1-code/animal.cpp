@@ -1,7 +1,9 @@
-#include "Animal.h"
+#include "animal.h"
 
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 
 Animal::Animal(std::string breed, std::string name, int size, int age, char gender, int fur, bool hypo, int species)
 {
@@ -25,7 +27,7 @@ int Animal::getFur() { return fur; }
 bool Animal::isHypo() { return isHypoAllergenic; }
 int Animal::getId() { return idNumber; }
 int Animal::getSpeciesNum() { return species; }
-std::string Animal::getSpecies() 
+std::string Animal::getSpecies()
 {
     switch(species)
     {
@@ -45,14 +47,24 @@ void Animal::setIdNumber(int newId) { this->idNumber = newId; }
 std::string Animal::getFormattedInfo()
 {
     std::string returnStr = "";
-    std::string charStr(1, getGender());
+    std::ostringstream formattedReturn;
 
-    returnStr += "Id: " + std::to_string(getId()) + " Name: " + getName() + " Species: " + getSpecies() + " Breed:" + getBreed() +
-                    " Age: " + std::to_string(getAge()) + " Size: " + std::to_string(getSize()) + " Gender: " + charStr + " Fur Type: " + 
-                    std::to_string(getFur()) + " is HypoAllergenic: " + std::to_string(isHypo());
-    
+    std::string sep = " | ";
+
+    formattedReturn << std::left << "Id: " << std::to_string(getId()) << sep
+                    << std::left << "Name: " << std::setw(10) << getName() << sep
+                    << std::left << "Species: " << std::setw(3) << getSpecies() << sep
+                    << std::left << "Breed: " << std::setw(14) << getBreed() << sep
+                    << std::left << "Age: " << std::setw(3) << std::to_string(getAge()) << sep
+                    << std::left << "Size: " << std::setw(7) << getSizeStr() << sep
+                    << std::left << "Gender: " << std::setw(2) << getGender() << sep
+                    << std::left << "Fur Type: " << std::setw(12) << getFurStr() << sep;
+
+
+    returnStr = formattedReturn.str();
+
     return returnStr;
-    
+
 }
 
 /** Function: getSaveInfo()
@@ -66,10 +78,40 @@ std::string Animal::getSaveInfo()
 {
     std::string returnStr = "";
 
-    returnStr += "(" + std::to_string(getId()) + ")(" + getName() + ")(" + getBreed() + 
-                    ")(" + std::to_string(getSpeciesNum()) + ")(" + std::to_string(getAge()) + ")(" + std::to_string(getSize()) + ")(" + std::to_string(getGender()) + ")(" + 
+    returnStr += "(" + std::to_string(getId()) + ")(" + getName() + ")(" + getBreed() +
+                    ")(" + std::to_string(getSpeciesNum()) + ")(" + std::to_string(getAge()) + ")(" + std::to_string(getSize()) + ")(" + std::to_string(getGender()) + ")(" +
                     std::to_string(getFur()) + ")(" + std::to_string(isHypo()) + ")";
-    
+
     return returnStr;
-    
+
+}
+
+
+std::string Animal::getSizeStr()
+{
+    switch(size)
+    {
+    case 0: return "Teacup";
+    case 1: return "Small";
+    case 2: return "Medium";
+    case 3: return "Large";
+    default: return "N/A";
+    }
+}
+
+
+std::string Animal::getFurStr()
+{
+    switch(fur)
+    {
+    case 0: return "None";
+    case 1: return "Short";
+    case 2: return "Long";
+    default: return "N/A";
+    }
+}
+std::string Animal::getAllergyStr()
+{
+    if (isHypoAllergenic == true) { return "Yes"; }
+    return "No";
 }

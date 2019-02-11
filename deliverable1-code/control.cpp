@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-#include "Control.h"
-#include "Animal.h"
+#include "control.h"
+#include "animal.h"
 
 /** Function: Control()
  *  Purpose: On creation of the control object the file with
@@ -15,44 +15,48 @@ Control::Control() { fileSaver.readFromFile(SAVE_FILE_NAME, &storage); }
  *           written to the file */
 Control::~Control() { fileSaver.saveToFile(SAVE_FILE_NAME, &storage); }
 
+/**
+ * TODO: connect these options to buttons in View.ui.
+ */
+
 /** Function launch()
  *  Purpose: Called by main.cc. */
-void Control::launch()
-{
+//void Control::launch()
+//{
 
-    int menuSelection = -1;
+//    int menuSelection = -1;
 
-    while(menuSelection != 0)
-    {
-        menuSelection = view.displayMenu();
+//    while(menuSelection != 0)
+//    {
+//        menuSelection = view.displayMenu();
 
-        switch(menuSelection)
-        {
-            case 1: createNewAnimal(); break;
-            case 2: removeAnimal(); break;
-            case 3: viewAnimals(); break;
-            default: break;
-        }
-    }
-}
+//        switch(menuSelection)
+//        {
+//            case 1: createNewAnimal(); break;
+//            case 2: removeAnimal(); break;
+//            case 3: viewAnimals(); break;
+//            default: break;
+//        }
+//    }
+//}
 
 /** Function: createNewAnimal()
  *  Purpose: Prepares variables and uses View object's getAnimalInfoFromUser()
  *           function to popualate variables. It then creates an animal instance
  *           and puts it in the storage object. */
-void Control::createNewAnimal()
-{
-    std::string name, breed;
-    int age, size, fur, species;
-    char gender;
-    bool isHypo;
+//void Control::createNewAnimal()
+//{
+//    std::string name, breed;
+//    int age, size, fur, species;
+//    char gender;
+//    bool isHypo;
 
-    Animal* newAnimal;
-    view.getAnimalInfoFromUser(breed, name, size, age, gender, fur, isHypo, species);
-    newAnimal = new Animal(breed, name, size, age, gender, fur, isHypo, species);
+//    Animal* newAnimal;
+//    view.getAnimalInfoFromUser(breed, name, size, age, gender, fur, isHypo, species);
+//    newAnimal = new Animal(breed, name, size, age, gender, fur, isHypo, species);
 
-    storage.add(newAnimal);
-}
+//    storage.add(newAnimal);
+//}
 
 /** Function: removeAnimal()
  *  Purpose: Uses View object's getIdForAnimal() function to get Id from user
