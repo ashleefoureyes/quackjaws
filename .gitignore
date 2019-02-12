@@ -1,4 +1,4 @@
 **/*.swp
 **/.~lock.*
-d1-code/*.o
-d1-code/*.out
+deliverable1-code/*.o
+deliverable11-code/*.out
