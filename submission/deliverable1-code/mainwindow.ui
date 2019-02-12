@@ -54,14 +54,14 @@
      <rect>
       <x>210</x>
       <y>60</y>
-      <width>59</width>
+      <width>70</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Helvetica Neue</family>
-      <pointsize>18</pointsize>
+      <pointsize>16</pointsize>
      </font>
     </property>
     <property name="text">
