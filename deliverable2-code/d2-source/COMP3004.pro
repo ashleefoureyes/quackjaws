@@ -27,14 +27,24 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    control.cpp
+    control.cpp \
+    staffhomepage.cpp \
+    animal.cpp \
+    storage.cpp \
+    addanimal.cpp
 
 HEADERS += \
         mainwindow.h \
-    control.h
+    control.h \
+    staffhomepage.h \
+    animal.h \
+    storage.h \
+    addanimal.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    staffhomepage.ui \
+    addanimal.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
