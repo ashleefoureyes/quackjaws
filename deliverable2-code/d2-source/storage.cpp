@@ -116,3 +116,8 @@ std::string Storage::listInfo(int index)
 {
     return profileList.at(index)->getListInfoStr();
 }
+
+Profile* Storage::get(int index)
+{
+    return profileList.at(index);
+}

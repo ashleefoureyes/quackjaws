@@ -112,6 +112,9 @@
              <property name="text">
               <string>Dog</string>
              </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
              <attribute name="buttonGroup">
               <string notr="true">groupBreed</string>
              </attribute>
@@ -205,6 +208,9 @@
             <widget class="QRadioButton" name="rbMale">
              <property name="text">
               <string>Male</string>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">groupGender</string>
@@ -314,6 +320,9 @@
              <property name="text">
               <string/>
              </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
              <attribute name="buttonGroup">
               <string notr="true">groupTravel</string>
              </attribute>
@@ -386,6 +395,9 @@
             <widget class="QRadioButton" name="rbMessy4">
              <property name="text">
               <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">groupMessy</string>
@@ -460,6 +472,9 @@
              <property name="text">
               <string/>
              </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
              <attribute name="buttonGroup">
               <string notr="true">groupGoodAnimals</string>
              </attribute>
@@ -532,6 +547,9 @@
             <widget class="QRadioButton" name="rbNoise3">
              <property name="text">
               <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">groupNoise</string>
@@ -606,6 +624,9 @@
              <property name="text">
               <string/>
              </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
              <attribute name="buttonGroup">
               <string notr="true">groupChildren</string>
              </attribute>
@@ -678,6 +699,9 @@
             <widget class="QRadioButton" name="rbAffection3">
              <property name="text">
               <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">groupAffection</string>
@@ -752,6 +776,9 @@
              <property name="text">
               <string/>
              </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
              <attribute name="buttonGroup">
               <string notr="true">groupEnergy</string>
              </attribute>
@@ -824,6 +851,9 @@
             <widget class="QRadioButton" name="rbCrowds3">
              <property name="text">
               <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">groupCrowds</string>
@@ -898,6 +928,9 @@
              <property name="text">
               <string/>
              </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
              <attribute name="buttonGroup">
               <string notr="true">groupStrange</string>
              </attribute>
@@ -971,6 +1004,9 @@
              <property name="text">
               <string/>
              </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
              <attribute name="buttonGroup">
               <string notr="true">groupProtect</string>
              </attribute>
@@ -1043,6 +1079,9 @@
             <widget class="QRadioButton" name="rbFear3">
              <property name="text">
               <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">groupFear</string>
@@ -1133,8 +1172,11 @@
             <property name="text">
              <string>Indoor</string>
             </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
             <attribute name="buttonGroup">
-             <string notr="true">buttonGroup</string>
+             <string notr="true">groupLifestyle</string>
             </attribute>
            </widget>
           </item>
@@ -1144,7 +1186,7 @@
              <string>Outdoor</string>
             </property>
             <attribute name="buttonGroup">
-             <string notr="true">buttonGroup</string>
+             <string notr="true">groupLifestyle</string>
             </attribute>
            </widget>
           </item>
@@ -1154,7 +1196,7 @@
              <string>Both</string>
             </property>
             <attribute name="buttonGroup">
-             <string notr="true">buttonGroup</string>
+             <string notr="true">groupLifestyle</string>
             </attribute>
            </widget>
           </item>
@@ -1188,19 +1230,75 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupTravel"/>
-  <buttongroup name="groupBreed"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupChildren"/>
-  <buttongroup name="buttonGroup"/>
-  <buttongroup name="groupProtect"/>
-  <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupGoodAnimals"/>
-  <buttongroup name="groupMessy"/>
-  <buttongroup name="groupStrange"/>
-  <buttongroup name="groupNoise"/>
-  <buttongroup name="groupFear"/>
-  <buttongroup name="groupGender"/>
-  <buttongroup name="groupAffection"/>
+  <buttongroup name="groupChildren">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupProtect">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupTravel">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupCrowds">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupLifestyle">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupStrange">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupGender">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupAffection">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupGoodAnimals">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupNoise">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupEnergy">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupFear">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupBreed">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupMessy">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
  </buttongroups>
 </ui>

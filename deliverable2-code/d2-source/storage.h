@@ -23,6 +23,7 @@ class Storage
     bool isProfileInStorage(int);
     int getNumOfElements();
     std::string listInfo(int);
+    Profile* get(int i);
 
     std::string getFormattedInfo();
 

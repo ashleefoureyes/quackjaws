@@ -5,6 +5,7 @@
 #include <sstream>
 #include <iomanip>
 
+
 Animal::Animal() { }
 
 /** Function: Animal( ... )
@@ -18,10 +19,10 @@ Animal::Animal(std::string breed, std::string name,
                 int travels, int children, int goodWAnimals, int strangers,
                 int crowds, int noises, int protector, int energy,
                 int fearful, int affection, int messy,
-                bool isNocturnal, bool hypo)
+                bool isNocturnal, bool hypo, int lifestyle)
 {
     setAttributes(breed, name, size, age, gender, fur, species, travels, children, goodWAnimals,
-                  strangers, crowds, noises, protector, energy, fearful, affection, messy, isNocturnal, hypo);
+                  strangers, crowds, noises, protector, energy, fearful, affection, messy, isNocturnal, hypo, lifestyle);
 }
 
 Animal::~Animal() { }
@@ -39,7 +40,7 @@ void Animal::setAttributes(std::string breed, std::string name,
                 int travels, int children, int goodWAnimals, int strangers,
                 int crowds, int noises, int protector, int energy,
                 int fearful, int affection, int messy,
-                bool isNocturnal, bool hypo)
+                bool isNocturnal, bool hypo, int lifestyle)
 {
     // Physical attributes
     this->breed = breed; this->name = name;
@@ -51,6 +52,7 @@ void Animal::setAttributes(std::string breed, std::string name,
     this->noises = noises; this->protector = protector; this->energy = energy;
     this->fearful = fearful; this->affection = affection; this->messy = messy;
     this->isHypoAllergenic = hypo; this->isNocturnal = isNocturnal;
+    this->lifestyle = lifestyle;
 
 }
 
@@ -150,3 +152,38 @@ std::string Animal::getAllergyStr()
     if (isHypoAllergenic == true) { return "Yes"; }
     return "No";
 }
+
+std::string Animal::getLifestyleStr() const
+{
+    switch(lifestyle)
+    {
+    case 0: return "Indoor";
+    case 1: return "Outdoor";
+    case 2: return "Indoor/Outdoor";
+    default: return "Unknown";
+    }
+}
+
+std::string Animal::getHistoryStr() const
+{
+    switch(lifestyle)
+    {
+    case 0: return "Brought by owner";
+    case 1: return "Street Animal";
+    case 2: return "Rescue";
+    default: return "Unknown";
+
+    }
+}
+
+int Animal::getTravels() const { return travels; }
+int Animal::getChildren() const { return children;}
+int Animal::getGoodWAnimals() const { return goodWAnimals;}
+int Animal::getStrangers() const { return strangers;}
+int Animal::getCrowds() const { return crowds; }
+int Animal::getNoises() const { return noises; }
+int Animal::getProtector() const{ return protector; }
+int Animal::getEnergy() const { return energy; }
+int Animal::getFearful() const { return fearful; }
+int Animal::getAffection() const { return affection; }
+int Animal::getMessy() const { return messy; }

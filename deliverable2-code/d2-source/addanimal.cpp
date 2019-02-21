@@ -94,7 +94,7 @@ void AddAnimal::on_bSubmit_clicked()
     char gender;
 
     int travels, children, goodWAnimals, strangers, crowds,
-        noises, protector, energy, fearful, affection, messy;
+        noises, protector, energy, fearful, affection, messy, lifestyle;
 
     bool isNocturnal; bool isHypoAllergenic;
 
@@ -132,13 +132,17 @@ void AddAnimal::on_bSubmit_clicked()
     affection = ui->groupAffection->checkedId();
     messy = ui->groupMessy->checkedId();
 
+    if(ui->rbIndoor->isChecked()) { lifestyle = 0; }
+    else if (ui->rbOutdoor->isChecked()) {lifestyle = 1;}
+    else {lifestyle = 2;}
+
     isNocturnal = ui->boxNocturnal->isChecked();
     isHypoAllergenic = ui->boxAllergies->isChecked();
 
     (*newAnimal)->setAttributes(
                 breed,name, size, age, gender, fur, species, travels,
                 children, goodWAnimals, strangers, crowds, noises, protector,
-                energy, fearful, affection, messy, isNocturnal, isHypoAllergenic);
+                energy, fearful, affection, messy, isNocturnal, isHypoAllergenic, lifestyle);
 
     //QMessageBox msgBox;
     //QString qst = QString::fromStdString("Animal added successfully");

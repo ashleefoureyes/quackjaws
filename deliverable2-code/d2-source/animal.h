@@ -14,7 +14,8 @@ class Animal: public Profile
     int size; // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
     int species; // 0 = Cat, 1 = Dog
     int fur; // 0 = hairless, 1 = shorthair, 2 = longhair
-    int history; // 0 = Indoor, 1 = Outdoor, 2 = Both
+    int history; // 0 = Given up by owner, 1 = Street animal, 2 = Rescue, 3 = Unknown
+    int lifestyle; // 0 = Indoor, 1 = Outdoor, 2 = Both
 
     char gender;
     int age;
@@ -33,7 +34,7 @@ class Animal: public Profile
             int travels, int children, int goodWAnimals, int strangers,
             int crowds, int noises, int protector, int energy,
             int fearful, int affection, int messy,
-            bool isNocturnal, bool hypo);
+            bool isNocturnal, bool hypo, int lifestyle);
     ~Animal();
 
     void setAttributes(std::string breed="n/a", std::string name="n/a",
@@ -41,7 +42,7 @@ class Animal: public Profile
                         int travels = -1, int children = -1, int goodWAnimals = -1, int strangers = -1,
                         int crowds = -1, int noises = -1, int protector = -1, int energy = -1,
                         int fearful = -1, int affection = -1, int messy = -1,
-                        bool isNoturnal = false, bool hypo = false);
+                        bool isNoturnal = false, bool hypo = false, int lifestyle = 0);
 
     // TODO add non-physical attributes for later Deliverable
 
@@ -65,6 +66,21 @@ class Animal: public Profile
 
     std::string getFormattedInfo();
     std::string getListInfoStr();
+
+    int getTravels() const;
+    int getChildren() const;
+    int getGoodWAnimals() const;
+    int getStrangers() const;
+    int getCrowds() const;
+    int getNoises() const;
+    int getProtector() const;
+    int getEnergy() const;
+    int getFearful() const;
+    int getAffection() const;
+    int getMessy() const;
+    std::string getLifestyleStr() const;
+    std::string getHistoryStr() const;
+
 };
 
 #endif

@@ -307,6 +307,8 @@ public:
         barLikesTravel = new QProgressBar(widget_2);
         barLikesTravel->setObjectName(QStringLiteral("barLikesTravel"));
         barLikesTravel->setMinimumSize(QSize(175, 0));
+        barLikesTravel->setMinimum(-1);
+        barLikesTravel->setMaximum(4);
         barLikesTravel->setValue(0);
         barLikesTravel->setTextVisible(false);
 
@@ -326,6 +328,8 @@ public:
         barChildren = new QProgressBar(widget_2);
         barChildren->setObjectName(QStringLiteral("barChildren"));
         barChildren->setMinimumSize(QSize(175, 0));
+        barChildren->setMinimum(-1);
+        barChildren->setMaximum(4);
         barChildren->setValue(0);
         barChildren->setTextVisible(false);
 
@@ -345,6 +349,8 @@ public:
         barAnimals = new QProgressBar(widget_2);
         barAnimals->setObjectName(QStringLiteral("barAnimals"));
         barAnimals->setMinimumSize(QSize(175, 0));
+        barAnimals->setMinimum(-1);
+        barAnimals->setMaximum(4);
         barAnimals->setValue(0);
         barAnimals->setTextVisible(false);
 
@@ -364,6 +370,8 @@ public:
         barStrangers = new QProgressBar(widget_2);
         barStrangers->setObjectName(QStringLiteral("barStrangers"));
         barStrangers->setMinimumSize(QSize(175, 0));
+        barStrangers->setMinimum(-1);
+        barStrangers->setMaximum(4);
         barStrangers->setValue(0);
         barStrangers->setTextVisible(false);
 
@@ -383,6 +391,8 @@ public:
         barCrowds = new QProgressBar(widget_2);
         barCrowds->setObjectName(QStringLiteral("barCrowds"));
         barCrowds->setMinimumSize(QSize(175, 0));
+        barCrowds->setMinimum(-1);
+        barCrowds->setMaximum(4);
         barCrowds->setValue(0);
         barCrowds->setTextVisible(false);
 
@@ -402,6 +412,8 @@ public:
         barNoise = new QProgressBar(widget_2);
         barNoise->setObjectName(QStringLiteral("barNoise"));
         barNoise->setMinimumSize(QSize(175, 0));
+        barNoise->setMinimum(-1);
+        barNoise->setMaximum(4);
         barNoise->setValue(0);
         barNoise->setTextVisible(false);
 
@@ -421,6 +433,8 @@ public:
         barProtector = new QProgressBar(widget_2);
         barProtector->setObjectName(QStringLiteral("barProtector"));
         barProtector->setMinimumSize(QSize(175, 0));
+        barProtector->setMinimum(-1);
+        barProtector->setMaximum(4);
         barProtector->setValue(0);
         barProtector->setTextVisible(false);
 
@@ -440,6 +454,8 @@ public:
         barEnergy = new QProgressBar(widget_2);
         barEnergy->setObjectName(QStringLiteral("barEnergy"));
         barEnergy->setMinimumSize(QSize(175, 0));
+        barEnergy->setMinimum(-1);
+        barEnergy->setMaximum(4);
         barEnergy->setValue(0);
         barEnergy->setTextVisible(false);
 
@@ -459,6 +475,8 @@ public:
         barFear = new QProgressBar(widget_2);
         barFear->setObjectName(QStringLiteral("barFear"));
         barFear->setMinimumSize(QSize(175, 0));
+        barFear->setMinimum(-1);
+        barFear->setMaximum(4);
         barFear->setValue(0);
         barFear->setTextVisible(false);
 
@@ -478,6 +496,8 @@ public:
         barAffection = new QProgressBar(widget_2);
         barAffection->setObjectName(QStringLiteral("barAffection"));
         barAffection->setMinimumSize(QSize(175, 0));
+        barAffection->setMinimum(-1);
+        barAffection->setMaximum(4);
         barAffection->setValue(0);
         barAffection->setTextVisible(false);
 
@@ -497,6 +517,8 @@ public:
         barMessy = new QProgressBar(widget_2);
         barMessy->setObjectName(QStringLiteral("barMessy"));
         barMessy->setMinimumSize(QSize(175, 0));
+        barMessy->setMinimum(-1);
+        barMessy->setMaximum(4);
         barMessy->setValue(0);
         barMessy->setTextVisible(false);
 

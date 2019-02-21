@@ -6,6 +6,8 @@
 #include "animal.h"
 #include <QListWidgetItem>
 
+#define ATTRIBUTE_OPTIONS 4
+
 namespace Ui {
 class ViewAnimals;
 }

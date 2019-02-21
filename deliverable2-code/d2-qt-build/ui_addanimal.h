@@ -180,20 +180,20 @@ public:
     QHBoxLayout *horizontalLayout_15;
     QCheckBox *boxNocturnal;
     QCheckBox *boxAllergies;
-    QButtonGroup *groupTravel;
-    QButtonGroup *groupBreed;
-    QButtonGroup *groupCrowds;
     QButtonGroup *groupChildren;
-    QButtonGroup *buttonGroup;
     QButtonGroup *groupProtect;
-    QButtonGroup *groupEnergy;
-    QButtonGroup *groupGoodAnimals;
-    QButtonGroup *groupMessy;
+    QButtonGroup *groupTravel;
+    QButtonGroup *groupCrowds;
+    QButtonGroup *groupLifestyle;
     QButtonGroup *groupStrange;
-    QButtonGroup *groupNoise;
-    QButtonGroup *groupFear;
     QButtonGroup *groupGender;
     QButtonGroup *groupAffection;
+    QButtonGroup *groupGoodAnimals;
+    QButtonGroup *groupNoise;
+    QButtonGroup *groupEnergy;
+    QButtonGroup *groupFear;
+    QButtonGroup *groupBreed;
+    QButtonGroup *groupMessy;
 
     void setupUi(QDialog *AddAnimal)
     {
@@ -266,8 +266,10 @@ public:
         rbDog = new QRadioButton(tabPhysical);
         groupBreed = new QButtonGroup(AddAnimal);
         groupBreed->setObjectName(QStringLiteral("groupBreed"));
+        groupBreed->setExclusive(true);
         groupBreed->addButton(rbDog);
         rbDog->setObjectName(QStringLiteral("rbDog"));
+        rbDog->setChecked(false);
 
         Species->addWidget(rbDog);
 
@@ -339,8 +341,10 @@ public:
         rbMale = new QRadioButton(tabPhysical);
         groupGender = new QButtonGroup(AddAnimal);
         groupGender->setObjectName(QStringLiteral("groupGender"));
+        groupGender->setExclusive(true);
         groupGender->addButton(rbMale);
         rbMale->setObjectName(QStringLiteral("rbMale"));
+        rbMale->setChecked(false);
 
         Gender->addWidget(rbMale);
 
@@ -396,6 +400,7 @@ public:
         rbTravel1 = new QRadioButton(layoutWidget);
         groupTravel = new QButtonGroup(AddAnimal);
         groupTravel->setObjectName(QStringLiteral("groupTravel"));
+        groupTravel->setExclusive(true);
         groupTravel->addButton(rbTravel1);
         rbTravel1->setObjectName(QStringLiteral("rbTravel1"));
 
@@ -410,6 +415,7 @@ public:
         rbTravel3 = new QRadioButton(layoutWidget);
         groupTravel->addButton(rbTravel3);
         rbTravel3->setObjectName(QStringLiteral("rbTravel3"));
+        rbTravel3->setChecked(false);
 
         horizontalLayout->addWidget(rbTravel3);
 
@@ -444,6 +450,7 @@ public:
         rbMessy1 = new QRadioButton(layoutWidget_10);
         groupMessy = new QButtonGroup(AddAnimal);
         groupMessy->setObjectName(QStringLiteral("groupMessy"));
+        groupMessy->setExclusive(true);
         groupMessy->addButton(rbMessy1);
         rbMessy1->setObjectName(QStringLiteral("rbMessy1"));
 
@@ -458,6 +465,7 @@ public:
         rbMessy4 = new QRadioButton(layoutWidget_10);
         groupMessy->addButton(rbMessy4);
         rbMessy4->setObjectName(QStringLiteral("rbMessy4"));
+        rbMessy4->setChecked(false);
 
         horizontalLayout_14->addWidget(rbMessy4);
 
@@ -492,6 +500,7 @@ public:
         rbGdAnimals1 = new QRadioButton(layoutWidget_2);
         groupGoodAnimals = new QButtonGroup(AddAnimal);
         groupGoodAnimals->setObjectName(QStringLiteral("groupGoodAnimals"));
+        groupGoodAnimals->setExclusive(true);
         groupGoodAnimals->addButton(rbGdAnimals1);
         rbGdAnimals1->setObjectName(QStringLiteral("rbGdAnimals1"));
 
@@ -506,6 +515,7 @@ public:
         rbGdAnimals3 = new QRadioButton(layoutWidget_2);
         groupGoodAnimals->addButton(rbGdAnimals3);
         rbGdAnimals3->setObjectName(QStringLiteral("rbGdAnimals3"));
+        rbGdAnimals3->setChecked(false);
 
         horizontalLayout_6->addWidget(rbGdAnimals3);
 
@@ -540,6 +550,7 @@ public:
         rbNoise1 = new QRadioButton(layoutWidget_8);
         groupNoise = new QButtonGroup(AddAnimal);
         groupNoise->setObjectName(QStringLiteral("groupNoise"));
+        groupNoise->setExclusive(true);
         groupNoise->addButton(rbNoise1);
         rbNoise1->setObjectName(QStringLiteral("rbNoise1"));
 
@@ -554,6 +565,7 @@ public:
         rbNoise3 = new QRadioButton(layoutWidget_8);
         groupNoise->addButton(rbNoise3);
         rbNoise3->setObjectName(QStringLiteral("rbNoise3"));
+        rbNoise3->setChecked(false);
 
         horizontalLayout_12->addWidget(rbNoise3);
 
@@ -588,6 +600,7 @@ public:
         rbChildren1 = new QRadioButton(layoutWidget1);
         groupChildren = new QButtonGroup(AddAnimal);
         groupChildren->setObjectName(QStringLiteral("groupChildren"));
+        groupChildren->setExclusive(true);
         groupChildren->addButton(rbChildren1);
         rbChildren1->setObjectName(QStringLiteral("rbChildren1"));
 
@@ -602,6 +615,7 @@ public:
         rbChildren3 = new QRadioButton(layoutWidget1);
         groupChildren->addButton(rbChildren3);
         rbChildren3->setObjectName(QStringLiteral("rbChildren3"));
+        rbChildren3->setChecked(false);
 
         horizontalLayout_4->addWidget(rbChildren3);
 
@@ -636,6 +650,7 @@ public:
         rbAffection1 = new QRadioButton(layoutWidget_9);
         groupAffection = new QButtonGroup(AddAnimal);
         groupAffection->setObjectName(QStringLiteral("groupAffection"));
+        groupAffection->setExclusive(true);
         groupAffection->addButton(rbAffection1);
         rbAffection1->setObjectName(QStringLiteral("rbAffection1"));
 
@@ -650,6 +665,7 @@ public:
         rbAffection3 = new QRadioButton(layoutWidget_9);
         groupAffection->addButton(rbAffection3);
         rbAffection3->setObjectName(QStringLiteral("rbAffection3"));
+        rbAffection3->setChecked(false);
 
         horizontalLayout_13->addWidget(rbAffection3);
 
@@ -684,6 +700,7 @@ public:
         rbEnergy1 = new QRadioButton(layoutWidget_3);
         groupEnergy = new QButtonGroup(AddAnimal);
         groupEnergy->setObjectName(QStringLiteral("groupEnergy"));
+        groupEnergy->setExclusive(true);
         groupEnergy->addButton(rbEnergy1);
         rbEnergy1->setObjectName(QStringLiteral("rbEnergy1"));
 
@@ -698,6 +715,7 @@ public:
         rbEnergy3 = new QRadioButton(layoutWidget_3);
         groupEnergy->addButton(rbEnergy3);
         rbEnergy3->setObjectName(QStringLiteral("rbEnergy3"));
+        rbEnergy3->setChecked(false);
 
         horizontalLayout_7->addWidget(rbEnergy3);
 
@@ -732,6 +750,7 @@ public:
         rbCrowds1 = new QRadioButton(layoutWidget_7);
         groupCrowds = new QButtonGroup(AddAnimal);
         groupCrowds->setObjectName(QStringLiteral("groupCrowds"));
+        groupCrowds->setExclusive(true);
         groupCrowds->addButton(rbCrowds1);
         rbCrowds1->setObjectName(QStringLiteral("rbCrowds1"));
 
@@ -746,6 +765,7 @@ public:
         rbCrowds3 = new QRadioButton(layoutWidget_7);
         groupCrowds->addButton(rbCrowds3);
         rbCrowds3->setObjectName(QStringLiteral("rbCrowds3"));
+        rbCrowds3->setChecked(false);
 
         horizontalLayout_11->addWidget(rbCrowds3);
 
@@ -780,6 +800,7 @@ public:
         rbStrange1 = new QRadioButton(layoutWidget_6);
         groupStrange = new QButtonGroup(AddAnimal);
         groupStrange->setObjectName(QStringLiteral("groupStrange"));
+        groupStrange->setExclusive(true);
         groupStrange->addButton(rbStrange1);
         rbStrange1->setObjectName(QStringLiteral("rbStrange1"));
 
@@ -794,6 +815,7 @@ public:
         rbStrange3 = new QRadioButton(layoutWidget_6);
         groupStrange->addButton(rbStrange3);
         rbStrange3->setObjectName(QStringLiteral("rbStrange3"));
+        rbStrange3->setChecked(false);
 
         horizontalLayout_10->addWidget(rbStrange3);
 
@@ -828,6 +850,7 @@ public:
         rbProtect1 = new QRadioButton(layoutWidget_5);
         groupProtect = new QButtonGroup(AddAnimal);
         groupProtect->setObjectName(QStringLiteral("groupProtect"));
+        groupProtect->setExclusive(true);
         groupProtect->addButton(rbProtect1);
         rbProtect1->setObjectName(QStringLiteral("rbProtect1"));
 
@@ -842,6 +865,7 @@ public:
         rbProtect3 = new QRadioButton(layoutWidget_5);
         groupProtect->addButton(rbProtect3);
         rbProtect3->setObjectName(QStringLiteral("rbProtect3"));
+        rbProtect3->setChecked(false);
 
         horizontalLayout_9->addWidget(rbProtect3);
 
@@ -876,6 +900,7 @@ public:
         rbFear1 = new QRadioButton(layoutWidget_4);
         groupFear = new QButtonGroup(AddAnimal);
         groupFear->setObjectName(QStringLiteral("groupFear"));
+        groupFear->setExclusive(true);
         groupFear->addButton(rbFear1);
         rbFear1->setObjectName(QStringLiteral("rbFear1"));
 
@@ -890,6 +915,7 @@ public:
         rbFear3 = new QRadioButton(layoutWidget_4);
         groupFear->addButton(rbFear3);
         rbFear3->setObjectName(QStringLiteral("rbFear3"));
+        rbFear3->setChecked(false);
 
         horizontalLayout_8->addWidget(rbFear3);
 
@@ -942,21 +968,23 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         rbIndoor = new QRadioButton(widget_2);
-        buttonGroup = new QButtonGroup(AddAnimal);
-        buttonGroup->setObjectName(QStringLiteral("buttonGroup"));
-        buttonGroup->addButton(rbIndoor);
+        groupLifestyle = new QButtonGroup(AddAnimal);
+        groupLifestyle->setObjectName(QStringLiteral("groupLifestyle"));
+        groupLifestyle->setExclusive(true);
+        groupLifestyle->addButton(rbIndoor);
         rbIndoor->setObjectName(QStringLiteral("rbIndoor"));
+        rbIndoor->setChecked(true);
 
         horizontalLayout_3->addWidget(rbIndoor);
 
         rbOutdoor = new QRadioButton(widget_2);
-        buttonGroup->addButton(rbOutdoor);
+        groupLifestyle->addButton(rbOutdoor);
         rbOutdoor->setObjectName(QStringLiteral("rbOutdoor"));
 
         horizontalLayout_3->addWidget(rbOutdoor);
 
         rbBoth = new QRadioButton(widget_2);
-        buttonGroup->addButton(rbBoth);
+        groupLifestyle->addButton(rbBoth);
         rbBoth->setObjectName(QStringLiteral("rbBoth"));
 
         horizontalLayout_3->addWidget(rbBoth);
