@@ -1,7 +1,9 @@
 #ifndef STORAGE_H
 #define STORAGE_H
 
-#include "animal.h"
+#define STARTING_ID 100;
+
+#include "profile.h"
 
 #include <string>
 #include <iostream>
@@ -13,19 +15,18 @@ class Storage
     public:
     Storage();
     ~Storage();
-    void add(Animal*);
+    void add(Profile*);
     bool remove(int);
-    bool remove(Animal**, int);
-    bool getAnimalWithId(Animal**, int);
-    bool isAnimalInStorage(int);
+    bool remove(Profile**, int);
+    bool getProfileWithId(Profile**, int);
+    bool isProfileInStorage(int);
     std::string getFormattedInfo();
-    std::string getSaveInfo();
 
     void setLargestId(int);
 
     private:
     int numOfElements;
-    std::list <Animal*> animalList;
+    std::list <Profile*> profileList;
     int largestId;
     int getNextId();
 

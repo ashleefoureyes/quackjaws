@@ -1,8 +1,6 @@
 #include "storage.h"
 #include "animal.h"
 
-#define STARTING_ID 1000;
-
 #include <string>
 #include <iostream>
 
@@ -15,7 +13,7 @@ Storage::Storage()
 
 Storage::~Storage()
 {
-    for(std::list<Animal*>::iterator itera=animalList.begin(); itera != animalList.end(); ++itera)
+    for(std::list<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
         delete (*itera);
     }
@@ -29,12 +27,12 @@ Storage::~Storage()
     Optimization: If we store animals ordered by id number
                   and swap linkedList for an Array we can
                   do a binary search */
-void Storage::add(Animal* newAnimal)
+void Storage::add(Profile* newProfile)
 {
     // If animalId is -1 then they don't have an id yet and need to be assigned one
-    if (newAnimal->getId() < 0) { newAnimal->setIdNumber(getNextId()); }
+    if (newProfile->getId() < 0) { newProfile->setIdNumber(getNextId()); }
 
-    animalList.push_back(newAnimal);
+    profileList.push_back(newProfile);
     ++numOfElements;
 }
 
@@ -62,29 +60,9 @@ std::string Storage::getFormattedInfo()
 {
     std::string returnStr = "";
 
-    for(std::list<Animal*>::iterator itera=animalList.begin(); itera != animalList.end(); ++itera)
+    for(std::list<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
         returnStr += (*itera)->getFormattedInfo();
-        returnStr += "\n";
-    }
-
-    return returnStr;
-}
-
-/** Function: getSaveInfo()
- *  out: Info formatted to save
- *  Purpose: Gets info for all animals in format that can be
- *           saved and parsed. While not easily readable it is
- *           better to parse at program startup */
-std::string Storage::getSaveInfo()
-{
-    std::string returnStr = "";
-
-    for(std::list<Animal*>::iterator itera=animalList.begin(); itera != animalList.end(); ++itera)
-    {
-        // A used to denote we have an animal when parsing data
-        returnStr += "A:";
-        returnStr += (*itera)->getSaveInfo();
         returnStr += "\n";
     }
 
@@ -95,18 +73,18 @@ std::string Storage::getSaveInfo()
  *  in: animalId
  *  in-out: Animal** foundAnimal. NULL if animal with id not in list
  *  out: true if animal found, false otherwise */
-bool Storage::getAnimalWithId(Animal** foundAnimal ,int animalId)
+bool Storage::getProfileWithId(Profile** foundProfile ,int profileId)
 {
-    for(std::list<Animal*>::iterator itera=animalList.begin(); itera != animalList.end(); ++itera)
+    for(std::list<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
-       if((*itera)->getId() == animalId)
+       if((*itera)->getId() == profileId)
        {
-           *foundAnimal = (*itera);
+           *foundProfile = (*itera);
            return true;
        }
     }
 
-    *foundAnimal = nullptr;
+    *foundProfile = nullptr;
     return false;
 }
 
@@ -115,10 +93,10 @@ bool Storage::getAnimalWithId(Animal** foundAnimal ,int animalId)
  *  Purpose: Searches through list to see if the animal is there
  *           Delegates to getAnimalWithId() but doesn't return
  *           the animal and only takes animalId as input parameter */
-bool Storage::isAnimalInStorage(int animalId)
+bool Storage::isProfileInStorage(int profileId)
 {
-    Animal* animalPtr;
-    return getAnimalWithId(&animalPtr, animalId);
+    Profile* profilePtr;
+    return getProfileWithId(&profilePtr, profileId);
 }
 
 /** Function: remove(Animal** removedAnimal, int animalId)
@@ -128,23 +106,23 @@ bool Storage::isAnimalInStorage(int animalId)
  *  Purpose: Removes animal and returns it to in-out parameter variable
  *           Returns true if animal found
  *           Return false if animal not in list and sets removedAnimal to NULL */
-bool Storage::remove(Animal** removedAnimal, int animalId)
+bool Storage::remove(Profile** removedProfile, int profileId)
 {
     // Create temporary animal ptr to pass to getAnimalWithId()
     // The value in tempAnimal later gets transfered to Animal** removedAnimal
-    Animal* tempAnimal;
+    Profile* tempProfile;
 
     // Returns true if animal is found. &tempAnimal is also an in-out parameter
     // meaning that calling this function will put an animal instance in tempAnimal
     // if the animal with the id is found
-    if(getAnimalWithId(&tempAnimal, animalId) == true)
+    if(getProfileWithId(&tempProfile, profileId) == true)
     {
-        *removedAnimal = tempAnimal;
-        animalList.remove(tempAnimal);
+        *removedProfile = tempProfile;
+        profileList.remove(tempProfile);
         return true;
     }
 
-    *removedAnimal = nullptr;
+    *removedProfile = nullptr;
     return false;
 
 
@@ -156,16 +134,16 @@ bool Storage::remove(Animal** removedAnimal, int animalId)
  *  Purpose: Finds and dereferenes the animal with that id
  *           Delegates removal of animal from list to remove(Animal**, int)
  *           Then handles the dereferencing on the in-out parameter */
-bool Storage::remove(int animalId)
+bool Storage::remove(int profileId)
 {
-    Animal* animalToDel;
+    Profile* profileToDel;
 
     // remove(Animal**, int) has Animal** as in-out parameter
     // if remove(Animal**, int) returns true then there will be
     // an animal in animalToDel which we can then dereference
-    if (remove(&animalToDel, animalId))
+    if (remove(&profileToDel, profileId))
     {
-        delete animalToDel;
+        delete profileToDel;
         return true;
     }
 

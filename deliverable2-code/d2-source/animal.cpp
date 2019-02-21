@@ -5,7 +5,7 @@
 #include <sstream>
 #include <iomanip>
 
-Animal::Animal() { this->idNumber = -1; }
+Animal::Animal() { }
 
 /** Function: Animal( ... )
  *  in: animal attributes
@@ -20,10 +20,11 @@ Animal::Animal(std::string breed, std::string name,
                 int fearful, int affection, int messy,
                 bool isNocturnal, bool hypo)
 {
-    this->idNumber = -1;
     setAttributes(breed, name, size, age, gender, fur, species, travels, children, goodWAnimals,
                   strangers, crowds, noises, protector, energy, fearful, affection, messy, isNocturnal, hypo);
 }
+
+Animal::~Animal() { }
 
 /** Function: setAttributes( ... )
  *  in: animal attributes
@@ -40,8 +41,6 @@ void Animal::setAttributes(std::string breed, std::string name,
                 int fearful, int affection, int messy,
                 bool isNocturnal, bool hypo)
 {
-    // Default id, should be set by Storage obj
-    idNumber = -1;
     // Physical attributes
     this->breed = breed; this->name = name;
     this->size = size; this->age = age; this->gender = gender;
@@ -62,7 +61,6 @@ int Animal::getSize() { return size; }
 char Animal::getGender() { return gender; }
 int Animal::getFur() { return fur; }
 bool Animal::isHypo() { return isHypoAllergenic; }
-int Animal::getId() { return idNumber; }
 int Animal::getSpeciesNum() { return species; }
 std::string Animal::getSpecies()
 {
@@ -75,7 +73,19 @@ std::string Animal::getSpecies()
     return "N/A";
 }
 
-void Animal::setIdNumber(int newId) { this->idNumber = newId; }
+/** Function: setIdNumber(int newId)
+    in: Id assigned by Storage object
+    purpose: Assigns the idStr to the profile
+*/
+void Animal::setIdNumber(int newId)
+{
+    // Converts to str, concatenates storage code the reconverts to int. This is to ensure
+    // if we have an animal code like 2999 and we add another animal we get: 21000 instead of 3000
+    // this way the storage code will always be ANIMAL_STORAGE_CODE for animals no matter
+    // how many are in storage
+    std::string idStr = std::to_string(ANIMAL_STORAGE_CODE) + std::to_string(newId);
+    this->profileId = std::stoi(idStr);
+}
 
 /** Function getFormattedInfo
  *  out: Formatted string of animal info

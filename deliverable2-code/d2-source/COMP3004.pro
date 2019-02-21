@@ -31,7 +31,8 @@ SOURCES += \
     animal.cpp \
     storage.cpp \
     addanimal.cpp \
-    viewanimals.cpp
+    viewanimals.cpp \
+    profile.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     animal.h \
     storage.h \
     addanimal.h \
-    viewanimals.h
+    viewanimals.h \
+    profile.h
 
 FORMS += \
         mainwindow.ui \

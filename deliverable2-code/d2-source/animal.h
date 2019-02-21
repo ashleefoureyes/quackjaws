@@ -2,13 +2,13 @@
 #define ANIMAL_H
 
 #include <string>
+#include "profile.h"
 
-class Animal
+#define ANIMAL_STORAGE_CODE 1
+
+class Animal: public Profile
 {
     private:
-    //Id number created when added to storage
-    int idNumber;
-
     std::string name, breed;
 
     // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
@@ -38,6 +38,7 @@ class Animal
             int crowds, int noises, int protector, int energy,
             int fearful, int affection, int messy,
             bool isNocturnal, bool hypo);
+    ~Animal();
 
     void setAttributes(std::string breed="n/a", std::string name="n/a",
                        int size = -1, int age = -1, char gender = '?', int fur =-1, int species=-1,
@@ -55,7 +56,6 @@ class Animal
     char getGender();
     int getFur();
     bool isHypo();
-    int getId();
     std::string getSpecies();
     int getSpeciesNum();
 
