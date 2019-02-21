@@ -16,6 +16,7 @@ class StaffHomepage : public QDialog
 public:
     explicit StaffHomepage(QWidget *parent, Storage *storage);
     ~StaffHomepage();
+    int showStaffPage();
 
 private slots:
 
@@ -28,6 +29,7 @@ private slots:
 private:
     Ui::StaffHomepage *ui;
     Storage *storage;
+    int returnResult;
 };
 
 #endif // STAFFHOMEPAGE_H

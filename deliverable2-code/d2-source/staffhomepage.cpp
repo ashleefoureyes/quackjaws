@@ -17,6 +17,13 @@ StaffHomepage::~StaffHomepage()
 }
 
 
+int StaffHomepage::showStaffPage()
+{
+    returnResult = 0;
+    this->exec();
+    return returnResult;
+}
+
 void StaffHomepage::on_bAddAnimal_clicked()
 {
     AddAnimal addAnim;
@@ -26,22 +33,26 @@ void StaffHomepage::on_bAddAnimal_clicked()
     if(addAnim.createNewAnimal(newAnimal) == 0) { return; }
 
     storage->add(newAnimal);
-
-    QMessageBox msgBox;
-    QString qst = QString::fromStdString(storage->getFormattedInfo());
-    msgBox.setText(qst);
-    msgBox.exec();
 }
 
 void StaffHomepage::on_bViewAnimals_clicked()
 {
-    ViewAnimals viewAnim;
-    viewAnim.setModal(true);
-    viewAnim.viewAnimalsFromStorage(storage);
+    // Actual code to be used
+    //ViewAnimals viewAnim;
+    //viewAnim.setModal(true);
+    //viewAnim.viewAnimalsFromStorage(storage);
+
+    // Temporary popup message for debugging
+    QMessageBox msgBox;
+    QString qst = QString::fromStdString(storage->getFormattedInfo());
+    msgBox.setStyleSheet("QLabel{min-width:1200px;}");
+    msgBox.setText(qst);
+    msgBox.exec();
 
 }
 
 void StaffHomepage::on_bLogout_clicked()
 {
+    returnResult = QDialog::Accepted;
     this->close();
 }

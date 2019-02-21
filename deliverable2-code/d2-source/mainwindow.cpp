@@ -18,9 +18,5 @@ void MainWindow::on_bStaffEntry_clicked()
     StaffHomepage home(nullptr, &storage);
     this->hide();
     home.setModal(true);
-    home.exec();
-
-    // TODO: Make it so this only happens if you click logout
-    //       Currently also does this if you click 'X' in the corner
-    this->show();
+    if(home.showStaffPage() == 1) {this->show();}
 }

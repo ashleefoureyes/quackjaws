@@ -27,7 +27,6 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    control.cpp \
     staffhomepage.cpp \
     animal.cpp \
     storage.cpp \
@@ -36,7 +35,6 @@ SOURCES += \
 
 HEADERS += \
         mainwindow.h \
-    control.h \
     staffhomepage.h \
     animal.h \
     storage.h \

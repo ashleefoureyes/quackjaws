@@ -1,9 +1,13 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "control.h"
 
 int main(int argc, char *argv[])
 {
-    Control c;
-    return c.launch(argc, argv);
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
+    QApplication a(argc, argv);
+    MainWindow w(nullptr);
+    w.show();
+
+    return a.exec();
 };
