@@ -35,9 +35,13 @@ public:
     QGridLayout *gridLayout;
     QPushButton *bSubmit;
     QPushButton *groupIndoor;
-    QTabWidget *fiveButtons;
+    QTabWidget *Tabs;
     QWidget *tabPhysical;
     QVBoxLayout *verticalLayout_3;
+    QWidget *widget_3;
+    QVBoxLayout *verticalLayout_5;
+    QLabel *lbAnimalPhoto;
+    QPushButton *bUpload;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *Name;
     QLabel *lbName;
@@ -176,7 +180,6 @@ public:
     QHBoxLayout *horizontalLayout_15;
     QCheckBox *boxNocturnal;
     QCheckBox *boxAllergies;
-    QWidget *Image;
     QButtonGroup *groupBreed;
     QButtonGroup *groupGender;
     QButtonGroup *groupChildren;
@@ -209,12 +212,29 @@ public:
 
         gridLayout->addWidget(groupIndoor, 1, 1, 1, 1);
 
-        fiveButtons = new QTabWidget(AddAnimal);
-        fiveButtons->setObjectName(QStringLiteral("fiveButtons"));
+        Tabs = new QTabWidget(AddAnimal);
+        Tabs->setObjectName(QStringLiteral("Tabs"));
         tabPhysical = new QWidget();
         tabPhysical->setObjectName(QStringLiteral("tabPhysical"));
         verticalLayout_3 = new QVBoxLayout(tabPhysical);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        widget_3 = new QWidget(tabPhysical);
+        widget_3->setObjectName(QStringLiteral("widget_3"));
+        verticalLayout_5 = new QVBoxLayout(widget_3);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        lbAnimalPhoto = new QLabel(widget_3);
+        lbAnimalPhoto->setObjectName(QStringLiteral("lbAnimalPhoto"));
+
+        verticalLayout_5->addWidget(lbAnimalPhoto);
+
+        bUpload = new QPushButton(widget_3);
+        bUpload->setObjectName(QStringLiteral("bUpload"));
+
+        verticalLayout_5->addWidget(bUpload);
+
+
+        verticalLayout_3->addWidget(widget_3);
+
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         Name = new QHBoxLayout();
@@ -350,7 +370,7 @@ public:
 
         verticalLayout_3->addLayout(verticalLayout_2);
 
-        fiveButtons->addTab(tabPhysical, QString());
+        Tabs->addTab(tabPhysical, QString());
         tabNonPhysical = new QWidget();
         tabNonPhysical->setObjectName(QStringLiteral("tabNonPhysical"));
         widget = new QWidget(tabNonPhysical);
@@ -955,17 +975,14 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_15);
 
-        fiveButtons->addTab(tabNonPhysical, QString());
-        Image = new QWidget();
-        Image->setObjectName(QStringLiteral("Image"));
-        fiveButtons->addTab(Image, QString());
+        Tabs->addTab(tabNonPhysical, QString());
 
-        gridLayout->addWidget(fiveButtons, 0, 0, 1, 2);
+        gridLayout->addWidget(Tabs, 0, 0, 1, 2);
 
 
         retranslateUi(AddAnimal);
 
-        fiveButtons->setCurrentIndex(0);
+        Tabs->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(AddAnimal);
@@ -976,6 +993,8 @@ public:
         AddAnimal->setWindowTitle(QApplication::translate("AddAnimal", "Dialog", nullptr));
         bSubmit->setText(QApplication::translate("AddAnimal", "Submit", nullptr));
         groupIndoor->setText(QApplication::translate("AddAnimal", "Exit", nullptr));
+        lbAnimalPhoto->setText(QString());
+        bUpload->setText(QApplication::translate("AddAnimal", "Upload Photo", nullptr));
         lbName->setText(QApplication::translate("AddAnimal", "Name:", nullptr));
         lbSpecies->setText(QApplication::translate("AddAnimal", "Species:", nullptr));
         rbDog->setText(QApplication::translate("AddAnimal", "Dog", nullptr));
@@ -996,7 +1015,7 @@ public:
         cbFur->setItemText(1, QApplication::translate("AddAnimal", "Long", nullptr));
         cbFur->setItemText(2, QApplication::translate("AddAnimal", "Hairless", nullptr));
 
-        fiveButtons->setTabText(fiveButtons->indexOf(tabPhysical), QApplication::translate("AddAnimal", "Physical", nullptr));
+        Tabs->setTabText(Tabs->indexOf(tabPhysical), QApplication::translate("AddAnimal", "Physical", nullptr));
         lbLikesTravel->setText(QApplication::translate("AddAnimal", "Likes travelling:", nullptr));
         rbTravel1->setText(QString());
         rbTravel2->setText(QString());
@@ -1074,8 +1093,7 @@ public:
         rbBoth->setText(QApplication::translate("AddAnimal", "Both", nullptr));
         boxNocturnal->setText(QApplication::translate("AddAnimal", "Nocturnal", nullptr));
         boxAllergies->setText(QApplication::translate("AddAnimal", "Hypoallergenic", nullptr));
-        fiveButtons->setTabText(fiveButtons->indexOf(tabNonPhysical), QApplication::translate("AddAnimal", "Non-Physical", nullptr));
-        fiveButtons->setTabText(fiveButtons->indexOf(Image), QApplication::translate("AddAnimal", "Photo", nullptr));
+        Tabs->setTabText(Tabs->indexOf(tabNonPhysical), QApplication::translate("AddAnimal", "Non-Physical", nullptr));
     } // retranslateUi
 
 };

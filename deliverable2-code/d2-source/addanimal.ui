@@ -29,7 +29,7 @@
     </widget>
    </item>
    <item row="0" column="0" colspan="2">
-    <widget class="QTabWidget" name="fiveButtons">
+    <widget class="QTabWidget" name="Tabs">
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -38,6 +38,26 @@
        <string>Physical</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QWidget" name="widget_3" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QLabel" name="lbAnimalPhoto">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bUpload">
+            <property name="text">
+             <string>Upload Photo</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
@@ -1136,11 +1156,6 @@
         </item>
        </layout>
       </widget>
-     </widget>
-     <widget class="QWidget" name="Image">
-      <attribute name="title">
-       <string>Photo</string>
-      </attribute>
      </widget>
     </widget>
    </item>

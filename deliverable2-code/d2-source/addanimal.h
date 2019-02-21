@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "animal.h"
+#include <QFileDialog>
 
 namespace Ui {
 class AddAnimal;
@@ -16,6 +17,9 @@ public:
     explicit AddAnimal(QWidget *parent = nullptr);
     ~AddAnimal();
     bool createNewAnimal(Animal*);
+
+private slots:
+    void on_bUpload_clicked();
 
 private:
     Ui::AddAnimal *ui;
