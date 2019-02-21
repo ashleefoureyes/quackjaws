@@ -14,6 +14,14 @@ AddAnimal::~AddAnimal()
     delete ui;
 }
 
+//TODO Implement it so that the popup box is already filled out with current animal information
+//     then this->exec() is called and returns the return value
+int AddAnimal::editAnimal(Animal *animalToEdit)
+{
+    this->newAnimal = &animalToEdit;
+    return 1;
+}
+
 int AddAnimal::createNewAnimal(Animal *newAnimal)
 {
     this->newAnimal = &newAnimal;

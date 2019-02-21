@@ -23,6 +23,7 @@ public:
     explicit AddAnimal(QWidget *parent = nullptr);
     ~AddAnimal();
     int createNewAnimal(Animal*);
+    int editAnimal(Animal*);
 
 private slots:
     void on_bUpload_clicked();
