@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "storage.h"
+#include "viewanimals.h"
 
 namespace Ui {
 class StaffHomepage;
@@ -17,7 +18,10 @@ public:
     ~StaffHomepage();
 
 private slots:
-    void on_pushButton_clicked();
+
+    void on_bAddAnimal_clicked();
+
+    void on_bViewAnimals_clicked();
 
 private:
     Ui::StaffHomepage *ui;

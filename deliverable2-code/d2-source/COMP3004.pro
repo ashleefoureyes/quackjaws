@@ -31,7 +31,8 @@ SOURCES += \
     staffhomepage.cpp \
     animal.cpp \
     storage.cpp \
-    addanimal.cpp
+    addanimal.cpp \
+    viewanimals.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,12 +40,14 @@ HEADERS += \
     staffhomepage.h \
     animal.h \
     storage.h \
-    addanimal.h
+    addanimal.h \
+    viewanimals.h
 
 FORMS += \
         mainwindow.ui \
     staffhomepage.ui \
-    addanimal.ui
+    addanimal.ui \
+    viewanimals.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

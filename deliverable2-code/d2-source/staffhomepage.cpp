@@ -16,12 +16,20 @@ StaffHomepage::~StaffHomepage()
     delete ui;
 }
 
-void StaffHomepage::on_pushButton_clicked()
+
+void StaffHomepage::on_bAddAnimal_clicked()
 {
     AddAnimal addAnim;
     addAnim.setModal(true);
     Animal *newAnimal;
 
     addAnim.createNewAnimal(newAnimal);
+}
+
+void StaffHomepage::on_bViewAnimals_clicked()
+{
+    ViewAnimals viewAnim;
+    viewAnim.setModal(true);
+    viewAnim.viewAnimalsFromStorage(&storage);
 
 }
