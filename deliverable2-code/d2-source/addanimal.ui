@@ -10,6 +10,18 @@
     <height>397</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>258</width>
+    <height>397</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>258</width>
+    <height>398</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
@@ -43,6 +55,18 @@
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <item>
            <widget class="QLabel" name="lbAnimalPhoto">
+            <property name="minimumSize">
+             <size>
+              <width>218</width>
+              <height>95</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>218</width>
+              <height>95</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -1164,19 +1188,19 @@
  <resources/>
  <connections/>
  <buttongroups>
+  <buttongroup name="groupTravel"/>
   <buttongroup name="groupBreed"/>
-  <buttongroup name="groupGender"/>
-  <buttongroup name="groupGoodAnimals"/>
-  <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupProtect"/>
-  <buttongroup name="groupAffection"/>
-  <buttongroup name="groupMessy"/>
   <buttongroup name="groupCrowds"/>
   <buttongroup name="groupChildren"/>
+  <buttongroup name="buttonGroup"/>
+  <buttongroup name="groupProtect"/>
+  <buttongroup name="groupEnergy"/>
+  <buttongroup name="groupGoodAnimals"/>
+  <buttongroup name="groupMessy"/>
   <buttongroup name="groupStrange"/>
   <buttongroup name="groupNoise"/>
-  <buttongroup name="buttonGroup"/>
   <buttongroup name="groupFear"/>
-  <buttongroup name="groupTravel"/>
+  <buttongroup name="groupGender"/>
+  <buttongroup name="groupAffection"/>
  </buttongroups>
 </ui>

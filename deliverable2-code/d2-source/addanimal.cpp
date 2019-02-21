@@ -132,10 +132,10 @@ void AddAnimal::on_bSubmit_clicked()
                 children, goodWAnimals, strangers, crowds, noises, protector,
                 energy, fearful, affection, messy, isNocturnal, isHypoAllergenic);
 
-    QMessageBox msgBox;
-    QString qst = QString::fromStdString("Animal added successfully");
-    msgBox.setText(qst);
-    msgBox.exec();
+    //QMessageBox msgBox;
+    //QString qst = QString::fromStdString("Animal added successfully");
+    //msgBox.setText(qst);
+    //msgBox.exec();
 
     returnVal = QDialog::Accepted;
     this->close();

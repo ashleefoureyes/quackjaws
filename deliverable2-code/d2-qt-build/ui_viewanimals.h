@@ -12,8 +12,9 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QWidget>
 
@@ -26,13 +27,14 @@ public:
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout_2;
-    QListView *listAnimals;
+    QListWidget *animalList;
+    QFrame *frame;
 
     void setupUi(QDialog *ViewAnimals)
     {
         if (ViewAnimals->objectName().isEmpty())
             ViewAnimals->setObjectName(QStringLiteral("ViewAnimals"));
-        ViewAnimals->resize(413, 320);
+        ViewAnimals->resize(413, 586);
         gridLayout = new QGridLayout(ViewAnimals);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         scrollArea = new QScrollArea(ViewAnimals);
@@ -40,13 +42,21 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 399, 306));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 399, 572));
         gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        listAnimals = new QListView(scrollAreaWidgetContents);
-        listAnimals->setObjectName(QStringLiteral("listAnimals"));
+        animalList = new QListWidget(scrollAreaWidgetContents);
+        animalList->setObjectName(QStringLiteral("animalList"));
 
-        gridLayout_2->addWidget(listAnimals, 0, 0, 1, 1);
+        gridLayout_2->addWidget(animalList, 1, 0, 1, 1);
+
+        frame = new QFrame(scrollAreaWidgetContents);
+        frame->setObjectName(QStringLiteral("frame"));
+        frame->setMinimumSize(QSize(250, 350));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+
+        gridLayout_2->addWidget(frame, 0, 0, 1, 1);
 
         scrollArea->setWidget(scrollAreaWidgetContents);
 

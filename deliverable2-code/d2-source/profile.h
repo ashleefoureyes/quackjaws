@@ -11,6 +11,7 @@ class Profile
         virtual ~Profile() {}
         virtual std::string getFormattedInfo() = 0;
         virtual void setIdNumber(int) = 0;
+        virtual std::string getListInfoStr() = 0;
         int getId();
 
     protected:

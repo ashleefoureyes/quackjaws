@@ -9,6 +9,7 @@
 #include <iostream>
 #include <list>
 #include <iterator>
+#include <vector>
 
 class Storage
 {
@@ -20,13 +21,16 @@ class Storage
     bool remove(Profile**, int);
     bool getProfileWithId(Profile**, int);
     bool isProfileInStorage(int);
+    int getNumOfElements();
+    std::string listInfo(int);
+
     std::string getFormattedInfo();
 
     void setLargestId(int);
 
     private:
     int numOfElements;
-    std::list <Profile*> profileList;
+    std::vector <Profile*> profileList;
     int largestId;
     int getNextId();
 

@@ -37,17 +37,9 @@ void StaffHomepage::on_bAddAnimal_clicked()
 
 void StaffHomepage::on_bViewAnimals_clicked()
 {
-    // Actual code to be used
-    //ViewAnimals viewAnim;
-    //viewAnim.setModal(true);
-    //viewAnim.viewAnimalsFromStorage(storage);
-
-    // Temporary popup message for debugging
-    QMessageBox msgBox;
-    QString qst = QString::fromStdString(storage->getFormattedInfo());
-    msgBox.setStyleSheet("QLabel{min-width:1200px;}");
-    msgBox.setText(qst);
-    msgBox.exec();
+    ViewAnimals viewAnim;
+    viewAnim.setModal(true);
+    viewAnim.viewAnimalsFromStorage(storage);
 
 }
 

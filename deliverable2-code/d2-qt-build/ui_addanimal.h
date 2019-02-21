@@ -180,26 +180,28 @@ public:
     QHBoxLayout *horizontalLayout_15;
     QCheckBox *boxNocturnal;
     QCheckBox *boxAllergies;
+    QButtonGroup *groupTravel;
     QButtonGroup *groupBreed;
-    QButtonGroup *groupGender;
-    QButtonGroup *groupGoodAnimals;
-    QButtonGroup *groupEnergy;
-    QButtonGroup *groupProtect;
-    QButtonGroup *groupAffection;
-    QButtonGroup *groupMessy;
     QButtonGroup *groupCrowds;
     QButtonGroup *groupChildren;
+    QButtonGroup *buttonGroup;
+    QButtonGroup *groupProtect;
+    QButtonGroup *groupEnergy;
+    QButtonGroup *groupGoodAnimals;
+    QButtonGroup *groupMessy;
     QButtonGroup *groupStrange;
     QButtonGroup *groupNoise;
-    QButtonGroup *buttonGroup;
     QButtonGroup *groupFear;
-    QButtonGroup *groupTravel;
+    QButtonGroup *groupGender;
+    QButtonGroup *groupAffection;
 
     void setupUi(QDialog *AddAnimal)
     {
         if (AddAnimal->objectName().isEmpty())
             AddAnimal->setObjectName(QStringLiteral("AddAnimal"));
         AddAnimal->resize(258, 397);
+        AddAnimal->setMinimumSize(QSize(258, 397));
+        AddAnimal->setMaximumSize(QSize(258, 398));
         gridLayout = new QGridLayout(AddAnimal);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         bSubmit = new QPushButton(AddAnimal);
@@ -224,6 +226,8 @@ public:
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         lbAnimalPhoto = new QLabel(widget_3);
         lbAnimalPhoto->setObjectName(QStringLiteral("lbAnimalPhoto"));
+        lbAnimalPhoto->setMinimumSize(QSize(218, 95));
+        lbAnimalPhoto->setMaximumSize(QSize(218, 95));
 
         verticalLayout_5->addWidget(lbAnimalPhoto);
 

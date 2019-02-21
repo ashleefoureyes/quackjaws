@@ -11,14 +11,10 @@ class Animal: public Profile
     private:
     std::string name, breed;
 
-    // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
-    int size;
-    // 0 = Cat, 1 = Dog
-    int species;
-    // 0 = hairless, 1 = shorthair, 2 = longhair
-    int fur;
-    // 0 = Indoor, 1 = Outdoor, 2 = Both
-    int history;
+    int size; // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
+    int species; // 0 = Cat, 1 = Dog
+    int fur; // 0 = hairless, 1 = shorthair, 2 = longhair
+    int history; // 0 = Indoor, 1 = Outdoor, 2 = Both
 
     char gender;
     int age;
@@ -68,7 +64,7 @@ class Animal: public Profile
 
 
     std::string getFormattedInfo();
-    std::string getSaveInfo();
+    std::string getListInfoStr();
 };
 
 #endif

@@ -13,7 +13,7 @@ Storage::Storage()
 
 Storage::~Storage()
 {
-    for(std::list<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
+    for(std::vector<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
         delete (*itera);
     }
@@ -60,7 +60,7 @@ std::string Storage::getFormattedInfo()
 {
     std::string returnStr = "";
 
-    for(std::list<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
+    for(std::vector<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
         returnStr += (*itera)->getFormattedInfo();
         returnStr += "\n";
@@ -75,7 +75,7 @@ std::string Storage::getFormattedInfo()
  *  out: true if animal found, false otherwise */
 bool Storage::getProfileWithId(Profile** foundProfile ,int profileId)
 {
-    for(std::list<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
+    for(std::vector<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
        if((*itera)->getId() == profileId)
        {
@@ -99,57 +99,6 @@ bool Storage::isProfileInStorage(int profileId)
     return getProfileWithId(&profilePtr, profileId);
 }
 
-/** Function: remove(Animal** removedAnimal, int animalId)
- *  in: animalId
- *  in-out: Animal** removedAnimal
- *  out: true if animal removed, false otherwise
- *  Purpose: Removes animal and returns it to in-out parameter variable
- *           Returns true if animal found
- *           Return false if animal not in list and sets removedAnimal to NULL */
-bool Storage::remove(Profile** removedProfile, int profileId)
-{
-    // Create temporary animal ptr to pass to getAnimalWithId()
-    // The value in tempAnimal later gets transfered to Animal** removedAnimal
-    Profile* tempProfile;
-
-    // Returns true if animal is found. &tempAnimal is also an in-out parameter
-    // meaning that calling this function will put an animal instance in tempAnimal
-    // if the animal with the id is found
-    if(getProfileWithId(&tempProfile, profileId) == true)
-    {
-        *removedProfile = tempProfile;
-        profileList.remove(tempProfile);
-        return true;
-    }
-
-    *removedProfile = nullptr;
-    return false;
-
-
-}
-
-/** Function: remove(int animalId)
- *  in: animalId
- *  out: true if removed, false otherwise
- *  Purpose: Finds and dereferenes the animal with that id
- *           Delegates removal of animal from list to remove(Animal**, int)
- *           Then handles the dereferencing on the in-out parameter */
-bool Storage::remove(int profileId)
-{
-    Profile* profileToDel;
-
-    // remove(Animal**, int) has Animal** as in-out parameter
-    // if remove(Animal**, int) returns true then there will be
-    // an animal in animalToDel which we can then dereference
-    if (remove(&profileToDel, profileId))
-    {
-        delete profileToDel;
-        return true;
-    }
-
-    return false;
-}
-
 /** Function setLargestId(int largestId)
  *  in: largestId
  *  Purpose: To be called when program is starting up.
@@ -159,4 +108,11 @@ bool Storage::remove(int profileId)
 void Storage::setLargestId(int largestId)
 {
     this->largestId = largestId;
+}
+
+int Storage::getNumOfElements() { return numOfElements; }
+
+std::string Storage::listInfo(int index)
+{
+    return profileList.at(index)->getListInfoStr();
 }

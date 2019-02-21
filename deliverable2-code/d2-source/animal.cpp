@@ -114,23 +114,11 @@ std::string Animal::getFormattedInfo()
 
 }
 
-/** Function: getSaveInfo()
- *  out: string returnStr
- *  Purpose: Takes the attributes of the Animal objects and creates
- *           a formatted string to be saved to a text file and to be
- *           parsed into new Animal objects on program execution.
- *  Format of data:
- *              (Id)(Name)(Species)(Breed)(Age)(Size)(Gender)(Fur)(IsHypo) */
-std::string Animal::getSaveInfo()
+std::string Animal::getListInfoStr()
 {
     std::string returnStr = "";
-
-    returnStr += "(" + std::to_string(getId()) + ")(" + getName() + ")(" + getBreed() +
-                    ")(" + std::to_string(getSpeciesNum()) + ")(" + std::to_string(getAge()) + ")(" + std::to_string(getSize()) + ")(" + std::to_string(getGender()) + ")(" +
-                    std::to_string(getFur()) + ")(" + std::to_string(isHypo()) + ")";
-
+    returnStr += std::to_string(profileId) + ": " + getName();
     return returnStr;
-
 }
 
 

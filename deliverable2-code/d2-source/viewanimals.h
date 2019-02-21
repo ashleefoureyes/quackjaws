@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "storage.h"
+#include "animal.h"
+#include <QListWidgetItem>
 
 namespace Ui {
 class ViewAnimals;
@@ -17,8 +19,13 @@ public:
     ~ViewAnimals();
     void viewAnimalsFromStorage(Storage *storage);
 
+private slots:
+    void on_animalList_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::ViewAnimals *ui;
+    void populateList();
+    Storage* storage;
 };
 
 #endif // VIEWANIMALS_H
