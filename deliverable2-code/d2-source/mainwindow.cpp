@@ -1,12 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent, Storage &storage) :
+MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->storage = storage;
 }
 
 MainWindow::~MainWindow()
@@ -16,8 +15,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_bStaffEntry_clicked()
 {
-    StaffHomepage home(nullptr, storage);
+    StaffHomepage home(nullptr, &storage);
     this->hide();
     home.setModal(true);
     home.exec();
+    this->show();
 }

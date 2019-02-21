@@ -982,7 +982,7 @@ public:
 
         retranslateUi(AddAnimal);
 
-        Tabs->setCurrentIndex(1);
+        Tabs->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(AddAnimal);

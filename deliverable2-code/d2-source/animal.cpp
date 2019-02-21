@@ -5,7 +5,35 @@
 #include <sstream>
 #include <iomanip>
 
+Animal::Animal() { this->idNumber = -1; }
+
+/** Function: Animal( ... )
+ *  in: animal attributes
+ *  purpose: Animal constructor with attributes
+ *           For use when loading animal information
+ *           Delegates attributes to setAttributes method
+*/
 Animal::Animal(std::string breed, std::string name,
+               int size, int age, char gender, int fur, int species,
+                int travels, int children, int goodWAnimals, int strangers,
+                int crowds, int noises, int protector, int energy,
+                int fearful, int affection, int messy,
+                bool isNocturnal, bool hypo)
+{
+    this->idNumber = -1;
+    setAttributes(breed, name, size, age, gender, fur, species, travels, children, goodWAnimals,
+                  strangers, crowds, noises, protector, energy, fearful, affection, messy, isNocturnal, hypo);
+}
+
+/** Function: setAttributes( ... )
+ *  in: animal attributes
+ *  purpose: Sets animal attributes to those passed as parameter.
+ *           Had to change functionality from constructor to method
+ *           because I need to create the Animal object before passing it
+ *           to the AddAnimal class.
+
+*/
+void Animal::setAttributes(std::string breed, std::string name,
                int size, int age, char gender, int fur, int species,
                 int travels, int children, int goodWAnimals, int strangers,
                 int crowds, int noises, int protector, int energy,

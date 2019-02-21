@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QButtonGroup>
 #include <QAbstractButton>
+#include <QMessageBox>
 
 #define NUM_OF_BUTTON_GROUPS 11
 #define Q_BUTTON_GROUP_SIZE
@@ -21,7 +22,7 @@ class AddAnimal : public QDialog
 public:
     explicit AddAnimal(QWidget *parent = nullptr);
     ~AddAnimal();
-    bool createNewAnimal(Animal*);
+    int createNewAnimal(Animal*);
 
 private slots:
     void on_bUpload_clicked();
@@ -32,8 +33,9 @@ private slots:
 
 private:
     Ui::AddAnimal *ui;
-    Animal *newAnimal;
+    Animal **newAnimal;
     void setupButtons();
+    int returnVal;
 };
 
 #endif // ADDANIMAL_H

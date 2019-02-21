@@ -11,7 +11,7 @@ int Control::launch(int argc, char** argv)
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication a(argc, argv);
-    MainWindow w(nullptr, storage);
+    MainWindow w(nullptr);
     w.show();
 
     return a.exec();

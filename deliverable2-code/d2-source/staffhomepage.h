@@ -14,7 +14,7 @@ class StaffHomepage : public QDialog
     Q_OBJECT
 
 public:
-    explicit StaffHomepage(QWidget *parent, Storage &storage);
+    explicit StaffHomepage(QWidget *parent, Storage *storage);
     ~StaffHomepage();
 
 private slots:
@@ -23,9 +23,11 @@ private slots:
 
     void on_bViewAnimals_clicked();
 
+    void on_bLogout_clicked();
+
 private:
     Ui::StaffHomepage *ui;
-    Storage storage;
+    Storage *storage;
 };
 
 #endif // STAFFHOMEPAGE_H

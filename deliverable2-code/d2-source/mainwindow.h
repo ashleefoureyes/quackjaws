@@ -15,7 +15,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent, Storage &storage);
+    explicit MainWindow(QWidget *parent);
     ~MainWindow();
 
 private slots:

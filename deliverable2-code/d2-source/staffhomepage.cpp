@@ -3,7 +3,7 @@
 #include "addanimal.h"
 #include "animal.h"
 
-StaffHomepage::StaffHomepage(QWidget *parent, Storage &storage) :
+StaffHomepage::StaffHomepage(QWidget *parent, Storage *storage) :
     QDialog(parent),
     ui(new Ui::StaffHomepage)
 {
@@ -21,15 +21,27 @@ void StaffHomepage::on_bAddAnimal_clicked()
 {
     AddAnimal addAnim;
     addAnim.setModal(true);
-    Animal *newAnimal;
+    Animal *newAnimal = new Animal();
 
-    addAnim.createNewAnimal(newAnimal);
+    if(addAnim.createNewAnimal(newAnimal) == 0) { return; }
+
+    storage->add(newAnimal);
+
+    QMessageBox msgBox;
+    QString qst = QString::fromStdString(storage->getFormattedInfo());
+    msgBox.setText(qst);
+    msgBox.exec();
 }
 
 void StaffHomepage::on_bViewAnimals_clicked()
 {
     ViewAnimals viewAnim;
     viewAnim.setModal(true);
-    viewAnim.viewAnimalsFromStorage(&storage);
+    viewAnim.viewAnimalsFromStorage(storage);
 
+}
+
+void StaffHomepage::on_bLogout_clicked()
+{
+    this->close();
 }

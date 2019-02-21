@@ -14,7 +14,6 @@ class Control
     int launch(int, char**);
 
     private:
-    Storage storage;
 };
 
 #endif // CONTROL_H

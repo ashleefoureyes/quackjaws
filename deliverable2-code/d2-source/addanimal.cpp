@@ -14,11 +14,11 @@ AddAnimal::~AddAnimal()
     delete ui;
 }
 
-bool AddAnimal::createNewAnimal(Animal *newAnimal)
+int AddAnimal::createNewAnimal(Animal *newAnimal)
 {
-    this->newAnimal = newAnimal;
+    this->newAnimal = &newAnimal;
     this->exec();
-    return true;
+    return returnVal;
 }
 
 /** Function: setupButtons()
@@ -104,8 +104,8 @@ void AddAnimal::on_bSubmit_clicked()
     else if(ui->rbDog->isChecked()) { species = 1; }
     else { species = -1; }
 
-    if(ui->rbMale->isChecked()) { gender = 'f'; }
-    else { gender = 'm'; }
+    if(ui->rbMale->isChecked()) { gender = 'M'; }
+    else { gender = 'F'; }
 
     fur = ui->cbFur->currentIndex();
     size = ui->cbSize->currentIndex();
@@ -127,15 +127,23 @@ void AddAnimal::on_bSubmit_clicked()
     isNocturnal = ui->boxNocturnal->isChecked();
     isHypoAllergenic = ui->boxAllergies->isChecked();
 
-    newAnimal = new Animal(
+    (*newAnimal)->setAttributes(
                 breed,name, size, age, gender, fur, species, travels,
                 children, goodWAnimals, strangers, crowds, noises, protector,
                 energy, fearful, affection, messy, isNocturnal, isHypoAllergenic);
 
+    QMessageBox msgBox;
+    QString qst = QString::fromStdString("Animal added successfully");
+    msgBox.setText(qst);
+    msgBox.exec();
+
+    returnVal = QDialog::Accepted;
     this->close();
 }
 
 void AddAnimal::on_bExit_clicked()
 {
+    delete (*newAnimal);
+    returnVal = QDialog::Rejected;
     this->close();
 }
