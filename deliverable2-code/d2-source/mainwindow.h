@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "staffhomepage.h"
 #include "storage.h"
-#include "Animal.h"
+#include "animal.h"
 
 namespace Ui {
 class MainWindow;

@@ -4,7 +4,7 @@
 #include "qapplication.h"
 #include "mainwindow.h"
 #include "storage.h"
-#include "Animal.h"
+#include "animal.h"
 
 class Control
 {

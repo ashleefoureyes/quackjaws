@@ -34,7 +34,7 @@ class Ui_AddAnimal
 public:
     QGridLayout *gridLayout;
     QPushButton *bSubmit;
-    QPushButton *groupIndoor;
+    QPushButton *bExit;
     QTabWidget *Tabs;
     QWidget *tabPhysical;
     QVBoxLayout *verticalLayout_3;
@@ -52,7 +52,7 @@ public:
     QRadioButton *rbCat;
     QHBoxLayout *Breed;
     QLabel *lbBreed;
-    QLineEdit *txtSpeciesBox;
+    QLineEdit *txtBreedBox;
     QHBoxLayout *Size;
     QLabel *label;
     QComboBox *cbSize;
@@ -68,7 +68,7 @@ public:
     QComboBox *cbFur;
     QWidget *tabNonPhysical;
     QWidget *widget;
-    QWidget *widget1;
+    QWidget *layoutWidget;
     QHBoxLayout *likesTravelling;
     QLabel *lbLikesTravel;
     QHBoxLayout *horizontalLayout;
@@ -104,7 +104,7 @@ public:
     QRadioButton *rbNoise3;
     QRadioButton *rbNoise4;
     QRadioButton *rbNoise5;
-    QWidget *layoutWidget;
+    QWidget *layoutWidget1;
     QHBoxLayout *goodWithChildren;
     QLabel *lbGoodWithChildren;
     QHBoxLayout *horizontalLayout_4;
@@ -182,18 +182,18 @@ public:
     QCheckBox *boxAllergies;
     QButtonGroup *groupBreed;
     QButtonGroup *groupGender;
-    QButtonGroup *groupChildren;
-    QButtonGroup *groupTravel;
     QButtonGroup *groupGoodAnimals;
     QButtonGroup *groupEnergy;
-    QButtonGroup *groupFear;
     QButtonGroup *groupProtect;
-    QButtonGroup *groupStrange;
-    QButtonGroup *groupCrowds;
-    QButtonGroup *groupNoise;
     QButtonGroup *groupAffection;
     QButtonGroup *groupMessy;
+    QButtonGroup *groupCrowds;
+    QButtonGroup *groupChildren;
+    QButtonGroup *groupStrange;
+    QButtonGroup *groupNoise;
     QButtonGroup *buttonGroup;
+    QButtonGroup *groupFear;
+    QButtonGroup *groupTravel;
 
     void setupUi(QDialog *AddAnimal)
     {
@@ -207,10 +207,10 @@ public:
 
         gridLayout->addWidget(bSubmit, 1, 0, 1, 1);
 
-        groupIndoor = new QPushButton(AddAnimal);
-        groupIndoor->setObjectName(QStringLiteral("groupIndoor"));
+        bExit = new QPushButton(AddAnimal);
+        bExit->setObjectName(QStringLiteral("bExit"));
 
-        gridLayout->addWidget(groupIndoor, 1, 1, 1, 1);
+        gridLayout->addWidget(bExit, 1, 1, 1, 1);
 
         Tabs = new QTabWidget(AddAnimal);
         Tabs->setObjectName(QStringLiteral("Tabs"));
@@ -283,10 +283,10 @@ public:
 
         Breed->addWidget(lbBreed);
 
-        txtSpeciesBox = new QLineEdit(tabPhysical);
-        txtSpeciesBox->setObjectName(QStringLiteral("txtSpeciesBox"));
+        txtBreedBox = new QLineEdit(tabPhysical);
+        txtBreedBox->setObjectName(QStringLiteral("txtBreedBox"));
 
-        Breed->addWidget(txtSpeciesBox);
+        Breed->addWidget(txtBreedBox);
 
 
         verticalLayout_2->addLayout(Breed);
@@ -376,20 +376,20 @@ public:
         widget = new QWidget(tabNonPhysical);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(6, 6, 230, 221));
-        widget1 = new QWidget(widget);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(0, 0, 221, 16));
-        likesTravelling = new QHBoxLayout(widget1);
+        layoutWidget = new QWidget(widget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(0, 0, 221, 16));
+        likesTravelling = new QHBoxLayout(layoutWidget);
         likesTravelling->setObjectName(QStringLiteral("likesTravelling"));
         likesTravelling->setContentsMargins(0, 0, 0, 0);
-        lbLikesTravel = new QLabel(widget1);
+        lbLikesTravel = new QLabel(layoutWidget);
         lbLikesTravel->setObjectName(QStringLiteral("lbLikesTravel"));
 
         likesTravelling->addWidget(lbLikesTravel);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        rbTravel1 = new QRadioButton(widget1);
+        rbTravel1 = new QRadioButton(layoutWidget);
         groupTravel = new QButtonGroup(AddAnimal);
         groupTravel->setObjectName(QStringLiteral("groupTravel"));
         groupTravel->addButton(rbTravel1);
@@ -397,25 +397,25 @@ public:
 
         horizontalLayout->addWidget(rbTravel1);
 
-        rbTravel2 = new QRadioButton(widget1);
+        rbTravel2 = new QRadioButton(layoutWidget);
         groupTravel->addButton(rbTravel2);
         rbTravel2->setObjectName(QStringLiteral("rbTravel2"));
 
         horizontalLayout->addWidget(rbTravel2);
 
-        rbTravel3 = new QRadioButton(widget1);
+        rbTravel3 = new QRadioButton(layoutWidget);
         groupTravel->addButton(rbTravel3);
         rbTravel3->setObjectName(QStringLiteral("rbTravel3"));
 
         horizontalLayout->addWidget(rbTravel3);
 
-        rbTravel4 = new QRadioButton(widget1);
+        rbTravel4 = new QRadioButton(layoutWidget);
         groupTravel->addButton(rbTravel4);
         rbTravel4->setObjectName(QStringLiteral("rbTravel4"));
 
         horizontalLayout->addWidget(rbTravel4);
 
-        rbTravel5 = new QRadioButton(widget1);
+        rbTravel5 = new QRadioButton(layoutWidget);
         groupTravel->addButton(rbTravel5);
         rbTravel5->setObjectName(QStringLiteral("rbTravel5"));
 
@@ -568,20 +568,20 @@ public:
 
         noise->addLayout(horizontalLayout_12);
 
-        layoutWidget = new QWidget(widget);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 20, 221, 16));
-        goodWithChildren = new QHBoxLayout(layoutWidget);
+        layoutWidget1 = new QWidget(widget);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(0, 20, 221, 16));
+        goodWithChildren = new QHBoxLayout(layoutWidget1);
         goodWithChildren->setObjectName(QStringLiteral("goodWithChildren"));
         goodWithChildren->setContentsMargins(0, 0, 0, 0);
-        lbGoodWithChildren = new QLabel(layoutWidget);
+        lbGoodWithChildren = new QLabel(layoutWidget1);
         lbGoodWithChildren->setObjectName(QStringLiteral("lbGoodWithChildren"));
 
         goodWithChildren->addWidget(lbGoodWithChildren);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        rbChildren1 = new QRadioButton(layoutWidget);
+        rbChildren1 = new QRadioButton(layoutWidget1);
         groupChildren = new QButtonGroup(AddAnimal);
         groupChildren->setObjectName(QStringLiteral("groupChildren"));
         groupChildren->addButton(rbChildren1);
@@ -589,25 +589,25 @@ public:
 
         horizontalLayout_4->addWidget(rbChildren1);
 
-        rbChildren2 = new QRadioButton(layoutWidget);
+        rbChildren2 = new QRadioButton(layoutWidget1);
         groupChildren->addButton(rbChildren2);
         rbChildren2->setObjectName(QStringLiteral("rbChildren2"));
 
         horizontalLayout_4->addWidget(rbChildren2);
 
-        rbChildren3 = new QRadioButton(layoutWidget);
+        rbChildren3 = new QRadioButton(layoutWidget1);
         groupChildren->addButton(rbChildren3);
         rbChildren3->setObjectName(QStringLiteral("rbChildren3"));
 
         horizontalLayout_4->addWidget(rbChildren3);
 
-        rbChildren4 = new QRadioButton(layoutWidget);
+        rbChildren4 = new QRadioButton(layoutWidget1);
         groupChildren->addButton(rbChildren4);
         rbChildren4->setObjectName(QStringLiteral("rbChildren4"));
 
         horizontalLayout_4->addWidget(rbChildren4);
 
-        rbChildren5 = new QRadioButton(layoutWidget);
+        rbChildren5 = new QRadioButton(layoutWidget1);
         groupChildren->addButton(rbChildren5);
         rbChildren5->setObjectName(QStringLiteral("rbChildren5"));
 
@@ -982,7 +982,7 @@ public:
 
         retranslateUi(AddAnimal);
 
-        Tabs->setCurrentIndex(0);
+        Tabs->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(AddAnimal);
@@ -992,7 +992,7 @@ public:
     {
         AddAnimal->setWindowTitle(QApplication::translate("AddAnimal", "Dialog", nullptr));
         bSubmit->setText(QApplication::translate("AddAnimal", "Submit", nullptr));
-        groupIndoor->setText(QApplication::translate("AddAnimal", "Exit", nullptr));
+        bExit->setText(QApplication::translate("AddAnimal", "Exit", nullptr));
         lbAnimalPhoto->setText(QString());
         bUpload->setText(QApplication::translate("AddAnimal", "Upload Photo", nullptr));
         lbName->setText(QApplication::translate("AddAnimal", "Name:", nullptr));
@@ -1011,9 +1011,9 @@ public:
         rbMale->setText(QApplication::translate("AddAnimal", "Male", nullptr));
         rbFemale->setText(QApplication::translate("AddAnimal", "Female", nullptr));
         lbFur->setText(QApplication::translate("AddAnimal", "Fur: ", nullptr));
-        cbFur->setItemText(0, QApplication::translate("AddAnimal", "Short", nullptr));
-        cbFur->setItemText(1, QApplication::translate("AddAnimal", "Long", nullptr));
-        cbFur->setItemText(2, QApplication::translate("AddAnimal", "Hairless", nullptr));
+        cbFur->setItemText(0, QApplication::translate("AddAnimal", "Hairless", nullptr));
+        cbFur->setItemText(1, QApplication::translate("AddAnimal", "Short", nullptr));
+        cbFur->setItemText(2, QApplication::translate("AddAnimal", "Long", nullptr));
 
         Tabs->setTabText(Tabs->indexOf(tabPhysical), QApplication::translate("AddAnimal", "Physical", nullptr));
         lbLikesTravel->setText(QApplication::translate("AddAnimal", "Likes travelling:", nullptr));

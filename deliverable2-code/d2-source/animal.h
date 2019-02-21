@@ -8,25 +8,35 @@ class Animal
     private:
     //Id number created when added to storage
     int idNumber;
-    std::string name;
 
-    // ######################
-    // # Physical Attributes#
-    // ######################
-    std::string breed;
+    std::string name, breed;
+
     // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
     int size;
-    int age;
     // 0 = Cat, 1 = Dog
     int species;
-    char gender;
     // 0 = hairless, 1 = shorthair, 2 = longhair
     int fur;
+    // 0 = Indoor, 1 = Outdoor, 2 = Both
+    int history;
+
+    char gender;
+    int age;
+
+    // 0 = Not at all -> 4 = A lot
+    int travels, children, goodWAnimals, strangers, crowds,
+        noises, protector, energy, fearful, affection, messy;
+
+    bool isNocturnal;
     bool isHypoAllergenic;
 
-    // TODO turn public to protected once inherited classes created
     public:
-    Animal(std::string="n/a", std::string="n/a", int = -1, int = -1, char = '?', int=-1, bool=false, int=-1);
+    Animal(std::string breed="n/a", std::string name="n/a",
+           int size = -1, int age = -1, char gender = '?', int fur =-1, int species=-1,
+            int travels = -1, int children = -1, int goodWAnimals = -1, int strangers = -1,
+            int crowds = -1, int noises = -1, int protector = -1, int energy = -1,
+            int fearful = -1, int affection = -1, int messy = -1,
+            bool isNoturnal = false, bool hypo = false);
 
     // TODO add non-physical attributes for later Deliverable
 

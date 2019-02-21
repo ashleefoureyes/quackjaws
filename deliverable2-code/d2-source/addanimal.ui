@@ -22,7 +22,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QPushButton" name="groupIndoor">
+    <widget class="QPushButton" name="bExit">
      <property name="text">
       <string>Exit</string>
      </property>
@@ -31,7 +31,7 @@
    <item row="0" column="0" colspan="2">
     <widget class="QTabWidget" name="Tabs">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabPhysical">
       <attribute name="title">
@@ -115,7 +115,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="txtSpeciesBox"/>
+            <widget class="QLineEdit" name="txtBreedBox"/>
            </item>
           </layout>
          </item>
@@ -212,17 +212,17 @@
             <widget class="QComboBox" name="cbFur">
              <item>
               <property name="text">
+               <string>Hairless</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
                <string>Short</string>
               </property>
              </item>
              <item>
               <property name="text">
                <string>Long</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Hairless</string>
               </property>
              </item>
             </widget>
@@ -246,7 +246,7 @@
          <height>221</height>
         </rect>
        </property>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -1166,17 +1166,17 @@
  <buttongroups>
   <buttongroup name="groupBreed"/>
   <buttongroup name="groupGender"/>
-  <buttongroup name="groupChildren"/>
-  <buttongroup name="groupTravel"/>
   <buttongroup name="groupGoodAnimals"/>
   <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupFear"/>
   <buttongroup name="groupProtect"/>
-  <buttongroup name="groupStrange"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupNoise"/>
   <buttongroup name="groupAffection"/>
   <buttongroup name="groupMessy"/>
+  <buttongroup name="groupCrowds"/>
+  <buttongroup name="groupChildren"/>
+  <buttongroup name="groupStrange"/>
+  <buttongroup name="groupNoise"/>
   <buttongroup name="buttonGroup"/>
+  <buttongroup name="groupFear"/>
+  <buttongroup name="groupTravel"/>
  </buttongroups>
 </ui>

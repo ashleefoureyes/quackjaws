@@ -5,17 +5,26 @@
 #include <sstream>
 #include <iomanip>
 
-Animal::Animal(std::string breed, std::string name, int size, int age, char gender, int fur, bool hypo, int species)
+Animal::Animal(std::string breed, std::string name,
+               int size, int age, char gender, int fur, int species,
+                int travels, int children, int goodWAnimals, int strangers,
+                int crowds, int noises, int protector, int energy,
+                int fearful, int affection, int messy,
+                bool isNocturnal, bool hypo)
 {
-    this->breed = breed;
-    this->name = name;
-    this->size = size;
-    this->age = age;
-    this->gender = gender;
-    this->fur = fur;
-    this->isHypoAllergenic = hypo;
-    this->species = species;
+    // Default id, should be set by Storage obj
     idNumber = -1;
+    // Physical attributes
+    this->breed = breed; this->name = name;
+    this->size = size; this->age = age; this->gender = gender;
+    this->fur = fur; this->species = species;
+    // Non-physical
+    this->travels = travels; this->children = children; this->goodWAnimals = goodWAnimals;
+    this->strangers = strangers; this->crowds = crowds;
+    this->noises = noises; this->protector = protector; this->energy = energy;
+    this->fearful = fearful; this->affection = affection; this->messy = messy;
+    this->isHypoAllergenic = hypo; this->isNocturnal = isNocturnal;
+
 }
 
 std::string Animal::getName() { return name; }

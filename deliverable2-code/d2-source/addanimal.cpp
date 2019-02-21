@@ -6,6 +6,7 @@ AddAnimal::AddAnimal(QWidget *parent) :
     ui(new Ui::AddAnimal)
 {
     ui->setupUi(this);
+    setupButtons();
 }
 
 AddAnimal::~AddAnimal()
@@ -15,8 +16,40 @@ AddAnimal::~AddAnimal()
 
 bool AddAnimal::createNewAnimal(Animal *newAnimal)
 {
+    this->newAnimal = newAnimal;
     this->exec();
     return true;
+}
+
+/** Function: setupButtons()
+    in-out: radio button indexes
+    purpose: Assigns radio buttons in group an index.
+             This is used to more easily assign values
+             to the new Animal object created*/
+void AddAnimal::setupButtons()
+{
+    QButtonGroup* buttonGroups[NUM_OF_BUTTON_GROUPS] = {
+        ui->groupTravel, ui->groupChildren, ui->groupGoodAnimals,
+        ui->groupStrange, ui->groupCrowds, ui->groupNoise,
+        ui->groupProtect, ui->groupEnergy, ui->groupFear,
+        ui->groupAffection, ui->groupMessy
+    };
+
+    int index;
+    int numOfButtons = sizeof(buttonGroups)/sizeof(buttonGroups[0]);
+
+    for(int i = 0; i < numOfButtons; ++i)
+    {
+        index = 0;
+
+        foreach(QAbstractButton *button, buttonGroups[i]->buttons())
+        {
+            buttonGroups[i]->setId(button, index);
+            ++index;
+        }
+    }
+
+
 }
 
 void AddAnimal::on_bUpload_clicked()
@@ -34,4 +67,75 @@ void AddAnimal::on_bUpload_clicked()
 
     image = image.scaledToWidth(ui->lbAnimalPhoto->width(), Qt::SmoothTransformation);
     ui->lbAnimalPhoto->setPixmap(QPixmap::fromImage(image));
+}
+
+/** Function: on_bSubmit_clicked()
+    in: All animal attributes
+    in-out: Animal *newAnimal
+    purpose: Takes all information from form and creates
+             a new Animal object with this information.
+             This is the same Animal reference that was passed
+             in at AddAnimal::createNewAnimal */
+// TODO: Support saving animal image
+void AddAnimal::on_bSubmit_clicked()
+{
+    std::string name, breed;
+
+    int size, species, fur, history, age;
+
+    char gender;
+
+    int travels, children, goodWAnimals, strangers, crowds,
+        noises, protector, energy, fearful, affection, messy;
+
+    bool isNocturnal; bool isHypoAllergenic;
+
+    QString Qname = ui-> txtNameBox -> text();
+    QString Qbreed = ui->txtBreedBox->text();
+
+    name = Qname.toStdString();
+
+    if(name == "") { name = "N/A"; }
+
+    breed = Qbreed.toStdString();
+    if(breed == "") { breed = "N/A"; }
+
+    if(ui->rbCat->isChecked()) { species = 0; }
+    else if(ui->rbDog->isChecked()) { species = 1; }
+    else { species = -1; }
+
+    if(ui->rbMale->isChecked()) { gender = 'f'; }
+    else { gender = 'm'; }
+
+    fur = ui->cbFur->currentIndex();
+    size = ui->cbSize->currentIndex();
+    history = ui->cbHistory->currentIndex();
+    age = ui->sbAge->value();
+
+    travels = ui->groupTravel->checkedId();
+    children = ui->groupChildren->checkedId();
+    goodWAnimals = ui->groupGoodAnimals->checkedId();
+    strangers = ui->groupStrange->checkedId();
+    crowds = ui->groupCrowds->checkedId();
+    noises = ui->groupNoise->checkedId();
+    protector = ui->groupProtect->checkedId();
+    energy = ui->groupEnergy->checkedId();
+    fearful = ui->groupFear->checkedId();
+    affection = ui->groupAffection->checkedId();
+    messy = ui->groupMessy->checkedId();
+
+    isNocturnal = ui->boxNocturnal->isChecked();
+    isHypoAllergenic = ui->boxAllergies->isChecked();
+
+    newAnimal = new Animal(
+                breed,name, size, age, gender, fur, species, travels,
+                children, goodWAnimals, strangers, crowds, noises, protector,
+                energy, fearful, affection, messy, isNocturnal, isHypoAllergenic);
+
+    this->close();
+}
+
+void AddAnimal::on_bExit_clicked()
+{
+    this->close();
 }

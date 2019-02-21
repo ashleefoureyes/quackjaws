@@ -4,6 +4,11 @@
 #include <QDialog>
 #include "animal.h"
 #include <QFileDialog>
+#include <QButtonGroup>
+#include <QAbstractButton>
+
+#define NUM_OF_BUTTON_GROUPS 11
+#define Q_BUTTON_GROUP_SIZE
 
 namespace Ui {
 class AddAnimal;
@@ -21,8 +26,14 @@ public:
 private slots:
     void on_bUpload_clicked();
 
+    void on_bSubmit_clicked();
+
+    void on_bExit_clicked();
+
 private:
     Ui::AddAnimal *ui;
+    Animal *newAnimal;
+    void setupButtons();
 };
 
 #endif // ADDANIMAL_H
