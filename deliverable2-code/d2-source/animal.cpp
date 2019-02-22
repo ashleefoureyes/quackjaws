@@ -6,7 +6,7 @@
 #include <iomanip>
 
 
-Animal::Animal() { }
+Animal::Animal() { this->imageFilePath = "noImage"; }
 
 /** Function: Animal( ... )
  *  in: animal attributes
@@ -23,6 +23,7 @@ Animal::Animal(std::string breed, std::string name,
 {
     setAttributes(breed, name, size, age, gender, fur, species, travels, children, goodWAnimals,
                   strangers, crowds, noises, protector, energy, fearful, affection, messy, isNocturnal, hypo, lifestyle);
+    imageFilePath = nullptr;
 }
 
 Animal::~Animal() { }
@@ -87,6 +88,11 @@ void Animal::setIdNumber(int newId)
     // how many are in storage
     std::string idStr = std::to_string(ANIMAL_STORAGE_CODE) + std::to_string(newId);
     this->profileId = std::stoi(idStr);
+}
+
+void Animal::setImageFilePath(std::string filepath)
+{
+    imageFilePath = filepath;
 }
 
 /** Function getFormattedInfo
@@ -175,6 +181,8 @@ std::string Animal::getHistoryStr() const
 
     }
 }
+
+std::string Animal::getImageFilePath() const { return imageFilePath; }
 
 int Animal::getTravels() const { return travels; }
 int Animal::getChildren() const { return children;}

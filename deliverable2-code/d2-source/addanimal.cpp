@@ -75,6 +75,24 @@ void AddAnimal::on_bUpload_clicked()
 
     image = image.scaledToWidth(ui->lbAnimalPhoto->width(), Qt::SmoothTransformation);
     ui->lbAnimalPhoto->setPixmap(QPixmap::fromImage(image));
+
+    this->animalPhoto = image;
+    this->customImage = validImage;
+
+}
+
+std::string AddAnimal::savePhoto(std::string filename)
+{
+    if (!QDir(DIR_NAME).exists()) { QDir().mkdir(DIR_NAME); }
+
+   filename += ".jpg";
+   filename = IMAGE_FILEPATH + filename;
+
+    QString qFilename = QString::fromStdString(filename);
+    animalPhoto.save(qFilename);
+
+    return filename;
+
 }
 
 /** Function: on_bSubmit_clicked()
@@ -143,6 +161,9 @@ void AddAnimal::on_bSubmit_clicked()
                 breed,name, size, age, gender, fur, species, travels,
                 children, goodWAnimals, strangers, crowds, noises, protector,
                 energy, fearful, affection, messy, isNocturnal, isHypoAllergenic, lifestyle);
+
+    // TODO: Write function to generate original filename
+    if(customImage) { (*newAnimal)->setImageFilePath(savePhoto(name)); }
 
     //QMessageBox msgBox;
     //QString qst = QString::fromStdString("Animal added successfully");

@@ -5,6 +5,7 @@
 #include "storage.h"
 #include "animal.h"
 #include <QListWidgetItem>
+#include <QFileDialog>
 
 #define ATTRIBUTE_OPTIONS 4
 
@@ -28,6 +29,8 @@ private:
     Ui::ViewAnimals *ui;
     void populateList();
     Storage* storage;
+    void displayAnimal(int index);
+    void loadImage(std::string);
 };
 
 #endif // VIEWANIMALS_H

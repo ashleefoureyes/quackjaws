@@ -275,8 +275,11 @@ public:
         lbAnimalImage->setObjectName(QStringLiteral("lbAnimalImage"));
         lbAnimalImage->setMinimumSize(QSize(200, 140));
         lbAnimalImage->setMaximumSize(QSize(200, 140));
-        lbAnimalImage->setPixmap(QPixmap(QString::fromUtf8("../../../../dog-silhouette-hunting-dog.jpg")));
+        QFont font;
+        font.setPointSize(12);
+        lbAnimalImage->setFont(font);
         lbAnimalImage->setScaledContents(true);
+        lbAnimalImage->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(lbAnimalImage);
 
@@ -589,7 +592,7 @@ public:
         aGender->setText(QString());
         lbFur->setText(QApplication::translate("ViewAnimals", "Fur:", nullptr));
         aFur->setText(QString());
-        lbAnimalImage->setText(QString());
+        lbAnimalImage->setText(QApplication::translate("ViewAnimals", "No Image", nullptr));
         lbLikesTravel->setText(QApplication::translate("ViewAnimals", "Likes travelling:", nullptr));
         lbChildren->setText(QApplication::translate("ViewAnimals", "Good with children:", nullptr));
         lbAnimals->setText(QApplication::translate("ViewAnimals", "Good with animals:", nullptr));

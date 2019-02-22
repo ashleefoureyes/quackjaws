@@ -7,9 +7,12 @@
 #include <QButtonGroup>
 #include <QAbstractButton>
 #include <QMessageBox>
+#include <string>
 
 #define NUM_OF_BUTTON_GROUPS 11
 #define Q_BUTTON_GROUP_SIZE
+#define IMAGE_FILEPATH "animalPhotos\\"
+#define DIR_NAME "animalPhotos"
 
 namespace Ui {
 class AddAnimal;
@@ -37,6 +40,9 @@ private:
     Animal **newAnimal;
     void setupButtons();
     int returnVal;
+    QImage animalPhoto;
+    std::string savePhoto(std::string);
+    bool customImage = false;
 };
 
 #endif // ADDANIMAL_H

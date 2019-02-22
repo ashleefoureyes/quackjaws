@@ -318,14 +318,19 @@
                   <height>140</height>
                  </size>
                 </property>
-                <property name="text">
-                 <string/>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
                 </property>
-                <property name="pixmap">
-                 <pixmap>../../../../dog-silhouette-hunting-dog.jpg</pixmap>
+                <property name="text">
+                 <string>No Image</string>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
               </item>

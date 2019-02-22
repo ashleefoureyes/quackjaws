@@ -9,7 +9,7 @@
 class Animal: public Profile
 {
     private:
-    std::string name, breed;
+    std::string name, breed, imageFilePath;
 
     int size; // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
     int species; // 0 = Cat, 1 = Dog
@@ -78,8 +78,11 @@ class Animal: public Profile
     int getFearful() const;
     int getAffection() const;
     int getMessy() const;
+    std::string getImageFilePath() const;
     std::string getLifestyleStr() const;
     std::string getHistoryStr() const;
+
+    void setImageFilePath(std::string);
 
 };
 
