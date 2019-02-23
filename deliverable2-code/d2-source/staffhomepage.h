@@ -2,12 +2,15 @@
 #define STAFFHOMEPAGE_H
 
 #include <QDialog>
+#include <QMessageBox>
+
 #include "storage.h"
 #include "viewanimals.h"
 #include "addclient.h"
 #include "addanimal.h"
 #include "animal.h"
 #include "client.h"
+#include "viewclients.h"
 
 namespace Ui {
 class StaffHomepage;
@@ -31,6 +34,10 @@ private slots:
     void on_bLogout_clicked();
 
     void on_bAddClient_clicked();
+
+    void on_bViewClients_clicked();
+
+    void on_bRunAlgorithm_clicked();
 
 private:
     Ui::StaffHomepage *ui;

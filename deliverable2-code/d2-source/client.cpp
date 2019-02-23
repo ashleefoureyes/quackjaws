@@ -8,9 +8,10 @@ Client::Client()
 std::string Client::getFormattedInfo()
 {
     std::string returnStr = "";
-    returnStr += firstName + " " + lastName + "\n";
-    returnStr += city + ", " + province + "\n";
-    returnStr += phone + "\n" + email;
+    returnStr += "Name: " + firstName + " " + lastName + "\n";
+    returnStr += "Address: " + address + ", \n \t" + city + ", " + province + "\n";
+    returnStr += "Phone: " + phone.substr(0,9) + "-" + phone.substr(9,phone.length()) + "\n";
+    returnStr += "Email: " + email;
 
     return returnStr;
 }

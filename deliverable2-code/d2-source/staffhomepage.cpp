@@ -7,7 +7,7 @@ StaffHomepage::StaffHomepage(QWidget *parent, Storage *animalStorage, Storage *c
 {
     ui->setupUi(this);
     this->animalStorage = animalStorage;
-    this->animalStorage = clientStorage;
+    this->clientStorage = clientStorage;
 }
 
 StaffHomepage::~StaffHomepage()
@@ -61,5 +61,16 @@ void StaffHomepage::on_bAddClient_clicked()
 
 void StaffHomepage::on_bViewClients_clicked()
 {
+    ViewClients viewClient;
+    viewClient.setModal(true);
+    viewClient.viewClientsFromStorage(clientStorage);
 
+}
+
+void StaffHomepage::on_bRunAlgorithm_clicked()
+{
+    QMessageBox msgBox;
+    QString qst = QString::fromStdString("Feature coming soon!");
+    msgBox.setText(qst);
+    msgBox.exec();
 }
