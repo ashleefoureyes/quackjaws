@@ -15,7 +15,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_bStaffEntry_clicked()
 {
-    StaffHomepage home(nullptr, &storage);
+    StaffHomepage home(nullptr, &animalStorage, &clientStorage);
     this->hide();
     home.setModal(true);
     if(home.showStaffPage() == 1) {this->show();}

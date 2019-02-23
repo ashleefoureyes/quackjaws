@@ -23,7 +23,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Storage storage;
+    Storage animalStorage;
+    Storage clientStorage;
 };
 
 #endif // MAINWINDOW_H

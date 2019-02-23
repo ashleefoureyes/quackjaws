@@ -180,20 +180,20 @@ public:
     QHBoxLayout *horizontalLayout_15;
     QCheckBox *boxNocturnal;
     QCheckBox *boxAllergies;
-    QButtonGroup *groupChildren;
-    QButtonGroup *groupProtect;
     QButtonGroup *groupTravel;
-    QButtonGroup *groupCrowds;
     QButtonGroup *groupLifestyle;
-    QButtonGroup *groupStrange;
-    QButtonGroup *groupGender;
+    QButtonGroup *groupChildren;
     QButtonGroup *groupAffection;
-    QButtonGroup *groupGoodAnimals;
     QButtonGroup *groupNoise;
-    QButtonGroup *groupEnergy;
+    QButtonGroup *groupMessy;
+    QButtonGroup *groupCrowds;
+    QButtonGroup *groupStrange;
     QButtonGroup *groupFear;
     QButtonGroup *groupBreed;
-    QButtonGroup *groupMessy;
+    QButtonGroup *groupEnergy;
+    QButtonGroup *groupProtect;
+    QButtonGroup *groupGoodAnimals;
+    QButtonGroup *groupGender;
 
     void setupUi(QDialog *AddAnimal)
     {
@@ -1023,7 +1023,7 @@ public:
     void retranslateUi(QDialog *AddAnimal)
     {
         AddAnimal->setWindowTitle(QApplication::translate("AddAnimal", "Dialog", nullptr));
-        bSubmit->setText(QApplication::translate("AddAnimal", "Submit", nullptr));
+        bSubmit->setText(QApplication::translate("AddAnimal", "Next", nullptr));
         bExit->setText(QApplication::translate("AddAnimal", "Exit", nullptr));
         lbAnimalPhoto->setText(QString());
         bUpload->setText(QApplication::translate("AddAnimal", "Upload Photo", nullptr));

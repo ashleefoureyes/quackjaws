@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -26,6 +27,7 @@ public:
     QWidget *centralWidget;
     QPushButton *bClientEntry;
     QPushButton *bStaffEntry;
+    QLineEdit *txtEmailLogin;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -42,7 +44,10 @@ public:
         bClientEntry->setGeometry(QRect(150, 110, 80, 20));
         bStaffEntry = new QPushButton(centralWidget);
         bStaffEntry->setObjectName(QStringLiteral("bStaffEntry"));
-        bStaffEntry->setGeometry(QRect(150, 140, 80, 20));
+        bStaffEntry->setGeometry(QRect(150, 220, 80, 20));
+        txtEmailLogin = new QLineEdit(centralWidget);
+        txtEmailLogin->setObjectName(QStringLiteral("txtEmailLogin"));
+        txtEmailLogin->setGeometry(QRect(120, 80, 151, 21));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -63,8 +68,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        bClientEntry->setText(QApplication::translate("MainWindow", "Client", nullptr));
-        bStaffEntry->setText(QApplication::translate("MainWindow", "Staff", nullptr));
+        bClientEntry->setText(QApplication::translate("MainWindow", "Login", nullptr));
+        bStaffEntry->setText(QApplication::translate("MainWindow", "Staff Login", nullptr));
+        txtEmailLogin->setPlaceholderText(QApplication::translate("MainWindow", "Client email address", nullptr));
     } // retranslateUi
 
 };

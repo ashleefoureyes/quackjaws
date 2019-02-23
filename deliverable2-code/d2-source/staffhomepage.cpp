@@ -1,14 +1,13 @@
 #include "staffhomepage.h"
 #include "ui_staffhomepage.h"
-#include "addanimal.h"
-#include "animal.h"
 
-StaffHomepage::StaffHomepage(QWidget *parent, Storage *storage) :
+StaffHomepage::StaffHomepage(QWidget *parent, Storage *animalStorage, Storage *clientStorage) :
     QDialog(parent),
     ui(new Ui::StaffHomepage)
 {
     ui->setupUi(this);
-    this->storage = storage;
+    this->animalStorage = animalStorage;
+    this->animalStorage = clientStorage;
 }
 
 StaffHomepage::~StaffHomepage()
@@ -32,14 +31,14 @@ void StaffHomepage::on_bAddAnimal_clicked()
 
     if(addAnim.createNewAnimal(newAnimal) == 0) { return; }
 
-    storage->add(newAnimal);
+    animalStorage->add(newAnimal);
 }
 
 void StaffHomepage::on_bViewAnimals_clicked()
 {
     ViewAnimals viewAnim;
     viewAnim.setModal(true);
-    viewAnim.viewAnimalsFromStorage(storage);
+    viewAnim.viewAnimalsFromStorage(animalStorage);
 
 }
 
@@ -52,7 +51,15 @@ void StaffHomepage::on_bLogout_clicked()
 void StaffHomepage::on_bAddClient_clicked()
 {
     AddClient addClient;
+    addClient.setModal(true);
     Client *newClient = new Client;
-    addClient.createNewClient(newClient);
+
+    if(addClient.createNewClient(newClient) == 0) { return; }
+
+    clientStorage->add(newClient);
+}
+
+void StaffHomepage::on_bViewClients_clicked()
+{
 
 }
