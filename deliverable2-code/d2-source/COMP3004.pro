@@ -32,7 +32,9 @@ SOURCES += \
     storage.cpp \
     addanimal.cpp \
     viewanimals.cpp \
-    profile.cpp
+    profile.cpp \
+    client.cpp \
+    addclient.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,13 +43,16 @@ HEADERS += \
     storage.h \
     addanimal.h \
     viewanimals.h \
-    profile.h
+    profile.h \
+    client.h \
+    addclient.h
 
 FORMS += \
         mainwindow.ui \
     staffhomepage.ui \
     addanimal.ui \
-    viewanimals.ui
+    viewanimals.ui \
+    addclient.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

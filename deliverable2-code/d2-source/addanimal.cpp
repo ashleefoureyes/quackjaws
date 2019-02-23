@@ -105,6 +105,14 @@ std::string AddAnimal::savePhoto(std::string filename)
 // TODO: Support saving animal image
 void AddAnimal::on_bSubmit_clicked()
 {
+    // If still on Physical info tab move to Non-Physical tab
+    if (ui->Tabs->currentIndex() == 0)
+    {
+        ui->Tabs->setCurrentWidget(ui->tabNonPhysical);
+        ui->bSubmit->setText("Submit");
+        return;
+    }
+
     std::string name, breed;
 
     int size, species, fur, history, age;
@@ -179,4 +187,11 @@ void AddAnimal::on_bExit_clicked()
     delete (*newAnimal);
     returnVal = QDialog::Rejected;
     this->close();
+}
+
+// Changes submit bar text depending on tab
+void AddAnimal::on_Tabs_tabBarClicked(int index)
+{
+    if(index == 0) { ui->bSubmit->setText("Next"); }
+    else { ui->bSubmit->setText("Submit");}
 }

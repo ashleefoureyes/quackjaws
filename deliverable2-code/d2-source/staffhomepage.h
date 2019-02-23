@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "storage.h"
 #include "viewanimals.h"
+#include "addclient.h"
 
 namespace Ui {
 class StaffHomepage;
@@ -25,6 +26,8 @@ private slots:
     void on_bViewAnimals_clicked();
 
     void on_bLogout_clicked();
+
+    void on_bAddClient_clicked();
 
 private:
     Ui::StaffHomepage *ui;

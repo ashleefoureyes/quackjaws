@@ -48,3 +48,11 @@ void StaffHomepage::on_bLogout_clicked()
     returnResult = QDialog::Accepted;
     this->close();
 }
+
+void StaffHomepage::on_bAddClient_clicked()
+{
+    AddClient addClient;
+    Client *newClient = new Client;
+    addClient.createNewClient(newClient);
+
+}

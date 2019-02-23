@@ -11,7 +11,7 @@
 
 #define NUM_OF_BUTTON_GROUPS 11
 #define Q_BUTTON_GROUP_SIZE
-#define IMAGE_FILEPATH "animalPhotos/"
+#define IMAGE_FILEPATH "animalPhotos\\"
 #define DIR_NAME "animalPhotos"
 
 namespace Ui {
@@ -34,6 +34,8 @@ private slots:
     void on_bSubmit_clicked();
 
     void on_bExit_clicked();
+
+    void on_Tabs_tabBarClicked(int index);
 
 private:
     Ui::AddAnimal *ui;
