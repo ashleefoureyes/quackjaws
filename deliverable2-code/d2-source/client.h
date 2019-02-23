@@ -15,6 +15,7 @@ public:
     std::string getListInfoStr();
     void setContactInformation(std::string firstName, std::string lastName, std::string address, std::string phone,
                                std::string email, std::string city, std::string province);
+    std::string getEmail();
 
 private:
     std::string firstName, lastName, address,

@@ -35,3 +35,5 @@ void Client::setContactInformation(std::string firstName, std::string lastName, 
     this->firstName = firstName; this->lastName = lastName; this->address = address; this->phone = phone;
     this->email = email; this->city = city; this->province = province;
 }
+
+std::string Client::getEmail() { return email; }
