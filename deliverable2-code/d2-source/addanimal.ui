@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>258</width>
-    <height>397</height>
+    <width>285</width>
+    <height>398</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -18,8 +18,8 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>258</width>
-    <height>398</height>
+    <width>475</width>
+    <height>474</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -42,6 +42,12 @@
    </item>
    <item row="0" column="0" colspan="2">
     <widget class="QTabWidget" name="Tabs">
+     <property name="minimumSize">
+      <size>
+       <width>270</width>
+       <height>350</height>
+      </size>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -272,841 +278,819 @@
         <rect>
          <x>6</x>
          <y>6</y>
-         <width>230</width>
+         <width>261</width>
          <height>221</height>
         </rect>
        </property>
-       <widget class="QWidget" name="layoutWidget">
+       <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>221</width>
-          <height>16</height>
+          <width>256</width>
+          <height>271</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="likesTravelling">
+        <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QLabel" name="lbLikesTravel">
-           <property name="text">
-            <string>Likes travelling:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
+          <layout class="QHBoxLayout" name="likesTravelling">
            <item>
-            <widget class="QRadioButton" name="rbTravel1">
-             <property name="text">
-              <string/>
+            <widget class="QLabel" name="lbLikesTravel">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupTravel</string>
-             </attribute>
+             <property name="text">
+              <string>Likes travelling:</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbTravel2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupTravel</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbTravel3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupTravel</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbTravel4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupTravel</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbTravel5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupTravel</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QRadioButton" name="rbTravel1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupTravel</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbTravel2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupTravel</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbTravel3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupTravel</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbTravel4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupTravel</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbTravel5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupTravel</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_10">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>200</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="messy">
          <item>
-          <widget class="QLabel" name="lbMessy">
-           <property name="text">
-            <string>Is messy:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_14">
+          <layout class="QHBoxLayout" name="goodWithChildren">
            <item>
-            <widget class="QRadioButton" name="rbMessy1">
-             <property name="text">
-              <string/>
+            <widget class="QLabel" name="lbGoodWithChildren">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupMessy</string>
-             </attribute>
+             <property name="text">
+              <string>Good with children:</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbMessy2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupMessy</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbMessy4">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupMessy</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbMessy5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupMessy</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbMessy3">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupMessy</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QRadioButton" name="rbChildren1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupChildren</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbChildren2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupChildren</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbChildren3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupChildren</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbChildren4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupChildren</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbChildren5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupChildren</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>40</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="goodWithAnimals">
          <item>
-          <widget class="QLabel" name="lbGoodWithAnimals">
-           <property name="text">
-            <string>Good with animals:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <layout class="QHBoxLayout" name="goodWithAnimals">
            <item>
-            <widget class="QRadioButton" name="rbGdAnimals1">
-             <property name="text">
-              <string/>
+            <widget class="QLabel" name="lbGoodWithAnimals">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupGoodAnimals</string>
-             </attribute>
+             <property name="text">
+              <string>Good with animals:</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbGdAnimals2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupGoodAnimals</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbGdAnimals3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupGoodAnimals</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbGdAnimals4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupGoodAnimals</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbGdAnimals5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupGoodAnimals</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QRadioButton" name="rbGdAnimals1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupGoodAnimals</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbGdAnimals2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupGoodAnimals</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbGdAnimals3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupGoodAnimals</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbGdAnimals4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupGoodAnimals</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbGdAnimals5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupGoodAnimals</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_8">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>100</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="noise">
          <item>
-          <widget class="QLabel" name="lbNoise">
-           <property name="text">
-            <string>Good with loud noise:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <layout class="QHBoxLayout" name="strangers">
            <item>
-            <widget class="QRadioButton" name="rbNoise1">
-             <property name="text">
-              <string/>
+            <widget class="QLabel" name="lbStrange">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupNoise</string>
-             </attribute>
+             <property name="text">
+              <string>Good with strangers:</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbNoise2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupNoise</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbNoise3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupNoise</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbNoise4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupNoise</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbNoise5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupNoise</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_10">
+             <item>
+              <widget class="QRadioButton" name="rbStrange1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupStrange</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbStrange2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupStrange</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbStrange3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupStrange</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbStrange4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupStrange</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbStrange5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupStrange</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>20</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="goodWithChildren">
          <item>
-          <widget class="QLabel" name="lbGoodWithChildren">
-           <property name="text">
-            <string>Good with children:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <layout class="QHBoxLayout" name="crowds">
            <item>
-            <widget class="QRadioButton" name="rbChildren1">
-             <property name="text">
-              <string/>
+            <widget class="QLabel" name="lbCrowds">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupChildren</string>
-             </attribute>
+             <property name="text">
+              <string>Good in crowds:</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbChildren2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupChildren</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbChildren3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupChildren</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbChildren4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupChildren</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbChildren5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupChildren</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <item>
+              <widget class="QRadioButton" name="rbCrowds1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupCrowds</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbCrowds2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupCrowds</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbCrowds3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupCrowds</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbCrowds4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupCrowds</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbCrowds5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupCrowds</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_9">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>180</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="affection">
          <item>
-          <widget class="QLabel" name="lbAffection">
-           <property name="text">
-            <string>Is affectionate:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_13">
+          <layout class="QHBoxLayout" name="noise">
            <item>
-            <widget class="QRadioButton" name="rbAffection1">
-             <property name="text">
-              <string/>
+            <widget class="QLabel" name="lbNoise">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupAffection</string>
-             </attribute>
+             <property name="text">
+              <string>Good with loud noise:</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbAffection2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupAffection</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbAffection3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupAffection</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbAffection4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupAffection</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbAffection5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupAffection</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <item>
+              <widget class="QRadioButton" name="rbNoise1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupNoise</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbNoise2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupNoise</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbNoise3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupNoise</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbNoise4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupNoise</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbNoise5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupNoise</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_3">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>140</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="lotsOfEnergy">
          <item>
-          <widget class="QLabel" name="lbEnergy">
-           <property name="text">
-            <string>Lots of energy:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <layout class="QHBoxLayout" name="protect">
            <item>
-            <widget class="QRadioButton" name="rbEnergy1">
-             <property name="text">
-              <string/>
+            <widget class="QLabel" name="lbProtect">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupEnergy</string>
-             </attribute>
+             <property name="text">
+              <string>Good home protector:</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbEnergy2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupEnergy</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbEnergy3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupEnergy</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbEnergy4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupEnergy</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbEnergy5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupEnergy</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <item>
+              <widget class="QRadioButton" name="rbProtect1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupProtect</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbProtect2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupProtect</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbProtect3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupProtect</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbProtect4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupProtect</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbProtect5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupProtect</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_7">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>80</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="crowds">
          <item>
-          <widget class="QLabel" name="lbCrowds">
-           <property name="text">
-            <string>Good in crowds:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <layout class="QHBoxLayout" name="lotsOfEnergy">
            <item>
-            <widget class="QRadioButton" name="rbCrowds1">
-             <property name="text">
-              <string/>
+            <widget class="QLabel" name="lbEnergy">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupCrowds</string>
-             </attribute>
+             <property name="text">
+              <string>Lots of energy:</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbCrowds2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupCrowds</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbCrowds3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupCrowds</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbCrowds4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupCrowds</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbCrowds5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupCrowds</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="QRadioButton" name="rbEnergy1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupEnergy</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbEnergy2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupEnergy</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbEnergy3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupEnergy</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbEnergy4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupEnergy</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbEnergy5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupEnergy</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_6">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>60</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="strangers">
          <item>
-          <widget class="QLabel" name="lbStrange">
-           <property name="text">
-            <string>Good with strangers:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_10">
+          <layout class="QHBoxLayout" name="isVeryFearful">
            <item>
-            <widget class="QRadioButton" name="rbStrange1">
-             <property name="text">
-              <string/>
+            <widget class="QLabel" name="lbFear">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupStrange</string>
-             </attribute>
+             <property name="text">
+              <string>Is fearful:</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbStrange2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupStrange</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbStrange3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupStrange</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbStrange4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupStrange</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbStrange5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupStrange</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <widget class="QRadioButton" name="rbFear1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupFear</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbFear2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupFear</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbFear3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupFear</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbFear4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupFear</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbFear5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupFear</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_5">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>120</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="protect">
          <item>
-          <widget class="QLabel" name="lbProtect">
-           <property name="text">
-            <string>Good home protector:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <layout class="QHBoxLayout" name="affection">
            <item>
-            <widget class="QRadioButton" name="rbProtect1">
+            <widget class="QLabel" name="lbAffection">
              <property name="text">
-              <string/>
+              <string>Is affectionate:</string>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupProtect</string>
-             </attribute>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbProtect2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupProtect</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbProtect3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupProtect</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbProtect4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupProtect</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbProtect5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupProtect</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_13">
+             <item>
+              <widget class="QRadioButton" name="rbAffection1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupAffection</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbAffection2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupAffection</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbAffection3">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupAffection</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbAffection4">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupAffection</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbAffection5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupAffection</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_4">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>160</y>
-          <width>221</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="isVeryFearful">
          <item>
-          <widget class="QLabel" name="lbFear">
-           <property name="text">
-            <string>Is fearful:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <layout class="QHBoxLayout" name="messy">
            <item>
-            <widget class="QRadioButton" name="rbFear1">
+            <widget class="QLabel" name="lbMessy">
              <property name="text">
-              <string/>
+              <string>Is messy:</string>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupFear</string>
-             </attribute>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="rbFear2">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupFear</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbFear3">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupFear</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbFear4">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupFear</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="rbFear5">
-             <property name="text">
-              <string/>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">groupFear</string>
-             </attribute>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_14">
+             <item>
+              <widget class="QRadioButton" name="rbMessy1">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupMessy</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbMessy2">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupMessy</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbMessy4">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupMessy</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbMessy5">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupMessy</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rbMessy3">
+               <property name="text">
+                <string/>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">groupMessy</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
@@ -1118,7 +1102,7 @@
         <rect>
          <x>0</x>
          <y>230</y>
-         <width>231</width>
+         <width>261</width>
          <height>88</height>
         </rect>
        </property>
@@ -1230,12 +1214,12 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupChildren">
+  <buttongroup name="groupProtect">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupProtect">
+  <buttongroup name="groupEnergy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -1245,42 +1229,12 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupCrowds">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupLifestyle">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupStrange">
+  <buttongroup name="groupMessy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
   <buttongroup name="groupGender">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupAffection">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupGoodAnimals">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupNoise">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupEnergy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -1295,7 +1249,37 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupMessy">
+  <buttongroup name="groupChildren">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupCrowds">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupStrange">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupGoodAnimals">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupLifestyle">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupAffection">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupNoise">
    <property name="exclusive">
     <bool>true</bool>
    </property>
