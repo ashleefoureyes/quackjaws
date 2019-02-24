@@ -13,6 +13,8 @@ ViewClients::~ViewClients()
     delete ui;
 }
 
+/** Function: PopulateList
+    purpose: Populates client list with all Clients in storage*/
 void ViewClients::populateList()
 {
 
@@ -26,6 +28,9 @@ void ViewClients::populateList()
     }
 }
 
+/** Function: viewClientsFromStorage(Storage*)
+ *  in: Storage*
+ *  purpose: To be called when ViewClients is clicked. Displays all clients in storage */
 void ViewClients::viewClientsFromStorage(Storage *storage)
 {
     this->storage = storage;
@@ -34,12 +39,18 @@ void ViewClients::viewClientsFromStorage(Storage *storage)
     this->exec();
 }
 
-void ViewClients::on_clientList_itemClicked(QListWidgetItem *item)
+/** Funciton: on_clientList_itemClicked()
+    purpose: Changes displayed Client information when list
+             item clicked */
+void ViewClients::on_clientList_itemClicked()
 {
     int index = ui->clientList->currentRow();
     displayClient(index);
 }
 
+/** Function: displayClient(int index)
+ *  in: int index of client in list
+    purpose: Displays the information of the client clicked on in the list*/
 void ViewClients::displayClient(int index)
 {
     if(storage->getNumOfElements() == 0) { ui->lbClientInfo->setText(QString::fromStdString("No clients in database")); return; }

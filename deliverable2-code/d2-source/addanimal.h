@@ -25,7 +25,7 @@ class AddAnimal : public QDialog
 public:
     explicit AddAnimal(QWidget *parent = nullptr);
     ~AddAnimal();
-    int createNewAnimal(Animal*);
+    int initNewAnimal(Animal*);
     int editAnimal(Animal*);
 
 private slots:
@@ -45,6 +45,7 @@ private:
     QImage animalPhoto;
     std::string savePhoto(std::string);
     bool customImage = false;
+    std::string getUniqueFilename(std::string filename);
 };
 
 #endif // ADDANIMAL_H

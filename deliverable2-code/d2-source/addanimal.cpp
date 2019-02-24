@@ -22,7 +22,12 @@ int AddAnimal::editAnimal(Animal *animalToEdit)
     return 1;
 }
 
-int AddAnimal::createNewAnimal(Animal *newAnimal)
+/** Function: initNewAnimal(Animal*)
+ *  in-out: Animal* newAnimal
+ *  purpose: Called to create set all the parameters for the new Animal.
+ *           Returns 1 if the Animal is set or 0 if the user clicked Exit.
+ *           The latter causes the instantiated Animal to be delete. */
+int AddAnimal::initNewAnimal(Animal *newAnimal)
 {
     this->newAnimal = &newAnimal;
     this->exec();
@@ -60,6 +65,8 @@ void AddAnimal::setupButtons()
 
 }
 
+/** Function: on_bUpload_clicked()
+ *  purpose: Prompts user to upload an image to be attributed to the animal */
 void AddAnimal::on_bUpload_clicked()
 {
     QString filename = QFileDialog::getOpenFileName(this, tr("Animal Image"), "", tr("Images(*.png *.jpg *.jpeg)"));
@@ -81,15 +88,45 @@ void AddAnimal::on_bUpload_clicked()
 
 }
 
+/** Function: savePhoto(std::string filename)
+    in: string filename
+    purpose: saves the animal in persistent storage to be
+             loaded at a later date */
 std::string AddAnimal::savePhoto(std::string filename)
 {
+    // If directory with DIR_NAME doesn't exist then create it
     if (!QDir(DIR_NAME).exists()) { QDir().mkdir(DIR_NAME); }
 
-   filename += ".jpg";
-   filename = IMAGE_FILEPATH + filename;
+    filename = getUniqueFilename(filename);
+
+    filename += ".jpg";
 
     QString qFilename = QString::fromStdString(filename);
     animalPhoto.save(qFilename);
+
+    return filename;
+
+}
+
+/** Function: getOriginalFilename(std::string filename)
+ *  in: std::string filename
+ *  out: std::string unique filename
+ *  purpose: Checks photo directory for file with same filename
+ *           If there isn't a match then the filename is unique
+ *           If there is a match it appends an integer and checks again
+ *           then keeps incrementing that integer until the filename is unique */
+std::string AddAnimal::getUniqueFilename(std::string filename)
+{
+    int number = 0;
+
+    QFileInfo check_file(QString::fromStdString(IMAGE_FILEPATH + filename));
+
+    while(check_file.exists() && check_file.isFile())
+    {
+        filename = filename + std::to_string(number);
+        ++number;
+        QFileInfo check_file(QString::fromStdString(IMAGE_FILEPATH + filename));
+    }
 
     return filename;
 
@@ -101,7 +138,7 @@ std::string AddAnimal::savePhoto(std::string filename)
     purpose: Takes all information from form and creates
              a new Animal object with this information.
              This is the same Animal reference that was passed
-             in at AddAnimal::createNewAnimal */
+             in at AddAnimal::initNewAnimal */
 // TODO: Support saving animal image
 void AddAnimal::on_bSubmit_clicked()
 {
@@ -182,14 +219,23 @@ void AddAnimal::on_bSubmit_clicked()
     this->close();
 }
 
+/** Function: on_bExit_clicked()
+ *  out: QDialog::Rejected (which is 0)
+ *  Purpose: Closes the addAnimal window if user clicks exit
+ *           Return value is so StaffHomepage knows to delete
+ *           the Animal object passed to the function */
 void AddAnimal::on_bExit_clicked()
 {
-    delete (*newAnimal);
     returnVal = QDialog::Rejected;
     this->close();
 }
 
-// Changes submit bar text depending on tab
+/** Function: on_Tabs_tabBarClicked(int index)
+ *  in: index (Which tab bar is clicked)
+ *  Purpose: Decides what text/functionality to tie to the
+ *           submit button.
+ *           If on first tab it brings you to second tab.
+ *           If on second tab it submits and creates the new animal */
 void AddAnimal::on_Tabs_tabBarClicked(int index)
 {
     if(index == 0) { ui->bSubmit->setText("Next"); }

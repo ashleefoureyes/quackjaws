@@ -23,17 +23,23 @@ int StaffHomepage::showStaffPage()
     return returnResult;
 }
 
+/** Function: on_bAddAnimal_clicked()
+ *  Purpose: Opens addAnimal window. If staff clicked submit
+ *           then the new animal is initialized and put in storage
+ *           If staff clicked exit then the animal is deleted */
 void StaffHomepage::on_bAddAnimal_clicked()
 {
     AddAnimal addAnim;
     addAnim.setModal(true);
     Animal *newAnimal = new Animal();
 
-    if(addAnim.createNewAnimal(newAnimal) == 0) { return; }
+    if(addAnim.initNewAnimal(newAnimal) == 0) { delete newAnimal; return; }
 
     animalStorage->add(newAnimal);
 }
 
+/** Function: on_bViewAnimals_clicked()
+    purpose: Opens window to view all animals */
 void StaffHomepage::on_bViewAnimals_clicked()
 {
     ViewAnimals viewAnim;
@@ -42,23 +48,31 @@ void StaffHomepage::on_bViewAnimals_clicked()
 
 }
 
+/** Function: on_bLogout_clicked()
+    purpose: Returns to mainwindow*/
 void StaffHomepage::on_bLogout_clicked()
 {
     returnResult = QDialog::Accepted;
     this->close();
 }
 
+/** Function: on_bAddClient_clicked()
+ *  Purpose: Opens addClient window. If staff clicked submit
+ *           then the new client is initialized and put in storage
+ *           If staff clicked exit then the client is deleted */
 void StaffHomepage::on_bAddClient_clicked()
 {
     AddClient addClient;
     addClient.setModal(true);
     Client *newClient = new Client;
 
-    if(addClient.createNewClient(newClient) == 0) { return; }
+    if(addClient.initNewClient(newClient) == 0) { delete newClient; return; }
 
     clientStorage->add(newClient);
 }
 
+/** Function: on_bViewClients_clicked()
+    purpose: Opens window to view all clients */
 void StaffHomepage::on_bViewClients_clicked()
 {
     ViewClients viewClient;
@@ -67,6 +81,7 @@ void StaffHomepage::on_bViewClients_clicked()
 
 }
 
+// Not yet implemented
 void StaffHomepage::on_bRunAlgorithm_clicked()
 {
     QMessageBox msgBox;

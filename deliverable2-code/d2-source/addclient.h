@@ -16,7 +16,7 @@ class AddClient : public QDialog
 public:
     explicit AddClient(QWidget *parent = nullptr);
     ~AddClient();
-    int createNewClient(Client*);
+    int initNewClient(Client*);
 
 private slots:
     void on_pbSubmit_clicked();

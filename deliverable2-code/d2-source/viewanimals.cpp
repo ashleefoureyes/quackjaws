@@ -18,6 +18,9 @@ ViewAnimals::~ViewAnimals()
     delete ui;
 }
 
+/** Function: viewAnimalsFromStorage(Storage*)
+ *  in: Storage*
+ *  purpose: To be called when ViewAnimals is clicked. Displays all animals in storage */
 void ViewAnimals::viewAnimalsFromStorage(Storage *storage)
 {
     this->storage = storage;
@@ -26,6 +29,8 @@ void ViewAnimals::viewAnimalsFromStorage(Storage *storage)
     this->exec();
 }
 
+/** Function: PopulateList
+    purpose: Populates animal list with all Animals in storage*/
 void ViewAnimals::populateList()
 {
     int i = 0;
@@ -40,12 +45,19 @@ void ViewAnimals::populateList()
     }
 }
 
-void ViewAnimals::on_animalList_itemClicked(QListWidgetItem *item)
+/** Funciton: on_animalList_itemClicked()
+    purpose: Changes displayed Animal information when list
+             item clicked */
+void ViewAnimals::on_animalList_itemClicked()
 {
         int index = ui->animalList->currentRow();
         displayAnimal(index);
 }
 
+/** Function: displayAnimal(int index)
+    in: int index in list of clicked element
+    purpose: Displays all animal information in relevant areas
+             when list element has been clicked*/
 void ViewAnimals::displayAnimal(int index)
 {
    if(storage->getNumOfElements() == 0) { return; }
@@ -87,6 +99,10 @@ void ViewAnimals::displayAnimal(int index)
    else { ui->lbAnimalImage->clear(); ui->lbAnimalImage->setText(QString::fromStdString("No Image")); }
 }
 
+/** Function: loadImage(string filename)
+    in: string filename
+    purpose: Loads the image of the animal if there is one
+             If there isn't just display text */
 void ViewAnimals::loadImage(std::string filename)
 {
     QString qFilename = QString::fromStdString(filename);

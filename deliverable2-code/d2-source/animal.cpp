@@ -12,8 +12,7 @@ Animal::Animal() { this->imageFilePath = "noImage"; }
  *  in: animal attributes
  *  purpose: Animal constructor with attributes
  *           For use when loading animal information
- *           Delegates attributes to setAttributes method
-*/
+ *           Delegates attributes to setAttributes method */
 Animal::Animal(std::string breed, std::string name,
                int size, int age, char gender, int fur, int species,
                 int travels, int children, int goodWAnimals, int strangers,
@@ -33,9 +32,7 @@ Animal::~Animal() { }
  *  purpose: Sets animal attributes to those passed as parameter.
  *           Had to change functionality from constructor to method
  *           because I need to create the Animal object before passing it
- *           to the AddAnimal class.
-
-*/
+ *           to the AddAnimal class. */
 void Animal::setAttributes(std::string breed, std::string name,
                int size, int age, char gender, int fur, int species,
                 int travels, int children, int goodWAnimals, int strangers,
@@ -57,29 +54,10 @@ void Animal::setAttributes(std::string breed, std::string name,
 
 }
 
-std::string Animal::getName() { return name; }
-std::string Animal::getBreed() { return breed; }
-int Animal::getAge() { return age; }
-int Animal::getSize() { return size; }
-char Animal::getGender() { return gender; }
-int Animal::getFur() { return fur; }
-bool Animal::isHypo() { return isHypoAllergenic; }
-int Animal::getSpeciesNum() { return species; }
-std::string Animal::getSpecies()
-{
-    switch(species)
-    {
-        case 0: return "Cat";
-        case 1: return "Dog";
-    }
-
-    return "N/A";
-}
 
 /** Function: setIdNumber(int newId)
     in: Id assigned by Storage object
-    purpose: Assigns the idStr to the profile
-*/
+    purpose: Assigns the idStr to the profile */
 void Animal::setIdNumber(int newId)
 {
     // Converts to str, concatenates storage code the reconverts to int. This is to ensure
@@ -90,10 +68,7 @@ void Animal::setIdNumber(int newId)
     this->profileId = std::stoi(idStr);
 }
 
-void Animal::setImageFilePath(std::string filepath)
-{
-    imageFilePath = filepath;
-}
+void Animal::setImageFilePath(std::string filepath) { imageFilePath = filepath; }
 
 /** Function getFormattedInfo
  *  out: Formatted string of animal info
@@ -195,3 +170,23 @@ int Animal::getEnergy() const { return energy; }
 int Animal::getFearful() const { return fearful; }
 int Animal::getAffection() const { return affection; }
 int Animal::getMessy() const { return messy; }
+
+std::string Animal::getName() { return name; }
+std::string Animal::getBreed() { return breed; }
+int Animal::getAge() { return age; }
+int Animal::getSize() { return size; }
+char Animal::getGender() { return gender; }
+int Animal::getFur() { return fur; }
+bool Animal::isHypo() { return isHypoAllergenic; }
+int Animal::getSpeciesNum() { return species; }
+
+std::string Animal::getSpecies()
+{
+    switch(species)
+    {
+        case 0: return "Cat";
+        case 1: return "Dog";
+    }
+
+    return "N/A";
+}

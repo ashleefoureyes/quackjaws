@@ -16,13 +16,25 @@ AddClient::~AddClient()
     delete ui;
 }
 
-int AddClient::createNewClient(Client* newClient)
+/** Function: initNewClient(Client*)
+ *  in-out: Client* newClient
+ *  purpose: Called to create set all the parameters for the new Client.
+ *           Returns 1 if the Client is set or 0 if the user clicked Exit.
+ *           The latter causes the instantiated Client to be delete. */
+int AddClient::initNewClient(Client* newClient)
 {
     this->newClient = &newClient;
     this->exec();
     return returnResult;
 }
 
+/** Function: on_bSubmit_clicked()
+    in: All client attributes
+    in-out: Client *newClient
+    purpose: Takes all information from form and creates
+             a new Animal object with this information.
+             This is the same Client reference that was passed
+             in at AddClient::initNewClient */
 void AddClient::on_pbSubmit_clicked()
 {
     std::string firstName, lastName, address,
@@ -48,12 +60,20 @@ void AddClient::on_pbSubmit_clicked()
     this->close();
 }
 
+/** Function: on_bExit_clicked()
+ *  out: QDialog::Rejected (which is 0)
+ *  Purpose: Closes the addClient window if user clicks exit
+ *           Return value is so StaffHomepage knows to delete
+ *           the Client object passed to the function */
 void AddClient::on_pbExit_clicked()
 {
     returnResult = QDialog::Rejected;
     this->close();
 }
 
+/** Function: displaySubmissionError()
+ *  purpose: Displays error message if client
+ *           information is missing */
 void AddClient::displaySubmissionError()
 {
     QMessageBox msgBox;

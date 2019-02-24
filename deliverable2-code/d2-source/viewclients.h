@@ -19,7 +19,7 @@ public:
     void viewClientsFromStorage(Storage *storage);
 
 private slots:
-    void on_clientList_itemClicked(QListWidgetItem *item);
+    void on_clientList_itemClicked();
 
 private:
     Ui::ViewClients *ui;

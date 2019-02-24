@@ -23,7 +23,7 @@ public:
     void viewAnimalsFromStorage(Storage *storage);
 
 private slots:
-    void on_animalList_itemClicked(QListWidgetItem *item);
+    void on_animalList_itemClicked();
 
 private:
     Ui::ViewAnimals *ui;

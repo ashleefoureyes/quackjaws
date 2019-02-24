@@ -13,6 +13,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/** Function: on_bStaffEntry_clicked()
+ *  purpose: Opens the staff homepage */
 void MainWindow::on_bStaffEntry_clicked()
 {
     StaffHomepage home(nullptr, &animalStorage, &clientStorage);
@@ -21,13 +23,18 @@ void MainWindow::on_bStaffEntry_clicked()
     if(home.showStaffPage() == 1) {this->show();}
 }
 
-// TODO: Make it return Client so we can log them in with correct information
+/** Function: on_bClientEntry_clicked()
+ *  purpose: Opens the client homepage if client
+ *           inputs a valid email address */
+// TODO: Make it input the Client so we can log them in with correct information
+//       and make necessary adjustments if user decides to change information
 void MainWindow::on_bClientEntry_clicked()
 {
     std::string enteredText = (ui->txtEmailLogin->text()).toStdString();
 
     bool validEmail = false;
 
+    // Checks storage for one with an email that matches the input
     for(int i = 0; i < clientStorage.getNumOfElements(); ++i)
     {
         Client* client = static_cast<Client*>(clientStorage.get(i));
@@ -42,6 +49,8 @@ void MainWindow::on_bClientEntry_clicked()
     if(clientHomepage.showClientPage() == 1) { this->show(); }
 }
 
+/** Function: displayLoginError()
+ *  purpose: Displays a login error if the username is not in storage */
 void MainWindow::displayLoginError()
 {
     QMessageBox msgBox;
