@@ -6,7 +6,7 @@
 #include <iomanip>
 
 
-Animal::Animal() { this->imageFilePath = "noImage"; }
+Animal::Animal() { this->imageFilePath = "noImage"; this->profileId = -1; }
 
 /** Function: Animal( ... )
  *  in: animal attributes
@@ -18,10 +18,10 @@ Animal::Animal(std::string breed, std::string name,
                 int travels, int children, int goodWAnimals, int strangers,
                 int crowds, int noises, int protector, int energy,
                 int fearful, int affection, int messy,
-                bool isNocturnal, bool hypo, int lifestyle)
+                bool isNocturnal, bool hypo, int lifestyle, int history)
 {
     setAttributes(breed, name, size, age, gender, fur, species, travels, children, goodWAnimals,
-                  strangers, crowds, noises, protector, energy, fearful, affection, messy, isNocturnal, hypo, lifestyle);
+                  strangers, crowds, noises, protector, energy, fearful, affection, messy, isNocturnal, hypo, lifestyle, history);
     imageFilePath = nullptr;
 }
 
@@ -38,7 +38,7 @@ void Animal::setAttributes(std::string breed, std::string name,
                 int travels, int children, int goodWAnimals, int strangers,
                 int crowds, int noises, int protector, int energy,
                 int fearful, int affection, int messy,
-                bool isNocturnal, bool hypo, int lifestyle)
+                bool isNocturnal, bool hypo, int lifestyle, int history)
 {
     // Physical attributes
     this->breed = breed; this->name = name;
@@ -50,7 +50,7 @@ void Animal::setAttributes(std::string breed, std::string name,
     this->noises = noises; this->protector = protector; this->energy = energy;
     this->fearful = fearful; this->affection = affection; this->messy = messy;
     this->isHypoAllergenic = hypo; this->isNocturnal = isNocturnal;
-    this->lifestyle = lifestyle;
+    this->lifestyle = lifestyle; this->history = history;
 
 }
 

@@ -34,7 +34,7 @@ class Animal: public Profile
             int travels, int children, int goodWAnimals, int strangers,
             int crowds, int noises, int protector, int energy,
             int fearful, int affection, int messy,
-            bool isNocturnal, bool hypo, int lifestyle);
+            bool isNocturnal, bool hypo, int lifestyle, int history);
     ~Animal();
 
     void setAttributes(std::string breed="n/a", std::string name="n/a",
@@ -42,7 +42,7 @@ class Animal: public Profile
                         int travels = -1, int children = -1, int goodWAnimals = -1, int strangers = -1,
                         int crowds = -1, int noises = -1, int protector = -1, int energy = -1,
                         int fearful = -1, int affection = -1, int messy = -1,
-                        bool isNoturnal = false, bool hypo = false, int lifestyle = 0);
+                        bool isNoturnal = false, bool hypo = false, int lifestyle = 0, int history = 0);
 
     // TODO add non-physical attributes for later Deliverable
 

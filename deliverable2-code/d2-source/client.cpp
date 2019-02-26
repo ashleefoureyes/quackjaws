@@ -1,9 +1,6 @@
 #include "client.h"
 
-Client::Client()
-{
-
-}
+Client::Client() { this->profileId = -1; }
 
 std::string Client::getFormattedInfo()
 {

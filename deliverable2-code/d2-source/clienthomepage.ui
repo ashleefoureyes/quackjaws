@@ -16,10 +16,10 @@
   <widget class="QPushButton" name="lbViewAnimals">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>100</y>
-     <width>80</width>
-     <height>16</height>
+     <x>140</x>
+     <y>120</y>
+     <width>101</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
@@ -29,10 +29,10 @@
   <widget class="QPushButton" name="lbLogout">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>130</y>
-     <width>80</width>
-     <height>16</height>
+     <x>140</x>
+     <y>260</y>
+     <width>101</width>
+     <height>25</height>
     </rect>
    </property>
    <property name="text">
@@ -50,7 +50,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="text">

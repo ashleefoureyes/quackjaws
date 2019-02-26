@@ -118,17 +118,16 @@ std::string AddAnimal::savePhoto(std::string filename)
 std::string AddAnimal::getUniqueFilename(std::string filename)
 {
     int number = 0;
+    std::string originalFilename = filename;
 
-    QFileInfo check_file(QString::fromStdString(IMAGE_FILEPATH + filename));
-
-    while(check_file.exists() && check_file.isFile())
+    while(QFileInfo::exists(QString::fromStdString(IMAGE_FILEPATH + filename + ".jpg")))
     {
-        filename = filename + std::to_string(number);
+        filename = originalFilename + std::to_string(number);
         ++number;
-        QFileInfo check_file(QString::fromStdString(IMAGE_FILEPATH + filename));
+
     }
 
-    return filename;
+    return IMAGE_FILEPATH + filename;
 
 }
 
@@ -166,10 +165,10 @@ void AddAnimal::on_bSubmit_clicked()
 
     name = Qname.toStdString();
 
-    if(name == "") { name = "N/A"; }
+    if(name == "") { name = "Unknown"; }
 
     breed = Qbreed.toStdString();
-    if(breed == "") { breed = "N/A"; }
+    if(breed == "") { breed = "Unknown"; }
 
     if(ui->rbCat->isChecked()) { species = 0; }
     else if(ui->rbDog->isChecked()) { species = 1; }
@@ -205,13 +204,13 @@ void AddAnimal::on_bSubmit_clicked()
     (*newAnimal)->setAttributes(
                 breed,name, size, age, gender, fur, species, travels,
                 children, goodWAnimals, strangers, crowds, noises, protector,
-                energy, fearful, affection, messy, isNocturnal, isHypoAllergenic, lifestyle);
+                energy, fearful, affection, messy, isNocturnal, isHypoAllergenic, lifestyle, history);
 
     // TODO: Write function to generate original filename
     if(customImage) { (*newAnimal)->setImageFilePath(savePhoto(name)); }
 
     //QMessageBox msgBox;
-    //QString qst = QString::fromStdString("Animal added successfully");
+    //QString qst = QString::fromStdString(name);
     //msgBox.setText(qst);
     //msgBox.exec();
 

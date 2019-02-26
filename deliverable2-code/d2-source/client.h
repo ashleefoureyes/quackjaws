@@ -1,7 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include "Profile.h"
+#include "profile.h"
 #include <string>
 
 #define CLIENT_STORAGE_CODE 2
