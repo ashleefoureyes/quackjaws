@@ -33,7 +33,7 @@ void StaffHomepage::on_bAddAnimal_clicked()
     addAnim.setModal(true);
     Animal *newAnimal = new Animal();
 
-    if(addAnim.initNewAnimal(newAnimal) != 0) { delete newAnimal; return; }
+    if(addAnim.initNewAnimal(newAnimal) != 1) { delete newAnimal; return; }
 
     animalStorage->add(newAnimal);
 }
@@ -66,7 +66,7 @@ void StaffHomepage::on_bAddClient_clicked()
     addClient.setModal(true);
     Client *newClient = new Client;
 
-    if(addClient.initNewClient(newClient) != 0) { delete newClient; return; }
+    if(addClient.initNewClient(newClient) != 1) { delete newClient; return; }
 
     clientStorage->add(newClient);
 }
