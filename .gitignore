@@ -1,4 +1,9 @@
 **/*.swp
 **/.~lock.*
-deliverable1-code/*.o
-deliverable11-code/*.out
+deliverable*-code/*.o
+deliverable*-code/ui_*.h
+deliverable*-code/moc*.h
+deliverable*-code/moc_*.cpp
+deliverable*-code/.qmake.stash
+deliverable*-code/*.out
+**/COMP3004
