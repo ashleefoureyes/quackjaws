@@ -36,7 +36,13 @@ SOURCES += \
     client.cpp \
     addclient.cpp \
     viewclients.cpp \
-    clienthomepage.cpp
+    clienthomepage.cpp \
+    animalstorage.cpp \
+    cat.cpp \
+    dog.cpp \
+    bird.cpp \
+    rabbit.cpp \
+    lizard.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +55,13 @@ HEADERS += \
     client.h \
     addclient.h \
     viewclients.h \
-    clienthomepage.h
+    clienthomepage.h \
+    animalstorage.h \
+    cat.h \
+    dog.h \
+    bird.h \
+    rabbit.h \
+    lizard.h
 
 FORMS += \
         mainwindow.ui \

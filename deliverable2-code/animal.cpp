@@ -13,14 +13,14 @@ Animal::Animal() { this->imageFilePath = "noImage"; this->profileId = -1; }
  *  purpose: Animal constructor with attributes
  *           For use when loading animal information
  *           Delegates attributes to setAttributes method */
-Animal::Animal(std::string breed, std::string name,
-               int size, int age, char gender, int fur, int species,
+Animal::Animal(std::string name,
+               int size, int age, char gender, int fur,
                 int travels, int children, int goodWAnimals, int strangers,
                 int crowds, int noises, int protector, int energy,
                 int fearful, int affection, int messy,
                 bool isNocturnal, bool hypo, int lifestyle, int history)
 {
-    setAttributes(breed, name, size, age, gender, fur, species, travels, children, goodWAnimals,
+    setAttributes(name, size, age, gender, fur, species, travels, children, goodWAnimals,
                   strangers, crowds, noises, protector, energy, fearful, affection, messy, isNocturnal, hypo, lifestyle, history);
     imageFilePath = nullptr;
 }
@@ -33,7 +33,7 @@ Animal::~Animal() { }
  *           Had to change functionality from constructor to method
  *           because I need to create the Animal object before passing it
  *           to the AddAnimal class. */
-void Animal::setAttributes(std::string breed, std::string name,
+void Animal::setAttributes(std::string name,
                int size, int age, char gender, int fur, int species,
                 int travels, int children, int goodWAnimals, int strangers,
                 int crowds, int noises, int protector, int energy,
@@ -41,7 +41,7 @@ void Animal::setAttributes(std::string breed, std::string name,
                 bool isNocturnal, bool hypo, int lifestyle, int history)
 {
     // Physical attributes
-    this->breed = breed; this->name = name;
+    this->name = name;
     this->size = size; this->age = age; this->gender = gender;
     this->fur = fur; this->species = species;
     // Non-physical
@@ -58,44 +58,17 @@ void Animal::setAttributes(std::string breed, std::string name,
 /** Function: setIdNumber(int newId)
     in: Id assigned by Storage object
     purpose: Assigns the idStr to the profile */
-void Animal::setIdNumber(int newId)
+void Animal::setIdNumber(int newId, int animalCode)
 {
     // Converts to str, concatenates storage code the reconverts to int. This is to ensure
     // if we have an animal code like 2999 and we add another animal we get: 21000 instead of 3000
     // this way the storage code will always be ANIMAL_STORAGE_CODE for animals no matter
     // how many are in storage
-    std::string idStr = std::to_string(ANIMAL_STORAGE_CODE) + std::to_string(newId);
+    std::string idStr = std::to_string(animalCode) + std::to_string(newId);
     this->profileId = std::stoi(idStr);
 }
 
 void Animal::setImageFilePath(std::string filepath) { imageFilePath = filepath; }
-
-/** Function getFormattedInfo
- *  out: Formatted string of animal info
- *  Purpose: Takes the Animal's attributes and returns a
- *           formatted string create from this info */
-std::string Animal::getFormattedInfo()
-{
-    std::string returnStr = "";
-    std::ostringstream formattedReturn;
-
-    std::string sep = " | ";
-
-    formattedReturn << std::left << "Id: " << std::to_string(getId()) << sep
-                    << std::left << "Name: " << std::setw(10) << getName() << sep
-                    << std::left << "Species: " << std::setw(3) << getSpecies() << sep
-                    << std::left << "Breed: " << std::setw(14) << getBreed() << sep
-                    << std::left << "Age: " << std::setw(3) << std::to_string(getAge()) << sep
-                    << std::left << "Size: " << std::setw(7) << getSizeStr() << sep
-                    << std::left << "Gender: " << std::setw(2) << getGender() << sep
-                    << std::left << "Fur Type: " << std::setw(12) << getFurStr() << sep;
-
-
-    returnStr = formattedReturn.str();
-
-    return returnStr;
-
-}
 
 std::string Animal::getListInfoStr()
 {

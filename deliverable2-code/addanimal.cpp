@@ -7,6 +7,7 @@ AddAnimal::AddAnimal(QWidget *parent) :
 {
     ui->setupUi(this);
     setupButtons();
+    changeBreedBox(0);
 }
 
 AddAnimal::~AddAnimal()
@@ -30,6 +31,12 @@ int AddAnimal::editAnimal(Animal *animalToEdit)
 int AddAnimal::initNewAnimal(Animal *newAnimal)
 {
     this->newAnimal = &newAnimal;
+    this->exec();
+    return returnVal;
+}
+
+int AddAnimal::createNewAnimal(AnimalStorage**)
+{
     this->exec();
     return returnVal;
 }
@@ -141,6 +148,7 @@ std::string AddAnimal::getUniqueFilename(std::string filename)
 // TODO: Support saving animal image
 void AddAnimal::on_bSubmit_clicked()
 {
+    /**
     // If still on Physical info tab move to Non-Physical tab
     if (ui->Tabs->currentIndex() == 0)
     {
@@ -202,7 +210,7 @@ void AddAnimal::on_bSubmit_clicked()
     isHypoAllergenic = ui->boxAllergies->isChecked();
 
     (*newAnimal)->setAttributes(
-                breed,name, size, age, gender, fur, species, travels,
+                name, size, age, gender, fur, species, travels,
                 children, goodWAnimals, strangers, crowds, noises, protector,
                 energy, fearful, affection, messy, isNocturnal, isHypoAllergenic, lifestyle, history);
 
@@ -216,6 +224,7 @@ void AddAnimal::on_bSubmit_clicked()
 
     returnVal = QDialog::Accepted;
     this->close();
+    */
 }
 
 /** Function: on_bExit_clicked()
@@ -239,4 +248,46 @@ void AddAnimal::on_Tabs_tabBarClicked(int index)
 {
     if(index == 0) { ui->bSubmit->setText("Next"); }
     else { ui->bSubmit->setText("Submit");}
+}
+
+void AddAnimal::changeBreedBox(int index)
+{
+    ui->cbBreed->clear();
+
+    std::vector<std::string> breeds;
+
+    switch(index)
+    {
+        case 0: breeds = dogBreeds; break;
+        case 1: breeds = catBreeds; break;
+        case 2: breeds = birdBreeds; break;
+        case 3: breeds = lizardBreeds; break;
+        case 4: breeds = rabbitBreeds; break;
+    }
+
+    std::sort(breeds.begin(), breeds.end());
+
+    // Adding other at the end ensures it's always at the end after sorting
+    breeds.push_back("Other");
+
+    for(int i = 0; i < static_cast<int>(breeds.size()); ++i)
+    {
+        QString element = QString::fromStdString(breeds.at(i));
+        ui->cbBreed->addItem(element);
+    }
+}
+
+void AddAnimal::changeSpeciesTab(int index)
+{
+    ui->tabWidget->removeTab(2);
+    if(index == 0) {ui->tabWidget->addTab(ui->tabDog, "Dog");}
+    else {ui->tabWidget->removeTab(2); }
+}
+
+void AddAnimal::on_cbSpecies_currentIndexChanged(int index)
+{
+    speciesIndex = index;
+    changeBreedBox(index);
+    changeSpeciesTab(index);
+
 }

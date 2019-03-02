@@ -4,7 +4,6 @@
 #include <string>
 #include "profile.h"
 
-#define ANIMAL_STORAGE_CODE 1
 
 class Animal: public Profile
 {
@@ -29,15 +28,15 @@ class Animal: public Profile
 
     public:
     Animal();
-    Animal(std::string breed, std::string name,
-           int size, int age, char gender, int fur, int species,
+    Animal(std::string name,
+           int size, int age, char gender, int fur,
             int travels, int children, int goodWAnimals, int strangers,
             int crowds, int noises, int protector, int energy,
             int fearful, int affection, int messy,
             bool isNocturnal, bool hypo, int lifestyle, int history);
     ~Animal();
 
-    void setAttributes(std::string breed="n/a", std::string name="n/a",
+    void setAttributes(std::string name="n/a",
                        int size = -1, int age = -1, char gender = '?', int fur =-1, int species=-1,
                         int travels = -1, int children = -1, int goodWAnimals = -1, int strangers = -1,
                         int crowds = -1, int noises = -1, int protector = -1, int energy = -1,
@@ -56,7 +55,7 @@ class Animal: public Profile
     std::string getSpecies();
     int getSpeciesNum();
 
-    void setIdNumber(int);
+    void setIdNumber(int, int);
 
 
     std::string getSizeStr();
@@ -64,7 +63,7 @@ class Animal: public Profile
     std::string getAllergyStr();
 
 
-    std::string getFormattedInfo();
+    virtual std::string getFormattedInfo() = 0;
     std::string getListInfoStr();
 
     int getTravels() const;

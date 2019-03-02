@@ -17,8 +17,6 @@ class Storage
     Storage();
     ~Storage();
     void add(Profile*);
-    bool remove(int);
-    bool remove(Profile**, int);
     bool getProfileWithId(Profile**, int);
     bool isProfileInStorage(int);
     int getNumOfElements();

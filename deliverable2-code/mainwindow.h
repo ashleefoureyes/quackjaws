@@ -6,6 +6,7 @@
 
 #include "staffhomepage.h"
 #include "storage.h"
+#include "animalstorage.h"
 #include "animal.h"
 #include "clienthomepage.h"
 
@@ -28,7 +29,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Storage animalStorage;
+    AnimalStorage animalStorage;
     Storage clientStorage;
     void displayLoginError();
 };

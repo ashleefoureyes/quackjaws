@@ -4,8 +4,6 @@
 #include "profile.h"
 #include <string>
 
-#define CLIENT_STORAGE_CODE 2
-
 class Client: public Profile
 {
 public:
@@ -21,6 +19,7 @@ private:
     std::string firstName, lastName, address,
         phone, email, city, province;
     int idStr;
+    int CLIENT_STORAGE_CODE = 1;
 
 };
 

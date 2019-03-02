@@ -1,7 +1,7 @@
 #include "staffhomepage.h"
 #include "ui_staffhomepage.h"
 
-StaffHomepage::StaffHomepage(QWidget *parent, Storage *animalStorage, Storage *clientStorage) :
+StaffHomepage::StaffHomepage(QWidget *parent, AnimalStorage *animalStorage, Storage *clientStorage) :
     QDialog(parent),
     ui(new Ui::StaffHomepage)
 {
@@ -31,11 +31,7 @@ void StaffHomepage::on_bAddAnimal_clicked()
 {
     AddAnimal addAnim;
     addAnim.setModal(true);
-    Animal *newAnimal = new Animal();
-
-    if(addAnim.initNewAnimal(newAnimal) != 1) { delete newAnimal; return; }
-
-    animalStorage->add(newAnimal);
+    addAnim.createNewAnimal(&animalStorage);
 }
 
 /** Function: on_bViewAnimals_clicked()
