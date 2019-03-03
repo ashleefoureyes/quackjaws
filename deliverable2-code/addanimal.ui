@@ -29,6 +29,20 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QPushButton" name="bExit">
+     <property name="text">
+      <string>Exit</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="bSubmit">
+     <property name="text">
+      <string>Next</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0" colspan="2">
     <widget class="QTabWidget" name="tabWidget">
      <property name="minimumSize">
@@ -1400,7 +1414,7 @@
         <rect>
          <x>140</x>
          <y>0</y>
-         <width>51</width>
+         <width>71</width>
          <height>17</height>
         </rect>
        </property>
@@ -1673,7 +1687,7 @@
         <rect>
          <x>150</x>
          <y>10</y>
-         <width>51</width>
+         <width>71</width>
          <height>17</height>
         </rect>
        </property>
@@ -1966,7 +1980,7 @@
         <rect>
          <x>150</x>
          <y>10</y>
-         <width>51</width>
+         <width>71</width>
          <height>17</height>
         </rect>
        </property>
@@ -2264,7 +2278,7 @@
         <rect>
          <x>150</x>
          <y>0</y>
-         <width>51</width>
+         <width>71</width>
          <height>17</height>
         </rect>
        </property>
@@ -2826,7 +2840,7 @@
         <rect>
          <x>150</x>
          <y>0</y>
-         <width>51</width>
+         <width>71</width>
          <height>17</height>
         </rect>
        </property>
@@ -2837,26 +2851,56 @@
      </widget>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QPushButton" name="bExit">
-     <property name="text">
-      <string>Exit</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QPushButton" name="bSubmit">
-     <property name="text">
-      <string>Next</string>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupMessy">
+  <buttongroup name="groupLifestyle">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupSheds"/>
+  <buttongroup name="groupTrainedCat"/>
+  <buttongroup name="groupGoodAnimals">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupAttentionBird"/>
+  <buttongroup name="groupBarks"/>
+  <buttongroup name="groupCurious"/>
+  <buttongroup name="groupAffection">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupStrange">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupGender">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupDogTrained"/>
+  <buttongroup name="groupTravel">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupAttentionRabbit"/>
+  <buttongroup name="groupGrooming"/>
+  <buttongroup name="groupEnergy">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupIsLoudBird"/>
+  <buttongroup name="groupFear">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -2866,17 +2910,7 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupProtect">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupFear">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupEnergy">
+  <buttongroup name="groupNoise">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -2886,46 +2920,12 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupCurious"/>
-  <buttongroup name="groupAffection">
+  <buttongroup name="groupMessy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupLifestyle">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupBarks"/>
-  <buttongroup name="groupAttentionBird"/>
-  <buttongroup name="groupGender">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupTrainedCat"/>
-  <buttongroup name="groupGrooming"/>
-  <buttongroup name="groupDogTrained"/>
-  <buttongroup name="groupGoodAnimals">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupNoise">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupIsLoudBird"/>
-  <buttongroup name="groupTravel">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupAttentionRabbit"/>
-  <buttongroup name="groupSheds"/>
-  <buttongroup name="groupStrange">
+  <buttongroup name="groupProtect">
    <property name="exclusive">
     <bool>true</bool>
    </property>
