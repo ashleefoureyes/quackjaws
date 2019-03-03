@@ -7,7 +7,7 @@
 class Animal
 {
     private:
-    std::string name, breed, imageFilePath;
+    std::string name, breed, species, imageFilePath;
     int idNumber;
 
     int size; // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
@@ -54,6 +54,8 @@ class Animal
     std::string getFormattedInfo();
 
     void setIdNumber(int, int);
+    void setSpecies(std::string species);
+    void setBreed(std::string breed);
 
 
     std::string getSizeStr();

@@ -238,38 +238,113 @@ void AddAnimal::on_tabWidget_tabBarClicked(int index)
 
 void AddAnimal::createCat()
 {
+    int curiosity, trained, shedding;
     Cat* newCat = new Cat();
     createAnimalBase(static_cast<Animal*>(newCat));
+
+    curiosity = ui->groupCurious->checkedId();
+    trained = ui->groupTrainedCat->checkedId();
+    shedding = ui->groupSheds->checkedId();
+
+    newCat->setBreed((ui->cbBreed->currentText()).toStdString());
+
+    newCat->setSpeciesAttributes(curiosity, trained, shedding);
+
     (*storage)->add(newCat);
+
+    this->close();
 }
 
 
 void AddAnimal::createDog()
 {
 
+    int barks, training;
+    bool isBathroomTrained;
+
     Dog* newDog = new Dog();
     createAnimalBase(static_cast<Animal*>(newDog));
+
+    barks = ui->groupBarks->checkedId();
+    training = ui->groupDogTrained->checkedId();
+    isBathroomTrained = ui->cbBathroomTrained->isChecked();
+
+    newDog->setBreed((ui->cbBreed->currentText()).toStdString());
+
+    newDog->setSpeciesAttributes(barks, training, isBathroomTrained);
+
     (*storage)->add(newDog);
+
+    this->close();
 }
 
 void AddAnimal::createBird()
 {
+    int loud, social;
+    std::string colour;
 
+    Bird* newBird = new Bird();
+    createAnimalBase(static_cast<Animal*>(newBird));
+
+    loud = ui->groupIsLoudBird->checkedId();
+    social = ui->groupAttentionBird->checkedId();
+    colour = (ui->cbColourBird->currentText()).toStdString();
+    newBird->setBreed((ui->cbBreed->currentText()).toStdString());
+
+    newBird->setSpeciesAttributes(loud, social, colour);
+
+    (*storage)->add(newBird);
+
+    this->close();
 }
 
 void AddAnimal::createLizard()
 {
+    std::string preferredDiet, colour, feedingInterval;
+    bool spaceReqs, lightingReqs;
 
+    Lizard* newLizard = new Lizard();
+    createAnimalBase(static_cast<Animal*>(newLizard));
+
+    preferredDiet = (ui->cbDiet->currentText()).toStdString();
+    colour = (ui->cbColorLizard->currentText()).toStdString();
+    spaceReqs = ui->boxSpace->isChecked();
+    lightingReqs = ui->boxLighting->isChecked();
+
+    newLizard->setBreed((ui->cbBreed->currentText()).toStdString());
+
+    newLizard->setSpeciesAttributes(preferredDiet, colour, feedingInterval, spaceReqs, lightingReqs);
+
+    (*storage)->add(newLizard);
+
+    this->close();
 }
 
 void AddAnimal::createRabbit()
 {
+    int grooming, attention;
+    std::string pattern, colour;
 
+    Rabbit* newRabbit = new Rabbit();
+    createAnimalBase(static_cast<Animal*>(newRabbit));
+
+    grooming = ui->groupGrooming->checkedId();
+    attention = ui->groupAttentionRabbit->checkedId();
+    pattern = (ui->cbPattern->currentText()).toStdString();
+    colour = (ui->cbColourRabbit->currentText()).toStdString();
+
+    newRabbit->setBreed((ui->cbBreed->currentText()).toStdString());
+
+    newRabbit->setSpeciesAttributes(pattern, colour, grooming, attention);
+
+    (*storage)->add(newRabbit);
+
+    this->close();
 }
 
 void AddAnimal::createAnimalBase(Animal *newAnimal)
 {
-    std::string name, breed;
+    std::string name;
 
     int size, fur, history, age;
 

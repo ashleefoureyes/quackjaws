@@ -14,3 +14,13 @@ Rabbit::Rabbit(std::string breed, std::string name,
 }
 
 void Rabbit::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_CODE); }
+
+Rabbit::Rabbit() { Animal::setSpecies(this->species); }
+
+void Rabbit::setSpeciesAttributes(std::string pattern, std::string colour, int grooming, int attention)
+{
+    this->pattern = pattern;
+    this->colour = colour;
+    this->grooming = grooming;
+    this->attention = attention;
+}

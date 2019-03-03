@@ -67,19 +67,25 @@ void AnimalStorage::get(Animal** animal, int index)
     if(i < dogStorage.size()) { *animal = dogStorage[i]; }
 
     // Cat vector
-    else if (i > dogStorage.size() && i < (dogStorage.size() + catStorage.size())) { *animal = catStorage[i - dogStorage.size()]; }
+    else if (i >= dogStorage.size() && i < (dogStorage.size() + catStorage.size())) { *animal = catStorage[i - dogStorage.size()];}
 
     // Bird vector
-    else if (i > (dogStorage.size() + catStorage.size()) && i < (dogStorage.size() + catStorage.size() + birdStorage.size()))
+    else if (i >= (dogStorage.size() + catStorage.size()) && i < (dogStorage.size() + catStorage.size() + birdStorage.size()))
             {*animal = birdStorage[i - dogStorage.size() - catStorage.size()]; }
 
     // Lizard vector
-    else if (i > (dogStorage.size() + catStorage.size() + birdStorage.size()) && i < (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size()))
+    else if (i >= (dogStorage.size() + catStorage.size() + birdStorage.size()) && i < (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size()))
             {*animal = lizardStorage[i - dogStorage.size() - catStorage.size() - birdStorage.size()]; }
 
     // Rabbit vector
-    else if (i > (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size()) && i < (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size() + rabbitStorage.size()))
+    else if (i >= (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size()) && i < (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size() + rabbitStorage.size()))
             {*animal = rabbitStorage[i - dogStorage.size() - catStorage.size() - birdStorage.size()- rabbitStorage.size()]; }
 
-    return;
+    else
+    {
+        QMessageBox msgBox;
+        QString qst = QString::fromStdString("Error: Index out of bounds");
+        msgBox.setText(qst);
+        msgBox.exec();
+    }
 }

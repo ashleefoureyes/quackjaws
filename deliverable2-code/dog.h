@@ -16,11 +16,12 @@ class Dog: public Animal
              bool isNocturnal, bool hypo, int lifestyle, int history);
         Dog();
         void setIdNumber(int newId);
+        void setSpeciesAttributes(int barks, int training, bool isBathroomTrained);
 
     private:
         int ANIMAL_STORAGE_CODE = 2;
-        std::string breed, species = "Dog";
-        int loud, training;
+        std::string species = "Dog";
+        int barks, training;
         bool isBathroomTrained;
 
 };

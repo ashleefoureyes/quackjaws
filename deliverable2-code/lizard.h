@@ -13,10 +13,13 @@ class Lizard : public Animal
                 int fearful, int affection, int messy,
                 bool isNocturnal, bool hypo, int lifestyle, int history);
         void setIdNumber(int newId);
+        void setSpeciesAttributes(std::string preferredDiet, std::string colour, std::string feedingInterval, bool spaceReqs, bool lightingReqs);
+        Lizard();
+
     private:
         int ANIMAL_STORAGE_CODE = 5;
-        int preferredDiet, color, feedingInterval, danger, demeanor, spaceReqs, lightingReqs, avgLifespan;
-        std::string species = "Lizard", breed;
+        bool spaceReqs, lightingReqs;
+        std::string species = "Lizard", diet, colour, feedingInterval;
 };
 
 #endif // LIZARD_H

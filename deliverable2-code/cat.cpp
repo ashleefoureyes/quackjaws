@@ -10,8 +10,15 @@ Cat::Cat(std::string breed, std::string name,
            strangers, crowds, noises, protector, energy, fearful, affection,
            messy, isNocturnal, hypo, lifestyle, history)
 {
-    this->breed = breed;
+    Animal::setBreed(breed);
 }
-Cat::Cat() { }
+Cat::Cat() { Animal::setSpecies(this->species); }
 
 void Cat::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_CODE); }
+
+void  Cat::setSpeciesAttributes(int curiosity, int trained, int shedding)
+{
+    this->curiosity = curiosity;
+    this->trained = trained;
+    this->shedding = shedding;
+}

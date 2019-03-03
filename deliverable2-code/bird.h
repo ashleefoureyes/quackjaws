@@ -13,12 +13,14 @@ class Bird: public Animal
               int fearful, int affection, int messy,
               bool isNocturnal, bool hypo, int lifestyle, int history);
         void setIdNumber(int newId);
+        Bird();
+        void setSpeciesAttributes(int loud, int social, std::string colour);
 
     private:
         int ANIMAL_STORAGE_CODE = 4;
-        std::string breed, species = "Bird";
-        int loud, bites, social, vibrant, color;
-        bool talks;
+        std::string species = "Bird";
+        int loud, social;
+        std::string colour;
 
 };
 

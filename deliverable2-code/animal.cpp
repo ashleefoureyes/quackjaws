@@ -77,6 +77,9 @@ std::string Animal::getListInfoStr()
     return returnStr;
 }
 
+void Animal::setSpecies(std::string species) { this->species = species; }
+void Animal::setBreed(std::string breed) { this->breed = breed; }
+
 
 std::string Animal::getSizeStr()
 {

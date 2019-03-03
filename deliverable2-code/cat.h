@@ -15,10 +15,11 @@ class Cat: public Animal
              bool isNocturnal, bool hypo, int lifestyle, int history);
         void setIdNumber(int newId);
         Cat();
+       void  setSpeciesAttributes(int curiosity, int trained, int shedding);
 
     private:
         int ANIMAL_STORAGE_CODE = 3;
-        std::string breed, species = "Cat";
+        std::string species = "Cat";
         int curiosity, water, trained, shedding;
 };
 

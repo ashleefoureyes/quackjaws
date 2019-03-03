@@ -13,12 +13,14 @@ public:
                 int fearful, int affection, int messy,
                 bool isNocturnal, bool hypo, int lifestyle, int history);
         void setIdNumber(int newId);
+        Rabbit();
+        void setSpeciesAttributes(std::string pattern, std::string colour, int grooming, int attention);
 
     private:
         int ANIMAL_STORAGE_CODE = 6;
-        int earsType, earLength, colouring, speed, grooming, social;
+        int grooming, attention;
         int avgLifespan = 10;
-        std::string species = "Rabbit", breed;
+        std::string species = "Rabbit", colour, pattern;
 };
 
 #endif // RABBIT_H

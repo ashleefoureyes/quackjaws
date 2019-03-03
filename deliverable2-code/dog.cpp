@@ -10,9 +10,16 @@ Dog::Dog(std::string breed, std::string name,
            strangers, crowds, noises, protector, energy, fearful, affection,
            messy, isNocturnal, hypo, lifestyle, history)
 {
-    this->breed = breed;
+    Animal::setBreed(breed);
 }
 
-Dog::Dog() { }
+Dog::Dog() { Animal::setSpecies(this->species); }
 
 void Dog::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_CODE); }
+
+void Dog::setSpeciesAttributes(int barks, int training, bool isBathroomTrained)
+{
+    this->barks = barks;
+    this->training = training;
+    this->isBathroomTrained = isBathroomTrained;
+}
