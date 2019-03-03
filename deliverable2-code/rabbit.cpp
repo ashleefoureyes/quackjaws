@@ -10,7 +10,7 @@ Rabbit::Rabbit(std::string breed, std::string name,
               strangers, crowds, noises, protector, energy, fearful, affection,
               messy, isNocturnal, hypo, lifestyle, history)
 {
-
+  Animal::setBreed(breed);
 }
 
 void Rabbit::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_CODE); }
