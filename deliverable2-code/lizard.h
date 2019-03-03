@@ -5,16 +5,18 @@
 
 class Lizard : public Animal
 {
-public:
-    Lizard(std::string breed, std::string name,
-           int size, int age, char gender, int fur,
-            int travels, int children, int goodWAnimals, int strangers,
-            int crowds, int noises, int protector, int energy,
-            int fearful, int affection, int messy,
-            bool isNocturnal, bool hypo, int lifestyle, int history);
-    void setIdNumber(int newId);
-private:
-    int ANIMAL_STORAGE_CODE = 5;
+    public:
+        Lizard(std::string breed, std::string name,
+               int size, int age, char gender, int fur,
+                int travels, int children, int goodWAnimals, int strangers,
+                int crowds, int noises, int protector, int energy,
+                int fearful, int affection, int messy,
+                bool isNocturnal, bool hypo, int lifestyle, int history);
+        void setIdNumber(int newId);
+    private:
+        int ANIMAL_STORAGE_CODE = 5;
+        int preferredDiet, color, feedingInterval, danger, demeanor, spaceReqs, lightingReqs, avgLifespan;
+        std::string species = "Lizard", breed;
 };
 
 #endif // LIZARD_H

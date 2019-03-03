@@ -14,11 +14,14 @@ class Dog: public Animal
              int crowds, int noises, int protector, int energy,
              int fearful, int affection, int messy,
              bool isNocturnal, bool hypo, int lifestyle, int history);
+        Dog();
         void setIdNumber(int newId);
 
     private:
-        std::string breed;
         int ANIMAL_STORAGE_CODE = 2;
+        std::string breed, species = "Dog";
+        int loud, training;
+        bool isBathroomTrained;
 
 };
 #endif // DOG_H

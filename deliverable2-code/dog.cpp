@@ -13,4 +13,6 @@ Dog::Dog(std::string breed, std::string name,
     this->breed = breed;
 }
 
+Dog::Dog() { }
+
 void Dog::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_CODE); }

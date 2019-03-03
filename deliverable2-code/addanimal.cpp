@@ -8,6 +8,7 @@ AddAnimal::AddAnimal(QWidget *parent) :
     ui->setupUi(this);
     setupButtons();
     changeBreedBox(0);
+    ui->tabWidget->setCurrentIndex(0);
 }
 
 AddAnimal::~AddAnimal()
@@ -17,26 +18,15 @@ AddAnimal::~AddAnimal()
 
 //TODO Implement it so that the popup box is already filled out with current animal information
 //     then this->exec() is called and returns the return value
+/**
 int AddAnimal::editAnimal(Animal *animalToEdit)
 {
-    this->newAnimal = &animalToEdit;
     return 1;
-}
+} */
 
-/** Function: initNewAnimal(Animal*)
- *  in-out: Animal* newAnimal
- *  purpose: Called to create set all the parameters for the new Animal.
- *           Returns 1 if the Animal is set or 0 if the user clicked Exit.
- *           The latter causes the instantiated Animal to be delete. */
-int AddAnimal::initNewAnimal(Animal *newAnimal)
+int AddAnimal::createNewAnimal(AnimalStorage** storage)
 {
-    this->newAnimal = &newAnimal;
-    this->exec();
-    return returnVal;
-}
-
-int AddAnimal::createNewAnimal(AnimalStorage**)
-{
+    this->storage = storage;
     this->exec();
     return returnVal;
 }
@@ -148,18 +138,135 @@ std::string AddAnimal::getUniqueFilename(std::string filename)
 // TODO: Support saving animal image
 void AddAnimal::on_bSubmit_clicked()
 {
-    /**
     // If still on Physical info tab move to Non-Physical tab
-    if (ui->Tabs->currentIndex() == 0)
+    if (ui->tabWidget->currentIndex() != 2)
     {
-        ui->Tabs->setCurrentWidget(ui->tabNonPhysical);
-        ui->bSubmit->setText("Submit");
+        // Moves to next tab
+        ui->tabWidget->setCurrentWidget(ui->tabWidget->widget(ui->tabWidget->currentIndex() + 1));
+
+        // If we're at the last tab then change "Next" to "Submit"
+        if(ui->tabWidget->currentIndex() == 2) { ui->bSubmit->setText("Submit"); }
+        else { ui->bSubmit->setText("Next"); }
+
         return;
     }
 
+    switch(ui->cbSpecies->currentIndex())
+    {
+        case 0: createDog(); break;
+        case 1: createCat(); break;
+        case 2: createBird(); break;
+        case 3: createLizard(); break;
+        case 4: createRabbit(); break;
+    }
+}
+
+/** Function: on_bExit_clicked()
+ *  out: QDialog::Rejected (which is 0)
+ *  Purpose: Closes the addAnimal window if user clicks exit
+ *           Return value is so StaffHomepage knows to delete
+ *           the Animal object passed to the function */
+void AddAnimal::on_bExit_clicked()
+{
+    returnVal = QDialog::Rejected;
+    this->close();
+}
+
+void AddAnimal::changeBreedBox(int index)
+{
+    ui->cbBreed->clear();
+
+    std::vector<std::string> breeds;
+
+    switch(index)
+    {
+        case 0: breeds = dogBreeds; break;
+        case 1: breeds = catBreeds; break;
+        case 2: breeds = birdBreeds; break;
+        case 3: breeds = lizardBreeds; break;
+        case 4: breeds = rabbitBreeds; break;
+    }
+
+    std::sort(breeds.begin(), breeds.end());
+
+    // Adding other at the end ensures it's always at the end after sorting
+    breeds.push_back("Other");
+
+    for(int i = 0; i < static_cast<int>(breeds.size()); ++i)
+    {
+        QString element = QString::fromStdString(breeds[static_cast<unsigned int>(i)]);
+        ui->cbBreed->addItem(element);
+    }
+}
+
+void AddAnimal::changeSpeciesTab(int index)
+{
+    ui->tabWidget->removeTab(2);
+    if(index == 0) {ui->tabWidget->addTab(ui->tabDog, "Dog");}
+    else {ui->tabWidget->removeTab(2); }
+}
+
+void AddAnimal::on_cbSpecies_currentIndexChanged(int index)
+{
+    speciesIndex = index;
+    changeBreedBox(index);
+    changeSpeciesTab(index);
+
+}
+
+/** Function: on_tabWidget_tabBarClicked(int index)
+ *  in: index (Which tab bar is clicked)
+ *  Purpose: Decides what text/functionality to tie to the
+ *           submit button.
+ *           If on first tab it brings you to second tab.
+ *           If on second tab it submits and creates the new animal */
+void AddAnimal::on_tabWidget_tabBarClicked(int index)
+{
+    if(index != 2) { ui->bSubmit->setText("Next"); }
+    else { ui->bSubmit->setText("Submit");}
+}
+
+void AddAnimal::createCat()
+{
+
+}
+
+
+void AddAnimal::createDog()
+{
+
+    Dog* newDog = new Dog();
+    createAnimalBase(static_cast<Animal*>(newDog));
+    int loud, training;
+    bool isBathroomTrained;
+    (*storage)->add(newDog);
+
+    QMessageBox msgBox;
+    QString qst = QString::fromStdString((*storage)->listInfo(0));
+    msgBox.setText(qst);
+    msgBox.exec();
+}
+
+void AddAnimal::createBird()
+{
+
+}
+
+void AddAnimal::createLizard()
+{
+
+}
+
+void AddAnimal::createRabbit()
+{
+
+}
+
+void AddAnimal::createAnimalBase(Animal *newAnimal)
+{
     std::string name, breed;
 
-    int size, species, fur, history, age;
+    int size, fur, history, age;
 
     char gender;
 
@@ -169,18 +276,10 @@ void AddAnimal::on_bSubmit_clicked()
     bool isNocturnal; bool isHypoAllergenic;
 
     QString Qname = ui-> txtNameBox -> text();
-    QString Qbreed = ui->txtBreedBox->text();
 
     name = Qname.toStdString();
 
     if(name == "") { name = "Unknown"; }
-
-    breed = Qbreed.toStdString();
-    if(breed == "") { breed = "Unknown"; }
-
-    if(ui->rbCat->isChecked()) { species = 0; }
-    else if(ui->rbDog->isChecked()) { species = 1; }
-    else { species = -1; }
 
     if(ui->rbMale->isChecked()) { gender = 'M'; }
     else { gender = 'F'; }
@@ -209,85 +308,10 @@ void AddAnimal::on_bSubmit_clicked()
     isNocturnal = ui->boxNocturnal->isChecked();
     isHypoAllergenic = ui->boxAllergies->isChecked();
 
-    (*newAnimal)->setAttributes(
-                name, size, age, gender, fur, species, travels,
+    newAnimal->setBaseAttributes(
+                name, size, age, gender, fur, travels,
                 children, goodWAnimals, strangers, crowds, noises, protector,
                 energy, fearful, affection, messy, isNocturnal, isHypoAllergenic, lifestyle, history);
 
-    // TODO: Write function to generate original filename
-    if(customImage) { (*newAnimal)->setImageFilePath(savePhoto(name)); }
-
-    //QMessageBox msgBox;
-    //QString qst = QString::fromStdString(name);
-    //msgBox.setText(qst);
-    //msgBox.exec();
-
-    returnVal = QDialog::Accepted;
-    this->close();
-    */
-}
-
-/** Function: on_bExit_clicked()
- *  out: QDialog::Rejected (which is 0)
- *  Purpose: Closes the addAnimal window if user clicks exit
- *           Return value is so StaffHomepage knows to delete
- *           the Animal object passed to the function */
-void AddAnimal::on_bExit_clicked()
-{
-    returnVal = QDialog::Rejected;
-    this->close();
-}
-
-/** Function: on_Tabs_tabBarClicked(int index)
- *  in: index (Which tab bar is clicked)
- *  Purpose: Decides what text/functionality to tie to the
- *           submit button.
- *           If on first tab it brings you to second tab.
- *           If on second tab it submits and creates the new animal */
-void AddAnimal::on_Tabs_tabBarClicked(int index)
-{
-    if(index == 0) { ui->bSubmit->setText("Next"); }
-    else { ui->bSubmit->setText("Submit");}
-}
-
-void AddAnimal::changeBreedBox(int index)
-{
-    ui->cbBreed->clear();
-
-    std::vector<std::string> breeds;
-
-    switch(index)
-    {
-        case 0: breeds = dogBreeds; break;
-        case 1: breeds = catBreeds; break;
-        case 2: breeds = birdBreeds; break;
-        case 3: breeds = lizardBreeds; break;
-        case 4: breeds = rabbitBreeds; break;
-    }
-
-    std::sort(breeds.begin(), breeds.end());
-
-    // Adding other at the end ensures it's always at the end after sorting
-    breeds.push_back("Other");
-
-    for(int i = 0; i < static_cast<int>(breeds.size()); ++i)
-    {
-        QString element = QString::fromStdString(breeds.at(i));
-        ui->cbBreed->addItem(element);
-    }
-}
-
-void AddAnimal::changeSpeciesTab(int index)
-{
-    ui->tabWidget->removeTab(2);
-    if(index == 0) {ui->tabWidget->addTab(ui->tabDog, "Dog");}
-    else {ui->tabWidget->removeTab(2); }
-}
-
-void AddAnimal::on_cbSpecies_currentIndexChanged(int index)
-{
-    speciesIndex = index;
-    changeBreedBox(index);
-    changeSpeciesTab(index);
-
+    if(customImage) { (newAnimal)->setImageFilePath(savePhoto(name)); }
 }

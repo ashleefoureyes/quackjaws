@@ -5,6 +5,7 @@
 
 #include "storage.h"
 #include "viewanimals.h"
+#include "animalstorage.h"
 
 namespace Ui {
 class ClientHomepage;
@@ -15,7 +16,7 @@ class ClientHomepage : public QDialog
     Q_OBJECT
 
 public:
-    explicit ClientHomepage(QWidget *parent, Storage *animalStorage, Storage *clientStorage);
+    explicit ClientHomepage(QWidget *parent, AnimalStorage *animalStorage, Storage *clientStorage);
     ~ClientHomepage();
     int showClientPage();
 
@@ -26,7 +27,7 @@ private slots:
 
 private:
     Ui::ClientHomepage *ui;
-    Storage *animalStorage;
+    AnimalStorage *animalStorage;
     Storage *clientStorage;
     int returnResult;
 };

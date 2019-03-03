@@ -1,6 +1,6 @@
 #include "client.h"
 
-Client::Client() { this->profileId = -1; }
+Client::Client() { this->idNumber = -1; }
 
 std::string Client::getFormattedInfo()
 {
@@ -16,13 +16,13 @@ std::string Client::getFormattedInfo()
 void Client::setIdNumber(int newId)
 {
     std::string idStr = std::to_string(CLIENT_STORAGE_CODE) + std::to_string(newId);
-    this->profileId = std::stoi(idStr);
+    idNumber = std::stoi(idStr);
 }
 
 std::string Client::getListInfoStr()
 {
     std::string returnStr = "";
-    returnStr += std::to_string(profileId) + ": " + firstName + " " + lastName;
+    returnStr += std::to_string(idNumber) + ": " + firstName + " " + lastName;
     return returnStr;
 }
 
@@ -34,3 +34,5 @@ void Client::setContactInformation(std::string firstName, std::string lastName, 
 }
 
 std::string Client::getEmail() { return email; }
+
+int Client::getId() { return idNumber; }

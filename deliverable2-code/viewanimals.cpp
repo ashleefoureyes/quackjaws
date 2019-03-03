@@ -21,7 +21,7 @@ ViewAnimals::~ViewAnimals()
 /** Function: viewAnimalsFromStorage(Storage*)
  *  in: Storage*
  *  purpose: To be called when ViewAnimals is clicked. Displays all animals in storage */
-void ViewAnimals::viewAnimalsFromStorage(Storage *storage)
+void ViewAnimals::viewAnimalsFromStorage(AnimalStorage *storage)
 {
     this->storage = storage;
     populateList();
@@ -35,7 +35,7 @@ void ViewAnimals::populateList()
 {
     int i = 0;
 
-    while(i < storage->getNumOfElements())
+    while(i < storage->getSize())
     {
 
         QString qAnimInfo = QString::fromStdString(storage->listInfo(i));
@@ -60,15 +60,15 @@ void ViewAnimals::on_animalList_itemClicked()
              when list element has been clicked*/
 void ViewAnimals::displayAnimal(int index)
 {
-   if(storage->getNumOfElements() == 0) { return; }
+   if(storage->getSize() == 0) { return; }
 
-   Animal *reqAnimal = static_cast<Animal*>(storage->get(index));
+   Animal *reqAnimal = nullptr;
+   storage->get(&reqAnimal,index);
 
    std::string s(1, reqAnimal->getGender());
 
    // Top part
    ui->aName->setText(QString::fromStdString(reqAnimal->getName()));
-   ui->aSpecies->setText(QString::fromStdString(reqAnimal->getSpecies()));
    ui->aBreed->setText(QString::fromStdString(reqAnimal->getBreed()));
    ui->aGender->setText(QString::fromStdString(s));
    ui->aAge->setText(QString::fromStdString(std::to_string(reqAnimal->getAge())));

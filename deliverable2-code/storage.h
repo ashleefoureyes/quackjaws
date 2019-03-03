@@ -1,9 +1,9 @@
 #ifndef STORAGE_H
 #define STORAGE_H
 
-#define STARTING_ID 100;
+#define CLIENT_STARTING_ID 100
 
-#include "profile.h"
+#include "client.h"
 
 #include <string>
 #include <iostream>
@@ -16,12 +16,12 @@ class Storage
     public:
     Storage();
     ~Storage();
-    void add(Profile*);
-    bool getProfileWithId(Profile**, int);
+    void add(Client*);
+    bool getProfileWithId(Client**, int);
     bool isProfileInStorage(int);
     int getNumOfElements();
     std::string listInfo(int);
-    Profile* get(int i);
+    Client* get(int i);
 
     std::string getFormattedInfo();
 
@@ -29,7 +29,7 @@ class Storage
 
     private:
     int numOfElements;
-    std::vector <Profile*> profileList;
+    std::vector <Client*> profileList;
     int largestId;
     int getNextId();
 

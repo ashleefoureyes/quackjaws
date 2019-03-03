@@ -6,7 +6,7 @@
 #include <iomanip>
 
 
-Animal::Animal() { this->imageFilePath = "noImage"; this->profileId = -1; }
+Animal::Animal() { this->imageFilePath = "noImage"; idNumber = -1; }
 
 /** Function: Animal( ... )
  *  in: animal attributes
@@ -20,7 +20,7 @@ Animal::Animal(std::string name,
                 int fearful, int affection, int messy,
                 bool isNocturnal, bool hypo, int lifestyle, int history)
 {
-    setAttributes(name, size, age, gender, fur, species, travels, children, goodWAnimals,
+    setBaseAttributes(name, size, age, gender, fur, travels, children, goodWAnimals,
                   strangers, crowds, noises, protector, energy, fearful, affection, messy, isNocturnal, hypo, lifestyle, history);
     imageFilePath = nullptr;
 }
@@ -33,8 +33,8 @@ Animal::~Animal() { }
  *           Had to change functionality from constructor to method
  *           because I need to create the Animal object before passing it
  *           to the AddAnimal class. */
-void Animal::setAttributes(std::string name,
-               int size, int age, char gender, int fur, int species,
+void Animal::setBaseAttributes(std::string name,
+               int size, int age, char gender, int fur,
                 int travels, int children, int goodWAnimals, int strangers,
                 int crowds, int noises, int protector, int energy,
                 int fearful, int affection, int messy,
@@ -43,7 +43,7 @@ void Animal::setAttributes(std::string name,
     // Physical attributes
     this->name = name;
     this->size = size; this->age = age; this->gender = gender;
-    this->fur = fur; this->species = species;
+    this->fur = fur;
     // Non-physical
     this->travels = travels; this->children = children; this->goodWAnimals = goodWAnimals;
     this->strangers = strangers; this->crowds = crowds;
@@ -65,7 +65,7 @@ void Animal::setIdNumber(int newId, int animalCode)
     // this way the storage code will always be ANIMAL_STORAGE_CODE for animals no matter
     // how many are in storage
     std::string idStr = std::to_string(animalCode) + std::to_string(newId);
-    this->profileId = std::stoi(idStr);
+    idNumber = std::stoi(idStr);
 }
 
 void Animal::setImageFilePath(std::string filepath) { imageFilePath = filepath; }
@@ -73,7 +73,7 @@ void Animal::setImageFilePath(std::string filepath) { imageFilePath = filepath; 
 std::string Animal::getListInfoStr()
 {
     std::string returnStr = "";
-    returnStr += std::to_string(profileId) + ": " + getName();
+    returnStr += std::to_string(idNumber) + ": " + getName();
     return returnStr;
 }
 
@@ -151,15 +151,6 @@ int Animal::getSize() { return size; }
 char Animal::getGender() { return gender; }
 int Animal::getFur() { return fur; }
 bool Animal::isHypo() { return isHypoAllergenic; }
-int Animal::getSpeciesNum() { return species; }
 
-std::string Animal::getSpecies()
-{
-    switch(species)
-    {
-        case 0: return "Cat";
-        case 1: return "Dog";
-    }
+std::string getFormattedInfo() { return ""; }
 
-    return "N/A";
-}

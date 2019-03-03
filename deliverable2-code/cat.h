@@ -16,8 +16,9 @@ class Cat: public Animal
         void setIdNumber(int newId);
 
     private:
-        std::string breed;
         int ANIMAL_STORAGE_CODE = 3;
+        std::string breed, species = "Cat";
+        int curiosity, water, trained, shedding;
 };
 
 #endif // CAT_H

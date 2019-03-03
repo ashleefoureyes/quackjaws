@@ -1,7 +1,7 @@
 #include "clienthomepage.h"
 #include "ui_clienthomepage.h"
 
-ClientHomepage::ClientHomepage(QWidget *parent, Storage *animalStorage, Storage *clientStorage) :
+ClientHomepage::ClientHomepage(QWidget *parent, AnimalStorage *animalStorage, Storage *clientStorage) :
     QDialog(parent),
     ui(new Ui::ClientHomepage)
 {

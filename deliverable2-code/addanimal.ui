@@ -26,20 +26,6 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="1">
-    <widget class="QPushButton" name="bExit">
-     <property name="text">
-      <string>Exit</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QPushButton" name="bSubmit">
-     <property name="text">
-      <string>Next</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0" colspan="2">
     <widget class="QTabWidget" name="tabWidget">
      <property name="minimumSize">
@@ -55,7 +41,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabPhysical">
       <attribute name="title">
@@ -1400,7 +1386,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>1</string>
+        <string>No</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
@@ -1546,6 +1532,20 @@
        </layout>
       </widget>
      </widget>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QPushButton" name="bExit">
+     <property name="text">
+      <string>Exit</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="bSubmit">
+     <property name="text">
+      <string>Next</string>
+     </property>
     </widget>
    </item>
   </layout>

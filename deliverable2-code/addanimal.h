@@ -33,7 +33,6 @@ class AddAnimal : public QDialog
 public:
     explicit AddAnimal(QWidget *parent = nullptr);
     ~AddAnimal();
-    int initNewAnimal(Animal*);
     int createNewAnimal(AnimalStorage**);
     int editAnimal(Animal*);
 
@@ -44,22 +43,30 @@ private slots:
 
     void on_bExit_clicked();
 
-    void on_Tabs_tabBarClicked(int index);
-
     void on_cbSpecies_currentIndexChanged(int index);
+
+    void on_tabWidget_tabBarClicked(int index);
 
 private:
     Ui::AddAnimal *ui;
-    Animal **newAnimal;
-    void setupButtons();
+    AnimalStorage** storage;
     int returnVal;
     QImage animalPhoto;
-    std::string savePhoto(std::string);
     bool customImage = false;
-    std::string getUniqueFilename(std::string filename);
     int speciesIndex = 0;
+
+    std::string savePhoto(std::string);
     void changeBreedBox(int index);
     void changeSpeciesTab(int index);
+    std::string getUniqueFilename(std::string filename);
+    void setupButtons();
+
+    void createCat();
+    void createDog();
+    void createBird();
+    void createLizard();
+    void createRabbit();
+    void createAnimalBase(Animal*);
 
     std::vector<std::string> dogBreeds{"Greyhound", "German Sheperd", "Chihuahua", "Pug", "Shih Tzu", "Cocker Spaniel", "Bull Terrier", "Husky", "Weiner Dog", "St. Bernard"};
     std::vector<std::string> catBreeds{"Russian Blue", "Siamese", "Scottish Fold", "Maine Coon", "British Shorthair", "Bengal", "Egyptian Mau", "Sphynx", "Burmese", "Cornish Rex"};

@@ -4,6 +4,8 @@
 #include <QDialog>
 #include "storage.h"
 #include "animal.h"
+#include "animalstorage.h"
+
 #include <QListWidgetItem>
 #include <QFileDialog>
 
@@ -20,7 +22,7 @@ class ViewAnimals : public QDialog
 public:
     explicit ViewAnimals(QWidget *parent = nullptr);
     ~ViewAnimals();
-    void viewAnimalsFromStorage(Storage *storage);
+    void viewAnimalsFromStorage(AnimalStorage *storage);
 
 private slots:
     void on_animalList_itemClicked();
@@ -28,7 +30,7 @@ private slots:
 private:
     Ui::ViewAnimals *ui;
     void populateList();
-    Storage* storage;
+    AnimalStorage* storage;
     void displayAnimal(int index);
     void loadImage(std::string);
 };

@@ -13,7 +13,7 @@ Storage::Storage()
 
 Storage::~Storage()
 {
-    for(std::vector<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
+    for(std::vector<Client*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
         delete (*itera);
     }
@@ -27,7 +27,7 @@ Storage::~Storage()
     Optimization: If we store animals ordered by id number
                   and swap linkedList for an Array we can
                   do a binary search */
-void Storage::add(Profile* newProfile)
+void Storage::add(Client* newProfile)
 {
     // If animalId is -1 then they don't have an id yet and need to be assigned one
     if (newProfile->getId() < 0) { newProfile->setIdNumber(getNextId()); }
@@ -46,7 +46,7 @@ void Storage::add(Profile* newProfile)
           an animal having a non-unique id. */
 int Storage::getNextId()
 {
-    if(numOfElements == 0) { largestId = STARTING_ID; }
+    if(numOfElements == 0) { largestId = CLIENT_STARTING_ID; }
     else { ++largestId; }
 
     return largestId;
@@ -60,7 +60,7 @@ std::string Storage::getFormattedInfo()
 {
     std::string returnStr = "";
 
-    for(std::vector<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
+    for(std::vector<Client*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
         returnStr += (*itera)->getFormattedInfo();
         returnStr += "\n";
@@ -73,9 +73,9 @@ std::string Storage::getFormattedInfo()
  *  in: animalId
  *  in-out: Animal** foundAnimal. NULL if animal with id not in list
  *  out: true if animal found, false otherwise */
-bool Storage::getProfileWithId(Profile** foundProfile ,int profileId)
+bool Storage::getProfileWithId(Client** foundProfile ,int profileId)
 {
-    for(std::vector<Profile*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
+    for(std::vector<Client*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
        if((*itera)->getId() == profileId)
        {
@@ -95,7 +95,7 @@ bool Storage::getProfileWithId(Profile** foundProfile ,int profileId)
  *           the animal and only takes animalId as input parameter */
 bool Storage::isProfileInStorage(int profileId)
 {
-    Profile* profilePtr;
+    Client* profilePtr;
     return getProfileWithId(&profilePtr, profileId);
 }
 
@@ -117,7 +117,7 @@ std::string Storage::listInfo(int index)
     return profileList.at(index)->getListInfoStr();
 }
 
-Profile* Storage::get(int index)
+Client* Storage::get(int index)
 {
     return profileList.at(index);
 }

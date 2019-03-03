@@ -2,16 +2,15 @@
 #define ANIMAL_H
 
 #include <string>
-#include "profile.h"
 
 
-class Animal: public Profile
+class Animal
 {
     private:
     std::string name, breed, imageFilePath;
+    int idNumber;
 
     int size; // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
-    int species; // 0 = Cat, 1 = Dog
     int fur; // 0 = hairless, 1 = shorthair, 2 = longhair
     int history; // 0 = Given up by owner, 1 = Street animal, 2 = Rescue, 3 = Unknown
     int lifestyle; // 0 = Indoor, 1 = Outdoor, 2 = Both
@@ -36,8 +35,8 @@ class Animal: public Profile
             bool isNocturnal, bool hypo, int lifestyle, int history);
     ~Animal();
 
-    void setAttributes(std::string name="n/a",
-                       int size = -1, int age = -1, char gender = '?', int fur =-1, int species=-1,
+    void setBaseAttributes(std::string name="n/a",
+                       int size = -1, int age = -1, char gender = '?', int fur =-1,
                         int travels = -1, int children = -1, int goodWAnimals = -1, int strangers = -1,
                         int crowds = -1, int noises = -1, int protector = -1, int energy = -1,
                         int fearful = -1, int affection = -1, int messy = -1,
@@ -52,8 +51,7 @@ class Animal: public Profile
     char getGender();
     int getFur();
     bool isHypo();
-    std::string getSpecies();
-    int getSpeciesNum();
+    std::string getFormattedInfo();
 
     void setIdNumber(int, int);
 
@@ -62,8 +60,6 @@ class Animal: public Profile
     std::string getFurStr();
     std::string getAllergyStr();
 
-
-    virtual std::string getFormattedInfo() = 0;
     std::string getListInfoStr();
 
     int getTravels() const;

@@ -9,7 +9,11 @@
 #include "lizard.h"
 #include "rabbit.h"
 
-class AnimalStorage: public Storage
+#define ANIMAL_STARTING_ID 100
+
+//Dog 2, Cat 3, Bird 4, Lizard 5, Rabbit 6
+
+class AnimalStorage
 {
 public:
     AnimalStorage();
@@ -20,12 +24,21 @@ public:
     void add(Rabbit* newDog);
     void add(Lizard* newDog);
 
+    int generateUniqueId();
+
+    void get(Animal** animal, int);
+
+    int getSize();
+
+    std::string listInfo(int index);
+
 private:
     std::vector <Dog*> dogStorage;
     std::vector <Cat*> catStorage;
     std::vector <Bird*> birdStorage;
     std::vector <Rabbit*> rabbitStorage;
     std::vector <Lizard*> lizardStorage;
+    int largestId;
 };
 
 #endif // ANIMALSTORAGE_H
