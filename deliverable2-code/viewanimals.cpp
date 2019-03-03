@@ -166,17 +166,30 @@ void ViewAnimals::displaySpeciesAttributes(Cat *cat)
 
 void ViewAnimals::displaySpeciesAttributes(Bird *bird)
 {
-
+    ui->barLoudnessBird->setValue(bird->getLoud());
+    ui->barAttentionBird->setValue(bird->getSocial());
+    ui->lbColourBird->setText(QString::fromStdString(bird->getColour()));
 }
 
-void ViewAnimals::displaySpeciesAttributes(Lizard *dog)
+void ViewAnimals::displaySpeciesAttributes(Lizard *lizard)
 {
+    if(lizard->getLightingReqs()) { ui->lbLightingReq->setText("Has lighting requirements"); }
+    else { ui->lbLightingReq->setText("No lighting requirements"); }
 
+    if(lizard->getSpaceReqs()) { ui->lbSpacialReq->setText("Has spacial requirements"); }
+    else { ui->lbSpacialReq->setText("No spacial requirements"); }
+
+    ui->lbColourLizard->setText(QString::fromStdString(lizard->getColour()));
+    ui->lbPreferredDiet->setText(QString::fromStdString(lizard->getDiet()));
+    ui->lbFeeding->setText(QString::fromStdString(lizard->getFeedingInterval()));
 }
 
-void ViewAnimals::displaySpeciesAttributes(Rabbit *dog)
+void ViewAnimals::displaySpeciesAttributes(Rabbit *rabbit)
 {
-
+    ui->lbRabbitColour->setText(QString::fromStdString(rabbit->getColour()));
+    ui->lbRabbitPattern->setText(QString::fromStdString(rabbit->getPattern()));
+    ui->barAttentionRabbit->setValue(rabbit->getAttention());
+    ui->barGrooming->setValue(rabbit->getGrooming());
 }
 
 void ViewAnimals::displayAnimalAttributes(Animal* reqAnimal)

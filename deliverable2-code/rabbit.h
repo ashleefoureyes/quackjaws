@@ -16,7 +16,12 @@ public:
         Rabbit();
         void setSpeciesAttributes(std::string pattern, std::string colour, int grooming, int attention);
 
-    private:
+        int getGrooming() const;
+        int getAttention() const;
+        std::string getColour() const;
+        std::string getPattern() const;
+
+private:
         int ANIMAL_STORAGE_CODE = 6;
         int grooming, attention;
         std::string species = "Rabbit", colour, pattern;

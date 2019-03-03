@@ -17,6 +17,31 @@ void Lizard::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_
 
 Lizard::Lizard() { Animal::setSpecies(this->species); }
 
+bool Lizard::getSpaceReqs() const
+{
+    return spaceReqs;
+}
+
+bool Lizard::getLightingReqs() const
+{
+    return lightingReqs;
+}
+
+std::string Lizard::getDiet() const
+{
+    return diet;
+}
+
+std::string Lizard::getColour() const
+{
+    return colour;
+}
+
+std::string Lizard::getFeedingInterval() const
+{
+    return feedingInterval;
+}
+
 void Lizard::setSpeciesAttributes(std::string preferredDiet, std::string colour, std::string feedingInterval, bool spaceReqs, bool lightingReqs)
 {
     this->diet = preferredDiet;

@@ -24,3 +24,23 @@ void Rabbit::setSpeciesAttributes(std::string pattern, std::string colour, int g
     this->grooming = grooming;
     this->attention = attention;
 }
+
+int Rabbit::getGrooming() const
+{
+    return grooming;
+}
+
+int Rabbit::getAttention() const
+{
+    return attention;
+}
+
+std::string Rabbit::getColour() const
+{
+    return colour;
+}
+
+std::string Rabbit::getPattern() const
+{
+    return pattern;
+}

@@ -56,6 +56,7 @@ private:
 
     std::string savePhoto(std::string);
     void changeBreedBox(int index);
+    void changeFurBox(int index);
     void changeSpeciesTab(int index);
     std::string getUniqueFilename(std::string filename);
     void setupButtons();

@@ -23,3 +23,18 @@ void Bird::setSpeciesAttributes(int loud, int social, std::string colour)
     this->social = social;
     this->colour = colour;
 }
+
+int Bird::getLoud() const
+{
+    return loud;
+}
+
+int Bird::getSocial() const
+{
+    return social;
+}
+
+std::string Bird::getColour() const
+{
+    return colour;
+}

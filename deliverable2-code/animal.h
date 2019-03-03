@@ -11,7 +11,7 @@ class Animal
     int idNumber;
 
     int size; // 0 = Teacup, 1 = Small, 2 = Medium, 3 = Large
-    int fur; // 0 = hairless, 1 = shorthair, 2 = longhair
+    int fur; // 0 = hairless, 1 = shorthair, 2 = longhair, 3 = feathers, 4 scales
     int history; // 0 = Given up by owner, 1 = Street animal, 2 = Rescue, 3 = Unknown
     int lifestyle; // 0 = Indoor, 1 = Outdoor, 2 = Both
 

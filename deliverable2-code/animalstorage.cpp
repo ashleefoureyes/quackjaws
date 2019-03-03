@@ -19,35 +19,40 @@ std::string AnimalStorage::listInfo(int index)
 void AnimalStorage::add(Dog* newDog)
 {
 
-    newDog->setIdNumber(generateUniqueId());
+    if(newDog->getId() == -1) { newDog->setIdNumber(generateUniqueId()); }
+    else { checkForLargestId(newDog->getId());}
     dogStorage.push_back(newDog);
 }
 
 void AnimalStorage::add(Cat* newCat)
 {
 
-    newCat->setIdNumber(generateUniqueId());
+    if(newCat->getId() == -1) { newCat->setIdNumber(generateUniqueId()); }
+    else { checkForLargestId(newCat->getId());}
     catStorage.push_back(newCat);
 }
 
 void AnimalStorage::add(Bird* newBird)
 {
 
-    newBird->setIdNumber(generateUniqueId());
+    if(newBird->getId() == -1) { newBird->setIdNumber(generateUniqueId()); }
+    else { checkForLargestId(newBird->getId());}
     birdStorage.push_back(newBird);
 }
 
 void AnimalStorage::add(Lizard* newLizard)
 {
 
-    newLizard->setIdNumber(generateUniqueId());
+    if(newLizard->getId() == -1) { newLizard->setIdNumber(generateUniqueId()); }
+    else { checkForLargestId(newLizard->getId());}
     lizardStorage.push_back(newLizard);
 }
 
 void AnimalStorage::add(Rabbit* newRabbit)
 {
 
-    newRabbit->setIdNumber(generateUniqueId());
+    if(newRabbit->getId() == -1) { newRabbit->setIdNumber(generateUniqueId()); }
+    else { checkForLargestId(newRabbit->getId());}
     rabbitStorage.push_back(newRabbit);
 }
 
@@ -58,7 +63,19 @@ int AnimalStorage::generateUniqueId()
     return largestId;
 }
 
-//Dog 2, Cat 3, Bird 4, Lizard 5, Rabbit 6
+void AnimalStorage::checkForLargestId(int animalId)
+{
+    // Removes leading number and checks if the Id is largest than the current largest
+    // If it is larger then it sets that to the new largestId
+    int rawId = std::stoi((std::to_string(animalId)).substr(1));
+    if(rawId > largestId) { largestId = rawId; }
+}
+
+/** Function: get(Animal** animal, int index)
+ *  in: Index in storage
+ *  in-out: Animal** animal
+ *  purpose: Gets the animal at the index of the combined vectors
+ *           Best used by looping through all animals */
 void AnimalStorage::get(Animal** animal, int index)
 {
     unsigned int i = static_cast<unsigned int>(index);
@@ -71,15 +88,15 @@ void AnimalStorage::get(Animal** animal, int index)
 
     // Bird vector
     else if (i >= (dogStorage.size() + catStorage.size()) && i < (dogStorage.size() + catStorage.size() + birdStorage.size()))
-            {*animal = birdStorage[i - dogStorage.size() - catStorage.size()]; }
+            {*animal = birdStorage[i - (dogStorage.size() + catStorage.size())]; }
 
     // Lizard vector
     else if (i >= (dogStorage.size() + catStorage.size() + birdStorage.size()) && i < (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size()))
-            {*animal = lizardStorage[i - dogStorage.size() - catStorage.size() - birdStorage.size()]; }
+            {*animal = lizardStorage[i - (dogStorage.size() + catStorage.size() + birdStorage.size())]; }
 
     // Rabbit vector
     else if (i >= (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size()) && i < (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size() + rabbitStorage.size()))
-            {*animal = rabbitStorage[i - dogStorage.size() - catStorage.size() - birdStorage.size()- rabbitStorage.size()]; }
+            {*animal = rabbitStorage[i - (dogStorage.size() + catStorage.size() + birdStorage.size() + lizardStorage.size())]; }
 
     else
     {
@@ -87,16 +104,5 @@ void AnimalStorage::get(Animal** animal, int index)
         QString qst = QString::fromStdString("Error: Index out of bounds");
         msgBox.setText(qst);
         msgBox.exec();
-    }
-}
-
-void AnimalStorage::getWithId(Animal** animal, int id)
-{
-    Animal* temp = nullptr;
-
-    for(int i = 0; i < getSize(); ++i)
-    {
-        get(&temp, i);
-        if(temp->getId() == id) { *animal = temp; return; }
     }
 }

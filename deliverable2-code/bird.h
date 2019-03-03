@@ -16,7 +16,11 @@ class Bird: public Animal
         Bird();
         void setSpeciesAttributes(int loud, int social, std::string colour);
 
-    private:
+        int getLoud() const;
+        int getSocial() const;
+        std::string getColour() const;
+
+private:
         int ANIMAL_STORAGE_CODE = 4;
         std::string species = "Bird";
         int loud, social;

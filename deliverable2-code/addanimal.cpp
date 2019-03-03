@@ -78,7 +78,7 @@ void AddAnimal::on_bUpload_clicked()
 
     // Checks to make sure image is not corrupted
     bool validImage = image.load(filename);
-    if(validImage == false) { return; }
+    if(validImage == false) { ui->lbAnimalPhoto->setText(QString::fromStdString("<<Upload failed>>"));return; }
 
     image = image.scaledToWidth(ui->lbAnimalPhoto->width(), Qt::SmoothTransformation);
     ui->lbAnimalPhoto->setPixmap(QPixmap::fromImage(image));
@@ -202,6 +202,18 @@ void AddAnimal::changeBreedBox(int index)
     }
 }
 
+void AddAnimal::changeFurBox(int index)
+{
+    ui->cbFur->clear();
+
+    if(index == 2) { ui->cbFur->addItem(QString("Feathers")); return; }
+    else if (index == 3) { ui->cbFur->addItem(QString("Scales")); return; }
+
+    ui->cbFur->addItem(QString("Hairless"));
+    ui->cbFur->addItem(QString("Short"));
+    ui->cbFur->addItem(QString("Long"));
+}
+
 void AddAnimal::changeSpeciesTab(int index)
 {
     ui->tabWidget->removeTab(6);
@@ -223,7 +235,7 @@ void AddAnimal::on_cbSpecies_currentIndexChanged(int index)
     speciesIndex = index;
     changeBreedBox(index);
     changeSpeciesTab(index);
-
+    changeFurBox(index);
 }
 
 /** Function: on_tabWidget_tabBarClicked(int index)
@@ -312,6 +324,7 @@ void AddAnimal::createLizard()
     colour = (ui->cbColorLizard->currentText()).toStdString();
     spaceReqs = ui->boxSpace->isChecked();
     lightingReqs = ui->boxLighting->isChecked();
+    feedingInterval = (ui->cbFeedingInterval->currentText()).toStdString();
 
     newLizard->setBreed((ui->cbBreed->currentText()).toStdString());
 
@@ -366,7 +379,10 @@ void AddAnimal::createAnimalBase(Animal *newAnimal)
     if(ui->rbMale->isChecked()) { gender = 'M'; }
     else { gender = 'F'; }
 
-    fur = ui->cbFur->currentIndex();
+    if(speciesIndex == 2) { fur = 3; }
+    else if (speciesIndex == 4) { fur = 4; }
+    else { fur = ui->cbFur->currentIndex(); }
+
     size = ui->cbSize->currentIndex();
     history = ui->cbHistory->currentIndex();
     age = ui->sbAge->value();

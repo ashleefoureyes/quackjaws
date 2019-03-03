@@ -101,6 +101,8 @@ std::string Animal::getFurStr()
     case 0: return "None";
     case 1: return "Short";
     case 2: return "Long";
+    case 3: return "Feathers";
+    case 4: return "Scales";
     default: return "N/A";
     }
 }

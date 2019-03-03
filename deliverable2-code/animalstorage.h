@@ -27,10 +27,10 @@ public:
     int generateUniqueId();
 
     void get(Animal** animal, int);
-    void getWithId(Animal** animal, int id);
     int getSize();
 
     std::string listInfo(int index);
+
 
 private:
     std::vector <Dog*> dogStorage;
@@ -38,7 +38,8 @@ private:
     std::vector <Bird*> birdStorage;
     std::vector <Rabbit*> rabbitStorage;
     std::vector <Lizard*> lizardStorage;
-    int largestId;
+    void checkForLargestId(int animalId);
+    int largestId = 100;
 };
 
 #endif // ANIMALSTORAGE_H

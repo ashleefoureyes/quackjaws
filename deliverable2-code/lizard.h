@@ -16,7 +16,13 @@ class Lizard : public Animal
         void setSpeciesAttributes(std::string preferredDiet, std::string colour, std::string feedingInterval, bool spaceReqs, bool lightingReqs);
         Lizard();
 
-    private:
+        bool getSpaceReqs() const;
+        bool getLightingReqs() const;
+        std::string getDiet() const;
+        std::string getColour() const;
+        std::string getFeedingInterval() const;
+
+private:
         int ANIMAL_STORAGE_CODE = 5;
         bool spaceReqs, lightingReqs;
         std::string species = "Lizard", diet, colour, feedingInterval;
