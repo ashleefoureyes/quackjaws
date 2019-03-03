@@ -56,6 +56,7 @@ private:
     bool customImage = false;
     int speciesIndex = 0;
     Filesaver filesaver;
+    void displayAnimalNameError(QString name);
 
     std::string savePhoto(std::string);
     void changeBreedBox(int index);

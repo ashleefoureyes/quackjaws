@@ -37,6 +37,8 @@ int AddClient::initNewClient(Client* newClient)
              in at AddClient::initNewClient */
 void AddClient::on_pbSubmit_clicked()
 {
+    if(areParenthesisInInput()) { displayTextBoxError(); return;}
+
     std::string firstName, lastName, address,
         phone, email, city, province;
 
@@ -69,6 +71,27 @@ void AddClient::on_pbExit_clicked()
 {
     returnResult = QDialog::Rejected;
     this->close();
+}
+
+bool AddClient::areParenthesisInInput()
+{
+    // Combines all strings then checks the combined string for ')' and '('
+    QString comboStr = "";
+    comboStr += ui->txtFirstName->text();
+    comboStr += ui->txtLastName->text();
+    comboStr += ui->txtCity->text();
+    comboStr += ui->txtEmail->text();
+    comboStr += ui->txtAddress->text();
+
+    return (comboStr.contains(QChar(')')) || comboStr.contains(QChar('(')));
+}
+
+void AddClient::displayTextBoxError()
+{
+    QMessageBox msgBox;
+    QString qst = QString::fromStdString("Error, one textbox contains character ')' and/or '(' symbols");
+    msgBox.setText(qst);
+    msgBox.exec();
 }
 
 /** Function: displaySubmissionError()

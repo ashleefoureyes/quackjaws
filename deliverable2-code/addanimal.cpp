@@ -154,6 +154,12 @@ void AddAnimal::on_bSubmit_clicked()
         return;
     }
 
+    if(ui->txtNameBox->text().contains(QChar('(')) || ui->txtNameBox->text().contains(QChar(')')))
+    {
+        displayAnimalNameError(ui->txtNameBox->text());
+        return;
+    }
+
     switch(ui->cbSpecies->currentIndex())
     {
         case 0: createDog(); break;
@@ -446,4 +452,13 @@ void AddAnimal::createAnimalBase(Animal *newAnimal)
                 energy, fearful, affection, messy, isNocturnal, isHypoAllergenic, lifestyle, history);
 
     if(customImage) { (newAnimal)->setImageFilePath(savePhoto(name)); }
+}
+
+void AddAnimal::displayAnimalNameError(QString name)
+{
+    QString err = QString("Error: Name '" + name + "' contains ')' or '(' symbols");
+
+    QMessageBox msgBox;
+    msgBox.setText(err);
+    msgBox.exec();
 }

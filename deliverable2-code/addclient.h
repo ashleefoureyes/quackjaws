@@ -28,6 +28,8 @@ private:
     Client **newClient;
     int returnResult;
     void displaySubmissionError();
+    bool areParenthesisInInput();
+    void displayTextBoxError();
 };
 
 #endif // ADDCLIENT_H
