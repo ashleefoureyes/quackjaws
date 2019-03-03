@@ -61,7 +61,6 @@ class Animal
     std::string getSizeStr();
     std::string getFurStr();
     std::string getAllergyStr();
-
     std::string getListInfoStr();
 
     int getTravels() const;
@@ -78,6 +77,7 @@ class Animal
     std::string getImageFilePath() const;
     std::string getLifestyleStr() const;
     std::string getHistoryStr() const;
+    std::string getSpecies() const;
 
     void setImageFilePath(std::string);
 

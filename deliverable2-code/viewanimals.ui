@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>467</width>
-    <height>562</height>
+    <height>677</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,13 +25,10 @@
         <x>0</x>
         <y>0</y>
         <width>453</width>
-        <height>548</height>
+        <height>663</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="1" column="0">
-        <widget class="QListWidget" name="animalList"/>
-       </item>
        <item row="0" column="0">
         <widget class="QFrame" name="frame">
          <property name="minimumSize">
@@ -841,6 +838,95 @@
            </item>
           </layout>
          </widget>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QWidget" name="widget_3" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <widget class="QWidget" name="">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>0</y>
+            <width>421</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Filter:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterDogs">
+             <property name="text">
+              <string>Dogs</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterCats">
+             <property name="text">
+              <string>Cats</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterBirds">
+             <property name="text">
+              <string>Birds</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterLizards">
+             <property name="text">
+              <string>Lizards</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterRabbits">
+             <property name="text">
+              <string>Rabbits</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QListWidget" name="animalList"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
         </widget>
        </item>
       </layout>

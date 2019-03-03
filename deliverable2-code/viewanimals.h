@@ -27,6 +27,16 @@ public:
 private slots:
     void on_animalList_itemClicked();
 
+    void on_filterDogs_clicked();
+
+    void on_filterCats_clicked();
+
+    void on_filterBirds_clicked();
+
+    void on_filterLizards_clicked();
+
+    void on_filterRabbits_clicked();
+
 private:
     Ui::ViewAnimals *ui;
     void populateList();

@@ -146,7 +146,7 @@ int Animal::getEnergy() const { return energy; }
 int Animal::getFearful() const { return fearful; }
 int Animal::getAffection() const { return affection; }
 int Animal::getMessy() const { return messy; }
-
+std::string Animal::getSpecies() const { return species; }
 std::string Animal::getName() { return name; }
 std::string Animal::getBreed() { return breed; }
 int Animal::getAge() { return age; }

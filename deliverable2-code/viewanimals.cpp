@@ -33,12 +33,24 @@ void ViewAnimals::viewAnimalsFromStorage(AnimalStorage *storage)
     purpose: Populates animal list with all Animals in storage*/
 void ViewAnimals::populateList()
 {
+    ui->animalList->clear();
+
     int i = 0;
+    Animal* animal = nullptr;
 
     while(i < storage->getSize())
     {
 
-        QString qAnimInfo = QString::fromStdString(storage->listInfo(i));
+        storage->get(&animal, i);
+
+        if(!(ui->filterDogs->isChecked()) && animal->getSpecies() == "Dog") { ++i; continue; }
+        if(!(ui->filterCats->isChecked()) && animal->getSpecies() == "Cat") { ++i; continue; }
+        if(!(ui->filterBirds->isChecked()) && animal->getSpecies() == "Bird") { ++i; continue; }
+        if(!(ui->filterLizards->isChecked()) && animal->getSpecies() == "Lizard") { ++i; continue; }
+        if(!(ui->filterRabbits->isChecked()) && animal->getSpecies() == "Rabbit") { ++i; continue; }
+
+        QString qAnimInfo = QString::fromStdString(animal->getListInfoStr());
+
         ui->animalList->addItem(qAnimInfo);
 
         ++i;
@@ -74,6 +86,7 @@ void ViewAnimals::displayAnimal(int index)
    ui->aAge->setText(QString::fromStdString(std::to_string(reqAnimal->getAge())));
    ui->aSize->setText(QString::fromStdString(reqAnimal->getSizeStr()));
    ui->aFur->setText(QString::fromStdString(reqAnimal->getFurStr()));
+   ui->aSpecies->setText(QString::fromStdString(reqAnimal->getSpecies()));
 
    //Progress bar
    ui->barLikesTravel->setValue(reqAnimal->getTravels());
@@ -119,3 +132,9 @@ void ViewAnimals::loadImage(std::string filename)
     image = image.scaledToWidth(ui->lbAnimalImage->width(), Qt::SmoothTransformation);
     ui->lbAnimalImage->setPixmap(QPixmap::fromImage(image));
 }
+
+void ViewAnimals::on_filterDogs_clicked() { populateList(); }
+void ViewAnimals::on_filterCats_clicked() { populateList(); }
+void ViewAnimals::on_filterBirds_clicked() { populateList(); }
+void ViewAnimals::on_filterLizards_clicked() { populateList(); }
+void ViewAnimals::on_filterRabbits_clicked() { populateList(); }
