@@ -175,6 +175,9 @@ void AddAnimal::on_bExit_clicked()
     this->close();
 }
 
+/** Function: changeBreedBox(int index)
+ *  in: species index
+ *  purpose: Changes the breed box depending on the selected species*/
 void AddAnimal::changeBreedBox(int index)
 {
     ui->cbBreed->clear();
@@ -195,6 +198,7 @@ void AddAnimal::changeBreedBox(int index)
     // Adding other at the end ensures it's always at the end after sorting
     breeds.push_back("Other");
 
+    // Adds all items from vector to breeds box
     for(int i = 0; i < static_cast<int>(breeds.size()); ++i)
     {
         QString element = QString::fromStdString(breeds[static_cast<unsigned int>(i)]);
@@ -202,10 +206,14 @@ void AddAnimal::changeBreedBox(int index)
     }
 }
 
+/** Function: changeFurBox(int index)
+ *  in: species index
+ *  purpose: Changes fur options depending on species */
 void AddAnimal::changeFurBox(int index)
 {
     ui->cbFur->clear();
 
+    // 2 = bird, 3 = lizard
     if(index == 2) { ui->cbFur->addItem(QString("Feathers")); return; }
     else if (index == 3) { ui->cbFur->addItem(QString("Scales")); return; }
 
@@ -214,6 +222,10 @@ void AddAnimal::changeFurBox(int index)
     ui->cbFur->addItem(QString("Long"));
 }
 
+/** Function: changeSpeciesTab(int index)
+ *  in: species index
+ *  purpose: Changes the tab for species attributes
+ *           depending on species selected */
 void AddAnimal::changeSpeciesTab(int index)
 {
     ui->tabWidget->removeTab(6);
@@ -250,6 +262,9 @@ void AddAnimal::on_tabWidget_tabBarClicked(int index)
     else { ui->bSubmit->setText("Submit");}
 }
 
+/** Function: createCat()
+ *  in-out: AnimalStorage
+ *  purpose: creates a cat object and adds it to the animal storage. */
 void AddAnimal::createCat()
 {
     int curiosity, trained, shedding;
@@ -269,7 +284,9 @@ void AddAnimal::createCat()
     this->close();
 }
 
-
+/** Function: createDog()
+ *  in-out: AnimalStorage
+ *  purpose: creates a dog object and adds to animal storage */
 void AddAnimal::createDog()
 {
 
@@ -292,6 +309,9 @@ void AddAnimal::createDog()
     this->close();
 }
 
+/** Function: createBird()
+ *  in-out: AnimalStorage
+ *  purpose: creates a bird object and adds to animal storage */
 void AddAnimal::createBird()
 {
     int loud, social;
@@ -312,6 +332,9 @@ void AddAnimal::createBird()
     this->close();
 }
 
+/** Function: createLizard()
+ *  in-out: AnimalStorage
+ *  purpose: creates a lizard object and adds to animal storage */
 void AddAnimal::createLizard()
 {
     std::string preferredDiet, colour, feedingInterval;
@@ -335,6 +358,9 @@ void AddAnimal::createLizard()
     this->close();
 }
 
+/** Function: createRabbit
+ *  in-out: AnimalStorage
+ *  purpose: creates rabbit object and adds to animal storage */
 void AddAnimal::createRabbit()
 {
     int grooming, attention;
@@ -357,6 +383,9 @@ void AddAnimal::createRabbit()
     this->close();
 }
 
+/** Function: createAnimalBase(Animal *newAnimal)
+ *  in-out: Animal* newAnimal
+ *  purpose: Sets all attributes for animal base class */
 void AddAnimal::createAnimalBase(Animal *newAnimal)
 {
     std::string name;

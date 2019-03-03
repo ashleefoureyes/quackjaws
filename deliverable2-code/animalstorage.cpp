@@ -6,16 +6,27 @@ AnimalStorage::AnimalStorage()
 
 }
 
+/** Function: getSize()
+ *  out: sum of the size of all vectors
+ *  purpose: returns the size of all storage vectors.
+ *           Used to loop through all animals in storage */
 int AnimalStorage::getSize(){ return static_cast<int>(catStorage.size() + dogStorage.size() + birdStorage.size() + rabbitStorage.size() + lizardStorage.size()); }
 
+/** Function: listInfo(int index)
+ *  in: index
+ *  out: Animals getListInfoStr() for the index
+ *  purpose: Gets basic animal list/display information for animal at the given index
+             Used to list all animals in ViewAnimals class */
 std::string AnimalStorage::listInfo(int index)
 {
-
     Animal *tempAnimal;
     get(&tempAnimal, index);
     return tempAnimal->getListInfoStr();
 }
 
+/** Functions: add(AnimalSubclass*)
+ *  in: AnimalSubclass*
+ *  purpose: Overloaded function to place the animal subclass in the correct vector */
 void AnimalStorage::add(Dog* newDog)
 {
 
@@ -56,6 +67,9 @@ void AnimalStorage::add(Rabbit* newRabbit)
     rabbitStorage.push_back(newRabbit);
 }
 
+/** Function: generateUniqueId()
+ *  out: int uniqueId
+ *  purpose: When adding a new animal it sets the animal Id to something unique */
 int AnimalStorage::generateUniqueId()
 {
     if(getSize() == 0) { largestId = ANIMAL_STARTING_ID; }
@@ -63,6 +77,12 @@ int AnimalStorage::generateUniqueId()
     return largestId;
 }
 
+/** Function: checkForLargestId(int animalId)
+ *  in-out: this->largestId
+ *  purpose: Checks the passed animal's Id with the current largest
+ *           If it is larger it sets that to the largest Id
+ *           This ensures that any new Id's created passed that point will be larger than the largest
+ *           and therefore unique */
 void AnimalStorage::checkForLargestId(int animalId)
 {
     // Removes leading number and checks if the Id is largest than the current largest
