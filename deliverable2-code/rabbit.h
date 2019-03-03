@@ -19,7 +19,6 @@ public:
     private:
         int ANIMAL_STORAGE_CODE = 6;
         int grooming, attention;
-        int avgLifespan = 10;
         std::string species = "Rabbit", colour, pattern;
 };
 

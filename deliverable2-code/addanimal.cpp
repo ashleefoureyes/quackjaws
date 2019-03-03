@@ -39,11 +39,13 @@ int AddAnimal::createNewAnimal(AnimalStorage** storage)
              to the new Animal object created*/
 void AddAnimal::setupButtons()
 {
-    QButtonGroup* buttonGroups[NUM_OF_BUTTON_GROUPS] = {
+    QButtonGroup* buttonGroups[20] = {
         ui->groupTravel, ui->groupChildren, ui->groupGoodAnimals,
         ui->groupStrange, ui->groupCrowds, ui->groupNoise,
         ui->groupProtect, ui->groupEnergy, ui->groupFear,
-        ui->groupAffection, ui->groupMessy
+        ui->groupAffection, ui->groupMessy, ui->groupBarks, ui->groupDogTrained,
+        ui->groupCurious, ui->groupSheds, ui->groupTrainedCat, ui->groupIsLoudBird,
+        ui->groupAttentionBird, ui->groupAttentionRabbit, ui->groupGrooming
     };
 
     int index;

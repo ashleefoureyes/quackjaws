@@ -134,7 +134,7 @@ std::string Animal::getHistoryStr() const
 }
 
 std::string Animal::getImageFilePath() const { return imageFilePath; }
-
+int Animal::getId() const { return idNumber; }
 int Animal::getTravels() const { return travels; }
 int Animal::getChildren() const { return children;}
 int Animal::getGoodWAnimals() const { return goodWAnimals;}

@@ -89,3 +89,14 @@ void AnimalStorage::get(Animal** animal, int index)
         msgBox.exec();
     }
 }
+
+void AnimalStorage::getWithId(Animal** animal, int id)
+{
+    Animal* temp = nullptr;
+
+    for(int i = 0; i < getSize(); ++i)
+    {
+        get(&temp, i);
+        if(temp->getId() == id) { *animal = temp; return; }
+    }
+}

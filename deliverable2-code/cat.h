@@ -17,10 +17,16 @@ class Cat: public Animal
         Cat();
        void  setSpeciesAttributes(int curiosity, int trained, int shedding);
 
-    private:
-        int ANIMAL_STORAGE_CODE = 3;
+       int getCuriosity() const;
+
+       int getTrained() const;
+
+       int getShedding() const;
+
+private:
+       int ANIMAL_STORAGE_CODE = 3;
         std::string species = "Cat";
-        int curiosity, water, trained, shedding;
+        int curiosity, trained, shedding;
 };
 
 #endif // CAT_H

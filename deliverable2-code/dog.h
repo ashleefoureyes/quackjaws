@@ -18,7 +18,13 @@ class Dog: public Animal
         void setIdNumber(int newId);
         void setSpeciesAttributes(int barks, int training, bool isBathroomTrained);
 
-    private:
+        int getTraining() const;
+
+        int getBarks() const;
+
+        bool getIsBathroomTrained() const;
+
+private:
         int ANIMAL_STORAGE_CODE = 2;
         std::string species = "Dog";
         int barks, training;

@@ -74,6 +74,7 @@ class Animal
     int getFearful() const;
     int getAffection() const;
     int getMessy() const;
+    int getId() const;
     std::string getImageFilePath() const;
     std::string getLifestyleStr() const;
     std::string getHistoryStr() const;

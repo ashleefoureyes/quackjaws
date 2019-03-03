@@ -17,7 +17,6 @@
 #include <iterator>
 #include <QDialog>
 
-#define NUM_OF_BUTTON_GROUPS 11
 #define Q_BUTTON_GROUP_SIZE
 #define IMAGE_FILEPATH "animalPhotos/"
 #define DIR_NAME "animalPhotos"

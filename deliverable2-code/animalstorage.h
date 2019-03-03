@@ -27,7 +27,7 @@ public:
     int generateUniqueId();
 
     void get(Animal** animal, int);
-
+    void getWithId(Animal** animal, int id);
     int getSize();
 
     std::string listInfo(int index);

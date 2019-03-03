@@ -22,3 +22,18 @@ void  Cat::setSpeciesAttributes(int curiosity, int trained, int shedding)
     this->trained = trained;
     this->shedding = shedding;
 }
+
+int Cat::getCuriosity() const
+{
+    return curiosity;
+}
+
+int Cat::getTrained() const
+{
+    return trained;
+}
+
+int Cat::getShedding() const
+{
+    return shedding;
+}

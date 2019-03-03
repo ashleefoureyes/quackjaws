@@ -23,3 +23,18 @@ void Dog::setSpeciesAttributes(int barks, int training, bool isBathroomTrained)
     this->training = training;
     this->isBathroomTrained = isBathroomTrained;
 }
+
+int Dog::getTraining() const
+{
+    return training;
+}
+
+int Dog::getBarks() const
+{
+    return barks;
+}
+
+bool Dog::getIsBathroomTrained() const
+{
+    return isBathroomTrained;
+}
