@@ -16,7 +16,7 @@ class Storage
     public:
     Storage();
     ~Storage();
-    void add(Client*);
+    int add(Client*);
     bool getProfileWithId(Client**, int);
     bool isProfileInStorage(int);
     int getNumOfElements();

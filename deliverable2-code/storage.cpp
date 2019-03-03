@@ -21,16 +21,21 @@ Storage::~Storage()
 
 /** Function: add(Client* newprofile)
     in: The new animal to be added to the Array
+    out: animalId;
     Purpose: Adds a new client to the vector.
              Calls setIdNumber() to generate unique
              id for the animal if they have no Id */
-void Storage::add(Client* newProfile)
-{
+int Storage::add(Client* newProfile)
+{   
+    int id = newProfile->getId();
+
     // If clientId is -1 then they don't have an id yet and need to be assigned one
-    if (newProfile->getId() < 0) { newProfile->setIdNumber(getNextId()); }
+    if (newProfile->getId() < 0) { id = getNextId(); newProfile->setIdNumber(id); }
 
     profileList.push_back(newProfile);
     ++numOfElements;
+
+    return id;
 }
 
 /** Function: getNextId()

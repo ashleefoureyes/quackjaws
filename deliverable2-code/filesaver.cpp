@@ -80,6 +80,7 @@ void Filesaver::readFromClientFile(std::string fileName, Storage* clientStorage)
             std::string firstName, lastName, address, city, province, phone, email;
             parseClient(fileLine.substr(2), id, firstName, lastName, address, city, province, phone, email);
 
+            id = std::stoi(std::to_string(id).substr(1));
             Client* newClient = new Client();
             newClient->setContactInformation(firstName, lastName, address, phone, email, city, province);
             newClient->setIdNumber(id);
