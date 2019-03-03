@@ -10,7 +10,7 @@ Rabbit::Rabbit(std::string breed, std::string name,
               strangers, crowds, noises, protector, energy, fearful, affection,
               messy, isNocturnal, hypo, lifestyle, history)
 {
-  Animal::setBreed(breed);
+    Animal::setBreed(breed);
 }
 
 void Rabbit::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_CODE); }
@@ -43,4 +43,12 @@ std::string Rabbit::getColour() const
 std::string Rabbit::getPattern() const
 {
     return pattern;
+}
+
+//(Base)(pattern)(colour)(grooming)(attention)
+std::string Rabbit::getSaveInfo()
+{
+    std::string baseAttributes = Animal::getSaveInfo();
+    std::string returnStr = baseAttributes + "(" + getPattern() + ")(" + getColour() + ")(" + std::to_string(getGrooming()) + ")(" + std::to_string(getAttention()) + ")";
+    return returnStr;
 }

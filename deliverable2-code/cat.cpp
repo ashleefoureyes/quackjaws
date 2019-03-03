@@ -37,3 +37,11 @@ int Cat::getShedding() const
 {
     return shedding;
 }
+
+//(Base)(Curiosity)(Trained)(Shedding)
+std::string Cat::getSaveInfo()
+{
+    std::string baseAttributes = Animal::getSaveInfo();
+    std::string returnStr = baseAttributes + "(" + std::to_string(getCuriosity()) + ")(" + std::to_string(getTrained()) + ")(" + std::to_string(getShedding()) + ")";
+    return returnStr;
+}

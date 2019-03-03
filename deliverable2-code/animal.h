@@ -63,6 +63,7 @@ class Animal
     std::string getAllergyStr();
     std::string getListInfoStr();
 
+    std::string Animal::getSaveInfo();
     int getTravels() const;
     int getChildren() const;
     int getGoodWAnimals() const;

@@ -19,6 +19,7 @@ class Bird: public Animal
         int getLoud() const;
         int getSocial() const;
         std::string getColour() const;
+        std::string getSaveInfo();
 
 private:
         int ANIMAL_STORAGE_CODE = 4;

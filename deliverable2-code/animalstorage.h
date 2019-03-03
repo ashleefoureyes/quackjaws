@@ -17,6 +17,7 @@ class AnimalStorage
 {
 public:
     AnimalStorage();
+    ~AnimalStorage();
 
     void add(Dog* newDog);
     void add(Cat* newDog);
@@ -30,6 +31,8 @@ public:
     int getSize();
 
     std::string listInfo(int index);
+
+    std::string getSaveInfo();
 
 
 private:

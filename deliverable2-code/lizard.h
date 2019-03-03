@@ -21,6 +21,7 @@ class Lizard : public Animal
         std::string getDiet() const;
         std::string getColour() const;
         std::string getFeedingInterval() const;
+        std::string getSaveInfo();
 
 private:
         int ANIMAL_STORAGE_CODE = 5;

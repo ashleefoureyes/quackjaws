@@ -38,3 +38,11 @@ std::string Bird::getColour() const
 {
     return colour;
 }
+
+//(Base)(loud)(social)(colour)
+std::string Bird::getSaveInfo()
+{
+    std::string baseAttributes = Animal::getSaveInfo();
+    std::string returnStr = baseAttributes + "(" + std::to_string(getLoud()) + ")(" + std::to_string(getSocial()) + ")(" + getColour() + ")";
+    return returnStr;
+}

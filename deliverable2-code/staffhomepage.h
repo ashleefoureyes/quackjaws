@@ -5,6 +5,7 @@
 #include <QMessageBox>
 
 #include "storage.h"
+#include "filesaver.h"
 #include "animalstorage.h"
 #include "viewanimals.h"
 #include "addclient.h"

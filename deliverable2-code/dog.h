@@ -19,10 +19,9 @@ class Dog: public Animal
         void setSpeciesAttributes(int barks, int training, bool isBathroomTrained);
 
         int getTraining() const;
-
         int getBarks() const;
-
         bool getIsBathroomTrained() const;
+        std::string getSaveInfo();
 
 private:
         int ANIMAL_STORAGE_CODE = 2;

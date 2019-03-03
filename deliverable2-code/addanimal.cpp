@@ -280,6 +280,7 @@ void AddAnimal::createCat()
     newCat->setSpeciesAttributes(curiosity, trained, shedding);
 
     (*storage)->add(newCat);
+    filesaver.appendToFile(ANIMAL_SAVE_FILE, newCat);
 
     this->close();
 }
@@ -305,6 +306,7 @@ void AddAnimal::createDog()
     newDog->setSpeciesAttributes(barks, training, isBathroomTrained);
 
     (*storage)->add(newDog);
+    filesaver.appendToFile(ANIMAL_SAVE_FILE, newDog);
 
     this->close();
 }
@@ -328,6 +330,7 @@ void AddAnimal::createBird()
     newBird->setSpeciesAttributes(loud, social, colour);
 
     (*storage)->add(newBird);
+    filesaver.appendToFile(ANIMAL_SAVE_FILE, newBird);
 
     this->close();
 }
@@ -354,6 +357,7 @@ void AddAnimal::createLizard()
     newLizard->setSpeciesAttributes(preferredDiet, colour, feedingInterval, spaceReqs, lightingReqs);
 
     (*storage)->add(newLizard);
+    filesaver.appendToFile(ANIMAL_SAVE_FILE, newLizard);
 
     this->close();
 }
@@ -379,6 +383,7 @@ void AddAnimal::createRabbit()
     newRabbit->setSpeciesAttributes(pattern, colour, grooming, attention);
 
     (*storage)->add(newRabbit);
+    filesaver.appendToFile(ANIMAL_SAVE_FILE, newRabbit);
 
     this->close();
 }

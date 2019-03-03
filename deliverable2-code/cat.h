@@ -16,12 +16,10 @@ class Cat: public Animal
         void setIdNumber(int newId);
         Cat();
        void  setSpeciesAttributes(int curiosity, int trained, int shedding);
-
        int getCuriosity() const;
-
        int getTrained() const;
-
        int getShedding() const;
+       std::string getSaveInfo();
 
 private:
        int ANIMAL_STORAGE_CODE = 3;

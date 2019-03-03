@@ -7,6 +7,7 @@
 #include "bird.h"
 #include "rabbit.h"
 #include "animalstorage.h"
+#include "filesaver.h"
 
 #include <QFileDialog>
 #include <QButtonGroup>
@@ -20,6 +21,7 @@
 #define Q_BUTTON_GROUP_SIZE
 #define IMAGE_FILEPATH "animalPhotos/"
 #define DIR_NAME "animalPhotos"
+#define ANIMAL_SAVE_FILE "savedAnimals.txt"
 
 namespace Ui {
 class AddAnimal;
@@ -53,6 +55,7 @@ private:
     QImage animalPhoto;
     bool customImage = false;
     int speciesIndex = 0;
+    Filesaver filesaver;
 
     std::string savePhoto(std::string);
     void changeBreedBox(int index);

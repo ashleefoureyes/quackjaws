@@ -20,6 +20,7 @@ public:
         int getAttention() const;
         std::string getColour() const;
         std::string getPattern() const;
+        std::string getSaveInfo();
 
 private:
         int ANIMAL_STORAGE_CODE = 6;

@@ -38,3 +38,11 @@ bool Dog::getIsBathroomTrained() const
 {
     return isBathroomTrained;
 }
+
+//(Base)(barks)(training)(bathroomTrained)
+std::string Dog::getSaveInfo()
+{
+    std::string baseAttributes = Animal::getSaveInfo();
+    std::string returnStr = baseAttributes + "(" + std::to_string(getBarks()) + ")(" + std::to_string(getTraining()) + ")(" + std::to_string(getIsBathroomTrained()) + ")";
+    return returnStr;
+}

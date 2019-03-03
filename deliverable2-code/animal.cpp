@@ -54,6 +54,21 @@ void Animal::setBaseAttributes(std::string name,
 
 }
 
+// (Id)(ImagePath)(Name)(Species)(Breed)(Size)(Age)(Gender)(Fur)(Travels)(Children)(GoodWAnimals)(Strangers)(Crowds)(Noises)(Protector)
+// (Energy)(Fearful)(Affection)(Messy)(isNocturnal)(Hypo)(Lifestyle)(History)
+std::string Animal::getSaveInfo()
+{
+    std::string returnStr = "";
+    returnStr = "(" + std::to_string(getId()) + ")("  + getImageFilePath() + ")(" + getName() + ")(" + getSpecies() + ")(" + getBreed() + ")(" +
+                std::to_string(getSize()) + ")(" + std::to_string(getAge()) + ")(" + std::to_string(getGender()) + ")(" +
+                std::to_string(getFur()) + ")(" + std::to_string(getFur()) + ")(" + std::to_string(getTravels()) + ")(" +
+                std::to_string(getChildren()) + ")(" + std::to_string(getStrangers()) + ")(" + std::to_string(getCrowds()) + ")(" +
+                std::to_string(getNoises()) + ")(" + std::to_string(getProtector()) + ")(" + std::to_string(getEnergy()) + ")(" +
+                std::to_string(getFearful()) + ")(" + std::to_string(getAffection()) + ")(" + std::to_string(getMessy()) + ")(" +
+                std::to_string(isNocturnal) + ")(" + std::to_string(isHypo()) + ")(" + std::to_string(lifestyle) + ")(" + std::to_string(history) + ")";
+
+    return returnStr;
+}
 
 /** Function: setIdNumber(int newId)
     in: Id assigned by Storage object

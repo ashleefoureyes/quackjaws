@@ -42,7 +42,8 @@ SOURCES += \
     dog.cpp \
     bird.cpp \
     rabbit.cpp \
-    lizard.cpp
+    lizard.cpp \
+    filesaver.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -61,7 +62,8 @@ HEADERS += \
     dog.h \
     bird.h \
     rabbit.h \
-    lizard.h
+    lizard.h \
+    filesaver.h
 
 FORMS += \
         mainwindow.ui \

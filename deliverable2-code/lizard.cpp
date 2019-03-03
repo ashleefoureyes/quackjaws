@@ -50,3 +50,12 @@ void Lizard::setSpeciesAttributes(std::string preferredDiet, std::string colour,
     this->spaceReqs = spaceReqs;
     this->lightingReqs = lightingReqs;
 }
+
+//(Base)(diet)(colour)(feedingInterval)(spaceReqs)(lightingReqs)
+std::string Lizard::getSaveInfo()
+{
+    std::string baseAttributes = Animal::getSaveInfo();
+    std::string returnStr = baseAttributes + ")(" + getDiet() + ")(" + getColour() + ")(" +
+            getFeedingInterval() + "(" + std::to_string(getSpaceReqs()) + ")(" + std::to_string(getLightingReqs()) + ")";
+    return returnStr;
+}

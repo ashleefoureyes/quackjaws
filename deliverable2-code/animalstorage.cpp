@@ -6,6 +6,15 @@ AnimalStorage::AnimalStorage()
 
 }
 
+AnimalStorage::~AnimalStorage()
+{
+    for(std::vector<Dog*>::iterator itera=dogStorage.begin(); itera != dogStorage.end(); ++itera) { delete (*itera);}
+    for(std::vector<Cat*>::iterator itera=catStorage.begin(); itera != catStorage.end(); ++itera) { delete (*itera);}
+    for(std::vector<Bird*>::iterator itera=birdStorage.begin(); itera != birdStorage.end(); ++itera) { delete (*itera);}
+    for(std::vector<Lizard*>::iterator itera=lizardStorage.begin(); itera != lizardStorage.end(); ++itera) { delete (*itera);}
+    for(std::vector<Rabbit*>::iterator itera=rabbitStorage.begin(); itera != rabbitStorage.end(); ++itera) { delete (*itera);}
+}
+
 /** Function: getSize()
  *  out: sum of the size of all vectors
  *  purpose: returns the size of all storage vectors.
@@ -126,3 +135,30 @@ void AnimalStorage::get(Animal** animal, int index)
         msgBox.exec();
     }
 }
+
+std::string AnimalStorage::getSaveInfo()
+{
+    std::string returnStr = "";
+    Animal* animal = nullptr;
+
+    for(int i = 0; i < getSize(); ++i)
+    {
+        get(&animal, i);
+        if(animal->getSpecies() == "Dog") { returnStr += "D: " + (static_cast<Dog*>(animal))->getSaveInfo(); }
+        if(animal->getSpecies() == "Cat") { returnStr += "C: " + (static_cast<Cat*>(animal))->getSaveInfo(); }
+        if(animal->getSpecies() == "Bird") { returnStr += "B: " + (static_cast<Bird*>(animal))->getSaveInfo(); }
+        if(animal->getSpecies() == "Lizard") { returnStr += "L: " + (static_cast<Lizard*>(animal))->getSaveInfo(); }
+        if(animal->getSpecies() == "Rabbit") { returnStr += "R: " + (static_cast<Rabbit*>(animal))->getSaveInfo(); }
+
+        returnStr += "\n";
+    }
+
+    return returnStr;
+}
+
+
+
+
+
+
+
