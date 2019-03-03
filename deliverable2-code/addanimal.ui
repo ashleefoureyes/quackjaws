@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>AddAnimal</class>
  <widget class="QDialog" name="AddAnimal">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -41,7 +44,10 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>6</number>
+     </property>
+     <property name="tabBarAutoHide">
+      <bool>false</bool>
      </property>
      <widget class="QWidget" name="tabPhysical">
       <attribute name="title">
@@ -1455,6 +1461,12 @@
       </widget>
      </widget>
      <widget class="QWidget" name="tabDog">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
       <attribute name="title">
        <string>Dog</string>
       </attribute>
@@ -1532,6 +1544,29 @@
        </layout>
       </widget>
      </widget>
+     <widget class="QWidget" name="tabCat">
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <attribute name="title">
+       <string>Cat</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tabBird">
+      <attribute name="title">
+       <string>Bird</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tabLizard">
+      <attribute name="title">
+       <string>Lizard</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tabRabbit">
+      <attribute name="title">
+       <string>Rabbit</string>
+      </attribute>
+     </widget>
     </widget>
    </item>
    <item row="1" column="0">
@@ -1553,32 +1588,7 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupChildren">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupNoise">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupTravel">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupProtect">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
   <buttongroup name="groupMessy">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupEnergy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -1588,22 +1598,7 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupStrange">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupCrowds">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupBreed">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupAffection">
+  <buttongroup name="groupChildren">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -1613,12 +1608,47 @@
     <bool>true</bool>
    </property>
   </buttongroup>
+  <buttongroup name="groupFear">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupStrange">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupNoise">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupCrowds">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupProtect">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupTravel">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupEnergy">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
   <buttongroup name="groupLifestyle">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupFear">
+  <buttongroup name="groupAffection">
    <property name="exclusive">
     <bool>true</bool>
    </property>

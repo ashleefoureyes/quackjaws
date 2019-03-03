@@ -14,6 +14,7 @@ class Cat: public Animal
              int fearful, int affection, int messy,
              bool isNocturnal, bool hypo, int lifestyle, int history);
         void setIdNumber(int newId);
+        Cat();
 
     private:
         int ANIMAL_STORAGE_CODE = 3;

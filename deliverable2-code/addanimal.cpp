@@ -9,6 +9,7 @@ AddAnimal::AddAnimal(QWidget *parent) :
     setupButtons();
     changeBreedBox(0);
     ui->tabWidget->setCurrentIndex(0);
+    changeSpeciesTab(0);
 }
 
 AddAnimal::~AddAnimal()
@@ -201,8 +202,17 @@ void AddAnimal::changeBreedBox(int index)
 
 void AddAnimal::changeSpeciesTab(int index)
 {
+    ui->tabWidget->removeTab(6);
+    ui->tabWidget->removeTab(5);
+    ui->tabWidget->removeTab(4);
+    ui->tabWidget->removeTab(3);
     ui->tabWidget->removeTab(2);
+
     if(index == 0) {ui->tabWidget->addTab(ui->tabDog, "Dog");}
+    else if (index == 1) { ui->tabWidget->addTab(ui->tabCat, "Cat");}
+    else if (index == 2) { ui -> tabWidget->addTab(ui->tabBird, "Bird");}
+    else if (index == 3) { ui -> tabWidget->addTab(ui->tabLizard, "Lizard");}
+    else if (index == 4) { ui -> tabWidget->addTab(ui->tabRabbit, "Rabbit");}
     else {ui->tabWidget->removeTab(2); }
 }
 
@@ -228,7 +238,9 @@ void AddAnimal::on_tabWidget_tabBarClicked(int index)
 
 void AddAnimal::createCat()
 {
-
+    Cat* newCat = new Cat();
+    createAnimalBase(static_cast<Animal*>(newCat));
+    (*storage)->add(newCat);
 }
 
 
@@ -237,14 +249,7 @@ void AddAnimal::createDog()
 
     Dog* newDog = new Dog();
     createAnimalBase(static_cast<Animal*>(newDog));
-    int loud, training;
-    bool isBathroomTrained;
     (*storage)->add(newDog);
-
-    QMessageBox msgBox;
-    QString qst = QString::fromStdString((*storage)->listInfo(0));
-    msgBox.setText(qst);
-    msgBox.exec();
 }
 
 void AddAnimal::createBird()

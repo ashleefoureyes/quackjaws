@@ -21,7 +21,34 @@ void AnimalStorage::add(Dog* newDog)
 
     newDog->setIdNumber(generateUniqueId());
     dogStorage.push_back(newDog);
-    ++largestId;
+}
+
+void AnimalStorage::add(Cat* newCat)
+{
+
+    newCat->setIdNumber(generateUniqueId());
+    catStorage.push_back(newCat);
+}
+
+void AnimalStorage::add(Bird* newBird)
+{
+
+    newBird->setIdNumber(generateUniqueId());
+    birdStorage.push_back(newBird);
+}
+
+void AnimalStorage::add(Lizard* newLizard)
+{
+
+    newLizard->setIdNumber(generateUniqueId());
+    lizardStorage.push_back(newLizard);
+}
+
+void AnimalStorage::add(Rabbit* newRabbit)
+{
+
+    newRabbit->setIdNumber(generateUniqueId());
+    rabbitStorage.push_back(newRabbit);
 }
 
 int AnimalStorage::generateUniqueId()
