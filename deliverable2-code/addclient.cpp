@@ -45,7 +45,7 @@ void AddClient::on_pbSubmit_clicked()
     city = (ui->txtCity->text()).toStdString();
     province = (ui->cbProvince->currentText()).toStdString();
     address = (ui->txtAddress->text()).toStdString();
-    phone = "(" + std::to_string(ui->sbAreaCode->value()) + ") " + std::to_string(ui->sbPhone->value());
+    phone = std::to_string(ui->sbAreaCode->value()) + std::to_string(ui->sbPhone->value());
     email = (ui->txtEmail->text()).toStdString();
 
     (*newClient)->setContactInformation(firstName,lastName,address,phone, email, city, province);

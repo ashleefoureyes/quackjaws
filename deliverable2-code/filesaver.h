@@ -22,7 +22,9 @@ class Filesaver
     Filesaver();
     void saveToFile(std::string, AnimalStorage*);
     void readFromAnimalFile(std::string, AnimalStorage*);
+    void readFromClientFile(std::string, Storage*);
     void readFromFile(std::string, Storage*);
+    void appendToFile(std::string fileName, Client* client);
     void appendToFile(std::string fileName, Animal* animal);
     void appendToFile(std::string fileName, Dog* animal);
     void appendToFile(std::string fileName, Cat* animal);
@@ -31,6 +33,8 @@ class Filesaver
     void appendToFile(std::string fileName, Lizard* animal);
 
     private:
+    void parseClient(std::string fileLine, int &id, std::string &firstName, std::string &lastName, std::string &address, std::string &city, std::string &province, std::string &phone, std::string &email);
+
     void parseData(std::string fileLine, std::string &breed, std::string &name,
                     int &size, int &age, char &gender, int &fur, bool &hypo, int &id, int &species);
 

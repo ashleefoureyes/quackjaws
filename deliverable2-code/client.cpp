@@ -7,7 +7,7 @@ std::string Client::getFormattedInfo()
     std::string returnStr = "";
     returnStr += "Name: " + firstName + " " + lastName + "\n";
     returnStr += "Address: " + address + ", \n \t" + city + ", " + province + "\n";
-    returnStr += "Phone: " + phone.substr(0,9) + "-" + phone.substr(9,phone.length()) + "\n";
+    returnStr += "Phone: (" + phone.substr(0,3) + ")" + phone.substr(3,3) + "-" + phone.substr(6,phone.length()) + "\n";
     returnStr += "Email: " + email;
 
     return returnStr;
@@ -36,3 +36,12 @@ void Client::setContactInformation(std::string firstName, std::string lastName, 
 std::string Client::getEmail() { return email; }
 
 int Client::getId() { return idNumber; }
+
+//(Id)(FirstName)(LastName)(Address)(City)(Province)(Phone)(Email)
+std::string Client::getSaveInfo()
+{
+    std::string returnStr = "";
+    returnStr = "(" + std::to_string(idNumber) + ")(" + firstName + ")(" + lastName + ")(" +
+            address + ")(" + city + ")(" + province + ")(" + phone + ")(" + email + ")";
+    return returnStr;
+}

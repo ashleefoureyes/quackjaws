@@ -41,12 +41,58 @@ void Filesaver::appendToFile(std::string fileName, Animal* animal)
     outfile << returnStr;
 }
 
+void Filesaver::appendToFile(std::string fileName, Client *client)
+{
+    std::string returnStr = "";
+
+    std::ofstream outfile;
+    outfile.open(fileName, std::ios_base::app);
+
+    returnStr += "C: " + client->getSaveInfo() + "\n";
+    outfile << returnStr;
+
+}
+
 // Functions so you can pass a derived class to appendToFile without needing to cast
 void Filesaver::appendToFile(std::string fileName, Dog* animal) { appendToFile(fileName, static_cast<Animal*>(animal)); }
 void Filesaver::appendToFile(std::string fileName, Cat* animal) { appendToFile(fileName, static_cast<Animal*>(animal)); }
 void Filesaver::appendToFile(std::string fileName, Bird* animal) { appendToFile(fileName, static_cast<Animal*>(animal)); }
 void Filesaver::appendToFile(std::string fileName, Lizard* animal) { appendToFile(fileName, static_cast<Animal*>(animal)); }
 void Filesaver::appendToFile(std::string fileName, Rabbit* animal) { appendToFile(fileName, static_cast<Animal*>(animal)); }
+
+void Filesaver::readFromClientFile(std::string fileName, Storage* clientStorage)
+{
+    std::ifstream infile(fileName, std::ifstream::in);
+    int largestId = -1;
+
+    // Checks to make sure the file exists, is open and isn't corrupt
+    if(!infile.good() || !infile.is_open()) { return; }
+
+
+    while(infile.eof() == false)
+    {
+        std::string fileLine;
+        std::getline(infile, fileLine);
+
+        if(fileLine.length() != 0 && fileLine.at(0) == 'C')
+        {
+            int id;
+            std::string firstName, lastName, address, city, province, phone, email;
+            parseClient(fileLine.substr(2), id, firstName, lastName, address, city, province, phone, email);
+
+            Client* newClient = new Client();
+            newClient->setContactInformation(firstName, lastName, address, phone, email, city, province);
+            newClient->setIdNumber(id);
+
+            if(id > largestId) { largestId = id; }
+            clientStorage->add(newClient);
+        }
+    }
+
+    clientStorage->setLargestId(largestId);
+    infile.close();
+
+}
 
 /** Function: readFromFile(string fileName, Storage* animalStorage)
  *  in: fileName
@@ -156,6 +202,26 @@ void Filesaver::readFromAnimalFile(std::string fileName, AnimalStorage* animalSt
     }
 
     infile.close();
+}
+
+void Filesaver::parseClient(std::string fileLine,int &id, std::string &firstName, std::string &lastName, std::string &address, std::string &city, std::string &province, std::string &phone, std::string &email)
+{
+    std::string strArray[8];
+
+    for(int i = 0; i < 8; ++i)
+    {
+        strArray[i] = fileLine.substr(fileLine.find("(") + 1, fileLine.find(")") - 1);
+        fileLine = fileLine.substr(fileLine.find(")") + 1);
+    }
+
+    id = std::stoi(strArray[0]);
+    firstName = strArray[1];
+    lastName = strArray[2];
+    address = strArray[3];
+    city = strArray[4];
+    province = strArray[5];
+    phone = strArray[6];
+    email = strArray[7];
 }
 
 void Filesaver::parseDog(std::string remainingAttributes, int &barks, int &training, bool &isBathroomTrained)

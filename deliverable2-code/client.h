@@ -14,6 +14,7 @@ public:
                                std::string email, std::string city, std::string province);
     std::string getEmail();
     int getId();
+    std::string getSaveInfo();
 
 private:
     std::string firstName, lastName, address,
