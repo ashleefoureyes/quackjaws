@@ -79,11 +79,13 @@ The cosine similarity measures similarity between two non-zero vectors of an inn
 
 The cosine of two non-zero vectors can be derived by using the Euclidean dot product formula:
 
-
+![equation1]
+(https://github.com/ashleefoureyes/quackjaws/blob/master/doc/doc-pics/equation1.png)
 
 Given two vectors of attributes, A and B, the cosine similarity, cos(θ), is represented using a dot product and magnitude as
 
-
+![equation2]
+(https://github.com/ashleefoureyes/quackjaws/blob/master/doc/doc-pics/equation2.png)
 
 
 Now lets say we have animal ‘A’ who’s vector appears as: 
@@ -103,5 +105,29 @@ Similarity(animalA, ruralRover) = .922
 Similarity(animalA, cuddlyComp) = .977
 
 Therefore, in this hypothetical example the animal would belong to the Cuddly Companion classification. 
+
+### Filter
+
+There exists certain traits that will act as a filter however. These include: 
+-	Species (Cat or Dog)
+-	Hypoallergenic
+-	Child Friendly 
+When a specific species is selected, animals who fall under the matched group will still be shown, however only animals of that specific species will be presented to the user. When true Boolean values exist for hypoallergenic or child friendly, these will also act as filters – users will only be presented animals of the matched color that are hypoallergenic and/or child friendly. 
+
+
+### Display Order – User Preferred Traits
+
+The users preference on the remaining traits affect the order in which matches are displayed to the user (assuming top animals are displayed first). They include: 
+
+-	Breed
+-	Gender
+-	Fur-length
+-	History
+-	Fear
+
+### Display Order – Other Factors
+
+In addition to display order based on client preference to the above traits, we also want to include a few “behind the scenes” calculations. One, is taking into account the time that the animal has been at the shelter. If there exists an equivalent (or near equivalent) match, display the animal who has been at the shelter longest first. 
+
 
 
