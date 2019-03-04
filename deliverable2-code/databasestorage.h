@@ -6,6 +6,7 @@
 #include "profile.h"
 #include "client.h"
 #include "storage.h"
+#include "animalstorage.h"
 #include "animal.h"
 #include "dog.h"
 #include "cat.h"
@@ -28,7 +29,7 @@
 class databaseStorage
 {
     public:
-    databaseStorage();
+    databaseStorage(AnimalStorage*, Storage*);
     ~databaseStorage();
     int addClientToDatabase(Client*);
     int addDogToDatabase(Dog*);
@@ -42,6 +43,8 @@ class databaseStorage
     int numOfElements;
     int largestId;
     int loadDatabase();
+    AnimalStorage *animalStorage;
+    Storage *clientStorage;
 };
 
 

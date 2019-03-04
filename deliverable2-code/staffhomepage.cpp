@@ -15,7 +15,6 @@ StaffHomepage::~StaffHomepage()
     delete ui;
 }
 
-
 int StaffHomepage::showStaffPage()
 {
     returnResult = 0;
@@ -77,7 +76,6 @@ void StaffHomepage::on_bViewClients_clicked()
     ViewClients viewClient;
     viewClient.setModal(true);
     viewClient.viewClientsFromStorage(clientStorage);
-
 }
 
 // Not yet implemented
@@ -88,3 +86,4 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     msgBox.setText(qst);
     msgBox.exec();
 }
+

@@ -104,3 +104,4 @@ void AddClient::displaySubmissionError()
     msgBox.setText(qst);
     msgBox.exec();
 }
+

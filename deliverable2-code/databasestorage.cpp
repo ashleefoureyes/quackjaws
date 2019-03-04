@@ -19,9 +19,12 @@
 /** Function: databaseStorage()
     Purpose: Constructor. */
 
-databaseStorage::databaseStorage()
+databaseStorage::databaseStorage(AnimalStorage *animalStorage, Storage *clientStorage)
 {
     numOfElements = 0;
+    this->animalStorage = animalStorage;
+    this->clientStorage = clientStorage;
+    initDatabase();
 }
 
 databaseStorage::~databaseStorage(){}
@@ -369,6 +372,8 @@ int databaseStorage::loadDatabase(){
 
        // clientStorage->add(c);
     }
+//create method in the addaniaml to add ot that storgae and send an aninal object to it from darabase classq
+
 
     // Get All Dogs from Database //
     q.exec("SELECT * FROM dogStorage;");
@@ -410,6 +415,8 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(barks, training, bathroomTrained);
         a->setImageFilePath(filepath.toStdString());
+        (*animalStorage).add(a);
+
         cerr << "DOG ID" <<a->getId()<<"\n";
     }
 
@@ -452,6 +459,8 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(curious, trained, shed);
         a->setImageFilePath(filepath.toStdString());
+        (*animalStorage).add(a);
+
         cerr << "CAT ID" <<a->getId()<<"\n";
     }
 
@@ -496,6 +505,8 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(diet.toStdString(), colour.toStdString(), feed.toStdString(), space, light);
         a->setImageFilePath(filepath.toStdString());
+        (*animalStorage).add(a);
+
         cerr << "LIZARD ID" <<a->getId()<<"\n";
     }
     // Get All Birds from Database //
@@ -537,6 +548,8 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(loud, social, colour.toStdString());
         a->setImageFilePath(filepath.toStdString());
+        (*animalStorage).add(a);
+
         cerr << "Bird ID" <<a->getId()<<"\n";
     }
 
@@ -580,7 +593,9 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(pattern.toStdString(), colour.toStdString(), grooming, attention);
         a->setImageFilePath(filepath.toStdString());
-        cerr << "Rabbit ID" <<a->getId()<<"\n";
+        (*animalStorage).add(a);
+
+        cerr << "Rabbit ID" <<a->getId() <<"\n";
     }
     return 0;
 }

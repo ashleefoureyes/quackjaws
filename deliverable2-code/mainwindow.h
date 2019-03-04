@@ -35,7 +35,7 @@ private:
     Storage clientStorage;
     void displayLoginError();
     Filesaver filesaver;
-    databaseStorage db;
+    //databaseStorage db;
 };
 
 #endif // MAINWINDOW_H
