@@ -49,6 +49,13 @@ void databaseStorage::initDatabase(){
            query.exec("CREATE TABLE IF NOT EXISTS lizardStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, diet TEXT, colour TEXT, feed TEXT, space INTEGER, light INTEGER, filepath TEXT);");
            query.exec("CREATE TABLE IF NOT EXISTS rabbitStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, pattern TEXT, colour TEXT, grooming INTEGER, attention INTEGER, filepath TEXT);");
 
+           query.exec("INSERT INTO clientStorage VALUES(1100,'Mitch','Marner','238 Bay Street','Ontario','mm16@gmail.com','Toronto',NULL);");
+           query.exec("INSERT INTO clientStorage VALUES(1101,'Auston','Matthews','283 Beckwith St','Quebec','a.matthews34@gmail.com','Montreal',NULL);");
+           query.exec("INSERT INTO clientStorage VALUES(1102,'John','Tavares','38 Main St','Newfoundland and Labrador','jt9191@gmail.com','Happy Vally Goose Bay',NULL);");
+           query.exec("INSERT INTO clientStorage VALUES(1103,'William','Nylander','937 Patrick Lane','Alberta','slick_willie29@gmail.com','Calgary',NULL);");
+           query.exec("INSERT INTO clientStorage VALUES(1104,'Morgan','Rielly','4836 Sharp St','British Columbia','mo.riles44@gmail.com','Vancouver',NULL);");
+           query.exec("INSERT INTO clientStorage VALUES(1105,'Nazim','Kadri','28547 Tenth Line','New Brunswick','nazzer43@gmail.com','Moncton',NULL);");
+
            loadDatabase();
        }
        else {
