@@ -141,6 +141,8 @@ std::string AddAnimal::getUniqueFilename(std::string filename)
 // TODO: Support saving animal image
 void AddAnimal::on_bSubmit_clicked()
 {
+
+    ui->bExit->setText("Back");
     // If still on Physical info tab move to Non-Physical tab
     if (ui->tabWidget->currentIndex() != 2)
     {
@@ -177,8 +179,25 @@ void AddAnimal::on_bSubmit_clicked()
  *           the Animal object passed to the function */
 void AddAnimal::on_bExit_clicked()
 {
-    returnVal = QDialog::Rejected;
-    this->close();
+    if(ui->tabWidget->currentIndex() != 0)
+    {
+        // Moves to next tab
+        ui->tabWidget->setCurrentWidget(ui->tabWidget->widget(ui->tabWidget->currentIndex() - 1));
+
+
+        ui->bSubmit->setText("Next");
+        // If we're at the last tab then change "Next" to "Submit"
+        if(ui->tabWidget->currentIndex() == 0) { ui->bExit->setText("Exit"); }
+        else { ui->bExit->setText("Back"); }
+
+        return;
+    }
+
+      QMessageBox::StandardButton answer;
+      answer = QMessageBox::question(this, "Quit?", "Are you sure you want to quit\n"
+                                                    "All animal information will be lost",
+                                                     QMessageBox::Yes|QMessageBox::No);
+      if (answer == QMessageBox::Yes) { returnVal = QDialog::Rejected; this->close(); }
 }
 
 /** Function: changeBreedBox(int index)
@@ -220,9 +239,23 @@ void AddAnimal::changeFurBox(int index)
     ui->cbFur->clear();
 
     // 2 = bird, 3 = lizard
-    if(index == 2) { ui->cbFur->addItem(QString("Feathers")); return; }
-    else if (index == 3) { ui->cbFur->addItem(QString("Scales")); return; }
+    if(index == 2)
+    {
+        ui->lbFur->setText("Feathered:");
+        ui->cbFur->addItem(QString("Yes"));
+        ui->cbFur->addItem(QString("No"));
+        return;
+    }
+    else if (index == 3)
+    {
+        ui->lbFur->setText("Scales: ");
+        ui->cbFur->addItem(QString("Smooth"));
+        ui->cbFur->addItem(QString("Rough"));
+        ui->cbFur->addItem(QString("Spiked"));
+        return;
+    }
 
+    ui->lbFur->setText("Fur: ");
     ui->cbFur->addItem(QString("Hairless"));
     ui->cbFur->addItem(QString("Short"));
     ui->cbFur->addItem(QString("Long"));
@@ -240,11 +273,11 @@ void AddAnimal::changeSpeciesTab(int index)
     ui->tabWidget->removeTab(3);
     ui->tabWidget->removeTab(2);
 
-    if(index == 0) {ui->tabWidget->addTab(ui->tabDog, "Dog");}
-    else if (index == 1) { ui->tabWidget->addTab(ui->tabCat, "Cat");}
-    else if (index == 2) { ui -> tabWidget->addTab(ui->tabBird, "Bird");}
-    else if (index == 3) { ui -> tabWidget->addTab(ui->tabLizard, "Lizard");}
-    else if (index == 4) { ui -> tabWidget->addTab(ui->tabRabbit, "Rabbit");}
+    if(index == 0) {ui->tabWidget->addTab(ui->tabDog, "Dog-specific");}
+    else if (index == 1) { ui->tabWidget->addTab(ui->tabCat, "Cat-specific");}
+    else if (index == 2) { ui -> tabWidget->addTab(ui->tabBird, "Bird-specific");}
+    else if (index == 3) { ui -> tabWidget->addTab(ui->tabLizard, "Lizard-specific");}
+    else if (index == 4) { ui -> tabWidget->addTab(ui->tabRabbit, "Rabbit-specific");}
     else {ui->tabWidget->removeTab(2); }
 }
 
@@ -266,6 +299,9 @@ void AddAnimal::on_tabWidget_tabBarClicked(int index)
 {
     if(index != 2) { ui->bSubmit->setText("Next"); }
     else { ui->bSubmit->setText("Submit");}
+
+    if(index != 0) { ui->bExit->setText("Back");}
+    else {ui->bExit->setText("Exit"); }
 }
 
 /** Function: createCat()
@@ -428,8 +464,8 @@ void AddAnimal::createAnimalBase(Animal *newAnimal)
     if(ui->rbMale->isChecked()) { gender = 'M'; }
     else { gender = 'F'; }
 
-    if(speciesIndex == 2) { fur = 3; }
-    else if (speciesIndex == 3) { fur = 4; }
+    if(speciesIndex == 2) { fur = 3 + ui->cbFur->currentIndex(); }
+    else if (speciesIndex == 3) { fur = 5 + ui->cbFur->currentIndex(); }
     else { fur = ui->cbFur->currentIndex(); }
 
     size = ui->cbSize->currentIndex();
