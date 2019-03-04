@@ -42,7 +42,7 @@ class Animal
                         int fearful = -1, int affection = -1, int messy = -1,
                         bool isNoturnal = false, bool hypo = false, int lifestyle = 0, int history = 0);
 
-    // TODO add non-physical attributes for later Deliverable
+    bool areAllAttributesSet();
 
     std::string getName();
     std::string getBreed();

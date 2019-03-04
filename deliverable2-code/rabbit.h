@@ -21,6 +21,7 @@ public:
         std::string getColour() const;
         std::string getPattern() const;
         std::string getSaveInfo();
+        bool areAllAttributesSet();
 
 private:
         int ANIMAL_STORAGE_CODE = 6;

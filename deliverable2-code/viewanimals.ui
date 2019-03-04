@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>453</width>
-        <height>663</height>
+        <width>447</width>
+        <height>657</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -88,9 +88,21 @@
                    <widget class="QLabel" name="lbName">
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>75</width>
                       <height>0</height>
                      </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="text">
                      <string>Name:</string>
@@ -118,9 +130,21 @@
                    <widget class="QLabel" name="lbSpecies">
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>75</width>
                       <height>0</height>
                      </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="text">
                      <string>Species:</string>
@@ -148,9 +172,21 @@
                    <widget class="QLabel" name="lbBreed">
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>75</width>
                       <height>0</height>
                      </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="text">
                      <string>Breed:</string>
@@ -178,9 +214,21 @@
                    <widget class="QLabel" name="lbSize">
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>75</width>
                       <height>0</height>
                      </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="text">
                      <string>Size:</string>
@@ -208,9 +256,21 @@
                    <widget class="QLabel" name="lbAge">
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>75</width>
                       <height>0</height>
                      </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="text">
                      <string>Age:</string>
@@ -238,9 +298,21 @@
                    <widget class="QLabel" name="lbGender">
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>75</width>
                       <height>0</height>
                      </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="text">
                      <string>Gender:</string>
@@ -268,9 +340,21 @@
                    <widget class="QLabel" name="lbFur">
                     <property name="minimumSize">
                      <size>
-                      <width>50</width>
+                      <width>75</width>
                       <height>0</height>
                      </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="text">
                      <string>Fur:</string>
@@ -344,7 +428,7 @@
            <item>
             <widget class="QTabWidget" name="tabWidget">
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <property name="iconSize">
               <size>
@@ -382,6 +466,12 @@
                          <width>175</width>
                          <height>0</height>
                         </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
                        </property>
                        <property name="text">
                         <string>Likes travelling:</string>
@@ -422,6 +512,12 @@
                          <height>0</height>
                         </size>
                        </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>Good with children:</string>
                        </property>
@@ -460,6 +556,12 @@
                          <width>175</width>
                          <height>0</height>
                         </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
                        </property>
                        <property name="text">
                         <string>Good with animals:</string>
@@ -500,6 +602,12 @@
                          <height>0</height>
                         </size>
                        </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>Good with strangers:</string>
                        </property>
@@ -538,6 +646,12 @@
                          <width>175</width>
                          <height>0</height>
                         </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
                        </property>
                        <property name="text">
                         <string>Good in crowds:</string>
@@ -578,6 +692,12 @@
                          <height>0</height>
                         </size>
                        </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>Good with loud noises:</string>
                        </property>
@@ -616,6 +736,12 @@
                          <width>175</width>
                          <height>0</height>
                         </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
                        </property>
                        <property name="text">
                         <string>Good home protector:</string>
@@ -656,6 +782,12 @@
                          <height>0</height>
                         </size>
                        </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>Level of energy:</string>
                        </property>
@@ -694,6 +826,12 @@
                          <width>175</width>
                          <height>0</height>
                         </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
                        </property>
                        <property name="text">
                         <string>Level of fear:</string>
@@ -734,6 +872,12 @@
                          <height>0</height>
                         </size>
                        </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>Level of affection:</string>
                        </property>
@@ -772,6 +916,12 @@
                          <width>175</width>
                          <height>0</height>
                         </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
                        </property>
                        <property name="text">
                         <string>Messiness:</string>
@@ -813,6 +963,11 @@
                        <width>100</width>
                        <height>15</height>
                       </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <italic>false</italic>
+                      </font>
                      </property>
                      <property name="text">
                       <string>Nocturnal</string>
@@ -882,6 +1037,12 @@
                      <height>0</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Loudness:</string>
                    </property>
@@ -920,6 +1081,12 @@
                      <width>175</width>
                      <height>0</height>
                     </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
                    </property>
                    <property name="text">
                     <string>Training:</string>
@@ -980,6 +1147,12 @@
                      <height>0</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Curiosity:</string>
                    </property>
@@ -1019,6 +1192,12 @@
                      <height>0</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Training:</string>
                    </property>
@@ -1057,6 +1236,12 @@
                      <width>175</width>
                      <height>0</height>
                     </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
                    </property>
                    <property name="text">
                     <string>Sheds hair:</string>
@@ -1104,6 +1289,12 @@
                      <height>0</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Loudness:</string>
                    </property>
@@ -1142,6 +1333,12 @@
                      <width>175</width>
                      <height>0</height>
                     </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
                    </property>
                    <property name="text">
                     <string>Needs attention:</string>
@@ -1183,6 +1380,12 @@
                 <layout class="QHBoxLayout" name="horizontalLayout_10">
                  <item>
                   <widget class="QLabel" name="label_5">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Colour:</string>
                    </property>
@@ -1190,6 +1393,12 @@
                  </item>
                  <item>
                   <widget class="QLabel" name="lbColourBird">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>TextLabel</string>
                    </property>
@@ -1208,6 +1417,12 @@
                 <layout class="QHBoxLayout" name="horizontalLayout_9">
                  <item>
                   <widget class="QLabel" name="label_3">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Colour:</string>
                    </property>
@@ -1233,6 +1448,12 @@
                 <layout class="QHBoxLayout" name="horizontalLayout_8">
                  <item>
                   <widget class="QLabel" name="label_6">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Preferred Diet:</string>
                    </property>
@@ -1258,6 +1479,12 @@
                 <layout class="QHBoxLayout" name="horizontalLayout_7">
                  <item>
                   <widget class="QLabel" name="label_8">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Feeding Interval:</string>
                    </property>
@@ -1314,6 +1541,12 @@
                      <height>0</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Needs grooming:</string>
                    </property>
@@ -1352,6 +1585,12 @@
                      <width>175</width>
                      <height>0</height>
                     </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
                    </property>
                    <property name="text">
                     <string>Needs attention:</string>
@@ -1393,6 +1632,12 @@
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
                  <item>
                   <widget class="QLabel" name="label_2">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Colour:</string>
                    </property>
@@ -1418,6 +1663,12 @@
                 <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
                   <widget class="QLabel" name="label_4">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Pattern</string>
                    </property>
@@ -1454,13 +1705,13 @@
            <height>25</height>
           </size>
          </property>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>10</x>
             <y>0</y>
             <width>421</width>
-            <height>22</height>
+            <height>25</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_3">

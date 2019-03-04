@@ -82,6 +82,10 @@ void ViewAnimals::changeSpeciesTab(int index)
     else if (index == 5) { ui -> tabWidget->addTab(ui->tabLizard, "Species Attributes");}
     else if (index == 6) { ui -> tabWidget->addTab(ui->tabRabbit, "Species Attributes");}
     else {ui->tabWidget->removeTab(2); }
+
+    if(index == 5) {ui->lbFur->setText("Scales: ");}
+    else if (index == 4) {ui->lbFur->setText("Feathers: ");}
+    else {ui->lbFur->setText("Fur: ");}
 }
 
 /** Funciton: on_animalList_itemClicked()
@@ -152,8 +156,8 @@ void ViewAnimals::displaySpeciesAttributes(Dog *dog)
     ui->barTrainingDog->setValue(dog->getTraining());
     ui->barLoudnessDog->setValue(dog->getBarks());
 
-    if(dog->getIsBathroomTrained() == true) { ui->lbBathroomTrained->setText(QString::fromStdString("Bathroom Trained")); }
-    else { ui->lbBathroomTrained->setText(QString::fromStdString("Not Bathroom Trained")); }
+    if(dog->getIsBathroomTrained() == true) { ui->lbBathroomTrained->setText(QString::fromStdString("Is House Trained")); }
+    else { ui->lbBathroomTrained->setText(QString::fromStdString("Not House Trained")); }
 
 }
 
@@ -173,10 +177,10 @@ void ViewAnimals::displaySpeciesAttributes(Bird *bird)
 
 void ViewAnimals::displaySpeciesAttributes(Lizard *lizard)
 {
-    if(lizard->getLightingReqs()) { ui->lbLightingReq->setText("Has lighting requirements"); }
+    if(lizard->getLightingReqs()) { ui->lbLightingReq->setText("Needs strong lamp"); }
     else { ui->lbLightingReq->setText("No lighting requirements"); }
 
-    if(lizard->getSpaceReqs()) { ui->lbSpacialReq->setText("Has spacial requirements"); }
+    if(lizard->getSpaceReqs()) { ui->lbSpacialReq->setText("Needs large living space"); }
     else { ui->lbSpacialReq->setText("No spacial requirements"); }
 
     ui->lbColourLizard->setText(QString::fromStdString(lizard->getColour()));

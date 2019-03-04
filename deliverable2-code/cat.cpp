@@ -16,6 +16,15 @@ Cat::Cat() { Animal::setSpecies(this->species); }
 
 void Cat::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_CODE); }
 
+bool Cat::areAllAttributesSet()
+{
+    if(Animal::areAllAttributesSet() == false) { return false; }
+    if(curiosity < 0 || trained < 0 || shedding < 0) { return false; }
+
+    return true;
+
+}
+
 void  Cat::setSpeciesAttributes(int curiosity, int trained, int shedding)
 {
     this->curiosity = curiosity;

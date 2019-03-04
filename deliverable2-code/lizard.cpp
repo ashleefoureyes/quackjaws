@@ -17,6 +17,12 @@ void Lizard::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_
 
 Lizard::Lizard() { Animal::setSpecies(this->species); }
 
+bool Lizard::areAllAttributesSet()
+{
+    if(Animal::areAllAttributesSet() == false) { return false; }
+    else { return true; }
+}
+
 bool Lizard::getSpaceReqs() const
 {
     return spaceReqs;
@@ -55,7 +61,7 @@ void Lizard::setSpeciesAttributes(std::string preferredDiet, std::string colour,
 std::string Lizard::getSaveInfo()
 {
     std::string baseAttributes = Animal::getSaveInfo();
-    std::string returnStr = baseAttributes + ")(" + getDiet() + ")(" + getColour() + ")(" +
-            getFeedingInterval() + "(" + std::to_string(getSpaceReqs()) + ")(" + std::to_string(getLightingReqs()) + ")";
+    std::string returnStr = baseAttributes + "(" + getDiet() + ")(" + getColour() + ")(" +
+            getFeedingInterval() + ")(" + std::to_string(getSpaceReqs()) + ")(" + std::to_string(getLightingReqs()) + ")";
     return returnStr;
 }

@@ -20,6 +20,7 @@ class Cat: public Animal
        int getTrained() const;
        int getShedding() const;
        std::string getSaveInfo();
+       bool areAllAttributesSet();
 
 private:
        int ANIMAL_STORAGE_CODE = 3;

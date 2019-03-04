@@ -58,7 +58,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="tabBarAutoHide">
       <bool>false</bool>
@@ -70,37 +70,47 @@
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QWidget" name="widget_3" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <widget class="QLabel" name="lbAnimalPhoto">
-            <property name="minimumSize">
-             <size>
-              <width>275</width>
-              <height>95</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>218</width>
-              <height>95</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="bUpload">
-            <property name="text">
-             <string>Upload Photo</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QLabel" name="lbAnimalPhoto">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>0</y>
+            <width>150</width>
+            <height>75</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>75</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>75</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="bUpload">
+          <property name="geometry">
+           <rect>
+            <x>9</x>
+            <y>90</y>
+            <width>261</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Upload Photo</string>
+          </property>
+         </widget>
         </widget>
        </item>
        <item>
@@ -233,11 +243,17 @@
            </item>
            <item>
             <widget class="QRadioButton" name="rbMale">
+             <property name="toolTip">
+              <string>Male</string>
+             </property>
+             <property name="toolTipDuration">
+              <number>5</number>
+             </property>
              <property name="text">
               <string>Male</string>
              </property>
              <property name="checked">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">groupGender</string>
@@ -1447,7 +1463,7 @@
        <cursorShape>ArrowCursor</cursorShape>
       </property>
       <attribute name="title">
-       <string>Dog</string>
+       <string>Dog-specific</string>
       </attribute>
       <widget class="QWidget" name="widget_4" native="true">
        <property name="geometry">
@@ -1556,7 +1572,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Is well-trained:</string>
+             <string>Follows commands:</string>
             </property>
            </widget>
           </item>
@@ -1635,7 +1651,7 @@
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>Bathroom Trained</string>
+           <string>House Trained</string>
           </property>
          </widget>
         </item>
@@ -1701,7 +1717,7 @@
        <cursorShape>ArrowCursor</cursorShape>
       </property>
       <attribute name="title">
-       <string>Cat</string>
+       <string>Cat-specific</string>
       </attribute>
       <widget class="QWidget" name="widget_5" native="true">
        <property name="geometry">
@@ -2007,7 +2023,7 @@
      </widget>
      <widget class="QWidget" name="tabBird">
       <attribute name="title">
-       <string>Bird</string>
+       <string>Bird-specific</string>
       </attribute>
       <widget class="QWidget" name="widget_6" native="true">
        <property name="geometry">
@@ -2305,7 +2321,7 @@
      </widget>
      <widget class="QWidget" name="tabLizard">
       <attribute name="title">
-       <string>Lizard</string>
+       <string>Lizard-specific</string>
       </attribute>
       <widget class="QWidget" name="widget_7" native="true">
        <property name="geometry">
@@ -2505,28 +2521,29 @@
           <item>
            <widget class="QCheckBox" name="boxSpace">
             <property name="text">
-             <string>Spacial needs</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="boxLighting">
-            <property name="text">
-             <string>Lighting needs</string>
+             <string>Needs large living space</string>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="AltBreed_Lizard"/>
+         <layout class="QHBoxLayout" name="AltBreed_Lizard">
+          <item>
+           <widget class="QCheckBox" name="boxLighting">
+            <property name="text">
+             <string>Needs strong heatlamp</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
      </widget>
      <widget class="QWidget" name="tabRabbit">
       <attribute name="title">
-       <string>Rabbit</string>
+       <string>Rabbit-specific</string>
       </attribute>
       <widget class="QWidget" name="widget_8" native="true">
        <property name="geometry">
@@ -2856,61 +2873,45 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupLifestyle">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
   <buttongroup name="groupSheds"/>
-  <buttongroup name="groupTrainedCat"/>
-  <buttongroup name="groupGoodAnimals">
+  <buttongroup name="groupNoise">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupAttentionBird"/>
-  <buttongroup name="groupBarks"/>
-  <buttongroup name="groupCurious"/>
-  <buttongroup name="groupAffection">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupStrange">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupGender">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupDogTrained"/>
-  <buttongroup name="groupTravel">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupAttentionRabbit"/>
-  <buttongroup name="groupGrooming"/>
   <buttongroup name="groupEnergy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupIsLoudBird"/>
-  <buttongroup name="groupFear">
+  <buttongroup name="groupGrooming"/>
+  <buttongroup name="groupGoodAnimals">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
+  <buttongroup name="groupAffection">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupCurious"/>
+  <buttongroup name="groupAttentionBird"/>
+  <buttongroup name="groupIsLoudBird"/>
   <buttongroup name="groupCrowds">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupNoise">
+  <buttongroup name="groupAttentionRabbit"/>
+  <buttongroup name="groupTravel">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupTrainedCat"/>
+  <buttongroup name="groupDogTrained"/>
+  <buttongroup name="groupProtect">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -2920,12 +2921,28 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupMessy">
+  <buttongroup name="groupGender">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupProtect">
+  <buttongroup name="groupBarks"/>
+  <buttongroup name="groupFear">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupStrange">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupLifestyle">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupMessy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
