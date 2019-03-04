@@ -79,19 +79,18 @@ When an animal questionnaire is filled out, a vector is generated with all respo
 ArrayMeasurements = 
 {size, age, indoorOut, childFri, animalFri, noise, energyLev, protection, mess, affection, travel}
 
-We compare against the ideal arrays for each classification by using a measure of similarity. Namely, the cosine similarity. 
+We compare against the ideal arrays for each classification by using a measure of similarity. <s> Namely, the cosine similarity. </s>
 
-<s>The cosine similarity measures similarity between two non-zero vectors of an inner product space – it measures the cosine of the angle between them. 
+<s>The cosine similarity measures similarity between two non-zero vectors of an inner product space – it measures the cosine of the angle between them. </s>
 
-The cosine of two non-zero vectors can be derived by using the Euclidean dot product formula:
+<s>The cosine of two non-zero vectors can be derived by using the Euclidean dot product formula:</s>
 
 ![equation](https://github.com/ashleefoureyes/quackjaws/blob/master/doc/doc-pics/equation1.png)
 
-Given two vectors of attributes, A and B, the cosine similarity, cos(θ), is represented using a dot product and magnitude as
+<s>Given two vectors of attributes, A and B, the cosine similarity, cos(θ), is represented using a dot product and magnitude as </s>
 
 ![equation2](https://github.com/ashleefoureyes/quackjaws/blob/master/doc/doc-pics/equation2.png)
 
-</s>
 
 
 Now lets say we have animal ‘A’ who’s vector appears as: 
