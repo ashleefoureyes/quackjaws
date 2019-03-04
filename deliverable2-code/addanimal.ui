@@ -70,37 +70,47 @@
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QWidget" name="widget_3" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <widget class="QLabel" name="lbAnimalPhoto">
-            <property name="minimumSize">
-             <size>
-              <width>275</width>
-              <height>95</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>218</width>
-              <height>95</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="bUpload">
-            <property name="text">
-             <string>Upload Photo</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QLabel" name="lbAnimalPhoto">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>0</y>
+            <width>150</width>
+            <height>75</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>75</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>75</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="bUpload">
+          <property name="geometry">
+           <rect>
+            <x>9</x>
+            <y>90</y>
+            <width>261</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Upload Photo</string>
+          </property>
+         </widget>
         </widget>
        </item>
        <item>
@@ -233,11 +243,17 @@
            </item>
            <item>
             <widget class="QRadioButton" name="rbMale">
+             <property name="toolTip">
+              <string>Male</string>
+             </property>
+             <property name="toolTipDuration">
+              <number>5</number>
+             </property>
              <property name="text">
               <string>Male</string>
              </property>
              <property name="checked">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">groupGender</string>
@@ -2856,22 +2872,12 @@
  <resources/>
  <connections/>
  <buttongroups>
+  <buttongroup name="groupGender">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
   <buttongroup name="groupLifestyle">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupSheds"/>
-  <buttongroup name="groupTrainedCat"/>
-  <buttongroup name="groupGoodAnimals">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupAttentionBird"/>
-  <buttongroup name="groupBarks"/>
-  <buttongroup name="groupCurious"/>
-  <buttongroup name="groupAffection">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -2881,46 +2887,12 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupGender">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupDogTrained"/>
-  <buttongroup name="groupTravel">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupAttentionRabbit"/>
-  <buttongroup name="groupGrooming"/>
-  <buttongroup name="groupEnergy">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupIsLoudBird"/>
-  <buttongroup name="groupFear">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupCrowds">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupNoise">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupChildren">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
   <buttongroup name="groupMessy">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupFear">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -2930,5 +2902,49 @@
     <bool>true</bool>
    </property>
   </buttongroup>
+  <buttongroup name="groupChildren">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupTravel">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupNoise">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupBarks"/>
+  <buttongroup name="groupAffection">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupDogTrained"/>
+  <buttongroup name="groupCrowds">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupCurious"/>
+  <buttongroup name="groupTrainedCat"/>
+  <buttongroup name="groupAttentionRabbit"/>
+  <buttongroup name="groupSheds"/>
+  <buttongroup name="groupIsLoudBird"/>
+  <buttongroup name="groupGrooming"/>
+  <buttongroup name="groupGoodAnimals">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupEnergy">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupAttentionBird"/>
  </buttongroups>
 </ui>

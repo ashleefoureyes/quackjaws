@@ -285,6 +285,8 @@ void AddAnimal::createCat()
 
     newCat->setSpeciesAttributes(curiosity, trained, shedding);
 
+    if(newCat->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
+
     (*storage)->add(newCat);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newCat);
 
@@ -310,6 +312,7 @@ void AddAnimal::createDog()
     newDog->setBreed((ui->cbBreed->currentText()).toStdString());
 
     newDog->setSpeciesAttributes(barks, training, isBathroomTrained);
+    if(newDog->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
     (*storage)->add(newDog);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newDog);
@@ -334,6 +337,8 @@ void AddAnimal::createBird()
     newBird->setBreed((ui->cbBreed->currentText()).toStdString());
 
     newBird->setSpeciesAttributes(loud, social, colour);
+
+    if(newBird->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
     (*storage)->add(newBird);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newBird);
@@ -362,6 +367,8 @@ void AddAnimal::createLizard()
 
     newLizard->setSpeciesAttributes(preferredDiet, colour, feedingInterval, spaceReqs, lightingReqs);
 
+    if(newLizard->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
+
     (*storage)->add(newLizard);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newLizard);
 
@@ -387,6 +394,8 @@ void AddAnimal::createRabbit()
     newRabbit->setBreed((ui->cbBreed->currentText()).toStdString());
 
     newRabbit->setSpeciesAttributes(pattern, colour, grooming, attention);
+
+    if(newRabbit->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
     (*storage)->add(newRabbit);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newRabbit);
@@ -420,7 +429,7 @@ void AddAnimal::createAnimalBase(Animal *newAnimal)
     else { gender = 'F'; }
 
     if(speciesIndex == 2) { fur = 3; }
-    else if (speciesIndex == 4) { fur = 4; }
+    else if (speciesIndex == 3) { fur = 4; }
     else { fur = ui->cbFur->currentIndex(); }
 
     size = ui->cbSize->currentIndex();
@@ -457,6 +466,15 @@ void AddAnimal::createAnimalBase(Animal *newAnimal)
 void AddAnimal::displayAnimalNameError(QString name)
 {
     QString err = QString("Error: Name '" + name + "' contains ')' or '(' symbols");
+
+    QMessageBox msgBox;
+    msgBox.setText(err);
+    msgBox.exec();
+}
+
+void AddAnimal::displayMissingInfoError()
+{
+    QString err = QString("Error:\nOne or more animal attributes are not complete\nPlease fill them all out before proceeding");
 
     QMessageBox msgBox;
     msgBox.setText(err);

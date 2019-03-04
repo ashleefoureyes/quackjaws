@@ -17,6 +17,14 @@ void Rabbit::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_
 
 Rabbit::Rabbit() { Animal::setSpecies(this->species); }
 
+bool Rabbit::areAllAttributesSet()
+{
+    if(Animal::areAllAttributesSet() == false) { return false; }
+    if(grooming < 0 || attention < 0) { return false; }
+
+    return true;
+}
+
 void Rabbit::setSpeciesAttributes(std::string pattern, std::string colour, int grooming, int attention)
 {
     this->pattern = pattern;

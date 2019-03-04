@@ -15,6 +15,17 @@ Dog::Dog(std::string breed, std::string name,
 
 Dog::Dog() { Animal::setSpecies(this->species); }
 
+bool Dog::areAllAttributesSet()
+{
+    if(Animal::areAllAttributesSet() == false) { return false; }
+    if(barks < 0 || training < 0) { return false;}
+
+    return true;
+}
+
+// Most important function
+bool Dog::isAGoodDog() { return true; }
+
 void Dog::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_CODE); }
 
 void Dog::setSpeciesAttributes(int barks, int training, bool isBathroomTrained)

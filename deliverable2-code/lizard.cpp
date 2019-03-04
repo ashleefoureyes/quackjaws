@@ -17,6 +17,12 @@ void Lizard::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_
 
 Lizard::Lizard() { Animal::setSpecies(this->species); }
 
+bool Lizard::areAllAttributesSet()
+{
+    if(Animal::areAllAttributesSet() == false) { return false; }
+    else { return true; }
+}
+
 bool Lizard::getSpaceReqs() const
 {
     return spaceReqs;

@@ -22,6 +22,7 @@
 #define IMAGE_FILEPATH "animalPhotos/"
 #define DIR_NAME "animalPhotos"
 #define ANIMAL_SAVE_FILE "savedAnimals.txt"
+#define DEV_MODE false
 
 namespace Ui {
 class AddAnimal;
@@ -56,7 +57,9 @@ private:
     bool customImage = false;
     int speciesIndex = 0;
     Filesaver filesaver;
+
     void displayAnimalNameError(QString name);
+    void displayMissingInfoError();
 
     std::string savePhoto(std::string);
     void changeBreedBox(int index);

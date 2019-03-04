@@ -17,6 +17,14 @@ void Bird::setIdNumber(int newId) { Animal::setIdNumber(newId, ANIMAL_STORAGE_CO
 
 Bird::Bird() { Animal::setSpecies(this->species); }
 
+bool Bird::areAllAttributesSet()
+{
+    if (Animal::areAllAttributesSet() == false) { return false; }
+    if(loud < 0 || social < 0) { return false; }
+
+    return true;
+}
+
 void Bird::setSpeciesAttributes(int loud, int social, std::string colour)
 {
     this->loud = loud;

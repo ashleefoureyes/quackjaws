@@ -85,6 +85,13 @@ void Animal::setIdNumber(int newId, int animalCode)
 
 void Animal::setImageFilePath(std::string filepath) { imageFilePath = filepath; }
 
+bool Animal::areAllAttributesSet()
+{
+    if(travels < 0 || children < 0 || goodWAnimals < 0 || strangers < 0 || crowds < 0 || noises < 0 || protector < 0
+            || energy < 0 || fearful < 0 || affection < 0 || messy < 0) { return false; }
+    return true;
+}
+
 std::string Animal::getListInfoStr()
 {
     std::string returnStr = "";
@@ -113,7 +120,7 @@ std::string Animal::getFurStr()
 {
     switch(fur)
     {
-    case 0: return "None";
+    case 0: return "Hairless";
     case 1: return "Short";
     case 2: return "Long";
     case 3: return "Feathers";
