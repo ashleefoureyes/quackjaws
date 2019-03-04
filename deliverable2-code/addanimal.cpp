@@ -290,6 +290,8 @@ void AddAnimal::createCat()
     (*storage)->add(newCat);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newCat);
 
+    db->addCatToDatabase(newCat);
+
     this->close();
 }
 

@@ -37,8 +37,9 @@ void databaseStorage::initDatabase(){
        if (db.open()){
            cerr << "SUCCESS - DB OPENED\n";
            QSqlQuery query;
-           query.exec("CREATE TABLE IF NOT EXISTS dogStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, barks INTEGER, training INTEGER, bathroomTrained INTEGER, goodBoy INTEGER, filepath TEXT);");
            query.exec("CREATE TABLE IF NOT EXISTS clientStorage(idNum INTEGER PRIMARY KEY, fName TEXT, lName TEXT, address TEXT, phone TEXT, email TEXT, city TEXT, prov TEXT);");
+           query.exec("CREATE TABLE IF NOT EXISTS dogStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, barks INTEGER, training INTEGER, bathroomTrained INTEGER, goodBoy INTEGER, filepath TEXT);");
+           query.exec("CREATE TABLE IF NOT EXISTS catStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, curiosity INTEGER, trained INTEGER, shedding INTEGER, filepath TEXT);");
            loadDatabase();
        }
        else {
@@ -130,12 +131,12 @@ int databaseStorage::addCatToDatabase(Cat *a){
     QTextStream cerr(stderr);
     bool success = false;
 
-    query.prepare("INSERT INTO dogStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
+    query.prepare("INSERT INTO catStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
                   " strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal, "
-                  "hypo, lifeStyle, history, barks, training, bathroomTrained, goodBoy, filepath) "
+                  "hypo, lifeStyle, history, curiosity, trained, shedding, filepath) "
                   "VALUES(:idNum, :breed, :name, :size, :age, :gender, :fur, :travels, :children, :goodWithAnimals, "
                   ":strangers, :crowds, :noises, :protector, :energy, :fearful, :affection, :messy, :nocturnal, "
-                  ":hypo, :lifeStyle, :history, :barks, :training, :bathroomTrained, :goodBoy, :filepath)");
+                  ":hypo, :lifeStyle, :history, :curiosity, :trained, :shedding, :filepath)");
      query.bindValue(":idNum", a->getId());
      query.bindValue(":breed", QString::fromStdString(a->getBreed()));
      query.bindValue(":name", QString::fromStdString(a->getName()));
@@ -158,19 +159,18 @@ int databaseStorage::addCatToDatabase(Cat *a){
      query.bindValue(":hypo", a->isHypo());
      query.bindValue(":lifeStyle", QString::fromStdString(a->getLifestyleStr()));
      query.bindValue(":history", QString::fromStdString(a->getHistoryStr()));
-     query.bindValue(":barks", a->getBarks());
-     query.bindValue(":training", a->getTraining());
-     query.bindValue(":bathroomTrained", a->getIsBathroomTrained());
-     query.bindValue(":goodBoy", a->isAGoodDog());
+     query.bindValue(":trained", a->getTrained());
+     query.bindValue(":shedding", a->getShedding());
+     query.bindValue(":curiosity", a->getCuriosity());
      query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
 
     if(query.exec()) {
            success = true;
-           cerr << "DOG ADDED";
+           cerr << "CAT ADDED";
        }
        else{
-        cerr << "ERROR ADDING DOG \n";
-         qDebug() << "addDog error:"
+        cerr << "ERROR ADDING CAT \n";
+         qDebug() << "addCat error:"
                          << query.lastError();
        }
      return 0;
