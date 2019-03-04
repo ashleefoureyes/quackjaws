@@ -21,3 +21,6 @@ have been filled out."
 Add Client > Add field for postal code
 
 Add Animal > Rabbits becoming scaly
+
+Add Animal > For birds, lizards, change Fur: label to Feathered: and Scales:
+or something similar that makes more sense
