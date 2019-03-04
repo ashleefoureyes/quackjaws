@@ -10,6 +10,7 @@ AddAnimal::AddAnimal(QWidget *parent) :
     changeBreedBox(0);
     ui->tabWidget->setCurrentIndex(0);
     changeSpeciesTab(0);
+    changeFurBox(0);
 }
 
 AddAnimal::~AddAnimal()
