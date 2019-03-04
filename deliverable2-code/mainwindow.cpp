@@ -6,8 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    filesaver.readFromAnimalFile("savedAnimals.txt", &animalStorage);
-    filesaver.readFromClientFile("savedClients.txt", &clientStorage);
+   // filesaver.readFromAnimalFile("savedAnimals.txt", &animalStorage);
+   // filesaver.readFromClientFile("savedClients.txt", &clientStorage);
     databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
     //db.initDatabase(&animalStorage, &clientStorage);
 }

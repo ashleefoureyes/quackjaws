@@ -15,6 +15,8 @@
 #include <QMessageBox>
 #include <QString>
 #include <QDebug>
+#include <QMapIterator>
+#include <QVariant>
 
 /** Function: databaseStorage()
     Purpose: Constructor. */
@@ -72,7 +74,7 @@ int databaseStorage::addClientToDatabase(Client *c){
     query.bindValue(":p", QString::fromStdString(c->getProvince()));
    if(query.exec()) {
           success = true;
-          cerr << "ADDED";
+          cerr << "CLIENT ADDED";
       }
       else{
        cerr << "ERROR ADDING \n";
@@ -327,16 +329,20 @@ int databaseStorage::addRabbitToDatabase(Rabbit *a){
 
     if(query.exec()) {
            success = true;
-           cerr << "RABBIT ADDED";
+           cerr << "RABBIT ADDED" << "\n"
+           << query.executedQuery() << "\n"
+           << query.lastQuery() << "\n";
+
        }
        else{
         cerr << "ERROR ADDING Rabbit \n";
          qDebug() << "addDog error:"
                          << query.lastError();
        }
+
+
      return 0;
 }
-
 
 int databaseStorage::loadDatabase(){
     QSqlQuery q;
@@ -364,16 +370,13 @@ int databaseStorage::loadDatabase(){
         Client *c = new Client;
         c->setContactInformation(fName.toStdString(), lName.toStdString(), add.toStdString(), phone.toStdString(), email.toStdString(), city.toStdString(), prov.toStdString());
         c->setIdNumber(id);
-        Storage *clientStorage = new Storage;
-        clientStorage->add(c);
+        (*clientStorage).add(c);
 
 
         cerr << c->getId() << fName << lName << add << phone << email << city << prov << "\n";
 
        // clientStorage->add(c);
     }
-//create method in the addaniaml to add ot that storgae and send an aninal object to it from darabase classq
-
 
     // Get All Dogs from Database //
     q.exec("SELECT * FROM dogStorage;");
@@ -600,5 +603,17 @@ int databaseStorage::loadDatabase(){
     return 0;
 }
 
+
+/*
+TABLE clientStorage(idNum INTEGER PRIMARY KEY, fName TEXT, lName TEXT, address TEXT, phone TEXT, email TEXT, city TEXT, prov TEXT);
+INSERT INTO clientStorage VALUES(0001, "Will", "Watt", "76 Scrivens", "6132858297", "william.watt@carleton.ca", "Ottawa", "ON");
+
+CREATE TABLE dogStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, barks INTEGER, training INTEGER, bathroomTrained INTEGER, goodBoy INTEGER, filepath TEXT);
+INSERT INTO dogStorage VALUES(0001,"Bull Terrier","Bob",0,0,"F",3,2,0,2,5,4,1,5,2,3,4,1,2,4,"Outdoor","Brought by owner",0,0,0,1,"noImage");
+
+CREATE TABLE catStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, curiosity INTEGER, trained INTEGER, shedding INTEGER, filepath TEXT);
+INSERT INTO catStorage(0001, "Bengal", "Lucy",
+
+*/
 
 
