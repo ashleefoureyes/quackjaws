@@ -10,6 +10,18 @@
     <height>677</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>467</width>
+    <height>677</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>467</width>
+    <height>677</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
