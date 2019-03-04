@@ -19,9 +19,9 @@ We aim to provide potential adopters with best-suited matches. However, we want 
 4. Display order calculations are applied to the group, affecting the order in which they are presented. 
 
 
-## Classification of Animals
+## Classification of Animals 
 
-We have identified groups to which every animal belongs to only one, based on physical and non-physical traits.
+We have identified groups to which every animal belongs to only one, based on physical and non-physical traits. (This classfication system applies to cats and dogs only).
 
 #### Rural Rovers
 Rural Rovers include medium to large sized animals who are energetic and require a lot of exercise. They thrive in outdoor settings such as farms and acreages, and behave well with other animals. 
