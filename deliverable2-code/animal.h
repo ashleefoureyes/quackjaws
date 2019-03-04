@@ -51,6 +51,8 @@ class Animal
     char getGender();
     int getFur();
     bool isHypo();
+    bool getNocturnal();
+
     std::string getFormattedInfo();
 
     void setIdNumber(int, int);

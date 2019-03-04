@@ -37,6 +37,13 @@ std::string Client::getEmail() { return email; }
 
 int Client::getId() { return idNumber; }
 
+std::string Client::getFirstName() { return firstName; }
+std::string Client::getLastName() { return lastName; }
+std::string Client::getAddress() { return address; }
+std::string Client::getPhoneNum() { return phone; }
+std::string Client::getCity() { return city; }
+std::string Client::getProvince() { return province; }
+
 //(Id)(FirstName)(LastName)(Address)(City)(Province)(Phone)(Email)
 std::string Client::getSaveInfo()
 {
@@ -45,3 +52,5 @@ std::string Client::getSaveInfo()
             address + ")(" + city + ")(" + province + ")(" + phone + ")(" + email + ")";
     return returnStr;
 }
+
+

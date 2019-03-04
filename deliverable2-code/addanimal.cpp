@@ -316,6 +316,7 @@ void AddAnimal::createDog()
 
     (*storage)->add(newDog);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newDog);
+    db->addDogToDatabase(newDog);
 
     this->close();
 }

@@ -8,6 +8,7 @@
 #include "rabbit.h"
 #include "animalstorage.h"
 #include "filesaver.h"
+#include "databasestorage.h"
 
 #include <QFileDialog>
 #include <QButtonGroup>
@@ -57,6 +58,8 @@ private:
     bool customImage = false;
     int speciesIndex = 0;
     Filesaver filesaver;
+
+    databaseStorage* db;
 
     void displayAnimalNameError(QString name);
     void displayMissingInfoError();

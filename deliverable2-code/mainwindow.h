@@ -10,6 +10,7 @@
 #include "animal.h"
 #include "clienthomepage.h"
 #include "filesaver.h"
+#include "databasestorage.h"
 
 namespace Ui {
 class MainWindow;
@@ -34,6 +35,7 @@ private:
     Storage clientStorage;
     void displayLoginError();
     Filesaver filesaver;
+    databaseStorage db;
 };
 
 #endif // MAINWINDOW_H

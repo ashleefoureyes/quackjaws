@@ -178,6 +178,7 @@ int Animal::getSize() { return size; }
 char Animal::getGender() { return gender; }
 int Animal::getFur() { return fur; }
 bool Animal::isHypo() { return isHypoAllergenic; }
+bool Animal::getNocturnal(){return isNocturnal; }
 
 std::string getFormattedInfo() { return ""; }
 
