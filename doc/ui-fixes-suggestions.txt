@@ -1,0 +1,23 @@
+Add Animal > Back button in addition to the next button
+
+View Animal > Rabbit > Pattern missing colon (should be 'Pattern:')
+
+Upload failed text change to: "Upload failed, try different image file."
+
+Dog-specific attributes > Change bathroom trained to housetrained
+
+Add Animal > Change species-specific tab from "Dog" to "Dog-specific",
+        "Cat-specific", etc
+
+Add Animal > Lizard > Change "Lighting needs" to "Needs stronger heatlamp"
+
+Add Animal > Lizard > Change "Spacial needs" to "Needs lots of space"
+
+If possible, change labels in view animal to bold font (i.e. make "Likes travelling:" bold)
+
+Add Client > Change error message to "Please make sure all information fields
+have been filled out."
+
+Add Client > Add field for postal code
+
+Add Animal > Rabbits becoming scaly
