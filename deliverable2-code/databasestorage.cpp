@@ -372,7 +372,7 @@ int databaseStorage::loadDatabase(){
 
     // Get All Dogs from Database //
     q.exec("SELECT * FROM dogStorage;");
-        while (q.next()) {
+    while (q.next()) {
         int idNum = q.value(0).toInt();
         QString breed = q.value(1).toString();
         QString name = q.value(2).toString();
@@ -411,178 +411,177 @@ int databaseStorage::loadDatabase(){
         a->setSpeciesAttributes(barks, training, bathroomTrained);
         a->setImageFilePath(filepath.toStdString());
         cerr << "DOG ID" <<a->getId()<<"\n";
-        }
+    }
 
         // Get All CATS from Database //
-        q.exec("SELECT * FROM catStorage;");
-            while (q.next()) {
-            int idNum = q.value(0).toInt();
-            QString breed = q.value(1).toString();
-            QString name = q.value(2).toString();
-            int size = q.value(3).toInt();
-            int age = q.value(4).toInt();
-            QString gender = q.value(5).toString();
-            int fur = q.value(6).toInt();
-            int travels = q.value(7).toInt();
-            int children = q.value(8).toInt();
-            int goodWithAnimals = q.value(9).toInt();
-            int strangers = q.value(10).toInt();
-            int crowds = q.value(11).toInt();
-            int noises = q.value(12).toInt();
-            int protector = q.value(13).toInt();
-            int energy = q.value(14).toInt();
-            int fearful = q.value(15).toInt();
-            int affection = q.value(16).toInt();
-            int messy = q.value(17).toInt();
-            bool nocturnal = q.value(18).toInt();
-            bool hypo = q.value(19).toInt();
-            int lifeStyle = q.value(20).toInt();
-            int history = q.value(21).toInt();
-            int curious = q.value(22).toInt();
-            int trained = q.value(23).toInt();
-            bool shed = q.value(24).toInt();
-            QString filepath = q.value(26).toString();
+    q.exec("SELECT * FROM catStorage;");
+        while (q.next()) {
+        int idNum = q.value(0).toInt();
+        QString breed = q.value(1).toString();
+        QString name = q.value(2).toString();
+        int size = q.value(3).toInt();
+        int age = q.value(4).toInt();
+        QString gender = q.value(5).toString();
+        int fur = q.value(6).toInt();
+        int travels = q.value(7).toInt();
+        int children = q.value(8).toInt();
+        int goodWithAnimals = q.value(9).toInt();
+        int strangers = q.value(10).toInt();
+        int crowds = q.value(11).toInt();
+        int noises = q.value(12).toInt();
+        int protector = q.value(13).toInt();
+        int energy = q.value(14).toInt();
+        int fearful = q.value(15).toInt();
+        int affection = q.value(16).toInt();
+        int messy = q.value(17).toInt();
+        bool nocturnal = q.value(18).toInt();
+        bool hypo = q.value(19).toInt();
+        int lifeStyle = q.value(20).toInt();
+        int history = q.value(21).toInt();
+        int curious = q.value(22).toInt();
+        int trained = q.value(23).toInt();
+        bool shed = q.value(24).toInt();
+        QString filepath = q.value(26).toString();
 
-            char g = QString(gender).toStdString().c_str()[0];
+        char g = QString(gender).toStdString().c_str()[0];
 
-            Cat* a = new Cat;
-            a->setIdNumber(idNum);
-            a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
-                                 strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                                 hypo, lifeStyle, history);
-            a->setSpeciesAttributes(curious, trained, shed);
-            a->setImageFilePath(filepath.toStdString());
-            cerr << "CAT ID" <<a->getId()<<"\n";
-            }
+        Cat* a = new Cat;
+        a->setIdNumber(idNum);
+        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
+                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
+                             hypo, lifeStyle, history);
+        a->setSpeciesAttributes(curious, trained, shed);
+        a->setImageFilePath(filepath.toStdString());
+        cerr << "CAT ID" <<a->getId()<<"\n";
+    }
 
             // Get All LIZARD from Database //
-            q.exec("SELECT * FROM lizardStorage;");
-                while (q.next()) {
-                int idNum = q.value(0).toInt();
-                QString breed = q.value(1).toString();
-                QString name = q.value(2).toString();
-                int size = q.value(3).toInt();
-                int age = q.value(4).toInt();
-                QString gender = q.value(5).toString();
-                int fur = q.value(6).toInt();
-                int travels = q.value(7).toInt();
-                int children = q.value(8).toInt();
-                int goodWithAnimals = q.value(9).toInt();
-                int strangers = q.value(10).toInt();
-                int crowds = q.value(11).toInt();
-                int noises = q.value(12).toInt();
-                int protector = q.value(13).toInt();
-                int energy = q.value(14).toInt();
-                int fearful = q.value(15).toInt();
-                int affection = q.value(16).toInt();
-                int messy = q.value(17).toInt();
-                bool nocturnal = q.value(18).toInt();
-                bool hypo = q.value(19).toInt();
-                int lifeStyle = q.value(20).toInt();
-                int history = q.value(21).toInt();
-                QString diet = q.value(22).toString();
-                QString colour = q.value(23).toString();
-                QString feed = q.value(24).toString();
-                bool space = q.value(25).toInt();
-                bool light = q.value(26).toInt();
-                QString filepath = q.value(27).toString();
+    q.exec("SELECT * FROM lizardStorage;");
+        while (q.next()) {
+        int idNum = q.value(0).toInt();
+        QString breed = q.value(1).toString();
+        QString name = q.value(2).toString();
+        int size = q.value(3).toInt();
+        int age = q.value(4).toInt();
+        QString gender = q.value(5).toString();
+        int fur = q.value(6).toInt();
+        int travels = q.value(7).toInt();
+        int children = q.value(8).toInt();
+        int goodWithAnimals = q.value(9).toInt();
+        int strangers = q.value(10).toInt();
+        int crowds = q.value(11).toInt();
+        int noises = q.value(12).toInt();
+        int protector = q.value(13).toInt();
+        int energy = q.value(14).toInt();
+        int fearful = q.value(15).toInt();
+        int affection = q.value(16).toInt();
+        int messy = q.value(17).toInt();
+        bool nocturnal = q.value(18).toInt();
+        bool hypo = q.value(19).toInt();
+        int lifeStyle = q.value(20).toInt();
+        int history = q.value(21).toInt();
+        QString diet = q.value(22).toString();
+        QString colour = q.value(23).toString();
+        QString feed = q.value(24).toString();
+        bool space = q.value(25).toInt();
+        bool light = q.value(26).toInt();
+        QString filepath = q.value(27).toString();
 
-                char g = QString(gender).toStdString().c_str()[0];
+        char g = QString(gender).toStdString().c_str()[0];
 
-                Lizard* a = new Lizard;
-                a->setIdNumber(idNum);
-                a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
-                                     strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                                     hypo, lifeStyle, history);
-                a->setSpeciesAttributes(diet.toStdString(), colour.toStdString(), feed.toStdString(), space, light);
-                a->setImageFilePath(filepath.toStdString());
-                cerr << "LIZARD ID" <<a->getId()<<"\n";
-                }
+        Lizard* a = new Lizard;
+        a->setIdNumber(idNum);
+        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
+                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
+                             hypo, lifeStyle, history);
+        a->setSpeciesAttributes(diet.toStdString(), colour.toStdString(), feed.toStdString(), space, light);
+        a->setImageFilePath(filepath.toStdString());
+        cerr << "LIZARD ID" <<a->getId()<<"\n";
+    }
+    // Get All Birds from Database //
+    q.exec("SELECT * FROM birdStorage;");
+        while (q.next()) {
+        int idNum = q.value(0).toInt();
+        QString breed = q.value(1).toString();
+        QString name = q.value(2).toString();
+        int size = q.value(3).toInt();
+        int age = q.value(4).toInt();
+        QString gender = q.value(5).toString();
+        int fur = q.value(6).toInt();
+        int travels = q.value(7).toInt();
+        int children = q.value(8).toInt();
+        int goodWithAnimals = q.value(9).toInt();
+        int strangers = q.value(10).toInt();
+        int crowds = q.value(11).toInt();
+        int noises = q.value(12).toInt();
+        int protector = q.value(13).toInt();
+        int energy = q.value(14).toInt();
+        int fearful = q.value(15).toInt();
+        int affection = q.value(16).toInt();
+        int messy = q.value(17).toInt();
+        bool nocturnal = q.value(18).toInt();
+        bool hypo = q.value(19).toInt();
+        int lifeStyle = q.value(20).toInt();
+        int history = q.value(21).toInt();
+        int loud = q.value(22).toInt();
+        int social = q.value(23).toInt();
+        QString colour = q.value(24).toString();
+        QString filepath = q.value(25).toString();
 
-                // Get All Birds from Database //
-                q.exec("SELECT * FROM birdStorage;");
-                    while (q.next()) {
-                    int idNum = q.value(0).toInt();
-                    QString breed = q.value(1).toString();
-                    QString name = q.value(2).toString();
-                    int size = q.value(3).toInt();
-                    int age = q.value(4).toInt();
-                    QString gender = q.value(5).toString();
-                    int fur = q.value(6).toInt();
-                    int travels = q.value(7).toInt();
-                    int children = q.value(8).toInt();
-                    int goodWithAnimals = q.value(9).toInt();
-                    int strangers = q.value(10).toInt();
-                    int crowds = q.value(11).toInt();
-                    int noises = q.value(12).toInt();
-                    int protector = q.value(13).toInt();
-                    int energy = q.value(14).toInt();
-                    int fearful = q.value(15).toInt();
-                    int affection = q.value(16).toInt();
-                    int messy = q.value(17).toInt();
-                    bool nocturnal = q.value(18).toInt();
-                    bool hypo = q.value(19).toInt();
-                    int lifeStyle = q.value(20).toInt();
-                    int history = q.value(21).toInt();
-                    int loud = q.value(22).toInt();
-                    int social = q.value(23).toInt();
-                    QString colour = q.value(24).toString();
-                    QString filepath = q.value(25).toString();
+        char g = QString(gender).toStdString().c_str()[0];
 
-                    char g = QString(gender).toStdString().c_str()[0];
+        Bird* a = new Bird;
+        a->setIdNumber(idNum);
+        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
+                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
+                             hypo, lifeStyle, history);
+        a->setSpeciesAttributes(loud, social, colour.toStdString());
+        a->setImageFilePath(filepath.toStdString());
+        cerr << "Bird ID" <<a->getId()<<"\n";
+    }
 
-                    Bird* a = new Bird;
-                    a->setIdNumber(idNum);
-                    a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
-                                         strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                                         hypo, lifeStyle, history);
-                    a->setSpeciesAttributes(loud, social, colour.toStdString());
-                    a->setImageFilePath(filepath.toStdString());
-                    cerr << "Bird ID" <<a->getId()<<"\n";
-                    }
+    // Get All Rabbits from Database //
+    q.exec("SELECT * FROM rabbitStorage;");
+        while (q.next()) {
+        int idNum = q.value(0).toInt();
+        QString breed = q.value(1).toString();
+        QString name = q.value(2).toString();
+        int size = q.value(3).toInt();
+        int age = q.value(4).toInt();
+        QString gender = q.value(5).toString();
+        int fur = q.value(6).toInt();
+        int travels = q.value(7).toInt();
+        int children = q.value(8).toInt();
+        int goodWithAnimals = q.value(9).toInt();
+        int strangers = q.value(10).toInt();
+        int crowds = q.value(11).toInt();
+        int noises = q.value(12).toInt();
+        int protector = q.value(13).toInt();
+        int energy = q.value(14).toInt();
+        int fearful = q.value(15).toInt();
+        int affection = q.value(16).toInt();
+        int messy = q.value(17).toInt();
+        bool nocturnal = q.value(18).toInt();
+        bool hypo = q.value(19).toInt();
+        int lifeStyle = q.value(20).toInt();
+        int history = q.value(21).toInt();
+        QString pattern = q.value(22).toString();
+        QString colour = q.value(23).toString();
+        bool grooming = q.value(24).toInt();
+        bool attention = q.value(25).toInt();
+        QString filepath = q.value(26).toString();
 
-                    // Get All Rabbits from Database //
-                    q.exec("SELECT * FROM rabbitStorage;");
-                        while (q.next()) {
-                        int idNum = q.value(0).toInt();
-                        QString breed = q.value(1).toString();
-                        QString name = q.value(2).toString();
-                        int size = q.value(3).toInt();
-                        int age = q.value(4).toInt();
-                        QString gender = q.value(5).toString();
-                        int fur = q.value(6).toInt();
-                        int travels = q.value(7).toInt();
-                        int children = q.value(8).toInt();
-                        int goodWithAnimals = q.value(9).toInt();
-                        int strangers = q.value(10).toInt();
-                        int crowds = q.value(11).toInt();
-                        int noises = q.value(12).toInt();
-                        int protector = q.value(13).toInt();
-                        int energy = q.value(14).toInt();
-                        int fearful = q.value(15).toInt();
-                        int affection = q.value(16).toInt();
-                        int messy = q.value(17).toInt();
-                        bool nocturnal = q.value(18).toInt();
-                        bool hypo = q.value(19).toInt();
-                        int lifeStyle = q.value(20).toInt();
-                        int history = q.value(21).toInt();
-                        QString pattern = q.value(22).toString();
-                        QString colour = q.value(23).toString();
-                        bool grooming = q.value(24).toInt();
-                        bool attention = q.value(25).toInt();
-                        QString filepath = q.value(26).toString();
+        char g = QString(gender).toStdString().c_str()[0];
 
-                        char g = QString(gender).toStdString().c_str()[0];
-
-                        Rabbit* a = new Rabbit;
-                        a->setIdNumber(idNum);
-                        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
-                                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                                             hypo, lifeStyle, history);
-                        a->setSpeciesAttributes(pattern.toStdString(), colour.toStdString(), grooming, attention);
-                        a->setImageFilePath(filepath.toStdString());
-                        cerr << "Rabbit ID" <<a->getId()<<"\n";
-                        }
+        Rabbit* a = new Rabbit;
+        a->setIdNumber(idNum);
+        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
+                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
+                             hypo, lifeStyle, history);
+        a->setSpeciesAttributes(pattern.toStdString(), colour.toStdString(), grooming, attention);
+        a->setImageFilePath(filepath.toStdString());
+        cerr << "Rabbit ID" <<a->getId()<<"\n";
+    }
     return 0;
 }
 
