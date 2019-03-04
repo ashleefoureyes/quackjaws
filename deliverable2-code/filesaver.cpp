@@ -283,7 +283,7 @@ void Filesaver::parseLizard(std::string remainingAttributes, std::string &diet, 
     diet = strArray[0];
     colour = strArray[1];
     feedingInterval = strArray[2];
-    spaceReqs = std::stoi(strArray[3], nullptr, 10);
+    //spaceReqs = std::stoi(strArray[3], nullptr, 10);
     lightingReqs = std::stoi(strArray[4], nullptr, 10);
 }
 

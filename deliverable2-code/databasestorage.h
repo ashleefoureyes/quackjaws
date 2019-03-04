@@ -33,9 +33,9 @@ class databaseStorage
     int addClientToDatabase(Client*);
     int addDogToDatabase(Dog*);
     int addCatToDatabase(Cat*);
-    int addBirdToDatabase(Dog*);
-    int addLizardToDatabase(Cat*);
-    int addRabbitToDatabase(Cat*);
+    int addBirdToDatabase(Bird*);
+    int addLizardToDatabase(Lizard*);
+    int addRabbitToDatabase(Rabbit*);
     void initDatabase();
 
     private:

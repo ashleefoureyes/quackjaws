@@ -40,6 +40,10 @@ void databaseStorage::initDatabase(){
            query.exec("CREATE TABLE IF NOT EXISTS clientStorage(idNum INTEGER PRIMARY KEY, fName TEXT, lName TEXT, address TEXT, phone TEXT, email TEXT, city TEXT, prov TEXT);");
            query.exec("CREATE TABLE IF NOT EXISTS dogStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, barks INTEGER, training INTEGER, bathroomTrained INTEGER, goodBoy INTEGER, filepath TEXT);");
            query.exec("CREATE TABLE IF NOT EXISTS catStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, curiosity INTEGER, trained INTEGER, shedding INTEGER, filepath TEXT);");
+           query.exec("CREATE TABLE IF NOT EXISTS birdStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, loud INTEGER, social INTEGER, colour TEXT, filepath TEXT);");
+           query.exec("CREATE TABLE IF NOT EXISTS lizardStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, diet TEXT, colour TEXT, feed TEXT, space INTEGER, light INTEGER, filepath TEXT);");
+           query.exec("CREATE TABLE IF NOT EXISTS rabbitStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, pattern TEXT, colour TEXT, grooming INTEGER, attention INTEGER, filepath TEXT);");
+
            loadDatabase();
        }
        else {
@@ -76,6 +80,7 @@ int databaseStorage::addClientToDatabase(Client *c){
 }
 
 int databaseStorage::addDogToDatabase(Dog *a){
+
     QSqlQuery query;
     QTextStream cerr(stderr);
     bool success = false;
@@ -120,6 +125,108 @@ int databaseStorage::addDogToDatabase(Dog *a){
        }
        else{
         cerr << "ERROR ADDING DOG \n";
+         qDebug() << "addDog error:"
+                         << query.lastError();
+       }
+     return 0;
+}
+
+int databaseStorage::addBirdToDatabase(Bird *a){
+    QSqlQuery query;
+    QTextStream cerr(stderr);
+    bool success = false;
+
+    query.prepare("INSERT INTO birdStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
+                  " strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal, "
+                  "hypo, lifeStyle, history, loud, social, colour, filepath) "
+                  "VALUES(:idNum, :breed, :name, :size, :age, :gender, :fur, :travels, :children, :goodWithAnimals, "
+                  ":strangers, :crowds, :noises, :protector, :energy, :fearful, :affection, :messy, :nocturnal, "
+                  ":hypo, :lifeStyle, :history, :loud, :social, :colour, :filepath)");
+     query.bindValue(":idNum", a->getId());
+     query.bindValue(":breed", QString::fromStdString(a->getBreed()));
+     query.bindValue(":name", QString::fromStdString(a->getName()));
+     query.bindValue(":size", a->getSize());
+     query.bindValue(":age", a->getAge());
+     query.bindValue(":gender", QString(QChar::fromLatin1(a->getGender())));
+     query.bindValue(":fur", a->getFur());
+     query.bindValue(":travels", a->getTravels());
+     query.bindValue(":children", a->getChildren());
+     query.bindValue(":goodWithAnimals", a->getGoodWAnimals());
+     query.bindValue(":strangers", a->getStrangers());
+     query.bindValue(":crowds", a->getCrowds());
+     query.bindValue(":noises", a->getNoises());
+     query.bindValue(":protector", a->getProtector());
+     query.bindValue(":energy", a->getEnergy());
+     query.bindValue(":fearful", a->getFearful());
+     query.bindValue(":affection", a->getAffection());
+     query.bindValue(":messy", a->getMessy());
+     query.bindValue(":nocturnal", a->getNocturnal());
+     query.bindValue(":hypo", a->isHypo());
+     query.bindValue(":lifeStyle", QString::fromStdString(a->getLifestyleStr()));
+     query.bindValue(":history", QString::fromStdString(a->getHistoryStr()));
+     query.bindValue(":loud", a->getLoud());
+     query.bindValue(":social", a->getSocial());
+     query.bindValue(":colour", QString::fromStdString(a->getColour()));
+     query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
+
+    if(query.exec()) {
+           success = true;
+           cerr << "BIRD ADDED";
+       }
+       else{
+        cerr << "ERROR ADDING BIRD \n";
+         qDebug() << "addDog error:"
+                         << query.lastError();
+       }
+     return 0;
+}
+
+int databaseStorage::addLizardToDatabase(Lizard *a){
+    QSqlQuery query;
+    QTextStream cerr(stderr);
+    bool success = false;
+
+    query.prepare("INSERT INTO lizardStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
+                  " strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal, "
+                  "hypo, lifeStyle, history, diet, feed, colour, space, light, filepath) "
+                  "VALUES(:idNum, :breed, :name, :size, :age, :gender, :fur, :travels, :children, :goodWithAnimals, "
+                  ":strangers, :crowds, :noises, :protector, :energy, :fearful, :affection, :messy, :nocturnal, "
+                  ":hypo, :lifeStyle, :history, :diet, :feed, :colour, :space, :light, :filepath)");
+     query.bindValue(":idNum", a->getId());
+     query.bindValue(":breed", QString::fromStdString(a->getBreed()));
+     query.bindValue(":name", QString::fromStdString(a->getName()));
+     query.bindValue(":size", a->getSize());
+     query.bindValue(":age", a->getAge());
+     query.bindValue(":gender", QString(QChar::fromLatin1(a->getGender())));
+     query.bindValue(":fur", a->getFur());
+     query.bindValue(":travels", a->getTravels());
+     query.bindValue(":children", a->getChildren());
+     query.bindValue(":goodWithAnimals", a->getGoodWAnimals());
+     query.bindValue(":strangers", a->getStrangers());
+     query.bindValue(":crowds", a->getCrowds());
+     query.bindValue(":noises", a->getNoises());
+     query.bindValue(":protector", a->getProtector());
+     query.bindValue(":energy", a->getEnergy());
+     query.bindValue(":fearful", a->getFearful());
+     query.bindValue(":affection", a->getAffection());
+     query.bindValue(":messy", a->getMessy());
+     query.bindValue(":nocturnal", a->getNocturnal());
+     query.bindValue(":hypo", a->isHypo());
+     query.bindValue(":lifeStyle", QString::fromStdString(a->getLifestyleStr()));
+     query.bindValue(":history", QString::fromStdString(a->getHistoryStr()));
+     query.bindValue(":diet", QString::fromStdString(a->getDiet()));
+     query.bindValue(":colour", QString::fromStdString(a->getColour()));
+     query.bindValue(":feed", QString::fromStdString(a->getFeedingInterval()));
+     query.bindValue(":space", a->getSpaceReqs());
+     query.bindValue(":light", a->getLightingReqs());
+     query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
+
+    if(query.exec()) {
+           success = true;
+           cerr << "Lizard ADDED";
+       }
+       else{
+        cerr << "ERROR ADDING Lizard \n";
          qDebug() << "addDog error:"
                          << query.lastError();
        }
@@ -175,6 +282,58 @@ int databaseStorage::addCatToDatabase(Cat *a){
        }
      return 0;
 }
+
+int databaseStorage::addRabbitToDatabase(Rabbit *a){
+    QSqlQuery query;
+    QTextStream cerr(stderr);
+    bool success = false;
+
+    query.prepare("INSERT INTO rabbitStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
+                  " strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal, "
+                  "hypo, lifeStyle, history, pattern, colour, grooming, attention, filepath) "
+                  "VALUES(:idNum, :breed, :name, :size, :age, :gender, :fur, :travels, :children, :goodWithAnimals, "
+                  ":strangers, :crowds, :noises, :protector, :energy, :fearful, :affection, :messy, :nocturnal, "
+                  ":hypo, :lifeStyle, :history, :pattern, :colour, :grooming, :attention, :filepath)");
+     query.bindValue(":idNum", a->getId());
+     query.bindValue(":breed", QString::fromStdString(a->getBreed()));
+     query.bindValue(":name", QString::fromStdString(a->getName()));
+     query.bindValue(":size", a->getSize());
+     query.bindValue(":age", a->getAge());
+     query.bindValue(":gender", QString(QChar::fromLatin1(a->getGender())));
+     query.bindValue(":fur", a->getFur());
+     query.bindValue(":travels", a->getTravels());
+     query.bindValue(":children", a->getChildren());
+     query.bindValue(":goodWithAnimals", a->getGoodWAnimals());
+     query.bindValue(":strangers", a->getStrangers());
+     query.bindValue(":crowds", a->getCrowds());
+     query.bindValue(":noises", a->getNoises());
+     query.bindValue(":protector", a->getProtector());
+     query.bindValue(":energy", a->getEnergy());
+     query.bindValue(":fearful", a->getFearful());
+     query.bindValue(":affection", a->getAffection());
+     query.bindValue(":messy", a->getMessy());
+     query.bindValue(":nocturnal", a->getNocturnal());
+     query.bindValue(":hypo", a->isHypo());
+     query.bindValue(":lifeStyle", QString::fromStdString(a->getLifestyleStr()));
+     query.bindValue(":history", QString::fromStdString(a->getHistoryStr()));
+     query.bindValue(":pattern", QString::fromStdString(a->getPattern()));
+     query.bindValue(":colour", QString::fromStdString(a->getColour()));
+     query.bindValue(":grooming", (a->getGrooming()));
+     query.bindValue(":attention", a->getAttention());
+     query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
+
+    if(query.exec()) {
+           success = true;
+           cerr << "RABBIT ADDED";
+       }
+       else{
+        cerr << "ERROR ADDING Rabbit \n";
+         qDebug() << "addDog error:"
+                         << query.lastError();
+       }
+     return 0;
+}
+
 
 int databaseStorage::loadDatabase(){
     QSqlQuery q;
