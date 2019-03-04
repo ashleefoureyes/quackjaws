@@ -1,13 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "databasestorage.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    filesaver.readFromAnimalFile("savedAnimals.txt", &animalStorage);
-    filesaver.readFromClientFile("savedClients.txt", &clientStorage);
+   // filesaver.readFromAnimalFile("savedAnimals.txt", &animalStorage);
+   // filesaver.readFromClientFile("savedClients.txt", &clientStorage);
+    databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
 }
 
 MainWindow::~MainWindow()

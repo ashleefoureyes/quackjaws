@@ -326,6 +326,7 @@ void AddAnimal::createCat()
 
     (*storage)->add(newCat);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newCat);
+    db->addCatToDatabase(newCat);
 
     this->close();
 }
@@ -353,6 +354,8 @@ void AddAnimal::createDog()
 
     (*storage)->add(newDog);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newDog);
+    db->addDogToDatabase(newDog);
+
 
     this->close();
 }
@@ -379,6 +382,8 @@ void AddAnimal::createBird()
 
     (*storage)->add(newBird);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newBird);
+
+    db->addBirdToDatabase(newBird);
 
     this->close();
 }
@@ -409,6 +414,9 @@ void AddAnimal::createLizard()
     (*storage)->add(newLizard);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newLizard);
 
+    db->addLizardToDatabase(newLizard);
+
+
     this->close();
 }
 
@@ -436,6 +444,9 @@ void AddAnimal::createRabbit()
 
     (*storage)->add(newRabbit);
     filesaver.appendToFile(ANIMAL_SAVE_FILE, newRabbit);
+
+    db->addRabbitToDatabase(newRabbit);
+
 
     this->close();
 }

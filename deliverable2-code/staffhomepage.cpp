@@ -65,6 +65,9 @@ void StaffHomepage::on_bAddClient_clicked()
     if(addClient.initNewClient(newClient) != 1) { delete newClient; return; }
 
     clientStorage->add(newClient);
+
+    db->addClientToDatabase(newClient);
+
     Filesaver filesaver;
     filesaver.appendToFile("savedClients.txt", newClient);
 }

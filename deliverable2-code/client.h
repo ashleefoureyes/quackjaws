@@ -16,6 +16,13 @@ public:
     int getId();
     std::string getSaveInfo();
 
+    std::string getFirstName();
+    std::string getLastName();
+    std::string getAddress();
+    std::string getPhoneNum();
+    std::string getCity();
+    std::string getProvince();
+
 private:
     std::string firstName, lastName, address,
         phone, email, city, province;

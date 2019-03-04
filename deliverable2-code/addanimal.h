@@ -17,6 +17,7 @@
 #include <vector>
 #include <iterator>
 #include <QDialog>
+#include "databasestorage.h"
 
 #define Q_BUTTON_GROUP_SIZE
 #define IMAGE_FILEPATH "animalPhotos/"
@@ -57,6 +58,8 @@ private:
     bool customImage = false;
     int speciesIndex = 0;
     Filesaver filesaver;
+
+    databaseStorage* db;
 
     void displayAnimalNameError(QString name);
     void displayMissingInfoError();

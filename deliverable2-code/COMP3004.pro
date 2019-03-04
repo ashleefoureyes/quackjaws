@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -43,7 +44,8 @@ SOURCES += \
     bird.cpp \
     rabbit.cpp \
     lizard.cpp \
-    filesaver.cpp
+    filesaver.cpp \
+    databasestorage.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -63,7 +65,8 @@ HEADERS += \
     bird.h \
     rabbit.h \
     lizard.h \
-    filesaver.h
+    filesaver.h \
+    databasestorage.h
 
 FORMS += \
         mainwindow.ui \

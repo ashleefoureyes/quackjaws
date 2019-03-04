@@ -10,6 +10,7 @@
 #include "animal.h"
 #include "clienthomepage.h"
 #include "filesaver.h"
+#include "databasestorage.h"
 
 namespace Ui {
 class MainWindow;

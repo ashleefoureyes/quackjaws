@@ -13,6 +13,7 @@
 #include "animal.h"
 #include "client.h"
 #include "viewclients.h"
+#include "databasestorage.h"
 
 namespace Ui {
 class StaffHomepage;
@@ -46,6 +47,8 @@ private:
     AnimalStorage *animalStorage;
     Storage *clientStorage;
     int returnResult;
+    databaseStorage *db;
+
 };
 
 #endif // STAFFHOMEPAGE_H
