@@ -1,5 +1,11 @@
 # COMP3004 D2 - Algorithm
 
+- [ ] Finalize Traits
+- [ ] Do not do cosine distance, do Euclidean
+- [ ] Add groups for lizards and rabbits
+- [ ] Establish optimal arrays for each group
+
+
 ### Overview
 We aim to provide potential adopters with best-suited matches. However, we want to abstain from the classic method of using traits as filters to provide an exact match. To do this, we have identified different classes of animals identified by different title names. Each class represents a strategic grouping of selected traits, and every potential adopter is matched with most compatible class. 
 
@@ -73,19 +79,18 @@ When an animal questionnaire is filled out, a vector is generated with all respo
 ArrayMeasurements = 
 {size, age, indoorOut, childFri, animalFri, noise, energyLev, protection, mess, affection, travel}
 
-We compare against the ideal arrays for each classification by using a measure of similarity. Namely, the cosine similarity. 
+We compare against the ideal arrays for each classification by using a measure of similarity. <s> Namely, the cosine similarity. </s>
 
-The cosine similarity measures similarity between two non-zero vectors of an inner product space – it measures the cosine of the angle between them. 
+<s>The cosine similarity measures similarity between two non-zero vectors of an inner product space – it measures the cosine of the angle between them. </s>
 
-The cosine of two non-zero vectors can be derived by using the Euclidean dot product formula:
+<s>The cosine of two non-zero vectors can be derived by using the Euclidean dot product formula:</s>
 
-![equation1]
-(https://github.com/ashleefoureyes/quackjaws/blob/master/doc/doc-pics/equation1.png)
+![equation](https://github.com/ashleefoureyes/quackjaws/blob/master/doc/doc-pics/equation1.png)
 
-Given two vectors of attributes, A and B, the cosine similarity, cos(θ), is represented using a dot product and magnitude as
+<s>Given two vectors of attributes, A and B, the cosine similarity, cos(θ), is represented using a dot product and magnitude as </s>
 
-![equation2]
-(https://github.com/ashleefoureyes/quackjaws/blob/master/doc/doc-pics/equation2.png)
+![equation2](https://github.com/ashleefoureyes/quackjaws/blob/master/doc/doc-pics/equation2.png)
+
 
 
 Now lets say we have animal ‘A’ who’s vector appears as: 
