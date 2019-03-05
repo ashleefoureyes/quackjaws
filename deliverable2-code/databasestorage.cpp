@@ -105,7 +105,7 @@ int databaseStorage::addClientToDatabase(Client *c){
     query.bindValue(":p", QString::fromStdString(c->getPhoneNum()));
     query.bindValue(":e", QString::fromStdString(c->getEmail()));
     query.bindValue(":c", QString::fromStdString(c->getCity()));
-    query.bindValue(":p", QString::fromStdString(c->getProvince()));
+    query.bindValue(":r", QString::fromStdString(c->getProvince()));
    if(query.exec()) {
           cerr << "CLIENT ADDED";
       }
