@@ -40,8 +40,8 @@ class databaseStorage
     void initDatabase();
 
     private:
-    int numOfElements;
-    int largestId;
+    int numClients;
+    int numAnimals;
     int loadDatabase();
     AnimalStorage *animalStorage;
     Storage *clientStorage;

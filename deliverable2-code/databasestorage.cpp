@@ -22,7 +22,8 @@
 
 databaseStorage::databaseStorage(AnimalStorage *animalStorage, Storage *clientStorage)
 {
-    numOfElements = 0;
+    numAnimals = 0;
+    numClients = 0;
     this->animalStorage = animalStorage;
     this->clientStorage = clientStorage;
     initDatabase();
@@ -635,6 +636,30 @@ int databaseStorage::loadDatabase(){
 
         //cerr << "Rabbit ID" <<a->getId() <<"\n";
     }
+
+        int n;
+        QSqlQuery query;
+        query.exec("select count(*) from dogStorage;");
+        query.first();
+        n = query.value(0).toInt();
+        query.exec("select count(*) from catStorage;");
+        query.first();
+        n += query.value(0).toInt();
+        query.exec("select count(*) from birdStorage;");
+        query.first();
+        n += query.value(0).toInt();
+        query.exec("select count(*) from lizardStorage;");
+        query.first();
+        n += query.value(0).toInt();
+        query.exec("select count(*) from rabbitStorage;");
+        query.first();
+        n += query.value(0).toInt();
+        numAnimals = n;
+
+        query.exec("select count (*) from clientStorage;");
+        query.first();
+        numClients = query.value(0).toInt();
+
     return 0;
 }
 
