@@ -28,7 +28,7 @@ Compilation:
 
 Launching:
   To launch the program, enter the following command (minus the backticks):
-  `./cuACS`
+  `./deliverable1-code`
 
 Operation Instructions:
   Click enter on initial popup and you will be given three options:

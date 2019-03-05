@@ -160,9 +160,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		view.cpp \
 		control.cpp \
 		addanimalview.cpp
-QMAKE_TARGET  = cuACS
+QMAKE_TARGET  = deliverable1-code
 DESTDIR       =
-TARGET        = cuACS
+TARGET        = deliverable1-code
 
 
 first: all
