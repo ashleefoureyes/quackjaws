@@ -48,12 +48,12 @@ void databaseStorage::initDatabase(){
            query.exec("CREATE TABLE IF NOT EXISTS lizardStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, diet TEXT, colour TEXT, feed TEXT, space INTEGER, light INTEGER, filepath TEXT);");
            query.exec("CREATE TABLE IF NOT EXISTS rabbitStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, pattern TEXT, colour TEXT, grooming INTEGER, attention INTEGER, filepath TEXT);");
 
-           query.exec("INSERT INTO clientStorage VALUES(1100,'Mitch','Marner','238 Bay Street','Ontario','mm16@gmail.com','Toronto',NULL);");
-           query.exec("INSERT INTO clientStorage VALUES(1101,'Auston','Matthews','283 Beckwith St','Quebec','a.matthews34@gmail.com','Montreal',NULL);");
-           query.exec("INSERT INTO clientStorage VALUES(1102,'John','Tavares','38 Main St','Newfoundland and Labrador','jt9191@gmail.com','Happy Vally Goose Bay',NULL);");
-           query.exec("INSERT INTO clientStorage VALUES(1103,'William','Nylander','937 Patrick Lane','Alberta','slick_willie29@gmail.com','Calgary',NULL);");
-           query.exec("INSERT INTO clientStorage VALUES(1104,'Morgan','Rielly','4836 Sharp St','British Columbia','mo.riles44@gmail.com','Vancouver',NULL);");
-           query.exec("INSERT INTO clientStorage VALUES(1105,'Nazim','Kadri','28547 Tenth Line','New Brunswick','nazzer43@gmail.com','Moncton',NULL);");
+           query.exec("INSERT INTO clientStorage VALUES(1100,'Mitch','Marner','238 Bay Street','4837397362','mm16@gmail.com','Toronto','Ontario');");
+           query.exec("INSERT INTO clientStorage VALUES(1101,'Auston','Matthews','283 Beckwith St','4732796382','a.matthews34@gmail.com','Montreal','Quebec');");
+           query.exec("INSERT INTO clientStorage VALUES(1102,'John','Tavares','38 Main St','9362847625','jt9191@gmail.com','Happy Vally Goose Bay','Newfoundland and Labrador');");
+           query.exec("INSERT INTO clientStorage VALUES(1103,'William','Nylander','937 Patrick Lane','7309751372','slick_willie29@gmail.com','Calgary','Alberta');");
+           query.exec("INSERT INTO clientStorage VALUES(1104,'Morgan','Rielly','4836 Sharp St','479367287','mo.riles44@gmail.com','Vancouver','British Columbia');");
+           query.exec("INSERT INTO clientStorage VALUES(1105,'Nazim','Kadri','28547 Tenth Line', '7925670987','nazzer43@gmail.com','Moncton','New Brunswick');");
 
             query.exec("INSERT INTO dogStorage VALUES(2105,'Golden Retriever','Goldy',1,1,'M',1,4,4,4,4,3,2,1,4,1,4,4,0,0,'Outdoor','Street Animal',3,0,1,1,'animalPhotos/Goldy.jpg');");
             query.exec("INSERT INTO dogStorage VALUES(2106,'German Sheperd','Germaine',3,6,'F',2,4,3,2,3,1,2,3,1,4,2,0,0,0,'Outdoor','Street Animal',1,4,1,1,'animalPhotos/Germaine.jpg');");

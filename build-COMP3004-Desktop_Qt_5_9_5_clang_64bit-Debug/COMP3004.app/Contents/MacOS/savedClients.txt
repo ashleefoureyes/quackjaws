@@ -10,3 +10,5 @@ C: (1102)(John)(Tavares)(38 Main St)(Happy Vally Goose Bay)(Newfoundland and Lab
 C: (1103)(William)(Nylander)(937 Patrick Lane)(Calgary)(Alberta)(2682942929)(slick_willie29@gmail.com)
 C: (1104)(Morgan)(Rielly)(4836 Sharp St)(Vancouver)(British Columbia)(3848374444)(mo.riles44@gmail.com)
 C: (1105)(Nazim)(Kadri)(28547 Tenth Line)(Moncton)(New Brunswick)(4788394343)(nazzer43@gmail.com)
+C: (11)(Jake)(Gardiner)(67 Long Road)(Winnipeg)(Manitoba)(1234567890)(j.g51@gmail.com)
+C: (12)(Travis)(Dermott)(37 Bathurst Road)(Edmonton)(Alberta)(9999999999)(td@gmail.com)
