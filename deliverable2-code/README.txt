@@ -19,6 +19,7 @@ Files:
   - cat.h cat.cpp
   - client.h client.cpp
   - clienthomepage.h clienthomepage.cpp
+  - databasestorage.h databasestorage.cpp
   - dog.h dog.cpp
   - filesaver.h filesaver.cpp
   - lizard.h lizard.cpp
@@ -33,7 +34,7 @@ Files:
 Compilation:
 Navigate to the directory where the deliverable2-code was
 downloaded and extracted (for example: ~/Downloads/deliverable2-code/ and type
-"make".
+"qmake" followed by: "make".
 
 Launching:
   ./COMP3004
