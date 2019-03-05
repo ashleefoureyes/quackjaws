@@ -415,8 +415,8 @@ int databaseStorage::loadDatabase(){
         int messy = q.value(17).toInt();
         bool nocturnal = q.value(18).toInt();
         bool hypo = q.value(19).toInt();
-        int lifeStyle = q.value(20).toInt();
-        int history = q.value(21).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
         int barks = q.value(22).toInt();
         int training = q.value(23).toInt();
         bool bathroomTrained = q.value(24).toInt();
@@ -424,12 +424,14 @@ int databaseStorage::loadDatabase(){
         QString filepath = q.value(26).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
 
         Dog* a = new Dog;
         a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, lifeStyle, history);
+                             hypo, ls, hst);
         a->setSpeciesAttributes(barks, training, bathroomTrained);
         a->setImageFilePath(filepath.toStdString());
         a->setBreed(breed.toStdString());
@@ -461,21 +463,22 @@ int databaseStorage::loadDatabase(){
         int messy = q.value(17).toInt();
         bool nocturnal = q.value(18).toInt();
         bool hypo = q.value(19).toInt();
-        int lifeStyle = q.value(20).toInt();
-        int history = q.value(21).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
         int curious = q.value(22).toInt();
         int trained = q.value(23).toInt();
         bool shed = q.value(24).toInt();
         QString filepath = q.value(25).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
-        std::stoi((std::to_string(idNum).substr(1)));
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
 
         Cat* a = new Cat;
         a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, lifeStyle, history);
+                             hypo, ls, hst);
         a->setSpeciesAttributes(curious, trained, shed);
         a->setImageFilePath(filepath.toStdString());
         a->setBreed(breed.toStdString());
@@ -508,8 +511,8 @@ int databaseStorage::loadDatabase(){
         int messy = q.value(17).toInt();
         bool nocturnal = q.value(18).toInt();
         bool hypo = q.value(19).toInt();
-        int lifeStyle = q.value(20).toInt();
-        int history = q.value(21).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
         QString diet = q.value(22).toString();
         QString colour = q.value(23).toString();
         QString feed = q.value(24).toString();
@@ -518,12 +521,14 @@ int databaseStorage::loadDatabase(){
         QString filepath = q.value(27).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
 
         Lizard* a = new Lizard;
         a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, lifeStyle, history);
+                             hypo, ls, hst);
         a->setSpeciesAttributes(diet.toStdString(), colour.toStdString(), feed.toStdString(), space, light);
         a->setImageFilePath(filepath.toStdString());
         a->setBreed(breed.toStdString());
@@ -555,20 +560,22 @@ int databaseStorage::loadDatabase(){
         int messy = q.value(17).toInt();
         bool nocturnal = q.value(18).toInt();
         bool hypo = q.value(19).toInt();
-        int lifeStyle = q.value(20).toInt();
-        int history = q.value(21).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
         int loud = q.value(22).toInt();
         int social = q.value(23).toInt();
         QString colour = q.value(24).toString();
         QString filepath = q.value(25).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
 
         Bird* a = new Bird;
         a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, lifeStyle, history);
+                             hypo, ls, hst);
         a->setSpeciesAttributes(loud, social, colour.toStdString());
         a->setImageFilePath(filepath.toStdString());
         a->setBreed(breed.toStdString());
@@ -601,8 +608,8 @@ int databaseStorage::loadDatabase(){
         int messy = q.value(17).toInt();
         bool nocturnal = q.value(18).toInt();
         bool hypo = q.value(19).toInt();
-        int lifeStyle = q.value(20).toInt();
-        int history = q.value(21).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
         QString pattern = q.value(22).toString();
         QString colour = q.value(23).toString();
         bool grooming = q.value(24).toInt();
@@ -611,13 +618,15 @@ int databaseStorage::loadDatabase(){
 
         char g = QString(gender).toStdString().c_str()[0];
         std::stoi((std::to_string(idNum).substr(1)));
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
 
 
         Rabbit* a = new Rabbit;
         a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, lifeStyle, history);
+                             hypo, ls, hst);
         a->setSpeciesAttributes(pattern.toStdString(), colour.toStdString(), grooming, attention);
         a->setImageFilePath(filepath.toStdString());
         a->setBreed(breed.toStdString());
@@ -628,6 +637,39 @@ int databaseStorage::loadDatabase(){
     }
     return 0;
 }
+
+int databaseStorage::lifeStyleToInt(QString str)
+{
+    if (QString::compare(str, "Indoor", Qt::CaseInsensitive) == 0){
+        return 0;
+    }
+    if (QString::compare(str, "Outdoor", Qt::CaseInsensitive) == 0){
+        return 1;
+    }
+    if (QString::compare(str, "Indoor/Outdoor", Qt::CaseInsensitive) == 0){
+        return 2;
+    }
+    else if (QString::compare(str, "Unknown", Qt::CaseInsensitive) == 0){
+        return 3;
+    }
+}
+
+int databaseStorage::historyToInt(QString str)
+{
+    if (QString::compare(str, "Brought by owner", Qt::CaseInsensitive) == 0){
+        return 0;
+    }
+    if (QString::compare(str, "Street Animal", Qt::CaseInsensitive) == 0){
+        return 1;
+    }
+    if (QString::compare(str, "Rescue", Qt::CaseInsensitive) == 0){
+        return 2;
+    }
+    else if (QString::compare(str, "Unknown", Qt::CaseInsensitive) == 0){
+        return 3;
+    }
+}
+
 
 
 

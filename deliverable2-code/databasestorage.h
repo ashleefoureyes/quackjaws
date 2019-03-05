@@ -45,6 +45,8 @@ class databaseStorage
     int loadDatabase();
     AnimalStorage *animalStorage;
     Storage *clientStorage;
+    int lifeStyleToInt(QString);
+    int historyToInt(QString str);
 };
 
 
