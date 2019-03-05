@@ -1,0 +1,1815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ViewAnimals</class>
+ <widget class="QDialog" name="ViewAnimals">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>467</width>
+    <height>677</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>467</width>
+    <height>677</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>467</width>
+    <height>677</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>447</width>
+        <height>657</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>400</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QWidget" name="widget_2" native="true">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>430</width>
+            <height>450</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>430</width>
+            <height>430</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>430</width>
+            <height>450</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QWidget" name="widget" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>440</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>400</width>
+               <height>150</height>
+              </size>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <layout class="QHBoxLayout" name="name">
+                  <item>
+                   <widget class="QLabel" name="lbName">
+                    <property name="minimumSize">
+                     <size>
+                      <width>75</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Name:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="aName">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="species">
+                  <item>
+                   <widget class="QLabel" name="lbSpecies">
+                    <property name="minimumSize">
+                     <size>
+                      <width>75</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Species:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="aSpecies">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="breed">
+                  <item>
+                   <widget class="QLabel" name="lbBreed">
+                    <property name="minimumSize">
+                     <size>
+                      <width>75</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Breed:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="aBreed">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="size">
+                  <item>
+                   <widget class="QLabel" name="lbSize">
+                    <property name="minimumSize">
+                     <size>
+                      <width>75</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="aSize">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="age">
+                  <item>
+                   <widget class="QLabel" name="lbAge">
+                    <property name="minimumSize">
+                     <size>
+                      <width>75</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Age:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="aAge">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="gender">
+                  <item>
+                   <widget class="QLabel" name="lbGender">
+                    <property name="minimumSize">
+                     <size>
+                      <width>75</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Gender:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="aGender">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="fur">
+                  <item>
+                   <widget class="QLabel" name="lbFur">
+                    <property name="minimumSize">
+                     <size>
+                      <width>75</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>75</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Fur:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="aFur">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="Line" name="line_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbAnimalImage">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>140</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>140</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>No Image</string>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="Line" name="line">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTabWidget" name="tabWidget">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="tabsClosable">
+              <bool>false</bool>
+             </property>
+             <property name="tabBarAutoHide">
+              <bool>false</bool>
+             </property>
+             <widget class="QWidget" name="tabGeneral">
+              <attribute name="title">
+               <string>General Attributes</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_3">
+               <item row="0" column="0">
+                <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_2">
+                   <property name="spacing">
+                    <number>1</number>
+                   </property>
+                   <property name="sizeConstraint">
+                    <enum>QLayout::SetDefaultConstraint</enum>
+                   </property>
+                   <item>
+                    <layout class="QHBoxLayout" name="likesTravel">
+                     <item>
+                      <widget class="QLabel" name="lbLikesTravel">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Likes travelling:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barLikesTravel">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="goodwChildren">
+                     <item>
+                      <widget class="QLabel" name="lbChildren">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Good with children:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barChildren">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="goodwAnimals">
+                     <item>
+                      <widget class="QLabel" name="lbAnimals">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Good with animals:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barAnimals">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="goodwStrangers">
+                     <item>
+                      <widget class="QLabel" name="lbStrangers">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Good with strangers:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barStrangers">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="goodinCrowds">
+                     <item>
+                      <widget class="QLabel" name="lbCrowds">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Good in crowds:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barCrowds">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="goodwNoise">
+                     <item>
+                      <widget class="QLabel" name="lbNoise">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Good with loud noises:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barNoise">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="goodProtector">
+                     <item>
+                      <widget class="QLabel" name="lbProtector">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Good home protector:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barProtector">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="lvlEnergy">
+                     <item>
+                      <widget class="QLabel" name="lbEnergy">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Level of energy:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barEnergy">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="lvlFear">
+                     <item>
+                      <widget class="QLabel" name="lbFear">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Level of fear:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barFear">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="lvlAffection">
+                     <item>
+                      <widget class="QLabel" name="lbAffection">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Level of affection:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barAffection">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="messiness">
+                     <item>
+                      <widget class="QLabel" name="lbMessy">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Messiness:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QProgressBar" name="barMessy">
+                       <property name="minimumSize">
+                        <size>
+                         <width>175</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="minimum">
+                        <number>-1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>4</number>
+                       </property>
+                       <property name="value">
+                        <number>0</number>
+                       </property>
+                       <property name="textVisible">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout">
+                   <item>
+                    <widget class="QLabel" name="lbNocturnal">
+                     <property name="minimumSize">
+                      <size>
+                       <width>100</width>
+                       <height>15</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <italic>false</italic>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Nocturnal</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lbIndoor">
+                     <property name="minimumSize">
+                      <size>
+                       <width>100</width>
+                       <height>15</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Indoor</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lbHistory">
+                     <property name="minimumSize">
+                      <size>
+                       <width>100</width>
+                       <height>15</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Rescue</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item row="1" column="0">
+                <widget class="Line" name="line_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tabDog">
+              <attribute name="title">
+               <string>Species Attributes</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_9">
+               <item>
+                <layout class="QHBoxLayout" name="likesTravel_9">
+                 <item>
+                  <widget class="QLabel" name="lbLikesTravel_9">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Loudness:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QProgressBar" name="barLoudnessDog">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>-1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>4</number>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="likesTravel_10">
+                 <item>
+                  <widget class="QLabel" name="lbLikesTravel_10">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Training:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QProgressBar" name="barTrainingDog">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>-1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>4</number>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QLabel" name="lbBathroomTrained">
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="text">
+                  <string>Bathroom Trained</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tabCat">
+              <attribute name="title">
+               <string>Species Attributes</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <layout class="QHBoxLayout" name="likesTravel_6">
+                 <item>
+                  <widget class="QLabel" name="lbLikesTravel_6">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Curiosity:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QProgressBar" name="barCuriosity">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>-1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>4</number>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="likesTravel_7">
+                 <item>
+                  <widget class="QLabel" name="lbLikesTravel_7">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Training:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QProgressBar" name="barTrainingCat">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>-1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>4</number>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="likesTravel_8">
+                 <item>
+                  <widget class="QLabel" name="lbLikesTravel_8">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Sheds hair:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QProgressBar" name="barShedding">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>-1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>4</number>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tabBird">
+              <attribute name="title">
+               <string>Species Attributes</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item>
+                <layout class="QHBoxLayout" name="likesTravel_4">
+                 <item>
+                  <widget class="QLabel" name="lbLikesTravel_4">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Loudness:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QProgressBar" name="barLoudnessBird">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>-1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>4</number>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="likesTravel_5">
+                 <item>
+                  <widget class="QLabel" name="lbLikesTravel_5">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Needs attention:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QProgressBar" name="barAttentionBird">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>-1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>4</number>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="Line" name="line_9">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_10">
+                 <item>
+                  <widget class="QLabel" name="label_5">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Colour:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbColourBird">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tabLizard">
+              <attribute name="title">
+               <string>Species Attributes</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_6">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_9">
+                 <item>
+                  <widget class="QLabel" name="label_3">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Colour:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbColourLizard">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="Line" name="line_6">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <item>
+                  <widget class="QLabel" name="label_6">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Preferred Diet:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbPreferredDiet">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="Line" name="line_7">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                 <item>
+                  <widget class="QLabel" name="label_8">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Feeding Interval:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbFeeding">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="Line" name="line_8">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QLabel" name="lbSpacialReq">
+                   <property name="text">
+                    <string>Has spacial requirements</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbLightingReq">
+                   <property name="text">
+                    <string>Has lighting requirements</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tabRabbit">
+              <attribute name="title">
+               <string>Species Attributes</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <layout class="QHBoxLayout" name="likesTravel_2">
+                 <item>
+                  <widget class="QLabel" name="lbLikesTravel_2">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Needs grooming:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QProgressBar" name="barGrooming">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>-1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>4</number>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="likesTravel_3">
+                 <item>
+                  <widget class="QLabel" name="lbLikesTravel_3">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Needs attention:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QProgressBar" name="barAttentionRabbit">
+                   <property name="minimumSize">
+                    <size>
+                     <width>175</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>-1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>4</number>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="Line" name="line_4">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <widget class="QLabel" name="label_2">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Colour:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbRabbitColour">
+                   <property name="text">
+                    <string>lbRabbitColour</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="Line" name="line_5">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <widget class="QLabel" name="label_4">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Pattern</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbRabbitPattern">
+                   <property name="text">
+                    <string>lbRabbitPattern</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QWidget" name="widget_3" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>0</y>
+            <width>421</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Filter:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterDogs">
+             <property name="text">
+              <string>Dogs</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterCats">
+             <property name="text">
+              <string>Cats</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterBirds">
+             <property name="text">
+              <string>Birds</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterLizards">
+             <property name="text">
+              <string>Lizards</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="filterRabbits">
+             <property name="text">
+              <string>Rabbits</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QListWidget" name="animalList">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>175</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>500</width>
+           <height>175</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

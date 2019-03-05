@@ -1,0 +1,2956 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddAnimal</class>
+ <widget class="QDialog" name="AddAnimal">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>320</width>
+    <height>450</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>320</width>
+    <height>450</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>9</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>9</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="horizontalSpacing">
+    <number>6</number>
+   </property>
+   <item row="1" column="0">
+    <widget class="QPushButton" name="bExit">
+     <property name="text">
+      <string>Exit</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="bSubmit">
+     <property name="text">
+      <string>Next</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>300</width>
+       <height>400</height>
+      </size>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="tabBarAutoHide">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="tabPhysical">
+      <attribute name="title">
+       <string>Physical</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QWidget" name="widget_3" native="true">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="lbAnimalPhoto">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>85</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>85</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="bUpload">
+            <property name="text">
+             <string>Upload Photo</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="Name">
+           <item>
+            <widget class="QLabel" name="lbName">
+             <property name="text">
+              <string>Name:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="txtNameBox"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="Species">
+           <item>
+            <widget class="QLabel" name="lbSpecies">
+             <property name="text">
+              <string>Species:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cbSpecies">
+             <item>
+              <property name="text">
+               <string>Dog</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cat</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Bird</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lizard</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Rabbit</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="Breed">
+           <item>
+            <widget class="QLabel" name="lbBreed">
+             <property name="text">
+              <string>Breed:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cbBreed"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="Size">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Size:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cbSize">
+             <item>
+              <property name="text">
+               <string>Teacup</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Small</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Medium</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Large</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="Age">
+           <item>
+            <widget class="QLabel" name="lbAge">
+             <property name="text">
+              <string>Age:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="sbAge"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="Gender">
+           <item>
+            <widget class="QLabel" name="lbGender">
+             <property name="text">
+              <string>Gender:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbMale">
+             <property name="toolTip">
+              <string>Male</string>
+             </property>
+             <property name="toolTipDuration">
+              <number>5</number>
+             </property>
+             <property name="text">
+              <string>Male</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupGender</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbFemale">
+             <property name="text">
+              <string>Female</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupGender</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="Fur">
+           <item>
+            <widget class="QLabel" name="lbFur">
+             <property name="text">
+              <string>Fur: </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cbFur">
+             <item>
+              <property name="text">
+               <string>Hairless</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Short</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Long</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Feathers</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Scales</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabNonPhysical">
+      <attribute name="title">
+       <string>Non-Physical</string>
+      </attribute>
+      <widget class="QWidget" name="widget" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>291</width>
+         <height>221</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>291</width>
+         <height>221</height>
+        </size>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="likesTravelling">
+         <item>
+          <widget class="QLabel" name="lbLikesTravel">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Likes travelling:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QRadioButton" name="rbTravel1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupTravel</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbTravel2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupTravel</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbTravel3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupTravel</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbTravel4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupTravel</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbTravel5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupTravel</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_10">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>200</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="messy">
+         <item>
+          <widget class="QLabel" name="lbMessy">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Is messy:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_14">
+           <item>
+            <widget class="QRadioButton" name="rbMessy1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupMessy</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbMessy2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupMessy</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbMessy4">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupMessy</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbMessy5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupMessy</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbMessy3">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupMessy</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="goodWithAnimals">
+         <item>
+          <widget class="QLabel" name="lbGoodWithAnimals">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Good with animals:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QRadioButton" name="rbGdAnimals1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupGoodAnimals</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbGdAnimals2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupGoodAnimals</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbGdAnimals3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupGoodAnimals</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbGdAnimals4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupGoodAnimals</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbGdAnimals5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupGoodAnimals</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_8">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>100</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="noise">
+         <item>
+          <widget class="QLabel" name="lbNoise">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Good with loud noise:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QRadioButton" name="rbNoise1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupNoise</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbNoise2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupNoise</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbNoise3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupNoise</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbNoise4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupNoise</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbNoise5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupNoise</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="goodWithChildren">
+         <item>
+          <widget class="QLabel" name="lbGoodWithChildren">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Good with children:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QRadioButton" name="rbChildren1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupChildren</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbChildren2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupChildren</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbChildren3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupChildren</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbChildren4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupChildren</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbChildren5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupChildren</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_9">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>180</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="affection">
+         <item>
+          <widget class="QLabel" name="lbAffection">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Is affectionate:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <widget class="QRadioButton" name="rbAffection1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupAffection</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbAffection2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupAffection</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbAffection3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupAffection</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbAffection4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupAffection</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbAffection5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupAffection</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>140</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="lotsOfEnergy">
+         <item>
+          <widget class="QLabel" name="lbEnergy">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Lots of energy:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QRadioButton" name="rbEnergy1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupEnergy</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbEnergy2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupEnergy</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbEnergy3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupEnergy</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbEnergy4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupEnergy</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbEnergy5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupEnergy</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_7">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>80</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="crowds">
+         <item>
+          <widget class="QLabel" name="lbCrowds">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Good in crowds:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QRadioButton" name="rbCrowds1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupCrowds</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbCrowds2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupCrowds</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbCrowds3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupCrowds</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbCrowds4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupCrowds</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbCrowds5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupCrowds</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_6">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>60</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="strangers">
+         <item>
+          <widget class="QLabel" name="lbStrange">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Good with strangers:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QRadioButton" name="rbStrange1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupStrange</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbStrange2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupStrange</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbStrange3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupStrange</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbStrange4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupStrange</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbStrange5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupStrange</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_5">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>120</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="protect">
+         <item>
+          <widget class="QLabel" name="lbProtect">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Good home protector:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QRadioButton" name="rbProtect1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupProtect</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbProtect2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupProtect</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbProtect3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupProtect</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbProtect4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupProtect</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbProtect5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupProtect</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>160</y>
+          <width>279</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="isVeryFearful">
+         <item>
+          <widget class="QLabel" name="lbFear">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Is fearful:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QRadioButton" name="rbFear1">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupFear</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbFear2">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupFear</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbFear3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupFear</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbFear4">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupFear</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="rbFear5">
+             <property name="text">
+              <string/>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">groupFear</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="widget_2" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>240</y>
+         <width>290</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>290</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>290</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="lbHistory">
+            <property name="text">
+             <string>History:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbHistory">
+            <item>
+             <property name="text">
+              <string>Given up by owner</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Street animal</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Rescue</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Unknown</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QRadioButton" name="rbIndoor">
+            <property name="text">
+             <string>Indoor</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">groupLifestyle</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="rbOutdoor">
+            <property name="text">
+             <string>Outdoor</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">groupLifestyle</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="rbBoth">
+            <property name="text">
+             <string>Both</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">groupLifestyle</string>
+            </attribute>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_15">
+          <item>
+           <widget class="QCheckBox" name="boxNocturnal">
+            <property name="text">
+             <string>Nocturnal</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="boxAllergies">
+            <property name="text">
+             <string>Hypoallergenic</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>0</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Not at all</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>0</y>
+         <width>31</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>A lot</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabDog">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <attribute name="title">
+       <string>Dog-specific</string>
+      </attribute>
+      <widget class="QWidget" name="widget_4" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>30</y>
+         <width>291</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QHBoxLayout" name="barks">
+          <item>
+           <widget class="QLabel" name="lbBarks">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Barks a lot:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_17">
+            <item>
+             <widget class="QRadioButton" name="rbBarks1">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupBarks</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbBarks2">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupBarks</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbBarks3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupBarks</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbBarks4">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupBarks</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbBarks5">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupBarks</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="trained">
+          <item>
+           <widget class="QLabel" name="lbTrained">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Follows commands:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_18">
+            <item>
+             <widget class="QRadioButton" name="rbDogTrained1">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupDogTrained</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbDogTrained2">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupDogTrained</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbDogTrained3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupDogTrained</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbDogTrained4">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupDogTrained</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbDogTrained5">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupDogTrained</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="cbBathroomTrained">
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>House Trained</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_10" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>125</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>70</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="AltBreed_Dog"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>10</y>
+         <width>31</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>A lot</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>10</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Not at all</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabCat">
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <attribute name="title">
+       <string>Cat-specific</string>
+      </attribute>
+      <widget class="QWidget" name="widget_5" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>30</y>
+         <width>301</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <layout class="QHBoxLayout" name="curious">
+          <item>
+           <widget class="QLabel" name="lbCurious">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Is curious:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_21">
+            <item>
+             <widget class="QRadioButton" name="rbCurious1">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupCurious</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbCurious2">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupCurious</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbCurious3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupCurious</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbCurious4">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupCurious</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbCurious5">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupCurious</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="sheds">
+          <item>
+           <widget class="QLabel" name="lbBarks_5">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Sheds fur:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_24">
+            <item>
+             <widget class="QRadioButton" name="rbSheds1">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupSheds</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbSheds2">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupSheds</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbSheds3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupSheds</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbSheds4">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupSheds</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbSheds5">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupSheds</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="trainedCat">
+          <item>
+           <widget class="QLabel" name="lbTrained_3">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Is well-trained:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_22">
+            <item>
+             <widget class="QRadioButton" name="rbCatTrained1">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupTrainedCat</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbCatTrained2">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupTrainedCat</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbCatTrained3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupTrainedCat</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbCatTrained4">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupTrainedCat</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbCatTrained5">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupTrainedCat</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_9" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="AltBreed_Cat"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>10</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Not at all</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>10</y>
+         <width>31</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>A lot</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabBird">
+      <attribute name="title">
+       <string>Bird-specific</string>
+      </attribute>
+      <widget class="QWidget" name="widget_6" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>301</width>
+         <height>351</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <layout class="QHBoxLayout" name="loud">
+          <item>
+           <widget class="QLabel" name="lbLoud">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Is loud:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_23">
+            <item>
+             <widget class="QRadioButton" name="rbLoud1">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupIsLoudBird</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbLoud2">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupIsLoudBird</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbLoud3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupIsLoudBird</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbLoud4">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupIsLoudBird</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbLoud5">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupIsLoudBird</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="attention">
+          <item>
+           <widget class="QLabel" name="lbAttention">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Needs attention:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_25">
+            <item>
+             <widget class="QRadioButton" name="rbAttentionBird1">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionBird</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbAttentionBird2">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionBird</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbAttentionBird3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionBird</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbAttentionBird4">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionBird</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbAttentionBird5">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionBird</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="colorBird">
+          <item>
+           <widget class="QLabel" name="lbColour">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Colour:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbColourBird">
+            <item>
+             <property name="text">
+              <string>Red</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Orange</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Yellow</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Green</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Blue</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Pink</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Purple</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>White</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Black</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Brown</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Gray</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="AltBreed_Bird"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>0</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Not at all</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>0</y>
+         <width>31</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>A lot</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabLizard">
+      <attribute name="title">
+       <string>Lizard-specific</string>
+      </attribute>
+      <widget class="QWidget" name="widget_7" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>291</width>
+         <height>351</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <layout class="QHBoxLayout" name="diet">
+          <item>
+           <widget class="QLabel" name="lbCurious_2">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Preferred diet:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbDiet">
+            <item>
+             <property name="text">
+              <string>Crickets</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Mice</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Worms</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="colourLizard">
+          <item>
+           <widget class="QLabel" name="lbBarks_6">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Colour:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbColorLizard">
+            <item>
+             <property name="text">
+              <string>Red</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Orange</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Yellow</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Green</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Blue</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Purple</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Pink</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>White</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Black</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Brown</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Grey</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="feedingInerval">
+          <item>
+           <widget class="QLabel" name="lbFeeding">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Feeding interval:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbFeedingInterval">
+            <item>
+             <property name="text">
+              <string>Daily</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Weekly</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Bi-Weekly</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Monthly</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>&gt; Monthly</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="SpecialNeeds">
+          <item>
+           <widget class="QCheckBox" name="boxSpace">
+            <property name="text">
+             <string>Needs large living space</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="AltBreed_Lizard">
+          <item>
+           <widget class="QCheckBox" name="boxLighting">
+            <property name="text">
+             <string>Needs strong heatlamp</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tabRabbit">
+      <attribute name="title">
+       <string>Rabbit-specific</string>
+      </attribute>
+      <widget class="QWidget" name="widget_8" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>291</width>
+         <height>351</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_10">
+        <item>
+         <layout class="QHBoxLayout" name="attention_3">
+          <item>
+           <widget class="QLabel" name="lbLoud_2">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Needs attention:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_26">
+            <item>
+             <widget class="QRadioButton" name="rbAttentionRabbit1">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionRabbit</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbAttentionRabbit2">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionRabbit</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbAttentionRabbit3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionRabbit</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbAttentionRabbit4">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionRabbit</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbAttentionRabbit5">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupAttentionRabbit</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="grooming">
+          <item>
+           <widget class="QLabel" name="lbAttention_2">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Needs grooming:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_27">
+            <item>
+             <widget class="QRadioButton" name="rbGrooming1">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupGrooming</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbGrooming2">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupGrooming</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbGrooming3">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupGrooming</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbGrooming4">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupGrooming</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="rbGrooming5">
+              <property name="text">
+               <string/>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">groupGrooming</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="colorRabbit">
+          <item>
+           <widget class="QLabel" name="lbColour_2">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Colour:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbColourRabbit">
+            <item>
+             <property name="text">
+              <string>Black</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Brown</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Gray</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>White</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Cream</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Straw</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="colorBird_3">
+          <item>
+           <widget class="QLabel" name="lbColour_3">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Pattern:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbPattern">
+            <item>
+             <property name="text">
+              <string>Solid</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Bi-colour</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Tortoiseshell</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Striped</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Spotted</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="AltBreed_Bird_2"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>0</y>
+         <width>31</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>A lot</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>0</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Not at all</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="groupLifestyle">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupAttentionRabbit"/>
+  <buttongroup name="groupCrowds">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupGrooming"/>
+  <buttongroup name="groupBarks"/>
+  <buttongroup name="groupSheds"/>
+  <buttongroup name="groupAttentionBird"/>
+  <buttongroup name="groupChildren">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupDogTrained"/>
+  <buttongroup name="groupNoise">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupAffection">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupTravel">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupIsLoudBird"/>
+  <buttongroup name="groupMessy">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupTrainedCat"/>
+  <buttongroup name="groupGender">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupStrange">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupProtect">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupGoodAnimals">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupCurious"/>
+  <buttongroup name="groupEnergy">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupFear">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+ </buttongroups>
+</ui>

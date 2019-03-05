@@ -1,0 +1,17 @@
+Each physical, non-physical attribute has a value for the animals and
+clients indicate a preference.
+
+Assign a score to each attribute such that, for example:
+
+Animal with short fur gets score of 1, long fur gets score of 2
+Client preference for short fur gets score of 1, long gets score of 2
+
+Find the difference between each client's score and each animal's score for
+every attribute. Add up all of these differences for each match. If the
+differences are low then it is a good match for that client.
+
+Loop through all the combinations of clients with animals, matching the clients
+with the animals based on these numbers.
+
+If a client indicates that an attribute is "absolutely does not want", assign a
+large score so the difference value is very big.

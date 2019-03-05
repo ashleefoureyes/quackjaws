@@ -1,0 +1,8 @@
+- living conditions (home type)
+- location (city, suburbs, country)
+- smoking habits
+- has kids
+- activity level
+- working schedule
+- has other animals
+- province? (regions)
