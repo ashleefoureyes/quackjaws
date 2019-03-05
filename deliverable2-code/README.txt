@@ -34,7 +34,7 @@ Files:
 Compilation:
 Navigate to the directory where the deliverable2-code was
 downloaded and extracted (for example: ~/Downloads/deliverable2-code/ and type
-"qmake" followed by: "make".
+"make".
 
 Launching:
   ./COMP3004
