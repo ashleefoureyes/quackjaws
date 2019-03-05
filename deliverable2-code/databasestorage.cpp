@@ -74,7 +74,7 @@ void databaseStorage::initDatabase(){
             query.exec("INSERT INTO birdStorage VALUES(4113,'Macaw','Bella',3,28,'F',3,0,3,2,3,2,3,1,1,1,1,3,0,1,'Indoor','Brought by owner',4,1,'Red','animalPhotos/Bella.jpg');");
             query.exec("INSERT INTO birdStorage VALUES(4114,'Budgy','Caleb',2,0,'M',4,1,2,3,2,1,2,3,4,3,2,1,0,0,'Indoor','Brought by owner',4,4,'Green','animalPhotos/Caleb.jpg');");
 
-            query.exec("INSERT INTO lizardStorage VALUES(5101,'Bearded Dragon','Boswer',2,14,'M',6,1,2,1,3,3,2,4,2,1,3,2,1,1,'Indoor','Brought by owner','Mice','Green','Daily',1,1,'animalPhotos/Boswer.jpg');");
+            query.exec("INSERT INTO lizardStorage VALUES(5101,'Bearded Dragon','Boswer',2,14,'M',6,1,2,1,3,3,2,4,2,1,3,2,1,1,'Indoor','Brought by owner','Mice','Green','Daily',1,1,'animalPhotos/Bowser.jpg');");
             query.exec("INSERT INTO lizardStorage VALUES(5104,'Chameleon','Kimmy',1,34,'M',5,0,3,3,2,0,1,2,3,2,1,2,1,1,'Indoor','Brought by owner','Crickets','Green','Bi-Weekly',0,1,'animalPhotos/Kimmy.jpg');");
             query.exec("INSERT INTO lizardStorage VALUES(5116,'Other','Sally',0,1,'F',5,4,4,4,4,0,0,0,4,4,4,1,1,0,'Indoor','Brought by owner','Crickets','Brown','Bi-Weekly',0,1,'animalPhotos/Sally.jpg');");
             query.exec("INSERT INTO lizardStorage VALUES(5117,'Iguana, Green','Norma',0,15,'F',6,3,1,2,1,3,3,0,0,3,0,2,0,0,'Indoor','Brought by owner','Crickets','Green','Monthly',0,1,'animalPhotos/Norma.jpg');");
