@@ -674,9 +674,8 @@ int databaseStorage::lifeStyleToInt(QString str)
     if (QString::compare(str, "Indoor/Outdoor", Qt::CaseInsensitive) == 0){
         return 2;
     }
-    else if (QString::compare(str, "Unknown", Qt::CaseInsensitive) == 0){
-        return 3;
-    }
+    else return 3;
+
 }
 
 int databaseStorage::historyToInt(QString str)
@@ -690,9 +689,7 @@ int databaseStorage::historyToInt(QString str)
     if (QString::compare(str, "Rescue", Qt::CaseInsensitive) == 0){
         return 2;
     }
-    else if (QString::compare(str, "Unknown", Qt::CaseInsensitive) == 0){
-        return 3;
-    }
+    else return 3;
 }
 
 
