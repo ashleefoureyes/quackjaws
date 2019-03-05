@@ -34,7 +34,6 @@ databaseStorage::~databaseStorage(){}
 void databaseStorage::initDatabase(){
 
     QTextStream cerr(stderr);
-    cerr << "HERE I AM\n";
 
        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
        db.setDatabaseName(QStandardPaths::writableLocation(QStandardPaths::DesktopLocation) + "/cuACS.db");
@@ -56,6 +55,36 @@ void databaseStorage::initDatabase(){
            query.exec("INSERT INTO clientStorage VALUES(1104,'Morgan','Rielly','4836 Sharp St','British Columbia','mo.riles44@gmail.com','Vancouver',NULL);");
            query.exec("INSERT INTO clientStorage VALUES(1105,'Nazim','Kadri','28547 Tenth Line','New Brunswick','nazzer43@gmail.com','Moncton',NULL);");
 
+            query.exec("INSERT INTO dogStorage VALUES(2105,'Golden Retriever','Goldy',1,1,'M',1,4,4,4,4,3,2,1,4,1,4,4,0,0,'Outdoor','Street Animal',3,0,1,1,'animalPhotos/Goldy.jpg');");
+            query.exec("INSERT INTO dogStorage VALUES(2106,'German Sheperd','Germaine',3,6,'F',2,4,3,2,3,1,2,3,1,4,2,0,0,0,'Outdoor','Street Animal',1,4,1,1,'animalPhotos/Germaine.jpg');");
+            query.exec("INSERT INTO dogStorage VALUES(2122,'Golden Retriever','Tucker',3,13,'M',2,4,4,4,4,2,1,2,2,1,3,1,0,0,'Indoor/Outdoor','Rescue',1,3,1,1,'animalPhotos/Tucker.jpg');");
+            query.exec("INSERT INTO dogStorage VALUES(2123,'Pug','Giselle',1,2,'F',1,4,4,4,4,4,0,0,4,1,3,3,0,0,'Indoor/Outdoor','Rescue',0,0,1,1,'animalPhotos/Giselle.jpg');");
+            query.exec("INSERT INTO dogStorage VALUES(2124,'Golden Retriever','Bud',3,4,'M',1,0,2,3,3,1,3,2,3,0,3,2,0,0,'Indoor/Outdoor','Rescue',3,3,1,1,'animalPhotos/Bud.jpg');");
+
+            query.exec("INSERT INTO catStorage VALUES(3100,'Bengal','Cinnamon',1,2,'F',1,1,2,3,2,2,3,3,2,4,1,3,1,1,'Indoor','Brought by owner',4,0,4,'animalPhotos/Cinnamon0.jpg');");
+            query.exec("INSERT INTO catStorage VALUES(3115,'British Shorthair','Thomas',1,1,'M',1,0,0,3,1,3,4,2,3,2,1,3,0,0,'Indoor','Brought by owner',4,0,2,'animalPhotos/Thomas.jpg');");
+            query.exec("INSERT INTO catStorage VALUES(3119,'Maine Coon','Petunia',0,15,'F',1,0,0,0,0,0,0,0,0,0,0,0,0,0,'Outdoor','Street Animal',0,2,0,'animalPhotos/Petunia.jpg');");
+            query.exec("INSERT INTO catStorage VALUES(3120,'Scottish Fold','Buster',3,10,'M',1,0,1,3,1,2,1,1,1,2,2,1,0,0,'Indoor','Brought by owner',1,1,2,'animalPhotos/Buster0.jpg');");
+            query.exec("INSERT INTO catStorage VALUES(3121,'Scottish Fold','Sir Hollingsworth',2,5,'M',2,0,2,1,3,4,2,2,3,1,1,2,0,0,'Indoor/Outdoor','Rescue',4,4,4,'animalPhotos/Sir Hollingsworth.jpg');");
+
+            query.exec("INSERT INTO birdStorage VALUES(4103,'Cockatoo','Scream',1,4,'F',3,0,1,1,3,2,1,3,2,4,2,1,0,1,'Indoor','Brought by owner',4,4,'White','animalPhotos/Scream.jpg');");
+            query.exec("INSERT INTO birdStorage VALUES(4111,'Cockatiel','Tina',1,7,'F',3,0,0,1,1,2,3,1,2,3,2,2,0,0,'Indoor','Brought by owner',4,2,'Green','animalPhotos/Tina.jpg');");
+            query.exec("INSERT INTO birdStorage VALUES(4112,'Cockatiel','Pedro',2,12,'M',3,1,2,3,2,3,3,3,3,2,1,3,0,1,'Indoor','Brought by owner',4,4,'Yellow','animalPhotos/Pedro.jpg');");
+            query.exec("INSERT INTO birdStorage VALUES(4113,'Macaw','Bella',3,28,'F',3,0,3,2,3,2,3,1,1,1,1,3,0,1,'Indoor','Brought by owner',4,1,'Red','animalPhotos/Bella.jpg');");
+            query.exec("INSERT INTO birdStorage VALUES(4114,'Budgy','Caleb',2,0,'M',4,1,2,3,2,1,2,3,4,3,2,1,0,0,'Indoor','Brought by owner',4,4,'Green','animalPhotos/Caleb.jpg');");
+
+            query.exec("INSERT INTO lizardStorage VALUES(5101,'Bearded Dragon','Boswer',2,14,'M',6,1,2,1,3,3,2,4,2,1,3,2,1,1,'Indoor','Brought by owner','Mice','Green','Daily',1,1,'animalPhotos/Boswer.jpg');");
+            query.exec("INSERT INTO lizardStorage VALUES(5104,'Chameleon','Kimmy',1,34,'M',5,0,3,3,2,0,1,2,3,2,1,2,1,1,'Indoor','Brought by owner','Crickets','Green','Bi-Weekly',0,1,'animalPhotos/Kimmy.jpg');");
+            query.exec("INSERT INTO lizardStorage VALUES(5116,'Other','Sally',0,1,'F',5,4,4,4,4,0,0,0,4,4,4,1,1,0,'Indoor','Brought by owner','Crickets','Brown','Bi-Weekly',0,1,'animalPhotos/Sally.jpg');");
+            query.exec("INSERT INTO lizardStorage VALUES(5117,'Iguana, Green','Norma',0,15,'F',6,3,1,2,1,3,3,0,0,3,0,2,0,0,'Indoor','Brought by owner','Crickets','Green','Monthly',0,1,'animalPhotos/Norma.jpg');");
+            query.exec("INSERT INTO lizardStorage VALUES(5118,'Gecko, Leopard','Geico',1,10,'M',5,3,3,3,2,1,0,2,4,3,1,2,1,0,'Indoor','Brought by owner','Worms','Green','Daily',0,1,'animalPhotos/Geico0.jpg');");
+
+            query.exec("INSERT INTO rabbitStorage VALUES(6102,'Belgian Hare','Spot',2,7,'M',1,2,1,3,4,4,2,3,2,1,0,2,0,1,'Indoor','Brought by owner','Spotted','White',4,4,'animalPhotos/Spot.jpg');");
+            query.exec("INSERT INTO rabbitStorage VALUES(6107,'Dutch','Luna',1,4,'F',1,0,2,1,3,2,1,3,2,1,3,1,0,1,'Indoor','Brought by owner','Bi-colour','White',0,4,'animalPhotos/Luna.jpg');");
+            query.exec("INSERT INTO rabbitStorage VALUES(6108,'Britannia','Molly',0,1,'F',2,4,3,2,2,3,1,1,2,0,3,3,0,0,'Indoor/Outdoor','Rescue','Solid','White',4,4,'animalPhotos/Molly.jpg');");
+            query.exec("INSERT INTO rabbitStorage VALUES(6109,'Californian','Tedford',2,6,'M',2,0,0,0,0,0,0,0,0,4,4,4,1,0,'Indoor','Brought by owner','Solid','Straw',0,4,'animalPhotos/Tedford.jpg');");
+            query.exec("INSERT INTO rabbitStorage VALUES(6110,'Belgian Hare','Peter',3,12,'M',1,1,2,4,3,2,3,1,4,2,1,2,0,0,'Indoor','Brought by owner','Solid','Straw',0,0,'animalPhotos/Peter.jpg');");
+
            loadDatabase();
        }
        else {
@@ -68,8 +97,6 @@ int databaseStorage::addClientToDatabase(Client *c){
     QSqlQuery query;
     QTextStream cerr(stderr);
 
-   bool success = false;
-
    query.prepare("INSERT INTO clientStorage(idNum, fName, lName, address, phone, email, city, prov) VALUES (:i, :f, :l, :a, :p, :e, :c, :r)");
     query.bindValue(":i", c->getId());
     query.bindValue(":f", QString::fromStdString(c->getFirstName()));
@@ -80,10 +107,10 @@ int databaseStorage::addClientToDatabase(Client *c){
     query.bindValue(":c", QString::fromStdString(c->getCity()));
     query.bindValue(":p", QString::fromStdString(c->getProvince()));
    if(query.exec()) {
-          success = true;
           cerr << "CLIENT ADDED";
       }
       else{
+
        cerr << "ERROR ADDING \n";
         qDebug() << "addPerson error:"
                         << query.lastError();
@@ -95,7 +122,6 @@ int databaseStorage::addDogToDatabase(Dog *a){
 
     QSqlQuery query;
     QTextStream cerr(stderr);
-    bool success = false;
 
     query.prepare("INSERT INTO dogStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
                   " strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal, "
@@ -132,7 +158,6 @@ int databaseStorage::addDogToDatabase(Dog *a){
      query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
 
     if(query.exec()) {
-           success = true;
            cerr << "DOG ADDED";
        }
        else{
@@ -146,7 +171,6 @@ int databaseStorage::addDogToDatabase(Dog *a){
 int databaseStorage::addBirdToDatabase(Bird *a){
     QSqlQuery query;
     QTextStream cerr(stderr);
-    bool success = false;
 
     query.prepare("INSERT INTO birdStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
                   " strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal, "
@@ -182,7 +206,6 @@ int databaseStorage::addBirdToDatabase(Bird *a){
      query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
 
     if(query.exec()) {
-           success = true;
            cerr << "BIRD ADDED";
        }
        else{
@@ -196,7 +219,6 @@ int databaseStorage::addBirdToDatabase(Bird *a){
 int databaseStorage::addLizardToDatabase(Lizard *a){
     QSqlQuery query;
     QTextStream cerr(stderr);
-    bool success = false;
 
     query.prepare("INSERT INTO lizardStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
                   " strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal, "
@@ -234,7 +256,6 @@ int databaseStorage::addLizardToDatabase(Lizard *a){
      query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
 
     if(query.exec()) {
-           success = true;
            cerr << "Lizard ADDED";
        }
        else{
@@ -248,7 +269,6 @@ int databaseStorage::addLizardToDatabase(Lizard *a){
 int databaseStorage::addCatToDatabase(Cat *a){
     QSqlQuery query;
     QTextStream cerr(stderr);
-    bool success = false;
 
     query.prepare("INSERT INTO catStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
                   " strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal, "
@@ -284,7 +304,6 @@ int databaseStorage::addCatToDatabase(Cat *a){
      query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
 
     if(query.exec()) {
-           success = true;
            cerr << "CAT ADDED";
        }
        else{
@@ -298,7 +317,6 @@ int databaseStorage::addCatToDatabase(Cat *a){
 int databaseStorage::addRabbitToDatabase(Rabbit *a){
     QSqlQuery query;
     QTextStream cerr(stderr);
-    bool success = false;
 
     query.prepare("INSERT INTO rabbitStorage(idNum, breed, name, size, age, gender, fur, travels, children, goodWithAnimals,"
                   " strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal, "
@@ -335,10 +353,7 @@ int databaseStorage::addRabbitToDatabase(Rabbit *a){
      query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
 
     if(query.exec()) {
-           success = true;
-           cerr << "RABBIT ADDED" << "\n"
-           << query.executedQuery() << "\n"
-           << query.lastQuery() << "\n";
+           cerr << "RABBIT ADDED" << "\n";
 
        }
        else{
@@ -355,13 +370,6 @@ int databaseStorage::loadDatabase(){
     QSqlQuery q;
     QTextStream cerr(stderr);
 
-/*  int numRows;
-    q.first();
-    numRows = q.value(0).toInt();
-    cerr << numRows <<"\n";
-*/
-    //q.exec("SELECT count(*) FROM clientStorage;");
-
  // Get All clients from Database //
     q.exec("SELECT * FROM clientStorage;");
     while (q.next()) {
@@ -374,15 +382,14 @@ int databaseStorage::loadDatabase(){
         QString city = q.value(6).toString();
         QString prov = q.value(7).toString();
 
+        std::stoi((std::to_string(id).substr(1)));
+
         Client *c = new Client;
         c->setContactInformation(fName.toStdString(), lName.toStdString(), add.toStdString(), phone.toStdString(), email.toStdString(), city.toStdString(), prov.toStdString());
         c->setIdNumber(id);
         (*clientStorage).add(c);
 
-
-        cerr << c->getId() << fName << lName << add << phone << email << city << prov << "\n";
-
-       // clientStorage->add(c);
+       // cerr << c->getId() << fName << lName << add << phone << email << city << prov << "\n";
     }
 
     // Get All Dogs from Database //
@@ -413,10 +420,11 @@ int databaseStorage::loadDatabase(){
         int barks = q.value(22).toInt();
         int training = q.value(23).toInt();
         bool bathroomTrained = q.value(24).toInt();
-        bool goodboy = q.value(25).toInt();
+       // bool goodboy = q.value(25).toInt();
         QString filepath = q.value(26).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
+        std::stoi((std::to_string(idNum).substr(1)));
 
         Dog* a = new Dog;
         a->setIdNumber(idNum);
@@ -425,9 +433,10 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(barks, training, bathroomTrained);
         a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
         (*animalStorage).add(a);
 
-        cerr << "DOG ID" <<a->getId()<<"\n";
+        //cerr << "DOG ID" <<a->getId()<<"\n";
     }
 
         // Get All CATS from Database //
@@ -458,9 +467,10 @@ int databaseStorage::loadDatabase(){
         int curious = q.value(22).toInt();
         int trained = q.value(23).toInt();
         bool shed = q.value(24).toInt();
-        QString filepath = q.value(26).toString();
+        QString filepath = q.value(25).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
+        std::stoi((std::to_string(idNum).substr(1)));
 
         Cat* a = new Cat;
         a->setIdNumber(idNum);
@@ -469,9 +479,11 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(curious, trained, shed);
         a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
+
         (*animalStorage).add(a);
 
-        cerr << "CAT ID" <<a->getId()<<"\n";
+        //cerr << "CAT ID" <<a->getId()<<"\n";
     }
 
             // Get All LIZARD from Database //
@@ -507,6 +519,7 @@ int databaseStorage::loadDatabase(){
         QString filepath = q.value(27).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
+        std::stoi((std::to_string(idNum).substr(1)));
 
         Lizard* a = new Lizard;
         a->setIdNumber(idNum);
@@ -515,9 +528,11 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(diet.toStdString(), colour.toStdString(), feed.toStdString(), space, light);
         a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
+
         (*animalStorage).add(a);
 
-        cerr << "LIZARD ID" <<a->getId()<<"\n";
+       // cerr << "LIZARD ID" <<a->getId()<<"\n";
     }
     // Get All Birds from Database //
     q.exec("SELECT * FROM birdStorage;");
@@ -550,6 +565,7 @@ int databaseStorage::loadDatabase(){
         QString filepath = q.value(25).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
+        std::stoi((std::to_string(idNum).substr(1)));
 
         Bird* a = new Bird;
         a->setIdNumber(idNum);
@@ -558,9 +574,11 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(loud, social, colour.toStdString());
         a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
+
         (*animalStorage).add(a);
 
-        cerr << "Bird ID" <<a->getId()<<"\n";
+       // cerr << "Bird ID" <<a->getId()<<"\n";
     }
 
     // Get All Rabbits from Database //
@@ -595,6 +613,8 @@ int databaseStorage::loadDatabase(){
         QString filepath = q.value(26).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
+        std::stoi((std::to_string(idNum).substr(1)));
+
 
         Rabbit* a = new Rabbit;
         a->setIdNumber(idNum);
@@ -603,24 +623,14 @@ int databaseStorage::loadDatabase(){
                              hypo, lifeStyle, history);
         a->setSpeciesAttributes(pattern.toStdString(), colour.toStdString(), grooming, attention);
         a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
+
         (*animalStorage).add(a);
 
-        cerr << "Rabbit ID" <<a->getId() <<"\n";
+        //cerr << "Rabbit ID" <<a->getId() <<"\n";
     }
     return 0;
 }
 
-
-/*
-TABLE clientStorage(idNum INTEGER PRIMARY KEY, fName TEXT, lName TEXT, address TEXT, phone TEXT, email TEXT, city TEXT, prov TEXT);
-INSERT INTO clientStorage VALUES(0001, "Will", "Watt", "76 Scrivens", "6132858297", "william.watt@carleton.ca", "Ottawa", "ON");
-
-CREATE TABLE dogStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, barks INTEGER, training INTEGER, bathroomTrained INTEGER, goodBoy INTEGER, filepath TEXT);
-INSERT INTO dogStorage VALUES(0001,"Bull Terrier","Bob",0,0,"F",3,2,0,2,5,4,1,5,2,3,4,1,2,4,"Outdoor","Brought by owner",0,0,0,1,"noImage");
-
-CREATE TABLE catStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, curiosity INTEGER, trained INTEGER, shedding INTEGER, filepath TEXT);
-INSERT INTO catStorage(0001, "Bengal", "Lucy",
-
-*/
 
 
