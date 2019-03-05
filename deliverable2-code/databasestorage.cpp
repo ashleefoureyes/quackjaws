@@ -62,11 +62,11 @@ void databaseStorage::initDatabase(){
             query.exec("INSERT INTO dogStorage VALUES(2123,'Pug','Giselle',1,2,'F',1,4,4,4,4,4,0,0,4,1,3,3,0,0,'Indoor/Outdoor','Rescue',0,0,1,1,'animalPhotos/Giselle.jpg');");
             query.exec("INSERT INTO dogStorage VALUES(2124,'Golden Retriever','Bud',3,4,'M',1,0,2,3,3,1,3,2,3,0,3,2,0,0,'Indoor/Outdoor','Rescue',3,3,1,1,'animalPhotos/Bud.jpg');");
 
-            query.exec("INSERT INTO catStorage VALUES(3100,'Bengal','Cinnamon',1,2,'F',1,1,2,3,2,2,3,3,2,4,1,3,1,1,'Indoor','Brought by owner',4,0,4,'animalPhotos/Cinnamon0.jpg');");
+            query.exec("INSERT INTO catStorage VALUES(3100,'Bengal','Cinnamon',1,2,'F',1,1,2,3,2,2,3,3,2,4,1,3,1,1,'Indoor','Brought by owner',4,0,4,'animalPhotos/Cinnamon.jpg');");
             query.exec("INSERT INTO catStorage VALUES(3115,'British Shorthair','Thomas',1,1,'M',1,0,0,3,1,3,4,2,3,2,1,3,0,0,'Indoor','Brought by owner',4,0,2,'animalPhotos/Thomas.jpg');");
             query.exec("INSERT INTO catStorage VALUES(3119,'Maine Coon','Petunia',0,15,'F',1,0,0,0,0,0,0,0,0,0,0,0,0,0,'Outdoor','Street Animal',0,2,0,'animalPhotos/Petunia.jpg');");
-            query.exec("INSERT INTO catStorage VALUES(3120,'Scottish Fold','Buster',3,10,'M',1,0,1,3,1,2,1,1,1,2,2,1,0,0,'Indoor','Brought by owner',1,1,2,'animalPhotos/Buster0.jpg');");
-            query.exec("INSERT INTO catStorage VALUES(3121,'Scottish Fold','Sir Hollingsworth',2,5,'M',2,0,2,1,3,4,2,2,3,1,1,2,0,0,'Indoor/Outdoor','Rescue',4,4,4,'animalPhotos/Sir Hollingsworth.jpg');");
+            query.exec("INSERT INTO catStorage VALUES(3120,'Scottish Fold','Buster',3,10,'M',1,0,1,3,1,2,1,1,1,2,2,1,0,0,'Indoor','Brought by owner',1,1,2,'animalPhotos/Buster.jpg');");
+            query.exec("INSERT INTO catStorage VALUES(3121,'Scottish Fold','Sir Hollingsworth',2,5,'M',2,0,2,1,3,4,2,2,3,1,1,2,0,0,'Indoor/Outdoor','Rescue',4,4,4,'animalPhotos/Sir_Hollingsworth.jpg');");
 
             query.exec("INSERT INTO birdStorage VALUES(4103,'Cockatoo','Scream',1,4,'F',3,0,1,1,3,2,1,3,2,4,2,1,0,1,'Indoor','Brought by owner',4,4,'White','animalPhotos/Scream.jpg');");
             query.exec("INSERT INTO birdStorage VALUES(4111,'Cockatiel','Tina',1,7,'F',3,0,0,1,1,2,3,1,2,3,2,2,0,0,'Indoor','Brought by owner',4,2,'Green','animalPhotos/Tina.jpg');");
@@ -78,7 +78,7 @@ void databaseStorage::initDatabase(){
             query.exec("INSERT INTO lizardStorage VALUES(5104,'Chameleon','Kimmy',1,34,'M',5,0,3,3,2,0,1,2,3,2,1,2,1,1,'Indoor','Brought by owner','Crickets','Green','Bi-Weekly',0,1,'animalPhotos/Kimmy.jpg');");
             query.exec("INSERT INTO lizardStorage VALUES(5116,'Other','Sally',0,1,'F',5,4,4,4,4,0,0,0,4,4,4,1,1,0,'Indoor','Brought by owner','Crickets','Brown','Bi-Weekly',0,1,'animalPhotos/Sally.jpg');");
             query.exec("INSERT INTO lizardStorage VALUES(5117,'Iguana, Green','Norma',0,15,'F',6,3,1,2,1,3,3,0,0,3,0,2,0,0,'Indoor','Brought by owner','Crickets','Green','Monthly',0,1,'animalPhotos/Norma.jpg');");
-            query.exec("INSERT INTO lizardStorage VALUES(5118,'Gecko, Leopard','Geico',1,10,'M',5,3,3,3,2,1,0,2,4,3,1,2,1,0,'Indoor','Brought by owner','Worms','Green','Daily',0,1,'animalPhotos/Geico0.jpg');");
+            query.exec("INSERT INTO lizardStorage VALUES(5118,'Gecko, Leopard','Geico',1,10,'M',5,3,3,3,2,1,0,2,4,3,1,2,1,0,'Indoor','Brought by owner','Worms','Green','Daily',0,1,'animalPhotos/Geico.jpg');");
 
             query.exec("INSERT INTO rabbitStorage VALUES(6102,'Belgian Hare','Spot',2,7,'M',1,2,1,3,4,4,2,3,2,1,0,2,0,1,'Indoor','Brought by owner','Spotted','White',4,4,'animalPhotos/Spot.jpg');");
             query.exec("INSERT INTO rabbitStorage VALUES(6107,'Dutch','Luna',1,4,'F',1,0,2,1,3,2,1,3,2,1,3,1,0,1,'Indoor','Brought by owner','Bi-colour','White',0,4,'animalPhotos/Luna.jpg');");
