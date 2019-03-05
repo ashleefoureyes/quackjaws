@@ -386,7 +386,7 @@ int databaseStorage::loadDatabase(){
 
         Client *c = new Client;
         c->setContactInformation(fName.toStdString(), lName.toStdString(), add.toStdString(), phone.toStdString(), email.toStdString(), city.toStdString(), prov.toStdString());
-        c->setIdNumber(id);
+        c->setIdNumber(std::stoi((std::to_string(id).substr(1))));
         (*clientStorage).add(c);
 
        // cerr << c->getId() << fName << lName << add << phone << email << city << prov << "\n";
@@ -424,10 +424,9 @@ int databaseStorage::loadDatabase(){
         QString filepath = q.value(26).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
-        std::stoi((std::to_string(idNum).substr(1)));
 
         Dog* a = new Dog;
-        a->setIdNumber(idNum);
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
                              hypo, lifeStyle, history);
@@ -473,7 +472,7 @@ int databaseStorage::loadDatabase(){
         std::stoi((std::to_string(idNum).substr(1)));
 
         Cat* a = new Cat;
-        a->setIdNumber(idNum);
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
                              hypo, lifeStyle, history);
@@ -519,10 +518,9 @@ int databaseStorage::loadDatabase(){
         QString filepath = q.value(27).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
-        std::stoi((std::to_string(idNum).substr(1)));
 
         Lizard* a = new Lizard;
-        a->setIdNumber(idNum);
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
                              hypo, lifeStyle, history);
@@ -565,10 +563,9 @@ int databaseStorage::loadDatabase(){
         QString filepath = q.value(25).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
-        std::stoi((std::to_string(idNum).substr(1)));
 
         Bird* a = new Bird;
-        a->setIdNumber(idNum);
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
                              hypo, lifeStyle, history);
@@ -617,7 +614,7 @@ int databaseStorage::loadDatabase(){
 
 
         Rabbit* a = new Rabbit;
-        a->setIdNumber(idNum);
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
         a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
                              strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
                              hypo, lifeStyle, history);
