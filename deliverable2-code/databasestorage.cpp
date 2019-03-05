@@ -26,7 +26,6 @@ databaseStorage::databaseStorage(AnimalStorage *animalStorage, Storage *clientSt
     numClients = 0;
     this->animalStorage = animalStorage;
     this->clientStorage = clientStorage;
-    initDatabase();
 }
 
 databaseStorage::~databaseStorage(){}

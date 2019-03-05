@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
    // filesaver.readFromAnimalFile("savedAnimals.txt", &animalStorage);
    // filesaver.readFromClientFile("savedClients.txt", &clientStorage);
     databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
+    db->initDatabase();
 }
 
 MainWindow::~MainWindow()
