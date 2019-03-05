@@ -40,34 +40,37 @@ Launching:
   ./COMP3004
 
 Operation Instructions:
-Add program startup you will be prompted to enter a client email or log in as staff
+At program startup you will be prompted to enter a client email or log in as staff
 
-If you log in as staff you will be given the follow options
+If you log in as staff you will be given the following options
   - Add Animal
   - View Animals
   - Add Client
-  - View Client
+  - View Clients
   - Run Algorithm (Not yet implemented)
   - Logout
 
-If you log in as staff you will be given the following option
+If you log in as a client you will be given the following options (to view the
+emails for the client profiles that are provided, log in as a staff member first
+and navigate to View Clients):
   - View Animals
+  - Logout
 
 Add Animal: User will be given a form of Animal information to fill out. Once
-filled out a new animal will be created and stored in the storage object.
+filled out, a new animal will be created and stored in the storage object.
 
-View Animasl: A popup window will appear showing all animals in storage and
-their attributes. When clicked on detailed animal attributes will be displayed. 
+View Animals: A popup window will appear showing all animals in storage and
+their attributes. When clicked on detailed animal attributes will be displayed.
 Animals can be filtered by species.
 
-Add Client: User will fill out basic Client information. Once completed the animal
+Add Client: User will fill out basic client information. Once completed the client
 will be added to Client Storage.
 
-View Clients: A popup window will appear showing all Clients in storage.
+View Clients: A popup window will appear showing all clients in storage.
 When clicked on, basic client information will be displayed.
 
 Exit: All animals in storage will be saved to persistent storage and the
-program will terminate
+program will terminate.
 
 Logout:  User will be returned to initial window where they can choose to log in
-as staff or client
+as staff or client.
