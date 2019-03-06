@@ -40,7 +40,7 @@ void StaffHomepage::on_bViewAnimals_clicked()
 {
     ViewAnimals viewAnim;
     viewAnim.setModal(true);
-    viewAnim.viewAnimalsFromStorage(animalStorage);
+    viewAnim.viewAnimalsFromStorage(animalStorage, true);
 
 }
 

@@ -73,7 +73,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <property name="tabBarAutoHide">
       <bool>false</bool>
@@ -2878,28 +2878,23 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupLifestyle">
+  <buttongroup name="groupTravel">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupAttentionRabbit"/>
-  <buttongroup name="groupCrowds">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
+  <buttongroup name="groupTrainedCat"/>
+  <buttongroup name="groupIsLoudBird"/>
   <buttongroup name="groupGrooming"/>
-  <buttongroup name="groupBarks"/>
+  <buttongroup name="groupGoodAnimals">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupCurious"/>
   <buttongroup name="groupSheds"/>
   <buttongroup name="groupAttentionBird"/>
-  <buttongroup name="groupChildren">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupDogTrained"/>
-  <buttongroup name="groupNoise">
+  <buttongroup name="groupFear">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -2909,19 +2904,25 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupTravel">
+  <buttongroup name="groupProtect">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupIsLoudBird"/>
+  <buttongroup name="groupAttentionRabbit"/>
+  <buttongroup name="groupDogTrained"/>
+  <buttongroup name="groupCrowds">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupBarks"/>
   <buttongroup name="groupMessy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupTrainedCat"/>
-  <buttongroup name="groupGender">
+  <buttongroup name="groupChildren">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -2931,23 +2932,22 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupProtect">
+  <buttongroup name="groupLifestyle">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupGoodAnimals">
+  <buttongroup name="groupGender">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupCurious"/>
   <buttongroup name="groupEnergy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupFear">
+  <buttongroup name="groupNoise">
    <property name="exclusive">
     <bool>true</bool>
    </property>

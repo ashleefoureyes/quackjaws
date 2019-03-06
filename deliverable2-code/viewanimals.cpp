@@ -25,12 +25,19 @@ ViewAnimals::~ViewAnimals()
 }
 
 /** Function: viewAnimalsFromStorage(Storage*)
- *  in: Storage*
+ *  in: AnimalStorage*, bool isStaff
  *  purpose: To be called when ViewAnimals is clicked. Displays all animals in storage */
-void ViewAnimals::viewAnimalsFromStorage(AnimalStorage *storage)
+void ViewAnimals::viewAnimalsFromStorage(AnimalStorage *storage, bool isStaff)
 {
+    if(isStaff == false)
+    {
+        ui->bEditAnimal->hide();
+    }
+
     this->storage = storage;
     populateList();
+    displayAnimal(0);
+    changeSpeciesTab(std::stoi(std::to_string(viewStorage.at(0)->getId()).substr(0,1)));
     this->exec();
 }
 
@@ -231,4 +238,16 @@ void ViewAnimals::displayAnimalAttributes(Animal* reqAnimal)
 
     if (reqAnimal->getImageFilePath() != "noImage") { loadImage(reqAnimal->getImageFilePath()); }
     else { ui->lbAnimalImage->clear(); ui->lbAnimalImage->setText(QString::fromStdString("No Image")); }
+}
+
+void ViewAnimals::on_bEditAnimal_clicked()
+{
+    int index = (ui->animalList->currentRow());
+
+    // Gets text in list, gets first element which is the animal ID
+    // and determines which tab to show based off that
+
+    AddAnimal addAnim;
+    addAnim.editAnimal(viewStorage.at(static_cast<unsigned int>(index)));
+    //TODO: Have it reload viewAnimals if animal edited
 }

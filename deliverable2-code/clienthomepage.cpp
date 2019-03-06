@@ -37,5 +37,5 @@ void ClientHomepage::on_lbViewAnimals_clicked()
 {
     ViewAnimals viewAnim;
     viewAnim.setModal(true);
-    viewAnim.viewAnimalsFromStorage(animalStorage);
+    viewAnim.viewAnimalsFromStorage(animalStorage, false);
 }

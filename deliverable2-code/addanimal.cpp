@@ -7,10 +7,6 @@ AddAnimal::AddAnimal(QWidget *parent) :
 {
     ui->setupUi(this);
     setupButtons();
-    changeBreedBox(0);
-    ui->tabWidget->setCurrentIndex(0);
-    changeSpeciesTab(0);
-    changeFurBox(0);
 }
 
 AddAnimal::~AddAnimal()
@@ -20,14 +16,95 @@ AddAnimal::~AddAnimal()
 
 //TODO Implement it so that the popup box is already filled out with current animal information
 //     then this->exec() is called and returns the return value
-/**
+
 int AddAnimal::editAnimal(Animal *animalToEdit)
 {
-    return 1;
-} */
+    QTextStream cerr(stderr);
+    cerr << QString::fromStdString("Editing: " + animalToEdit->getName());
+
+    editingExistingAnimal = true;
+    this->animal = animalToEdit;
+    fillInfoForEdit();
+    this->exec();
+    return returnVal;
+}
+
+void AddAnimal::fillInfoForEdit()
+{
+    QTextStream cerr(stderr);
+
+    if(animal->getSpecies() == "Dog") { changeSpecies(0); setDogAttributes(); }
+    else if(animal->getSpecies() == "Cat") { changeSpecies(1); setCatAttributes(); }
+    else if(animal->getSpecies() == "Bird") { changeSpecies(2); setBirdAttributes(); }
+    else if(animal->getSpecies() == "Lizard") { changeSpecies(3); setLizardAttributes(); }
+    else if(animal->getSpecies() == "Rabbit") { changeSpecies(4); setRabbitAttributes(); }
+    else { cerr << "Error, Animal Species invalid"; }
+    ui->cbSpecies->setEnabled(false);
+
+    loadImage(animal->getImageFilePath());
+    ui->txtNameBox->setText(QString::fromStdString(animal->getName()));
+
+    setAnimalAttributes();
+}
+
+void AddAnimal::setAnimalAttributes()
+{
+    //int travels, children, goodWAnimals, strangers, crowds, noises, protector, energy, fearful, affection, messy;
+
+    ui->groupTravel->button(animal->getTravels())->setChecked(true);
+    ui->groupChildren->button(animal->getChildren())->setChecked(true);
+    ui->groupGoodAnimals->button(animal->getGoodWAnimals())->setChecked(true);
+    ui->groupStrange->button(animal->getStrangers())->setChecked(true);
+    ui->groupCrowds->button(animal->getCrowds())->setChecked(true);
+    ui->groupNoise->button(animal->getNoises())->setChecked(true);
+    ui->groupProtect->button(animal->getProtector())->setChecked(true);
+    ui->groupEnergy->button(animal->getEnergy())->setChecked(true);
+    ui->groupFear->button(animal->getEnergy())->setChecked(true);
+    ui->groupAffection->button(animal->getAffection())->setChecked(true);
+    ui->groupMessy->button(animal->getMessy())->setChecked(true);
+}
+
+void AddAnimal::setDogAttributes()
+{
+    Dog* dog = static_cast<Dog*>(animal);
+    ui->groupBarks->button(dog->getBarks())->setChecked(true);
+    ui->groupDogTrained->button(dog->getTraining())->setChecked(true);
+    ui->cbBathroomTrained->setChecked(dog->getIsBathroomTrained());
+}
+
+void AddAnimal::setCatAttributes() { }
+void AddAnimal::setBirdAttributes() { }
+void AddAnimal::setLizardAttributes() { }
+void AddAnimal::setRabbitAttributes() { }
+
+/** Function: loadImage(string filename)
+    in: string filename
+    purpose: Loads the image of the animal if there is one
+             If there isn't just display text */
+void AddAnimal::loadImage(std::string filename)
+{
+    QString qFilename = QString::fromStdString(filename);
+
+    // If no image, return
+    if(QString::compare(qFilename, QString()) == 0) { ui->lbAnimalPhoto->setText("No Image"); return; }
+
+    QImage image;
+
+    // Checks to make sure image is not corrupted
+    bool validImage = image.load(qFilename);
+    if(validImage == false) { return; }
+
+    image = image.scaledToWidth(ui->lbAnimalPhoto->width(), Qt::SmoothTransformation);
+    ui->lbAnimalPhoto->setPixmap(QPixmap::fromImage(image));
+}
 
 int AddAnimal::createNewAnimal(AnimalStorage** storage)
 {
+    editingExistingAnimal = false;
+
+    ui->tabWidget->setCurrentIndex(0);
+    changeSpecies(0);
+
     this->storage = storage;
     this->exec();
     return returnVal;
@@ -284,10 +361,16 @@ void AddAnimal::changeSpeciesTab(int index)
 
 void AddAnimal::on_cbSpecies_currentIndexChanged(int index)
 {
+    changeSpecies(index);
+}
+
+void AddAnimal::changeSpecies(int index)
+{
     speciesIndex = index;
     changeBreedBox(index);
     changeSpeciesTab(index);
     changeFurBox(index);
+    ui->cbSpecies->setCurrentIndex(index);
 }
 
 /** Function: on_tabWidget_tabBarClicked(int index)
@@ -325,7 +408,6 @@ void AddAnimal::createCat()
     if(newCat->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
     (*storage)->add(newCat);
-    filesaver.appendToFile(ANIMAL_SAVE_FILE, newCat);
     db->addCatToDatabase(newCat);
 
     this->close();
@@ -353,7 +435,6 @@ void AddAnimal::createDog()
     if(newDog->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
     (*storage)->add(newDog);
-    filesaver.appendToFile(ANIMAL_SAVE_FILE, newDog);
     db->addDogToDatabase(newDog);
 
 
@@ -381,8 +462,6 @@ void AddAnimal::createBird()
     if(newBird->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
     (*storage)->add(newBird);
-    filesaver.appendToFile(ANIMAL_SAVE_FILE, newBird);
-
     db->addBirdToDatabase(newBird);
 
     this->close();
@@ -412,8 +491,6 @@ void AddAnimal::createLizard()
     if(newLizard->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
     (*storage)->add(newLizard);
-    filesaver.appendToFile(ANIMAL_SAVE_FILE, newLizard);
-
     db->addLizardToDatabase(newLizard);
 
 
@@ -443,8 +520,6 @@ void AddAnimal::createRabbit()
     if(newRabbit->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
     (*storage)->add(newRabbit);
-    filesaver.appendToFile(ANIMAL_SAVE_FILE, newRabbit);
-
     db->addRabbitToDatabase(newRabbit);
 
 

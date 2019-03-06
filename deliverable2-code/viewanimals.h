@@ -6,6 +6,7 @@
 #include "storage.h"
 #include "animal.h"
 #include "animalstorage.h"
+#include "addanimal.h"
 
 #include <QListWidgetItem>
 #include <QFileDialog>
@@ -23,7 +24,7 @@ class ViewAnimals : public QDialog
 public:
     explicit ViewAnimals(QWidget *parent = nullptr);
     ~ViewAnimals();
-    void viewAnimalsFromStorage(AnimalStorage *storage);
+    void viewAnimalsFromStorage(AnimalStorage *storage, bool isStaff);
 
 private slots:
     void on_animalList_itemClicked();
@@ -38,11 +39,14 @@ private slots:
 
     void on_filterRabbits_clicked();
 
+    void on_bEditAnimal_clicked();
+
 private:
     Ui::ViewAnimals *ui;
     void populateList();
     AnimalStorage* storage;
     std::vector<Animal*> viewStorage;
+
     void displayAnimal(int index);
     void loadImage(std::string);
     void changeSpeciesTab(int);
@@ -53,6 +57,7 @@ private:
     void displaySpeciesAttributes(Bird* bird);
     void displaySpeciesAttributes(Lizard* lizard);
     void displaySpeciesAttributes(Rabbit* rabbit);
+
 };
 
 #endif // VIEWANIMALS_H
