@@ -10,6 +10,7 @@
 
 #include <QListWidgetItem>
 #include <QFileDialog>
+#include <QTextStream>
 
 #define ATTRIBUTE_OPTIONS 4
 
@@ -28,17 +29,11 @@ public:
 
 private slots:
     void on_animalList_itemClicked();
-
     void on_filterDogs_clicked();
-
     void on_filterCats_clicked();
-
     void on_filterBirds_clicked();
-
     void on_filterLizards_clicked();
-
     void on_filterRabbits_clicked();
-
     void on_bEditAnimal_clicked();
 
 private:
@@ -57,6 +52,7 @@ private:
     void displaySpeciesAttributes(Bird* bird);
     void displaySpeciesAttributes(Lizard* lizard);
     void displaySpeciesAttributes(Rabbit* rabbit);
+    void reloadView();
 
 };
 

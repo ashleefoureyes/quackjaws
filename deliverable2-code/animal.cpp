@@ -165,7 +165,7 @@ std::string Animal::getLifestyleStr() const
 
 std::string Animal::getHistoryStr() const
 {
-    switch(lifestyle)
+    switch(history)
     {
     case 0: return "Brought by owner";
     case 1: return "Street Animal";

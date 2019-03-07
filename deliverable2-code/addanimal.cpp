@@ -39,6 +39,9 @@ void AddAnimal::changeAnimalAttributes()
         case 3: setLizard(static_cast<Lizard*>(animal)); break;
         case 4: setRabbit(static_cast<Rabbit*>(animal)); break;
     }
+
+    returnVal = 1;
+    this->close();
 }
 
 void AddAnimal::fillInfoForEdit()

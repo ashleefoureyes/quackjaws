@@ -248,6 +248,16 @@ void ViewAnimals::on_bEditAnimal_clicked()
     // and determines which tab to show based off that
 
     AddAnimal addAnim;
-    addAnim.editAnimal(viewStorage.at(static_cast<unsigned int>(index)));
-    //TODO: Have it reload viewAnimals if animal edited
+    if(addAnim.editAnimal(viewStorage.at(static_cast<unsigned int>(index))) != 0) { reloadView(); }
+
+}
+
+void ViewAnimals::reloadView()
+{
+    //currentRow needs to be saved in a variable. If the function is passed
+    // to displayAnimal as a parameter it always passes -1
+    int index = ui->animalList->currentRow();
+
+    populateList();
+    displayAnimal(index);
 }
