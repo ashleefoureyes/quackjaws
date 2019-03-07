@@ -56,15 +56,16 @@ private:
     QImage animalPhoto;
     bool customImage = false;
     int speciesIndex = 0;
-    void fillInfoForEdit();
     bool editingExistingAnimal;
+    void fillInfoForEdit();
     void loadImage(std::string filename);
     void fillAnimalAttributes();
-    void setDogAttributes();
-    void setCatAttributes();
-    void setBirdAttributes();
-    void setLizardAttributes();
-    void setRabbitAttributes();
+    void setUiDogAttributes();
+    void setUiCatAttributes();
+    void setUiBirdAttributes();
+    void setUiLizardAttributes();
+    void setUiRabbitAttributes();
+    void changeAnimalAttributes();
 
     databaseStorage* db;
 
@@ -79,11 +80,11 @@ private:
     void setupButtons();
     void changeSpecies(int index);
 
-    void createCat();
-    void createDog();
-    void createBird();
-    void createLizard();
-    void createRabbit();
+    void setCat(Cat*);
+    void setDog(Dog*);
+    void setBird(Bird*);
+    void setLizard(Lizard*);
+    void setRabbit(Rabbit*);
     void createAnimalBase(Animal*);
 
     std::vector<std::string> dogBreeds{"Greyhound", "German Sheperd", "Chihuahua", "Pug", "Shih Tzu", "Cocker Spaniel", "Bull Terrier", "Husky", "Weiner Dog", "St. Bernard", "Golden Retriever"};

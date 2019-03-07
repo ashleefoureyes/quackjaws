@@ -29,6 +29,18 @@ int AddAnimal::editAnimal(Animal *animalToEdit)
     return returnVal;
 }
 
+void AddAnimal::changeAnimalAttributes()
+{
+    switch(ui->cbSpecies->currentIndex())
+    {
+        case 0: setDog(static_cast<Dog*>(animal)); break;
+        case 1: setCat(static_cast<Cat*>(animal)); break;
+        case 2: setBird(static_cast<Bird*>(animal)); break;
+        case 3: setLizard(static_cast<Lizard*>(animal)); break;
+        case 4: setRabbit(static_cast<Rabbit*>(animal)); break;
+    }
+}
+
 void AddAnimal::fillInfoForEdit()
 {
     fillAnimalAttributes();
@@ -41,11 +53,11 @@ void AddAnimal::fillAnimalAttributes()
 
     QTextStream cerr(stderr);
 
-    if(animal->getSpecies() == "Dog") { changeSpecies(0); setDogAttributes(); }
-    else if(animal->getSpecies() == "Cat") { changeSpecies(1); setCatAttributes(); }
-    else if(animal->getSpecies() == "Bird") { changeSpecies(2); setBirdAttributes(); }
-    else if(animal->getSpecies() == "Lizard") { changeSpecies(3); setLizardAttributes(); }
-    else if(animal->getSpecies() == "Rabbit") { changeSpecies(4); setRabbitAttributes(); }
+    if(animal->getSpecies() == "Dog") { changeSpecies(0); setUiDogAttributes(); }
+    else if(animal->getSpecies() == "Cat") { changeSpecies(1); setUiCatAttributes(); }
+    else if(animal->getSpecies() == "Bird") { changeSpecies(2); setUiBirdAttributes(); }
+    else if(animal->getSpecies() == "Lizard") { changeSpecies(3); setUiLizardAttributes(); }
+    else if(animal->getSpecies() == "Rabbit") { changeSpecies(4); setUiRabbitAttributes(); }
     else { cerr << "Error, Animal Species invalid"; }
     ui->cbSpecies->setEnabled(false);
 
@@ -87,7 +99,7 @@ void AddAnimal::fillAnimalAttributes()
     else { ui->rbBoth->setChecked(true); }
 }
 
-void AddAnimal::setDogAttributes()
+void AddAnimal::setUiDogAttributes()
 {
     Dog* dog = static_cast<Dog*>(animal);
     ui->groupBarks->button(dog->getBarks())->setChecked(true);
@@ -95,7 +107,7 @@ void AddAnimal::setDogAttributes()
     ui->cbBathroomTrained->setChecked(dog->getIsBathroomTrained());
 }
 
-void AddAnimal::setCatAttributes()
+void AddAnimal::setUiCatAttributes()
 {
     Cat* cat = static_cast<Cat*>(animal);
     ui->groupCurious->button(cat->getCuriosity())->setChecked(true);
@@ -103,7 +115,7 @@ void AddAnimal::setCatAttributes()
     ui->groupTrainedCat->button(cat->getTrained())->setChecked(true);
 }
 
-void AddAnimal::setBirdAttributes()
+void AddAnimal::setUiBirdAttributes()
 {
     Bird* bird = static_cast<Bird*>(animal);
     ui->groupIsLoudBird->button(bird->getLoud())->setChecked(true);
@@ -111,7 +123,7 @@ void AddAnimal::setBirdAttributes()
     ui->cbColourBird->setCurrentIndex(ui->cbColourBird->findText(QString::fromStdString(bird->getColour())));
 }
 
-void AddAnimal::setLizardAttributes()
+void AddAnimal::setUiLizardAttributes()
 {
     Lizard* lizard = static_cast<Lizard*>(animal);
     ui->cbDiet->setCurrentIndex(ui->cbDiet->findText(QString::fromStdString(lizard->getDiet())));
@@ -121,7 +133,7 @@ void AddAnimal::setLizardAttributes()
     ui->boxLighting->setChecked(lizard->getLightingReqs());
 }
 
-void AddAnimal::setRabbitAttributes()
+void AddAnimal::setUiRabbitAttributes()
 {
     Rabbit* rabbit = static_cast<Rabbit*>(animal);
     ui->groupAttentionRabbit->button(rabbit->getAttention())->setChecked(true);
@@ -293,13 +305,15 @@ void AddAnimal::on_bSubmit_clicked()
         return;
     }
 
+    if(editingExistingAnimal) { changeAnimalAttributes(); return; }
+
     switch(ui->cbSpecies->currentIndex())
     {
-        case 0: createDog(); break;
-        case 1: createCat(); break;
-        case 2: createBird(); break;
-        case 3: createLizard(); break;
-        case 4: createRabbit(); break;
+        case 0: setDog(new Dog()); break;
+        case 1: setCat(new Cat()); break;
+        case 2: setBird(new Bird()); break;
+        case 3: setLizard(new Lizard()); break;
+        case 4: setRabbit(new Rabbit()); break;
     }
 }
 
@@ -444,10 +458,10 @@ void AddAnimal::on_tabWidget_tabBarClicked(int index)
 /** Function: createCat()
  *  in-out: AnimalStorage
  *  purpose: creates a cat object and adds it to the animal storage. */
-void AddAnimal::createCat()
+void AddAnimal::setCat(Cat* newCat)
 {
     int curiosity, trained, shedding;
-    Cat* newCat = new Cat();
+    //Cat* newCat = new Cat();
     createAnimalBase(static_cast<Animal*>(newCat));
 
     curiosity = ui->groupCurious->checkedId();
@@ -460,8 +474,11 @@ void AddAnimal::createCat()
 
     if(newCat->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
-    (*storage)->add(newCat);
-    db->addCatToDatabase(newCat);
+    if(!editingExistingAnimal) {
+        (*storage)->add(newCat);
+        db->addCatToDatabase(newCat);
+    }
+    else { } // TODO: Change animal info in db
 
     this->close();
 }
@@ -469,13 +486,13 @@ void AddAnimal::createCat()
 /** Function: createDog()
  *  in-out: AnimalStorage
  *  purpose: creates a dog object and adds to animal storage */
-void AddAnimal::createDog()
+void AddAnimal::setDog(Dog* newDog)
 {
 
     int barks, training;
     bool isBathroomTrained;
 
-    Dog* newDog = new Dog();
+    //Dog* newDog = new Dog();
     createAnimalBase(static_cast<Animal*>(newDog));
 
     barks = ui->groupBarks->checkedId();
@@ -487,8 +504,11 @@ void AddAnimal::createDog()
     newDog->setSpeciesAttributes(barks, training, isBathroomTrained);
     if(newDog->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
-    (*storage)->add(newDog);
-    db->addDogToDatabase(newDog);
+    if(!editingExistingAnimal) {
+        (*storage)->add(newDog);
+        db->addDogToDatabase(newDog);
+    }
+    else { } // TODO: Change animal info in db
 
 
     this->close();
@@ -497,12 +517,12 @@ void AddAnimal::createDog()
 /** Function: createBird()
  *  in-out: AnimalStorage
  *  purpose: creates a bird object and adds to animal storage */
-void AddAnimal::createBird()
+void AddAnimal::setBird(Bird* newBird)
 {
     int loud, social;
     std::string colour;
 
-    Bird* newBird = new Bird();
+    //Bird* newBird = new Bird();
     createAnimalBase(static_cast<Animal*>(newBird));
 
     loud = ui->groupIsLoudBird->checkedId();
@@ -514,8 +534,11 @@ void AddAnimal::createBird()
 
     if(newBird->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
-    (*storage)->add(newBird);
-    db->addBirdToDatabase(newBird);
+    if(!editingExistingAnimal) {
+        (*storage)->add(newBird);
+        db->addBirdToDatabase(newBird);
+    }
+    else { } // TODO: Change animal info in db
 
     this->close();
 }
@@ -523,12 +546,12 @@ void AddAnimal::createBird()
 /** Function: createLizard()
  *  in-out: AnimalStorage
  *  purpose: creates a lizard object and adds to animal storage */
-void AddAnimal::createLizard()
+void AddAnimal::setLizard(Lizard* newLizard)
 {
     std::string preferredDiet, colour, feedingInterval;
     bool spaceReqs, lightingReqs;
 
-    Lizard* newLizard = new Lizard();
+    //Lizard* newLizard = new Lizard();
     createAnimalBase(static_cast<Animal*>(newLizard));
 
     preferredDiet = (ui->cbDiet->currentText()).toStdString();
@@ -543,8 +566,11 @@ void AddAnimal::createLizard()
 
     if(newLizard->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
-    (*storage)->add(newLizard);
-    db->addLizardToDatabase(newLizard);
+    if(!editingExistingAnimal) {
+        (*storage)->add(newLizard);
+        db->addLizardToDatabase(newLizard);
+    }
+    else { } // TODO: Change animal info in db
 
 
     this->close();
@@ -553,12 +579,12 @@ void AddAnimal::createLizard()
 /** Function: createRabbit
  *  in-out: AnimalStorage
  *  purpose: creates rabbit object and adds to animal storage */
-void AddAnimal::createRabbit()
+void AddAnimal::setRabbit(Rabbit *newRabbit)
 {
     int grooming, attention;
     std::string pattern, colour;
 
-    Rabbit* newRabbit = new Rabbit();
+    //Rabbit* newRabbit = new Rabbit();
     createAnimalBase(static_cast<Animal*>(newRabbit));
 
     grooming = ui->groupGrooming->checkedId();
@@ -572,8 +598,11 @@ void AddAnimal::createRabbit()
 
     if(newRabbit->areAllAttributesSet() == false && DEV_MODE == false) { displayMissingInfoError(); return; }
 
-    (*storage)->add(newRabbit);
-    db->addRabbitToDatabase(newRabbit);
+    if(!editingExistingAnimal) {
+        (*storage)->add(newRabbit);
+        db->addRabbitToDatabase(newRabbit);
+    }
+    else { } // TODO: Change animal info in db
 
 
     this->close();
