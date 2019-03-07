@@ -1,7 +1,7 @@
 #ifndef ANIMALSTORAGE_H
 #define ANIMALSTORAGE_H
 
-#include "storage.h"
+#include "clientstorage.h"
 #include <vector>
 #include "dog.h"
 #include "cat.h"

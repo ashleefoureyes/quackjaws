@@ -20,7 +20,7 @@
 /** Function: databaseStorage()
     Purpose: Constructor. */
 
-databaseStorage::databaseStorage(AnimalStorage *animalStorage, Storage *clientStorage)
+databaseStorage::databaseStorage(AnimalStorage *animalStorage, ClientStorage *clientStorage)
 {
     numAnimals = 0;
     numClients = 0;

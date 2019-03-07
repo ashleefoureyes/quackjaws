@@ -2,7 +2,7 @@
 #define VIEWCLIENTS_H
 
 #include <QDialog>
-#include "storage.h"
+#include "clientstorage.h"
 #include <QListWidgetItem>
 
 namespace Ui {
@@ -16,7 +16,7 @@ class ViewClients : public QDialog
 public:
     explicit ViewClients(QWidget *parent = nullptr);
     ~ViewClients();
-    void viewClientsFromStorage(Storage *storage);
+    void viewClientsFromStorage(ClientStorage *storage);
 
 private slots:
     void on_clientList_itemClicked();
@@ -24,7 +24,7 @@ private slots:
 private:
     Ui::ViewClients *ui;
     void populateList();
-    Storage* storage;
+    ClientStorage* storage;
     void displayClient(int index);
 };
 

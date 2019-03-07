@@ -31,7 +31,7 @@ void ViewClients::populateList()
 /** Function: viewClientsFromStorage(Storage*)
  *  in: Storage*
  *  purpose: To be called when ViewClients is clicked. Displays all clients in storage */
-void ViewClients::viewClientsFromStorage(Storage *storage)
+void ViewClients::viewClientsFromStorage(ClientStorage *storage)
 {
     this->storage = storage;
     populateList();

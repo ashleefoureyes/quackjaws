@@ -7,8 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-   // filesaver.readFromAnimalFile("savedAnimals.txt", &animalStorage);
-   // filesaver.readFromClientFile("savedClients.txt", &clientStorage);
     databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
     db->initDatabase();
 }
@@ -38,17 +36,18 @@ void MainWindow::on_bClientEntry_clicked()
     std::string enteredText = (ui->txtEmailLogin->text()).toStdString();
 
     bool validEmail = false;
+    Client* client = nullptr;
 
     // Checks storage for one with an email that matches the input
     for(int i = 0; i < clientStorage.getNumOfElements(); ++i)
     {
-        Client* client = static_cast<Client*>(clientStorage.get(i));
-        if(client->getEmail() == enteredText) { validEmail = true; }
+        clientStorage.get(&client,i);
+        if(client->getEmail() == enteredText) { validEmail = true; break; }
     }
 
     if(validEmail == false) { return displayLoginError(); }
 
-    ClientHomepage clientHomepage(nullptr, &animalStorage, &clientStorage);
+    ClientHomepage clientHomepage(nullptr, &animalStorage, &clientStorage, client);
     this->hide();
     clientHomepage.setModal(true);
     if(clientHomepage.showClientPage() == 1) { this->show(); }

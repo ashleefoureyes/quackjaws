@@ -1,7 +1,7 @@
 #include "staffhomepage.h"
 #include "ui_staffhomepage.h"
 
-StaffHomepage::StaffHomepage(QWidget *parent, AnimalStorage *animalStorage, Storage *clientStorage) :
+StaffHomepage::StaffHomepage(QWidget *parent, AnimalStorage *animalStorage, ClientStorage *clientStorage) :
     QDialog(parent),
     ui(new Ui::StaffHomepage)
 {
@@ -67,9 +67,6 @@ void StaffHomepage::on_bAddClient_clicked()
     clientStorage->add(newClient);
 
     db->addClientToDatabase(newClient);
-
-    Filesaver filesaver;
-    filesaver.appendToFile("savedClients.txt", newClient);
 }
 
 /** Function: on_bViewClients_clicked()

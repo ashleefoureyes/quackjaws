@@ -1,13 +1,14 @@
 #include "clienthomepage.h"
 #include "ui_clienthomepage.h"
 
-ClientHomepage::ClientHomepage(QWidget *parent, AnimalStorage *animalStorage, Storage *clientStorage) :
+ClientHomepage::ClientHomepage(QWidget *parent, AnimalStorage *animalStorage, ClientStorage *clientStorage, Client* client) :
     QDialog(parent),
     ui(new Ui::ClientHomepage)
 {
     ui->setupUi(this);
     this->animalStorage = animalStorage;
     this->clientStorage = clientStorage;
+    this->client = client;
 }
 
 ClientHomepage::~ClientHomepage()
@@ -18,6 +19,7 @@ ClientHomepage::~ClientHomepage()
 int ClientHomepage::showClientPage()
 {
     returnResult = 0;
+    ui->lbUserWelcome->setText(QString::fromStdString("Welcome: " + client->getFirstName() + " " + client->getLastName()));
     this->exec();
     return returnResult;
 }

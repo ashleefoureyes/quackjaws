@@ -30,7 +30,6 @@ SOURCES += \
         mainwindow.cpp \
     staffhomepage.cpp \
     animal.cpp \
-    storage.cpp \
     addanimal.cpp \
     viewanimals.cpp \
     profile.cpp \
@@ -44,14 +43,13 @@ SOURCES += \
     bird.cpp \
     rabbit.cpp \
     lizard.cpp \
-    filesaver.cpp \
-    databasestorage.cpp
+    databasestorage.cpp \
+    clientstorage.cpp
 
 HEADERS += \
         mainwindow.h \
     staffhomepage.h \
     animal.h \
-    storage.h \
     addanimal.h \
     viewanimals.h \
     profile.h \
@@ -65,8 +63,8 @@ HEADERS += \
     bird.h \
     rabbit.h \
     lizard.h \
-    filesaver.h \
-    databasestorage.h
+    databasestorage.h \
+    clientstorage.h
 
 FORMS += \
         mainwindow.ui \

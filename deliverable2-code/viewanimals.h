@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include <vector>
-#include "storage.h"
+#include "clientstorage.h"
 #include "animal.h"
 #include "animalstorage.h"
 #include "addanimal.h"

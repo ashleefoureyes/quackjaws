@@ -1,5 +1,5 @@
-#ifndef STORAGE_H
-#define STORAGE_H
+#ifndef CLIENTSTORAGE_H
+#define CLIENTSTORAGE_H
 
 #define CLIENT_STARTING_ID 100
 
@@ -11,17 +11,18 @@
 #include <iterator>
 #include <vector>
 
-class Storage
+class ClientStorage
 {
     public:
-    Storage();
-    ~Storage();
+    ClientStorage();
+    ~ClientStorage();
     int add(Client*);
     bool getProfileWithId(Client**, int);
     bool isProfileInStorage(int);
     int getNumOfElements();
     std::string listInfo(int);
     Client* get(int i);
+    void get(Client** client, int index);
 
     std::string getFormattedInfo();
 
@@ -31,7 +32,9 @@ class Storage
     int numOfElements;
     std::vector <Client*> profileList;
     int largestId;
+
     int getNextId();
+    void checkForLargestId(int id);
 
 };
 

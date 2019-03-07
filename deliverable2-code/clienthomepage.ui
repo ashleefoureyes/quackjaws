@@ -39,7 +39,7 @@
     <string>Logout</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="lbUserWelcome">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -54,7 +54,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Full Client Features Coming Soon!</string>
+    <string>Welcome back: </string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

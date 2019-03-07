@@ -5,11 +5,10 @@
 #include <QMessageBox>
 
 #include "staffhomepage.h"
-#include "storage.h"
+#include "clientstorage.h"
 #include "animalstorage.h"
 #include "animal.h"
 #include "clienthomepage.h"
-#include "filesaver.h"
 #include "databasestorage.h"
 
 namespace Ui {
@@ -32,9 +31,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     AnimalStorage animalStorage;
-    Storage clientStorage;
+    ClientStorage clientStorage;
     void displayLoginError();
-    Filesaver filesaver;
 };
 
 #endif // MAINWINDOW_H

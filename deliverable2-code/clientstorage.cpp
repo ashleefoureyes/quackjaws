@@ -1,4 +1,4 @@
-#include "storage.h"
+#include "clientstorage.h"
 #include "animal.h"
 
 #include <string>
@@ -6,12 +6,12 @@
 
 /** Function: Storage()
     Purpose: Constructor. */
-Storage::Storage()
+ClientStorage::ClientStorage()
 {
     numOfElements = 0;
 }
 
-Storage::~Storage()
+ClientStorage::~ClientStorage()
 {
     for(std::vector<Client*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
@@ -25,12 +25,15 @@ Storage::~Storage()
     Purpose: Adds a new client to the vector.
              Calls setIdNumber() to generate unique
              id for the animal if they have no Id */
-int Storage::add(Client* newProfile)
+int ClientStorage::add(Client* newProfile)
 {   
     int id = newProfile->getId();
 
+    //if (newProfile->getId() < 0) { id = getNextId(); newProfile->setIdNumber(id); }
+
     // If clientId is -1 then they don't have an id yet and need to be assigned one
-    if (newProfile->getId() < 0) { id = getNextId(); newProfile->setIdNumber(id); }
+    if(newProfile->getId() < 0) { newProfile->setIdNumber(getNextId()); }
+    else { checkForLargestId(newProfile->getId()); }
 
     profileList.push_back(newProfile);
     ++numOfElements;
@@ -46,7 +49,7 @@ int Storage::add(Client* newProfile)
     Note: CLIENT_STARTING_ID is a constant. This ensures that if the list is completely
           emtied we can restart at the initial id without needing to worry about
           an animal having a non-unique id. */
-int Storage::getNextId()
+int ClientStorage::getNextId()
 {
     if(numOfElements == 0) { largestId = CLIENT_STARTING_ID; }
     else { ++largestId; }
@@ -58,7 +61,7 @@ int Storage::getNextId()
     out: Formatted string of the info of all clients in array
     Purpose: Returns formatted animal info.
              Delegates individual animal formatting to client class */
-std::string Storage::getFormattedInfo()
+std::string ClientStorage::getFormattedInfo()
 {
     std::string returnStr = "";
 
@@ -75,7 +78,7 @@ std::string Storage::getFormattedInfo()
  *  in: profileId
  *  in-out: Profile** foundProfile. NULL if profile with id not in list
  *  out: true if profile found, false otherwise */
-bool Storage::getProfileWithId(Client** foundProfile ,int profileId)
+bool ClientStorage::getProfileWithId(Client** foundProfile ,int profileId)
 {
     for(std::vector<Client*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
     {
@@ -95,7 +98,7 @@ bool Storage::getProfileWithId(Client** foundProfile ,int profileId)
  *  Purpose: Searches through list to see if the animal is there
  *           Delegates to getProfileWithId() but doesn't return
  *           the animal and only takes animalId as input parameter */
-bool Storage::isProfileInStorage(int profileId)
+bool ClientStorage::isProfileInStorage(int profileId)
 {
     Client* profilePtr;
     return getProfileWithId(&profilePtr, profileId);
@@ -107,19 +110,19 @@ bool Storage::isProfileInStorage(int profileId)
  *           This ensures that all animals loaded in from
  *           a file retain their ID's while allowing all subsequent
  *           animals added to the list to have unique id's */
-void Storage::setLargestId(int largestId)
+void ClientStorage::setLargestId(int largestId)
 {
     this->largestId = largestId;
 }
 
-int Storage::getNumOfElements() { return numOfElements; }
+int ClientStorage::getNumOfElements() { return numOfElements; }
 
 /* Function: listInfo(int index)*
  * in: index
  * out: listInfo for client at index
    purpose: gets list info for client at index
             Used for listing clients in ClientView */
-std::string Storage::listInfo(int index)
+std::string ClientStorage::listInfo(int index)
 {
     return profileList.at((static_cast<unsigned int>(index)))->getListInfoStr();
 }
@@ -129,7 +132,20 @@ std::string Storage::listInfo(int index)
     out: Client*
     purpose: Gets the client* for client at index
 */
-Client* Storage::get(int index)
+Client* ClientStorage::get(int index)
 {
     return profileList.at(static_cast<unsigned int>(index));
+}
+
+void ClientStorage::get(Client** client, int index)
+{
+    *client = profileList.at(static_cast<unsigned int>(index));
+}
+
+void ClientStorage::checkForLargestId(int clientId)
+{
+    // Removes leading number and checks if the Id is largest than the current largest
+    // If it is larger then it sets that to the new largestId
+    int rawId = std::stoi((std::to_string(clientId)).substr(1));
+    if(rawId > largestId) { largestId = rawId; }
 }

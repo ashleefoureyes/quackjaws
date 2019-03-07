@@ -5,7 +5,7 @@
 
 #include "profile.h"
 #include "client.h"
-#include "storage.h"
+#include "clientstorage.h"
 #include "animalstorage.h"
 #include "animal.h"
 #include "dog.h"
@@ -29,7 +29,7 @@
 class databaseStorage
 {
     public:
-    databaseStorage(AnimalStorage*, Storage*);
+    databaseStorage(AnimalStorage*, ClientStorage*);
     ~databaseStorage();
     int addClientToDatabase(Client*);
     int addDogToDatabase(Dog*);
@@ -44,7 +44,7 @@ class databaseStorage
     int numAnimals;
     int loadDatabase();
     AnimalStorage *animalStorage;
-    Storage *clientStorage;
+    ClientStorage *clientStorage;
     int lifeStyleToInt(QString);
     int historyToInt(QString str);
 };
