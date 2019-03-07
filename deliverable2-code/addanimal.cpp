@@ -31,6 +31,14 @@ int AddAnimal::editAnimal(Animal *animalToEdit)
 
 void AddAnimal::fillInfoForEdit()
 {
+    fillAnimalAttributes();
+    loadImage(animal->getImageFilePath());
+}
+
+void AddAnimal::fillAnimalAttributes()
+{
+    //int travels, children, goodWAnimals, strangers, crowds, noises, protector, energy, fearful, affection, messy;
+
     QTextStream cerr(stderr);
 
     if(animal->getSpecies() == "Dog") { changeSpecies(0); setDogAttributes(); }
@@ -41,15 +49,23 @@ void AddAnimal::fillInfoForEdit()
     else { cerr << "Error, Animal Species invalid"; }
     ui->cbSpecies->setEnabled(false);
 
-    loadImage(animal->getImageFilePath());
     ui->txtNameBox->setText(QString::fromStdString(animal->getName()));
+    ui->cbBreed->setCurrentIndex(ui->cbBreed->findText(QString::fromStdString(animal->getBreed())));
+    ui->cbSize->setCurrentIndex(animal->getSize());
+    ui->sbAge->setValue(animal->getAge());
 
-    setAnimalAttributes();
-}
+    if(animal->getGender() == 'M') { ui->rbMale->setChecked(true); }
+    else {ui->rbFemale->setChecked(true);}
 
-void AddAnimal::setAnimalAttributes()
-{
-    //int travels, children, goodWAnimals, strangers, crowds, noises, protector, energy, fearful, affection, messy;
+    switch(animal->getFur())
+    {
+        case 3: ui->cbFur->setCurrentIndex(0); break; // Bird: Yes
+        case 4: ui->cbFur->setCurrentIndex(1); break; // Bird: No
+        case 5: ui->cbFur->setCurrentIndex(0); break; // Lizard: Smooth
+        case 6: ui->cbFur->setCurrentIndex(1); break; // Lizard: Rough
+        case 7: ui->cbFur->setCurrentIndex(2); break; // Lizard: Spikes
+        default: ui->cbFur->setCurrentIndex(animal->getFur());
+    }
 
     ui->groupTravel->button(animal->getTravels())->setChecked(true);
     ui->groupChildren->button(animal->getChildren())->setChecked(true);
@@ -62,6 +78,13 @@ void AddAnimal::setAnimalAttributes()
     ui->groupFear->button(animal->getEnergy())->setChecked(true);
     ui->groupAffection->button(animal->getAffection())->setChecked(true);
     ui->groupMessy->button(animal->getMessy())->setChecked(true);
+    ui->cbHistory->setCurrentIndex(animal->getHistory());
+    ui->boxNocturnal->setChecked(animal->getNocturnal());
+    ui->boxAllergies->setChecked(animal->getIsHypoAllergenic());
+
+    if(animal->getLifestyle() == 0) { ui->rbIndoor->setChecked(true); }
+    else if (animal->getLifestyle() == 1) { ui->rbOutdoor->setChecked(true); }
+    else { ui->rbBoth->setChecked(true); }
 }
 
 void AddAnimal::setDogAttributes()
@@ -72,10 +95,40 @@ void AddAnimal::setDogAttributes()
     ui->cbBathroomTrained->setChecked(dog->getIsBathroomTrained());
 }
 
-void AddAnimal::setCatAttributes() { }
-void AddAnimal::setBirdAttributes() { }
-void AddAnimal::setLizardAttributes() { }
-void AddAnimal::setRabbitAttributes() { }
+void AddAnimal::setCatAttributes()
+{
+    Cat* cat = static_cast<Cat*>(animal);
+    ui->groupCurious->button(cat->getCuriosity())->setChecked(true);
+    ui->groupSheds->button(cat->getShedding())->setChecked(true);
+    ui->groupTrainedCat->button(cat->getTrained())->setChecked(true);
+}
+
+void AddAnimal::setBirdAttributes()
+{
+    Bird* bird = static_cast<Bird*>(animal);
+    ui->groupIsLoudBird->button(bird->getLoud())->setChecked(true);
+    ui->groupAttentionBird->button(bird->getSocial())->setChecked(true);
+    ui->cbColourBird->setCurrentIndex(ui->cbColourBird->findText(QString::fromStdString(bird->getColour())));
+}
+
+void AddAnimal::setLizardAttributes()
+{
+    Lizard* lizard = static_cast<Lizard*>(animal);
+    ui->cbDiet->setCurrentIndex(ui->cbDiet->findText(QString::fromStdString(lizard->getDiet())));
+    ui->cbColorLizard->setCurrentIndex(ui->cbColorLizard->findText(QString::fromStdString(lizard->getColour())));
+    ui->cbFeedingInterval->setCurrentIndex(ui->cbFeedingInterval->findText(QString::fromStdString(lizard->getFeedingInterval())));
+    ui->boxSpace->setChecked(lizard->getSpaceReqs());
+    ui->boxLighting->setChecked(lizard->getLightingReqs());
+}
+
+void AddAnimal::setRabbitAttributes()
+{
+    Rabbit* rabbit = static_cast<Rabbit*>(animal);
+    ui->groupAttentionRabbit->button(rabbit->getAttention())->setChecked(true);
+    ui->groupGrooming->button(rabbit->getGrooming())->setChecked(true);
+    ui->cbColourRabbit->setCurrentIndex(ui->cbColourRabbit->findText(QString::fromStdString(rabbit->getColour())));
+    ui->cbPattern->setCurrentIndex(ui->cbPattern->findText(QString::fromStdString(rabbit->getPattern())));
+}
 
 /** Function: loadImage(string filename)
     in: string filename

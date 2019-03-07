@@ -84,6 +84,9 @@ class Animal
 
     void setImageFilePath(std::string);
 
+    int getHistory() const;
+    bool getIsHypoAllergenic() const;
+    int getLifestyle() const;
 };
 
 #endif

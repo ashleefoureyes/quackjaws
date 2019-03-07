@@ -230,7 +230,7 @@ void ViewAnimals::displayAnimalAttributes(Animal* reqAnimal)
     ui->barMessy->setValue(reqAnimal->getMessy());
 
     //Additional attributes
-    if(reqAnimal->isHypo() == true) { ui->lbNocturnal->setText(QString::fromStdString("Nocturnal")); }
+    if(reqAnimal->getNocturnal() == true) { ui->lbNocturnal->setText(QString::fromStdString("Nocturnal")); }
     else { ui->lbNocturnal->setText(QString::fromStdString("Not nocturnal")); }
 
     ui->lbHistory->setText(QString::fromStdString(reqAnimal->getHistoryStr()));

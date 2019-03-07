@@ -59,7 +59,7 @@ private:
     void fillInfoForEdit();
     bool editingExistingAnimal;
     void loadImage(std::string filename);
-    void setAnimalAttributes();
+    void fillAnimalAttributes();
     void setDogAttributes();
     void setCatAttributes();
     void setBirdAttributes();

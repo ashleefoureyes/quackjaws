@@ -6,6 +6,21 @@
 #include <iomanip>
 
 
+int Animal::getHistory() const
+{
+    return history;
+}
+
+bool Animal::getIsHypoAllergenic() const
+{
+    return isHypoAllergenic;
+}
+
+int Animal::getLifestyle() const
+{
+    return lifestyle;
+}
+
 Animal::Animal() { this->imageFilePath = "noImage"; idNumber = -1; }
 
 /** Function: Animal( ... )
