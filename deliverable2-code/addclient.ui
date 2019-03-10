@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QTabWidget" name="tabSpecies">
+  <widget class="QTabWidget" name="tabClientInfo">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -26,7 +26,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tabContact">
     <attribute name="title">
@@ -329,7 +329,7 @@
       <string>Very Active</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -377,7 +377,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -415,7 +415,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -454,7 +454,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -493,7 +493,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -562,7 +562,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -701,7 +701,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QTabWidget" name="tabWidget_2">
+    <widget class="QTabWidget" name="tabWidgetBreeds">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -709,9 +709,21 @@
       <rect>
        <x>10</x>
        <y>60</y>
-       <width>401</width>
-       <height>271</height>
+       <width>400</width>
+       <height>270</height>
       </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>270</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>400</width>
+       <height>270</height>
+      </size>
      </property>
      <property name="currentIndex">
       <number>0</number>
@@ -723,336 +735,1312 @@
       <attribute name="title">
        <string>Dog</string>
       </attribute>
-      <widget class="QLabel" name="label_7">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>91</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Breed preference:</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cbDogBreeds">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>20</y>
-         <width>121</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="bDogBreedAdd">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>50</y>
-         <width>61</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Add</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="bDogBreedRemove">
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>50</y>
-         <width>51</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Remove</string>
-       </property>
-      </widget>
-      <widget class="QListView" name="listDogBreeds">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>20</y>
-         <width>151</width>
-         <height>51</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_14">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>110</y>
-         <width>81</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Age preference:</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cbAgeDog">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>110</y>
-         <width>71</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>None</string>
-        </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QWidget" name="widgetDogInfo" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <widget class="QRadioButton" name="rbDogAllergiesNo">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>190</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>No</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupDogAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QComboBox" name="cbFurPrefDog">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>140</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Hairless</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Short</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Long</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_18">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>190</y>
+            <width>131</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Are you allergic to dogs:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_7">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>91</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Breed preference:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbDogSex">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>140</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Male</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Female</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="cbDogBreeds">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>10</y>
+            <width>121</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbAgeDog">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>100</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>0 - 3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4 - 7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>8 - 11</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>12- 15</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>15+</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QRadioButton" name="rbDogAllergiesYes">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>190</y>
+            <width>41</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupDogAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QPushButton" name="bDogBreedAdd">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>40</y>
+            <width>61</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>170</y>
+            <width>381</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_14">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Age preference:</string>
+          </property>
+         </widget>
+         <widget class="QListView" name="listDogBreeds">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>10</y>
+            <width>151</width>
+            <height>51</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbSizeDog">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>100</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Teacup</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Small</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Medium</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Large</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QPushButton" name="bDogBreedRemove">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>40</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_15">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Sex preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_17">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Size preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_16">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Fur preference:</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line">
+          <property name="geometry">
+           <rect>
+            <x>-10</x>
+            <y>70</y>
+            <width>371</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </widget>
        </item>
-       <item>
-        <property name="text">
-         <string>0 - 3</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>4 - 7</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>8 - 11</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>12- 15</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>15+</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_15">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>150</y>
-         <width>81</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Sex preference:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_16">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>150</y>
-         <width>81</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Fur preference:</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cbFurPrefDog">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>150</y>
-         <width>81</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>None</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Hairless</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Short</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Long</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_17">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>110</y>
-         <width>81</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Size preference:</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cbSizeDog">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>110</y>
-         <width>81</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>None</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Teacup</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Small</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Medium</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Large</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="Line" name="line">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>80</y>
-         <width>371</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="Line" name="line_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>180</y>
-         <width>381</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_18">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>200</y>
-         <width>131</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Are you allergic to dogs:</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="rbDogAllergiesYes">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>200</y>
-         <width>41</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Yes</string>
-       </property>
-       <attribute name="buttonGroup">
-        <string notr="true">groupDogAllergies</string>
-       </attribute>
-      </widget>
-      <widget class="QRadioButton" name="rbDogAllergiesNo">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>200</y>
-         <width>51</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>No</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-       <attribute name="buttonGroup">
-        <string notr="true">groupDogAllergies</string>
-       </attribute>
-      </widget>
-      <widget class="QComboBox" name="comboBox">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>150</y>
-         <width>71</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>None</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Male</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Female</string>
-        </property>
-       </item>
-      </widget>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_6">
       <attribute name="title">
        <string>Cat</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QWidget" name="widgetDogInfo_2" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <widget class="QRadioButton" name="rbCatAllergiesNo">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>190</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>No</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupCatAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QComboBox" name="cbFurPrefCat">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>140</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Hairless</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Short</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Long</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_20">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>190</y>
+            <width>131</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Are you allergic to cats:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_21">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>91</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Breed preference:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbCatSex">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>140</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Male</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Female</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="cbCatBreeds">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>10</y>
+            <width>121</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbAgeCat">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>100</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>0 - 3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4 - 7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>8 - 11</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>12- 15</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>15+</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QRadioButton" name="rbCatAllergiesYes">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>190</y>
+            <width>41</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupCatAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QPushButton" name="bCatBreedAdd">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>40</y>
+            <width>61</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_3">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>170</y>
+            <width>381</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_22">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Age preference:</string>
+          </property>
+         </widget>
+         <widget class="QListView" name="listCatBreeds">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>10</y>
+            <width>151</width>
+            <height>51</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbSizeCat">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>100</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Teacup</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Small</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Medium</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Large</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QPushButton" name="bCatBreedRemove">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>40</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_23">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Sex preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_24">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Size preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_25">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Fur preference:</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_4">
+          <property name="geometry">
+           <rect>
+            <x>-10</x>
+            <y>70</y>
+            <width>371</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_7">
       <attribute name="title">
        <string>Bird</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <widget class="QWidget" name="widgetDogInfo_3" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <widget class="QRadioButton" name="rbBirdAllergiesNo">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>190</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>No</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupBirdAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QComboBox" name="cbFurPrefBird">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>140</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Feathered</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Featherless</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_32">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>190</y>
+            <width>131</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Are you allergic to birds:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_33">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>91</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Breed preference:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbBirdSex">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>140</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Male</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Female</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="cbBirdBreeds">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>10</y>
+            <width>121</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbAgeBird">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>100</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>0 - 3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4 - 7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>8 - 11</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>12- 15</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>15+</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QRadioButton" name="rbBirdAllergiesYes">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>190</y>
+            <width>41</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupBirdAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QPushButton" name="bBirdBreedAdd">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>40</y>
+            <width>61</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_7">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>170</y>
+            <width>381</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_34">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Age preference:</string>
+          </property>
+         </widget>
+         <widget class="QListView" name="listBirdBreeds">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>10</y>
+            <width>151</width>
+            <height>51</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbSizeBird">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>100</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Teacup</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Small</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Medium</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Large</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QPushButton" name="bBirdBreedRemove">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>40</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_35">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Sex preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_36">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Size preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_37">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Feather preference:</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_8">
+          <property name="geometry">
+           <rect>
+            <x>-10</x>
+            <y>70</y>
+            <width>371</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_8">
       <attribute name="title">
        <string>Lizard</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <widget class="QWidget" name="widgetDogInfo_4" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <widget class="QRadioButton" name="rbLizardAllergiesNo">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>190</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>No</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupLizardAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QComboBox" name="cbFurPrefLizard">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>140</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Smooth</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rough</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Spikes</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_38">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>190</y>
+            <width>131</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Are you allergic to lizards:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_39">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>91</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Breed preference:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbLizardSex">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>140</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Male</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Female</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="cbLizardBreeds">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>10</y>
+            <width>121</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbAgeLizard">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>100</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>0 - 3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4 - 7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>8 - 11</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>12- 15</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>15+</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QRadioButton" name="rbLizardAllergiesYes">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>190</y>
+            <width>41</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupLizardAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QPushButton" name="bLizardBreedAdd">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>40</y>
+            <width>61</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_9">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>170</y>
+            <width>381</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_40">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Age preference:</string>
+          </property>
+         </widget>
+         <widget class="QListView" name="listLizardBreeds">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>10</y>
+            <width>151</width>
+            <height>51</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbSizeLizard">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>100</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Teacup</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Small</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Medium</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Large</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QPushButton" name="bLizardBreedRemove">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>40</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_41">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Sex preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_42">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Size preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_43">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Scale preference:</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_10">
+          <property name="geometry">
+           <rect>
+            <x>-10</x>
+            <y>70</y>
+            <width>371</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_9">
       <property name="enabled">
@@ -1061,6 +2049,330 @@
       <attribute name="title">
        <string>Rabbit</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QWidget" name="widgetDogInfo_5" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <widget class="QRadioButton" name="rbRabbitAllergiesNo">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>190</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>No</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupRabbitAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QComboBox" name="cbFurPrefRabbit">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>140</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Hairless</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Short</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Long</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_44">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>190</y>
+            <width>131</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Are you allergic to rabbits:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_45">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>91</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Breed preference:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbRabbitSex">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>140</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Male</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Female</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="cbRabbitBreeds">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>10</y>
+            <width>121</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbAgeRabbit">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>100</y>
+            <width>71</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>0 - 3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4 - 7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>8 - 11</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>12- 15</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>15+</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QRadioButton" name="rbRabbitAllergiesYes">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>190</y>
+            <width>41</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupRabbitAllergies</string>
+          </attribute>
+         </widget>
+         <widget class="QPushButton" name="bRabbitBreedAdd">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>40</y>
+            <width>61</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_11">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>170</y>
+            <width>381</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_46">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Age preference:</string>
+          </property>
+         </widget>
+         <widget class="QListView" name="listRabbitBreeds">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>10</y>
+            <width>151</width>
+            <height>51</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbSizeRabbit">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>100</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Teacup</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Small</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Medium</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Large</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QPushButton" name="bRabbitBreedRemove">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>40</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_47">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Sex preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_48">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>100</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Size preference:</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_49">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>140</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Fur preference:</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_12">
+          <property name="geometry">
+           <rect>
+            <x>-10</x>
+            <y>70</y>
+            <width>371</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QLabel" name="label_19">
@@ -1086,7 +2398,7 @@
     <attribute name="title">
      <string>Non-Physical</string>
     </attribute>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -2021,7 +3333,7 @@
       <string>5</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -2082,14 +3394,17 @@
    <property name="acceptDrops">
     <bool>false</bool>
    </property>
+   <property name="maximum">
+    <number>4</number>
+   </property>
    <property name="value">
-    <number>24</number>
+    <number>0</number>
    </property>
    <property name="textVisible">
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -2100,16 +3415,16 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_25">
     <item>
-     <widget class="QPushButton" name="pbSubmit">
+     <widget class="QPushButton" name="pbExit">
       <property name="text">
-       <string>Submit</string>
+       <string>Exit</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pbExit">
+     <widget class="QPushButton" name="pbSubmit">
       <property name="text">
-       <string>Exit</string>
+       <string>Next</string>
       </property>
      </widget>
     </item>
@@ -2119,21 +3434,24 @@
  <resources/>
  <connections/>
  <buttongroups>
+  <buttongroup name="groupDogAllergies"/>
   <buttongroup name="groupYoungChildren"/>
   <buttongroup name="groupOtherAnimals"/>
+  <buttongroup name="groupCrowds"/>
+  <buttongroup name="groupEnergy"/>
+  <buttongroup name="groupStrangers"/>
   <buttongroup name="groupActivityLevel"/>
   <buttongroup name="groupTravel"/>
-  <buttongroup name="groupChildren"/>
-  <buttongroup name="groupAnimals"/>
-  <buttongroup name="groupStrangers"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupLoudNoise"/>
-  <buttongroup name="groupProtector"/>
-  <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupFearful"/>
   <buttongroup name="groupAffection"/>
+  <buttongroup name="groupLoudNoise"/>
+  <buttongroup name="groupFearful"/>
   <buttongroup name="groupMessy"/>
-  <buttongroup name="groupDogSex"/>
-  <buttongroup name="groupDogAllergies"/>
+  <buttongroup name="groupAnimals"/>
+  <buttongroup name="groupProtector"/>
+  <buttongroup name="groupChildren"/>
+  <buttongroup name="groupCatAllergies"/>
+  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupLizardAllergies"/>
+  <buttongroup name="groupRabbitAllergies"/>
  </buttongroups>
 </ui>

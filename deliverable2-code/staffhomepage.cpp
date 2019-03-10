@@ -31,6 +31,7 @@ void StaffHomepage::on_bAddAnimal_clicked()
 {
     AddAnimal addAnim;
     addAnim.setModal(true);
+    addAnim.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
     addAnim.createNewAnimal(&animalStorage);
 }
 
@@ -40,6 +41,7 @@ void StaffHomepage::on_bViewAnimals_clicked()
 {
     ViewAnimals viewAnim;
     viewAnim.setModal(true);
+    viewAnim.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
     viewAnim.viewAnimalsFromStorage(animalStorage, true);
 
 }
@@ -60,6 +62,7 @@ void StaffHomepage::on_bAddClient_clicked()
 {
     AddClient addClient;
     addClient.setModal(true);
+    addClient.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
     Client *newClient = new Client;
 
     if(addClient.initNewClient(newClient) != 1) { delete newClient; return; }
@@ -87,3 +90,22 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     msgBox.setText(qst);
     msgBox.exec();
 }
+
+/** Function: passBreeds(breeds)
+    in: vectors of strings for each breed
+    purpose: Sets the breeds to the string vector that was passed.
+             This allows us to change the breeds in one location and
+             have them remain consistent between all "addAnimal" and "addClients" */
+void StaffHomepage::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
+                std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds)
+{
+    this->dogBreeds = dogBreeds;
+    this->catBreeds = catBreeds;
+    this->birdBreeds = birdBreeds;
+    this->lizardBreeds = lizardBreeds;
+    this->rabbitBreeds = rabbitBreeds;
+}
+
+
+
+

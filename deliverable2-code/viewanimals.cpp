@@ -248,6 +248,7 @@ void ViewAnimals::on_bEditAnimal_clicked()
     // and determines which tab to show based off that
 
     AddAnimal addAnim;
+    addAnim.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
     if(addAnim.editAnimal(viewStorage.at(static_cast<unsigned int>(index))) != 0) { reloadView(); }
 
 }
@@ -260,4 +261,19 @@ void ViewAnimals::reloadView()
 
     populateList();
     displayAnimal(index);
+}
+
+/** Function: passBreeds(breeds)
+    in: vectors of strings for each breed
+    purpose: Sets the breeds to the string vector that was passed.
+             This allows us to change the breeds in one location and
+             have them remain consistent between all "addAnimal" and "addClients" */
+void ViewAnimals::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
+                std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds)
+{
+    this->dogBreeds = dogBreeds;
+    this->catBreeds = catBreeds;
+    this->birdBreeds = birdBreeds;
+    this->lizardBreeds = lizardBreeds;
+    this->rabbitBreeds = rabbitBreeds;
 }

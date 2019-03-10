@@ -26,6 +26,8 @@ public:
     explicit ViewAnimals(QWidget *parent = nullptr);
     ~ViewAnimals();
     void viewAnimalsFromStorage(AnimalStorage *storage, bool isStaff);
+    void passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
+                    std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds);
 
 private slots:
     void on_animalList_itemClicked();
@@ -53,6 +55,12 @@ private:
     void displaySpeciesAttributes(Lizard* lizard);
     void displaySpeciesAttributes(Rabbit* rabbit);
     void reloadView();
+
+    std::vector<std::string> dogBreeds;
+    std::vector<std::string> catBreeds;
+    std::vector<std::string> birdBreeds;
+    std::vector<std::string> lizardBreeds;
+    std::vector<std::string> rabbitBreeds;
 
 };
 

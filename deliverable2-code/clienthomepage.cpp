@@ -41,3 +41,13 @@ void ClientHomepage::on_lbViewAnimals_clicked()
     viewAnim.setModal(true);
     viewAnim.viewAnimalsFromStorage(animalStorage, false);
 }
+
+void ClientHomepage::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
+                std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds)
+{
+    this->dogBreeds = dogBreeds;
+    this->catBreeds = catBreeds;
+    this->birdBreeds = birdBreeds;
+    this->lizardBreeds = lizardBreeds;
+    this->rabbitBreeds = rabbitBreeds;
+}

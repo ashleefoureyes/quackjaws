@@ -17,6 +17,8 @@ public:
     explicit AddClient(QWidget *parent = nullptr);
     ~AddClient();
     int initNewClient(Client*);
+    void passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
+                    std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds);
 
 private slots:
     void on_pbSubmit_clicked();
@@ -30,6 +32,14 @@ private:
     void displaySubmissionError();
     bool areParenthesisInInput();
     void displayTextBoxError();
+    void handleSubmitButton();
+    bool handleNextButton();
+
+    std::vector<std::string> dogBreeds;
+    std::vector<std::string> catBreeds;
+    std::vector<std::string> birdBreeds;
+    std::vector<std::string> lizardBreeds;
+    std::vector<std::string> rabbitBreeds;
 };
 
 #endif // ADDCLIENT_H

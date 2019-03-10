@@ -688,3 +688,13 @@ void AddAnimal::displayMissingInfoError()
     msgBox.setText(err);
     msgBox.exec();
 }
+
+void AddAnimal::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
+                std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds)
+{
+    this->dogBreeds = dogBreeds;
+    this->catBreeds = catBreeds;
+    this->birdBreeds = birdBreeds;
+    this->lizardBreeds = lizardBreeds;
+    this->rabbitBreeds = rabbitBreeds;
+}

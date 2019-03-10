@@ -21,6 +21,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_bStaffEntry_clicked()
 {
     StaffHomepage home(nullptr, &animalStorage, &clientStorage);
+    home.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
     this->hide();
     home.setModal(true);
     if(home.showStaffPage() == 1) {this->show();}
@@ -48,6 +49,7 @@ void MainWindow::on_bClientEntry_clicked()
     if(validEmail == false) { return displayLoginError(); }
 
     ClientHomepage clientHomepage(nullptr, &animalStorage, &clientStorage, client);
+    clientHomepage.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
     this->hide();
     clientHomepage.setModal(true);
     if(clientHomepage.showClientPage() == 1) { this->show(); }

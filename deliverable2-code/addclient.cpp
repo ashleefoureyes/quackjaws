@@ -37,6 +37,31 @@ int AddClient::initNewClient(Client* newClient)
              in at AddClient::initNewClient */
 void AddClient::on_pbSubmit_clicked()
 {
+
+    if(handleNextButton()) { handleSubmitButton(); }
+}
+
+bool AddClient::handleNextButton()
+{
+    ui->pbExit->setText("Back");
+    // If still on Physical info tab move to Non-Physical tab
+    if (ui->tabClientInfo->currentIndex() != 4)
+    {
+        // Moves to next tab
+        ui->tabClientInfo->setCurrentWidget(ui->tabClientInfo->widget(ui->tabClientInfo->currentIndex() + 1));
+        ui->barCompleted->setValue(ui->tabClientInfo->currentIndex());
+
+        // If we're at the last tab then change "Next" to "Submit"
+        if(ui->tabClientInfo->currentIndex() == 4) { ui->pbSubmit->setText("Submit"); }
+        else { ui->pbSubmit->setText("Next"); }
+
+        return false;
+    }
+    else { return true; }
+}
+
+void AddClient::handleSubmitButton()
+{
     if(areParenthesisInInput()) { displayTextBoxError(); return;}
 
     std::string firstName, lastName, address,
@@ -103,4 +128,14 @@ void AddClient::displaySubmissionError()
     QString qst = QString::fromStdString("Please fill out all client information");
     msgBox.setText(qst);
     msgBox.exec();
+}
+
+void AddClient::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
+                std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds)
+{
+    this->dogBreeds = dogBreeds;
+    this->catBreeds = catBreeds;
+    this->birdBreeds = birdBreeds;
+    this->lizardBreeds = lizardBreeds;
+    this->rabbitBreeds = rabbitBreeds;
 }
