@@ -191,32 +191,32 @@ void AddClient::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::
 
 void AddClient::on_boxDog_stateChanged()
 {
-    if(ui->boxDog->isChecked()) {ui->widgetDogInfo->setEnabled(true); }
-    else { ui->widgetDogInfo->setEnabled(false); }
+    if(ui->boxDog->isChecked()) {ui->widgetDogInfo->setEnabled(true); ui->widgetDog->setEnabled(true); }
+    else { ui->widgetDogInfo->setEnabled(false); ui->widgetDog->setEnabled(false); }
 }
 
 void AddClient::on_boxCat_stateChanged()
 {
-    if(ui->boxCat->isChecked()) {ui->widgetCatInfo->setEnabled(true); }
-    else { ui->widgetCatInfo->setEnabled(false); }
+    if(ui->boxCat->isChecked()) {ui->widgetCatInfo->setEnabled(true); ui->widgetCat->setEnabled(true); }
+    else { ui->widgetCatInfo->setEnabled(false); ui->widgetCat->setEnabled(false); }
 }
 
 void AddClient::on_boxBird_stateChanged()
 {
-    if(ui->boxBird->isChecked()) {ui->widgetBirdInfo->setEnabled(true); }
-    else { ui->widgetBirdInfo->setEnabled(false); }
+    if(ui->boxBird->isChecked()) {ui->widgetBirdInfo->setEnabled(true); ui->widgetBird->setEnabled(true); }
+    else { ui->widgetBirdInfo->setEnabled(false); ui->widgetBird->setEnabled(false); }
 }
 
 void AddClient::on_boxLizard_stateChanged()
 {
-    if(ui->boxLizard->isChecked()) {ui->widgetLizardInfo->setEnabled(true); }
-    else { ui->widgetLizardInfo->setEnabled(false); }
+    if(ui->boxLizard->isChecked()) {ui->widgetLizardInfo->setEnabled(true); ui->widgetLizard->setEnabled(true); }
+    else { ui->widgetLizardInfo->setEnabled(false); ui->widgetLizard->setEnabled(false); }
 }
 
 void AddClient::on_boxRabbit_stateChanged()
 {
-    if(ui->boxRabbit->isChecked()) {ui->widgetRabbitInfo->setEnabled(true); }
-    else { ui->widgetRabbitInfo->setEnabled(false); }
+    if(ui->boxRabbit->isChecked()) {ui->widgetRabbitInfo->setEnabled(true); ui->widgetRabbit->setEnabled(true); }
+    else { ui->widgetRabbitInfo->setEnabled(false); ui->widgetRabbit->setEnabled(false); }
 }
 
 void AddClient::on_bDogBreedAdd_clicked() { addBreedToList(ui->cbDogBreeds->currentText(), ui->listDog, ui->cbDogBreeds); }

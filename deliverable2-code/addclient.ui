@@ -21,12 +21,24 @@
     <rect>
      <x>7</x>
      <y>7</y>
-     <width>421</width>
-     <height>381</height>
+     <width>420</width>
+     <height>380</height>
     </rect>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>420</width>
+     <height>380</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>420</width>
+     <height>380</height>
+    </size>
+   </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tabContact">
     <attribute name="title">
@@ -35,6 +47,42 @@
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="leftMargin">
+        <number>75</number>
+       </property>
+       <property name="rightMargin">
+        <number>75</number>
+       </property>
+       <property name="bottomMargin">
+        <number>25</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_27">
+         <property name="minimumSize">
+          <size>
+           <width>254</width>
+           <height>24</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>254</width>
+           <height>24</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Contract Information</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
@@ -303,320 +351,306 @@
     <attribute name="title">
      <string>Information</string>
     </attribute>
-    <widget class="QLabel" name="label_5">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>220</x>
-       <y>150</y>
-       <width>47</width>
-       <height>14</height>
+       <x>6</x>
+       <y>6</y>
+       <width>404</width>
+       <height>341</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Inactive</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>150</y>
-       <width>61</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Very Active</string>
-     </property>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>40</y>
-       <width>257</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_22">
+     <layout class="QVBoxLayout" name="verticalLayout_8">
+      <property name="leftMargin">
+       <number>75</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>75</number>
+      </property>
+      <property name="bottomMargin">
+       <number>25</number>
+      </property>
       <item>
-       <widget class="QLabel" name="lbDwellingType">
+       <widget class="QLabel" name="label_26">
+        <property name="minimumSize">
+         <size>
+          <width>254</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>254</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
         <property name="text">
-         <string>Dwelling Type:</string>
+         <string>Personal information</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="cbDwellingType">
+       <layout class="QHBoxLayout" name="horizontalLayout_22">
         <item>
-         <property name="text">
-          <string>Small Apartment/Condominium</string>
-         </property>
+         <widget class="QLabel" name="lbDwellingType">
+          <property name="text">
+           <string>Dwelling Type:</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Large Apartment/Condominium</string>
-         </property>
+         <widget class="QComboBox" name="cbDwellingType">
+          <item>
+           <property name="text">
+            <string>Small Apartment/Condominium</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Large Apartment/Condominium</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Townhouse</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Detached House</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Farm</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_21">
+        <item>
+         <widget class="QLabel" name="lbDwellingLocation">
+          <property name="text">
+           <string>Dwelling Location:</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Townhouse</string>
-         </property>
+         <widget class="QComboBox" name="comboBox_2">
+          <item>
+           <property name="text">
+            <string>Urban</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Suburban</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rural</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_20">
+        <item>
+         <widget class="QLabel" name="lbChildren">
+          <property name="text">
+           <string>Do you have young children:</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Detached House</string>
-         </property>
+         <widget class="QRadioButton" name="radioButton">
+          <property name="text">
+           <string>Yes</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupYoungChildren</string>
+          </attribute>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Farm</string>
-         </property>
+         <widget class="QRadioButton" name="radioButton_2">
+          <property name="text">
+           <string>No</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupYoungChildren</string>
+          </attribute>
+         </widget>
         </item>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>70</y>
-       <width>168</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_21">
-      <item>
-       <widget class="QLabel" name="lbDwellingLocation">
-        <property name="text">
-         <string>Dwelling Location:</string>
-        </property>
-       </widget>
+       </layout>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBox_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_19">
         <item>
-         <property name="text">
-          <string>Urban</string>
-         </property>
+         <widget class="QLabel" name="lbOtherAnimals">
+          <property name="text">
+           <string>Do you have any other animals:</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Suburban</string>
-         </property>
+         <widget class="QRadioButton" name="radioButton_3">
+          <property name="text">
+           <string>Yes</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupOtherAnimals</string>
+          </attribute>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Rural</string>
-         </property>
+         <widget class="QRadioButton" name="radioButton_4">
+          <property name="text">
+           <string>No</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupOtherAnimals</string>
+          </attribute>
+         </widget>
         </item>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>100</y>
-       <width>220</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_20">
-      <item>
-       <widget class="QLabel" name="lbChildren">
-        <property name="text">
-         <string>Do you have young children:</string>
-        </property>
-       </widget>
+       </layout>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton">
-        <property name="text">
-         <string>Yes</string>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">groupYoungChildren</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="radioButton_2">
-        <property name="text">
-         <string>No</string>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">groupYoungChildren</string>
-        </attribute>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>120</y>
-       <width>235</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_19">
-      <item>
-       <widget class="QLabel" name="lbOtherAnimals">
-        <property name="text">
-         <string>Do you have any other animals:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="radioButton_3">
-        <property name="text">
-         <string>Yes</string>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">groupOtherAnimals</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="radioButton_4">
-        <property name="text">
-         <string>No</string>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">groupOtherAnimals</string>
-        </attribute>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>170</y>
-       <width>341</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_23">
-      <item>
-       <widget class="QLabel" name="lbActivityLevel">
-        <property name="text">
-         <string>How would you rate your level of activity:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="rbActivityLevel1">
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">groupActivityLevel</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="rbActivityLevel2">
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">groupActivityLevel</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="rbActivityLevel3">
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">groupActivityLevel</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="rbActivityLevel4">
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">groupActivityLevel</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="rbActivityLevel5">
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">groupActivityLevel</string>
-        </attribute>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>210</y>
-       <width>267</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_24">
-      <item>
-       <widget class="QLabel" name="lbWorkSchedule">
-        <property name="text">
-         <string>Work Schedule:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="cbWorkSchedule">
+       <layout class="QHBoxLayout" name="horizontalLayout_23">
         <item>
-         <property name="text">
-          <string>9 to 5</string>
-         </property>
+         <widget class="QLabel" name="lbActivityLevel">
+          <property name="text">
+           <string>How would you rate your level of activity:</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Afternoon to late evening</string>
-         </property>
+         <widget class="QRadioButton" name="rbActivityLevel1">
+          <property name="text">
+           <string/>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupActivityLevel</string>
+          </attribute>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Varying shifts</string>
-         </property>
+         <widget class="QRadioButton" name="rbActivityLevel2">
+          <property name="text">
+           <string/>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupActivityLevel</string>
+          </attribute>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Overnight shifts</string>
-         </property>
+         <widget class="QRadioButton" name="rbActivityLevel3">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupActivityLevel</string>
+          </attribute>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Early morning to early afternoon</string>
-         </property>
+         <widget class="QRadioButton" name="rbActivityLevel4">
+          <property name="text">
+           <string/>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupActivityLevel</string>
+          </attribute>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Inconsistent</string>
-         </property>
+         <widget class="QRadioButton" name="rbActivityLevel5">
+          <property name="text">
+           <string/>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">groupActivityLevel</string>
+          </attribute>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_24">
+        <item>
+         <widget class="QLabel" name="lbWorkSchedule">
+          <property name="text">
+           <string>Work Schedule:</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>Unemployed</string>
-         </property>
+         <widget class="QComboBox" name="cbWorkSchedule">
+          <item>
+           <property name="text">
+            <string>9 to 5</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Afternoon to late evening</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Varying shifts</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Overnight shifts</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Early morning to early afternoon</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Inconsistent</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Unemployed</string>
+           </property>
+          </item>
+         </widget>
         </item>
-       </widget>
+       </layout>
       </item>
      </layout>
     </widget>
@@ -744,9 +778,9 @@
          <widget class="QRadioButton" name="rbDogAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>180</x>
+            <x>140</x>
             <y>190</y>
-            <width>51</width>
+            <width>31</width>
             <height>20</height>
            </rect>
           </property>
@@ -813,7 +847,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Breed preference:</string>
+           <string>Breed preferences:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbDogSex">
@@ -894,7 +928,7 @@
          <widget class="QRadioButton" name="rbDogAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>120</x>
+            <x>100</x>
             <y>190</y>
             <width>41</width>
             <height>20</height>
@@ -1073,7 +1107,7 @@
          <widget class="QRadioButton" name="rbCatAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>180</x>
+            <x>140</x>
             <y>190</y>
             <width>51</width>
             <height>20</height>
@@ -1142,7 +1176,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Breed preference:</string>
+           <string>Breed preferences:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbCatSex">
@@ -1223,7 +1257,7 @@
          <widget class="QRadioButton" name="rbCatAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>120</x>
+            <x>100</x>
             <y>190</y>
             <width>41</width>
             <height>20</height>
@@ -1402,7 +1436,7 @@
          <widget class="QRadioButton" name="rbBirdAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>180</x>
+            <x>140</x>
             <y>190</y>
             <width>51</width>
             <height>20</height>
@@ -1466,7 +1500,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Breed preference:</string>
+           <string>Breed preferences:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbBirdSex">
@@ -1547,9 +1581,9 @@
          <widget class="QRadioButton" name="rbBirdAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>120</x>
+            <x>100</x>
             <y>190</y>
-            <width>41</width>
+            <width>31</width>
             <height>20</height>
            </rect>
           </property>
@@ -1709,6 +1743,84 @@
            </rect>
           </property>
          </widget>
+         <widget class="QLabel" name="label_85">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>200</y>
+            <width>71</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Colour preference:</string>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="cbColourBird">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>200</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>Red</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Orange</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Yellow</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Green</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Blue</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Pink</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Purple</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>White</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Black</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Brown</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Gray</string>
+           </property>
+          </item>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -1726,7 +1838,7 @@
          <widget class="QRadioButton" name="rbLizardAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>180</x>
+            <x>140</x>
             <y>190</y>
             <width>51</width>
             <height>20</height>
@@ -1795,7 +1907,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Breed preference:</string>
+           <string>Breed preferences:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbLizardSex">
@@ -1876,7 +1988,7 @@
          <widget class="QRadioButton" name="rbLizardAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>120</x>
+            <x>100</x>
             <y>190</y>
             <width>41</width>
             <height>20</height>
@@ -2038,6 +2150,84 @@
            </rect>
           </property>
          </widget>
+         <widget class="QComboBox" name="cbColorLizard">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>200</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>Red</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Orange</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Yellow</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Green</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Blue</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Purple</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Pink</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>White</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Black</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Brown</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Grey</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_86">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>200</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Colour preference:</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -2058,7 +2248,7 @@
          <widget class="QRadioButton" name="rbRabbitAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>180</x>
+            <x>140</x>
             <y>190</y>
             <width>51</width>
             <height>20</height>
@@ -2127,7 +2317,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Breed preference:</string>
+           <string>Breed preferences:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbRabbitSex">
@@ -2208,7 +2398,7 @@
          <widget class="QRadioButton" name="rbRabbitAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>120</x>
+            <x>100</x>
             <y>190</y>
             <width>41</width>
             <height>20</height>
@@ -2370,6 +2560,64 @@
            </rect>
           </property>
          </widget>
+         <widget class="QComboBox" name="cbColourRabbit">
+          <property name="geometry">
+           <rect>
+            <x>290</x>
+            <y>200</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Black</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Brown</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Gray</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>White</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Cream</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Straw</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="label_87">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>200</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Coat preference:</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -2381,7 +2629,7 @@
        <x>10</x>
        <y>330</y>
        <width>281</width>
-       <height>16</height>
+       <height>280</height>
       </rect>
      </property>
      <property name="font">
@@ -2393,6 +2641,798 @@
       <string>*You can leave any inputs on this page blank</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_28">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>330</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>*You can leave any of these fields blank</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Species</string>
+    </attribute>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_97">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>10</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Enter your preference for an animal with the following qualities</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_21">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widgetDog" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <widget class="QComboBox" name="comboBox">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="comboBox_3">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_77">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>35</width>
+          <height>10</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Dog:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_78">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>0</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Is quiet:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_79">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>0</y>
+          <width>91</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Follows commands:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_80">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>0</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Is house trained:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_4">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widgetCat" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <widget class="QComboBox" name="comboBox_5">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="comboBox_6">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="comboBox_7">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_81">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>0</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Is curious:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_83">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>0</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Follows commands:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_82">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>0</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Doesn't shed:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_84">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>35</width>
+          <height>10</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Cat:</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widgetBird" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <widget class="QComboBox" name="comboBox_8">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_88">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>0</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Is quiet:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_89">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>0</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Is social:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_9">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_90">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>35</width>
+          <height>10</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Bird:</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_13">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widgetLizard" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <widget class="QLabel" name="label_91">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>35</width>
+          <height>10</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Lizard:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_10">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="comboBox_11">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_92">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>0</y>
+          <width>61</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Easy to feed:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_93">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>0</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Simple living space:</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_14">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widgetRabbit" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>50</height>
+        </size>
+       </property>
+       <widget class="QLabel" name="label_94">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>35</width>
+          <height>10</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Rabbit:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_12">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_95">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>0</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Is social:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_13">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>20</y>
+          <width>81</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Not at all</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Not much</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Unimportant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Somewhat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A lot</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_96">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>0</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Needs grooming:</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
    </widget>
    <widget class="QWidget" name="tabNonPhysical">
     <attribute name="title">
@@ -3369,11 +4409,6 @@
       </item>
      </layout>
     </widget>
-   </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>Species</string>
-    </attribute>
    </widget>
   </widget>
   <widget class="QProgressBar" name="barCompleted">
