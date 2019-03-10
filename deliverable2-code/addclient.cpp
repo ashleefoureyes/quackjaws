@@ -9,6 +9,8 @@ AddClient::AddClient(QWidget *parent) :
     ui->sbPhone->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->sbAreaCode->setButtonSymbols(QAbstractSpinBox::NoButtons);
     QTabBar *tabBar = ui->tabClientInfo->findChild<QTabBar *>();
+    ui->tabClientInfo->setCurrentIndex(0);
+    ui->tabWidgetBreeds->setCurrentIndex(0);
     tabBar->hide();
 
 }
@@ -81,6 +83,11 @@ bool AddClient::handleNextButton()
     else { return true; }
 }
 
+//
+// TODO: Implement it so that the user cannot proceed further than the first screen
+//       If they have not filled in all the information
+// TODO: Make sure all users have a unique email address
+//
 void AddClient::handleSubmitButton()
 {
     if(areParenthesisInInput()) { displayTextBoxError(); return;}
@@ -174,7 +181,7 @@ void AddClient::displayTextBoxError()
 void AddClient::displaySubmissionError()
 {
     QMessageBox msgBox;
-    QString qst = QString::fromStdString("Please fill out all client contact information");
+    QString qst = QString::fromStdString("Please fill out all client contact information before proceeding");
     msgBox.setText(qst);
     msgBox.exec();
 }

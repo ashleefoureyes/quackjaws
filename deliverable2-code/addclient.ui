@@ -38,7 +38,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tabContact">
     <attribute name="title">
@@ -760,7 +760,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tab_5">
       <property name="enabled">
@@ -2669,7 +2669,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Enter your preference for an animal with the following qualities</string>
+        <string>Enter how important the following animal qualities are to you</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
