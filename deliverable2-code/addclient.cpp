@@ -218,3 +218,30 @@ void AddClient::on_boxRabbit_stateChanged()
     if(ui->boxRabbit->isChecked()) {ui->widgetRabbitInfo->setEnabled(true); }
     else { ui->widgetRabbitInfo->setEnabled(false); }
 }
+
+void AddClient::on_bDogBreedAdd_clicked() { addBreedToList(ui->cbDogBreeds->currentText(), ui->listDog, ui->cbDogBreeds); }
+void AddClient::on_bCatBreedAdd_clicked() { addBreedToList(ui->cbCatBreeds->currentText(), ui->listCat, ui->cbCatBreeds); }
+void AddClient::on_bBirdBreedAdd_clicked() { addBreedToList(ui->cbBirdBreeds->currentText(), ui->listBird, ui->cbBirdBreeds); }
+void AddClient::on_bLizardBreedAdd_clicked() { addBreedToList(ui->cbLizardBreeds->currentText(), ui->listLizard, ui->cbLizardBreeds); }
+void AddClient::on_bRabbitBreedAdd_clicked() { addBreedToList(ui->cbRabbitBreeds->currentText(), ui->listRabbit, ui->cbRabbitBreeds); }
+
+void AddClient::addBreedToList(QString breed, QListWidget *breedList, QComboBox *breedBox)
+{
+    if(breedBox->count() == 0) { return; }
+    breedBox->removeItem(breedBox->findText(breed));
+    breedList->addItem(breed);
+}
+
+void AddClient::on_bDogBreedRemove_clicked() { if(ui->listDog->selectedItems().size() != 0) { removeBreedFromList(ui->listDog->currentItem()->text(), ui->listDog, ui->cbDogBreeds, ui->listDog->currentRow());} }
+void AddClient::on_bCatBreedRemove_clicked() { if(ui->listCat->selectedItems().size() != 0) { removeBreedFromList(ui->listCat->currentItem()->text(), ui->listCat, ui->cbCatBreeds, ui->listCat->currentRow()); }}
+void AddClient::on_bBirdBreedRemove_clicked() { if(ui->listBird->selectedItems().size() != 0) { removeBreedFromList(ui->listBird->currentItem()->text(), ui->listBird, ui->cbBirdBreeds, ui->listBird->currentRow()); }}
+void AddClient::on_bLizardBreedRemove_clicked() { if(ui->listLizard->selectedItems().size() != 0) { removeBreedFromList(ui->listLizard->currentItem()->text(), ui->listLizard, ui->cbLizardBreeds, ui->listLizard->currentRow()); }}
+void AddClient::on_bRabbitBreedRemove_clicked() { if(ui->listRabbit->selectedItems().size() != 0) { removeBreedFromList(ui->listRabbit->currentItem()->text(), ui->listRabbit, ui->cbRabbitBreeds, ui->listRabbit->currentRow()); }}
+
+void AddClient::removeBreedFromList(QString breed, QListWidget *breedList, QComboBox *breedBox, int index)
+{
+    if(breedList->count() == 0) { return; }
+    breedBox->addItem(breed);
+    breedList->takeItem(index);
+}
+

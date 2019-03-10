@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QMessageBox>
 #include <QComboBox>
+#include <QListWidget>
+#include <QComboBox>
 
 #include "client.h"
 
@@ -30,6 +32,16 @@ private slots:
     void on_boxBird_stateChanged();
     void on_boxLizard_stateChanged();
     void on_boxRabbit_stateChanged();
+    void on_bDogBreedAdd_clicked();
+    void on_bCatBreedAdd_clicked();
+    void on_bBirdBreedAdd_clicked();
+    void on_bLizardBreedAdd_clicked();
+    void on_bRabbitBreedAdd_clicked();
+    void on_bDogBreedRemove_clicked();
+    void on_bCatBreedRemove_clicked();
+    void on_bBirdBreedRemove_clicked();
+    void on_bLizardBreedRemove_clicked();
+    void on_bRabbitBreedRemove_clicked();
 
 private:
     Ui::AddClient *ui;
@@ -43,6 +55,8 @@ private:
     void handleExitClicked();
     void populateBreedBoxes();
     void populateBreedBox(std::vector<std::string> breed, QComboBox *breedBox );
+    void addBreedToList(QString breed, QListWidget* breedList, QComboBox *breedBox);
+    void removeBreedFromList(QString breed, QListWidget *breedList, QComboBox *breedBox, int index);
 
     std::vector<std::string> dogBreeds;
     std::vector<std::string> catBreeds;

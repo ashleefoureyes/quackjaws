@@ -26,7 +26,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tabContact">
     <attribute name="title">
@@ -726,7 +726,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="tab_5">
       <property name="enabled">
@@ -946,16 +946,6 @@
            <string>Age preference:</string>
           </property>
          </widget>
-         <widget class="QListView" name="listDogBreeds">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>10</y>
-            <width>151</width>
-            <height>51</height>
-           </rect>
-          </property>
-         </widget>
          <widget class="QComboBox" name="cbSizeDog">
           <property name="geometry">
            <rect>
@@ -1054,6 +1044,16 @@
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QListWidget" name="listDog">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>10</y>
+            <width>131</width>
+            <height>51</height>
+           </rect>
           </property>
          </widget>
         </widget>
@@ -1275,16 +1275,6 @@
            <string>Age preference:</string>
           </property>
          </widget>
-         <widget class="QListView" name="listCatBreeds">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>10</y>
-            <width>151</width>
-            <height>51</height>
-           </rect>
-          </property>
-         </widget>
          <widget class="QComboBox" name="cbSizeCat">
           <property name="geometry">
            <rect>
@@ -1383,6 +1373,16 @@
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QListWidget" name="listCat">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>10</y>
+            <width>131</width>
+            <height>51</height>
+           </rect>
           </property>
          </widget>
         </widget>
@@ -1599,16 +1599,6 @@
            <string>Age preference:</string>
           </property>
          </widget>
-         <widget class="QListView" name="listBirdBreeds">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>10</y>
-            <width>151</width>
-            <height>51</height>
-           </rect>
-          </property>
-         </widget>
          <widget class="QComboBox" name="cbSizeBird">
           <property name="geometry">
            <rect>
@@ -1707,6 +1697,16 @@
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QListWidget" name="listBird">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>10</y>
+            <width>131</width>
+            <height>51</height>
+           </rect>
           </property>
          </widget>
         </widget>
@@ -1928,16 +1928,6 @@
            <string>Age preference:</string>
           </property>
          </widget>
-         <widget class="QListView" name="listLizardBreeds">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>10</y>
-            <width>151</width>
-            <height>51</height>
-           </rect>
-          </property>
-         </widget>
          <widget class="QComboBox" name="cbSizeLizard">
           <property name="geometry">
            <rect>
@@ -2036,6 +2026,16 @@
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QListWidget" name="listLizard">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>10</y>
+            <width>131</width>
+            <height>51</height>
+           </rect>
           </property>
          </widget>
         </widget>
@@ -2260,16 +2260,6 @@
            <string>Age preference:</string>
           </property>
          </widget>
-         <widget class="QListView" name="listRabbitBreeds">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>10</y>
-            <width>151</width>
-            <height>51</height>
-           </rect>
-          </property>
-         </widget>
          <widget class="QComboBox" name="cbSizeRabbit">
           <property name="geometry">
            <rect>
@@ -2368,6 +2358,16 @@
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QListWidget" name="listRabbit">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>10</y>
+            <width>131</width>
+            <height>51</height>
+           </rect>
           </property>
          </widget>
         </widget>
@@ -3434,24 +3434,24 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupDogAllergies"/>
-  <buttongroup name="groupYoungChildren"/>
-  <buttongroup name="groupOtherAnimals"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupStrangers"/>
-  <buttongroup name="groupActivityLevel"/>
-  <buttongroup name="groupTravel"/>
-  <buttongroup name="groupAffection"/>
-  <buttongroup name="groupLoudNoise"/>
-  <buttongroup name="groupFearful"/>
-  <buttongroup name="groupMessy"/>
-  <buttongroup name="groupAnimals"/>
   <buttongroup name="groupProtector"/>
-  <buttongroup name="groupChildren"/>
-  <buttongroup name="groupCatAllergies"/>
-  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupCrowds"/>
+  <buttongroup name="groupMessy"/>
+  <buttongroup name="groupEnergy"/>
+  <buttongroup name="groupYoungChildren"/>
+  <buttongroup name="groupAffection"/>
+  <buttongroup name="groupFearful"/>
+  <buttongroup name="groupAnimals"/>
+  <buttongroup name="groupTravel"/>
+  <buttongroup name="groupActivityLevel"/>
   <buttongroup name="groupLizardAllergies"/>
+  <buttongroup name="groupCatAllergies"/>
   <buttongroup name="groupRabbitAllergies"/>
+  <buttongroup name="groupDogAllergies"/>
+  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupLoudNoise"/>
+  <buttongroup name="groupChildren"/>
+  <buttongroup name="groupOtherAnimals"/>
+  <buttongroup name="groupStrangers"/>
  </buttongroups>
 </ui>
