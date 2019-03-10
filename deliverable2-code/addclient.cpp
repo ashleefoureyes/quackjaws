@@ -8,6 +8,8 @@ AddClient::AddClient(QWidget *parent) :
     ui->setupUi(this);
     ui->sbPhone->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->sbAreaCode->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    QTabBar *tabBar = ui->tabClientInfo->findChild<QTabBar *>();
+    tabBar->hide();
 
 }
 
@@ -24,8 +26,27 @@ AddClient::~AddClient()
 int AddClient::initNewClient(Client* newClient)
 {
     this->newClient = &newClient;
+    populateBreedBoxes();
     this->exec();
     return returnResult;
+}
+
+void AddClient::populateBreedBoxes()
+{
+    populateBreedBox(dogBreeds, ui->cbDogBreeds);
+    populateBreedBox(catBreeds, ui->cbCatBreeds);
+    populateBreedBox(birdBreeds, ui->cbBirdBreeds);
+    populateBreedBox(lizardBreeds, ui->cbLizardBreeds);
+    populateBreedBox(rabbitBreeds, ui->cbRabbitBreeds);
+}
+
+void AddClient::populateBreedBox(std::vector<std::string> breed, QComboBox *breedBox )
+{
+    for(int i = 0; i < static_cast<int>(breed.size()); ++i)
+    {
+        QString element = QString::fromStdString(breed[static_cast<unsigned int>(i)]);
+        breedBox->addItem(element);
+    }
 }
 
 /** Function: on_bSubmit_clicked()
@@ -94,8 +115,36 @@ void AddClient::handleSubmitButton()
  *           the Client object passed to the function */
 void AddClient::on_pbExit_clicked()
 {
-    returnResult = QDialog::Rejected;
-    this->close();
+    handleExitClicked();
+}
+
+void AddClient::handleExitClicked()
+{
+    if(ui->tabClientInfo->currentIndex() != 0)
+    {
+        // Moves to next tab
+        ui->tabClientInfo->setCurrentWidget(ui->tabClientInfo->widget(ui->tabClientInfo->currentIndex() - 1));
+        ui->barCompleted->setValue(ui->tabClientInfo->currentIndex());
+
+
+        ui->pbSubmit->setText("Next");
+        // If we're at the last tab then change "Next" to "Submit"
+        if(ui->tabClientInfo->currentIndex() == 0) { ui->pbExit->setText("Exit"); }
+        else { ui->pbExit->setText("Back"); }
+
+        return;
+    }
+
+    else {
+      QMessageBox::StandardButton answer;
+      answer = QMessageBox::question(this, "Quit?", "Are you sure you want to quit\n"
+                                                    "All client information will be lost",
+                                                     QMessageBox::Yes|QMessageBox::No);
+      if(answer == QMessageBox::Yes) {
+          this->close();
+      }
+      else { return; }
+    }
 }
 
 bool AddClient::areParenthesisInInput()
@@ -125,7 +174,7 @@ void AddClient::displayTextBoxError()
 void AddClient::displaySubmissionError()
 {
     QMessageBox msgBox;
-    QString qst = QString::fromStdString("Please fill out all client information");
+    QString qst = QString::fromStdString("Please fill out all client contact information");
     msgBox.setText(qst);
     msgBox.exec();
 }
@@ -138,4 +187,34 @@ void AddClient::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::
     this->birdBreeds = birdBreeds;
     this->lizardBreeds = lizardBreeds;
     this->rabbitBreeds = rabbitBreeds;
+}
+
+void AddClient::on_boxDog_stateChanged()
+{
+    if(ui->boxDog->isChecked()) {ui->widgetDogInfo->setEnabled(true); }
+    else { ui->widgetDogInfo->setEnabled(false); }
+}
+
+void AddClient::on_boxCat_stateChanged()
+{
+    if(ui->boxCat->isChecked()) {ui->widgetCatInfo->setEnabled(true); }
+    else { ui->widgetCatInfo->setEnabled(false); }
+}
+
+void AddClient::on_boxBird_stateChanged()
+{
+    if(ui->boxBird->isChecked()) {ui->widgetBirdInfo->setEnabled(true); }
+    else { ui->widgetBirdInfo->setEnabled(false); }
+}
+
+void AddClient::on_boxLizard_stateChanged()
+{
+    if(ui->boxLizard->isChecked()) {ui->widgetLizardInfo->setEnabled(true); }
+    else { ui->widgetLizardInfo->setEnabled(false); }
+}
+
+void AddClient::on_boxRabbit_stateChanged()
+{
+    if(ui->boxRabbit->isChecked()) {ui->widgetRabbitInfo->setEnabled(true); }
+    else { ui->widgetRabbitInfo->setEnabled(false); }
 }

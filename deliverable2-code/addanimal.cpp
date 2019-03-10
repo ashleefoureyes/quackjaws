@@ -366,10 +366,10 @@ void AddAnimal::changeBreedBox(int index)
         case 4: breeds = rabbitBreeds; break;
     }
 
-    std::sort(breeds.begin(), breeds.end());
+    //std::sort(breeds.begin(), breeds.end());
 
     // Adding other at the end ensures it's always at the end after sorting
-    breeds.push_back("Other");
+    //breeds.push_back("Other");
 
     // Adds all items from vector to breeds box
     for(int i = 0; i < static_cast<int>(breeds.size()); ++i)

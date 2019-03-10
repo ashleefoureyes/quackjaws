@@ -33,6 +33,7 @@ private:
     AnimalStorage animalStorage;
     ClientStorage clientStorage;
     void displayLoginError();
+    void initBreeds();
 
 
     // Breeds only need to be modified here. Changes will be applied to entire system

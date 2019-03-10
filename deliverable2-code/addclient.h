@@ -2,8 +2,10 @@
 #define ADDCLIENT_H
 
 #include <QDialog>
-#include "client.h"
 #include <QMessageBox>
+#include <QComboBox>
+
+#include "client.h"
 
 namespace Ui {
 class AddClient;
@@ -22,8 +24,12 @@ public:
 
 private slots:
     void on_pbSubmit_clicked();
-
     void on_pbExit_clicked();
+    void on_boxDog_stateChanged();
+    void on_boxCat_stateChanged();
+    void on_boxBird_stateChanged();
+    void on_boxLizard_stateChanged();
+    void on_boxRabbit_stateChanged();
 
 private:
     Ui::AddClient *ui;
@@ -34,6 +40,9 @@ private:
     void displayTextBoxError();
     void handleSubmitButton();
     bool handleNextButton();
+    void handleExitClicked();
+    void populateBreedBoxes();
+    void populateBreedBox(std::vector<std::string> breed, QComboBox *breedBox );
 
     std::vector<std::string> dogBreeds;
     std::vector<std::string> catBreeds;

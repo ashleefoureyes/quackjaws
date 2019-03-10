@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
     db->initDatabase();
+    initBreeds();
 }
 
 MainWindow::~MainWindow()
@@ -63,4 +64,15 @@ void MainWindow::displayLoginError()
     QString qst = QString::fromStdString("Error: Email address not in system");
     msgBox.setText(qst);
     msgBox.exec();
+}
+
+// Orders breeds in alphabetical order then puts "Other" at the end
+void MainWindow::initBreeds()
+{
+    std::sort(dogBreeds.begin(), dogBreeds.end()); dogBreeds.push_back("Other");
+    std::sort(catBreeds.begin(), catBreeds.end()); catBreeds.push_back("Other");
+    std::sort(birdBreeds.begin(), birdBreeds.end()); birdBreeds.push_back("Other");
+    std::sort(lizardBreeds.begin(), lizardBreeds.end()); lizardBreeds.push_back("Other");
+    std::sort(rabbitBreeds.begin(), rabbitBreeds.end()); rabbitBreeds.push_back("Other");
+
 }
