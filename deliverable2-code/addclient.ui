@@ -38,7 +38,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="tabContact">
     <attribute name="title">
@@ -351,12 +351,12 @@
     <attribute name="title">
      <string>Information</string>
     </attribute>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>6</x>
        <y>6</y>
-       <width>404</width>
+       <width>523</width>
        <height>341</height>
       </rect>
      </property>
@@ -450,7 +450,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox_2">
+         <widget class="QComboBox" name="cbLocation">
           <item>
            <property name="text">
             <string>Urban</string>
@@ -480,7 +480,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radioButton">
+         <widget class="QRadioButton" name="rbYoungChildrenYes">
           <property name="text">
            <string>Yes</string>
           </property>
@@ -490,7 +490,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radioButton_2">
+         <widget class="QRadioButton" name="rbYoungChildrenNo">
           <property name="text">
            <string>No</string>
           </property>
@@ -514,7 +514,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radioButton_3">
+         <widget class="QRadioButton" name="rbOtherAnimalsYes">
           <property name="text">
            <string>Yes</string>
           </property>
@@ -524,7 +524,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radioButton_4">
+         <widget class="QRadioButton" name="rbOtherAnimalsNo">
           <property name="text">
            <string>No</string>
           </property>
@@ -667,8 +667,8 @@
       <rect>
        <x>100</x>
        <y>10</y>
-       <width>231</width>
-       <height>42</height>
+       <width>313</width>
+       <height>50</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -760,7 +760,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_5">
       <property name="enabled">
@@ -3444,7 +3444,7 @@
        <x>50</x>
        <y>70</y>
        <width>269</width>
-       <height>229</height>
+       <height>273</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_27">
@@ -4378,8 +4378,8 @@
       <rect>
        <x>40</x>
        <y>10</y>
-       <width>324</width>
-       <height>28</height>
+       <width>489</width>
+       <height>38</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -4445,7 +4445,7 @@
      <x>10</x>
      <y>390</y>
      <width>421</width>
-     <height>22</height>
+     <height>27</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_25">
@@ -4469,24 +4469,24 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupProtector"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupMessy"/>
-  <buttongroup name="groupEnergy"/>
+  <buttongroup name="groupLoudNoise"/>
   <buttongroup name="groupYoungChildren"/>
+  <buttongroup name="groupOtherAnimals"/>
   <buttongroup name="groupAffection"/>
-  <buttongroup name="groupFearful"/>
-  <buttongroup name="groupAnimals"/>
   <buttongroup name="groupTravel"/>
+  <buttongroup name="groupMessy"/>
   <buttongroup name="groupActivityLevel"/>
-  <buttongroup name="groupLizardAllergies"/>
   <buttongroup name="groupCatAllergies"/>
   <buttongroup name="groupRabbitAllergies"/>
-  <buttongroup name="groupDogAllergies"/>
-  <buttongroup name="groupBirdAllergies"/>
-  <buttongroup name="groupLoudNoise"/>
+  <buttongroup name="groupLizardAllergies"/>
+  <buttongroup name="groupCrowds"/>
   <buttongroup name="groupChildren"/>
-  <buttongroup name="groupOtherAnimals"/>
+  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupProtector"/>
+  <buttongroup name="groupEnergy"/>
+  <buttongroup name="groupFearful"/>
   <buttongroup name="groupStrangers"/>
+  <buttongroup name="groupDogAllergies"/>
+  <buttongroup name="groupAnimals"/>
  </buttongroups>
 </ui>

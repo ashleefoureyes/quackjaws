@@ -252,3 +252,82 @@ void AddClient::removeBreedFromList(QString breed, QListWidget *breedList, QComb
     breedList->takeItem(index);
 }
 
+void AddClient::setClientAttributes(Client* clientToSet)
+{
+    // Client attributes
+    int dwelling = ui->cbDwellingType->currentIndex();
+    int location = ui->cbLocation->currentIndex();
+    int workSchedule = ui->cbWorkSchedule->currentIndex();
+    int activity = ui->groupActivityLevel->checkedId(); // TODO: Have it set correct button index at start
+    bool hasChildren = ui->rbYoungChildrenYes->isChecked();
+    bool hasAnimals = ui->rbOtherAnimalsYes->isChecked();
+
+    // General Animal Preferences
+    int travels = ui->groupTravel->checkedId();
+    int children = ui->groupTravel->checkedId();
+    int goodWAnimals = ui->groupAnimals->checkedId();
+    int strangers = ui->groupStrangers->checkedId();
+    int crowds = ui->groupCrowds->checkedId();
+    int noises = ui->groupLoudNoise->checkedId();
+    int protector = ui->groupProtector->checkedId();
+    int energy = ui->groupEnergy->checkedId();
+    int fearful = ui->groupFearful->checkedId();
+    int affection = ui->groupAffection->checkedId();
+    int messy = ui->groupMessy->checkedId();
+
+    // The physical comboboxes have a -1. This is so "No preference" is -1
+    // and the lowest preference value becomes 0
+
+    // Dog-specific
+    bool wantsDog = ui->boxDog->isChecked();
+    bool hasDogAllergies = ui->rbDogAllergiesYes->isChecked();
+    std::vector<std::string> dogBreeds; // TODO: IMPLEMENT THIS
+    int dogAge = ui->cbAgeDog->currentIndex() - 1;
+    int dogSize = ui->cbSizeDog->currentIndex() - 1;
+    int dogGender = ui->cbDogSex->currentIndex() - 1;
+    int dogFur = ui->cbFurPrefDog->currentIndex() - 1;
+    int quietness, followsCommandsDog, houseTrained; // TODO: Rename and implement comboBoxes
+
+    // Cat-specific
+    bool wantsCat = ui->boxCat->isChecked();
+    bool hasCatAllergies = ui->rbCatAllergiesYes->isChecked();
+    std::vector<std::string> catBreeds; // TODO: IMPLEMENT THIS
+    int catAge = ui->cbAgeCat->currentIndex() - 1;
+    int catGender = ui->cbCatSex->currentIndex() - 1;
+    int catSize = ui->cbSizeCat->currentIndex() - 1;
+    int catFur = ui->cbFurPrefCat->currentIndex()-1;
+    int isCurious, followCommandsCat, doesntShed; // TODO: Rename and implement comboBoxes
+
+    // Bird-specific
+    bool wantsBird = ui->boxBird->isChecked();
+    bool hasBirdAllergies = ui->rbBirdAllergiesYes->isChecked();
+    std::vector<std::string> birdBreeds; // TODO: IMPLEMENT THIS
+    int birdAge = ui->cbAgeBird->currentIndex() - 1;
+    int birdGender = ui->cbBirdSex->currentIndex() - 1;
+    int birdSize = ui->cbSizeBird->currentIndex() - 1;
+    int birdFur = ui->cbFurPrefBird->currentIndex()-1;
+    std::string birdColour = ui->cbColourBird->currentText().toStdString();
+    int isQuietBird, isSocialBird; // TODO: Rename and implement comboBoxes
+
+    // Lizard-specific
+    bool wantsLizard = ui->boxLizard;
+    bool hasLizardAllergies = ui->rbLizardAllergiesYes->isChecked();
+    std::vector<std::string> lizardBreeds; // TODO: IMPLEMENT THIS
+    int lizardAge = ui->cbAgeLizard->currentIndex()-1;
+    int lizardGender = ui->cbLizardSex->currentIndex()-1;
+    int lizardSize = ui->cbSizeLizard->currentIndex()-1;
+    int lizardFur = ui->cbFurPrefLizard->currentIndex()-1;
+    std::string lizardColour = ui->cbColorLizard->currentText().toStdString();
+    int easyToFeed, simpleLiving; // TODO: Rename and implement comboBoxes
+
+    // Rabbit-specific
+    bool wantsRabbit = ui->boxRabbit->isChecked();
+    bool hasRabbitAllergies = ui->rbRabbitAllergiesYes->isChecked();
+    std::vector<std::string> rabbitBreeds; // TODO: Implement this
+    int rabbitAge = ui->cbAgeRabbit->currentIndex()-1;
+    int rabbitGender = ui->cbRabbitSex->currentIndex()-1;
+    int rabbitSize = ui->cbSizeRabbit->currentIndex()-1;
+    int rabbitFur = ui->cbFurPrefRabbit->currentIndex()-1;
+    std::string rabbitColour = ui->cbColourRabbit->currentText().toStdString();
+    int isSocialRabbit, needsGrooming; // TODO: Rename and implement comboBoxes
+}

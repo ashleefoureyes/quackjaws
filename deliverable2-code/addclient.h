@@ -57,6 +57,8 @@ private:
     void populateBreedBox(std::vector<std::string> breed, QComboBox *breedBox );
     void addBreedToList(QString breed, QListWidget* breedList, QComboBox *breedBox);
     void removeBreedFromList(QString breed, QListWidget *breedList, QComboBox *breedBox, int index);
+    void setClientAttributes(Client* clientToSet);
+    void createClient();
 
     std::vector<std::string> dogBreeds;
     std::vector<std::string> catBreeds;
