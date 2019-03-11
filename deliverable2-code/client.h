@@ -39,6 +39,46 @@ public:
                         bool wantsRabbit, bool hasRabbitAllergies, std::vector<std::string> rabbitBreeds, int rabbitAge, int rabbitSize, int rabbitGender,
                                 int isSocialRabbit, int needsGrooming, std::string rabbitColour);
 
+    // Client info
+    int getDwelling() const; int getLocation() const; int getWorkSchedule() const;
+    int getActivity() const; bool getHasChildren() const; bool getHasAnimals() const;
+
+    // General animal prefs
+    int getTravels() const; int getChildren() const; int getGoodWAnimals() const;
+    int getStrangers() const; int getCrowds() const; int getNoises() const;
+    int getProtector() const; int getEnergy() const; int getFearful() const;
+    int getAffection() const; int getMessy() const;
+
+    // Dog-specific
+    bool getWantsDog() const; bool getHasDogAllergies() const; std::vector<std::string> getDogBreeds() const;
+    int getDogAge() const; int getDogSize() const; int getDogGender() const;
+    int getDogFur() const; int getQuietness() const; int getFollowsCommandsDog() const;
+    int getHouseTrained() const;
+
+    // Cat-specific
+    bool getWantsCat() const; bool getHasCatAllergies() const; std::vector<std::string> getCatBreeds() const;
+    int getCatAge() const; int getCatGender() const; int getCatSize() const;
+    int getCatFur() const; int getIsCurious() const; int getFollowCommandsCat() const;
+    int getDoesntShed() const;
+
+    // Bird-specific
+    bool getWantsBird() const; bool getHasBirdAllergies() const; std::vector<std::string> getBirdBreeds() const;
+    int getBirdAge() const; int getBirdGender() const; int getBirdSize() const;
+    int getBirdFur() const; std::string getBirdColour() const; int getIsQuietBird() const;
+    int getIsSocialBird() const;
+
+    // Lizard-specific
+    bool getWantsLizard() const; bool getHasLizardAllergies() const; std::vector<std::string> getLizardBreeds() const;
+    int getLizardAge() const; int getLizardGender() const; int getLizardSize() const;
+    int getLizardFur() const; std::string getLizardColour() const; int getEasyToFeed() const;
+    int getSimpleLiving() const;
+
+    // Rabbit-specific
+    bool getWantsRabbit() const; bool getHasRabbitAllergies() const; std::vector<std::string> getRabbitBreeds() const;
+    int getRabbitAge() const; int getRabbitGender() const; int getRabbitSize() const;
+    int getRabbitFur() const; std::string getRabbitColour() const; int getIsSocialRabbit() const;
+    int getNeedsGrooming() const;
+
 private:
     std::string firstName, lastName, address,
         phone, email, city, province;
@@ -49,37 +89,37 @@ private:
     int dwelling, location, workSchedule, activity;
     bool hasChildren, hasAnimals;
 
-    // General Animal Attributes
+    // General Animal Preferences
     int travels, children, goodWAnimals, strangers, crowds,
         noises, protector, energy, fearful, affection, messy;
 
-    // Dog
+    // Dog-specific
     bool wantsDog, hasDogAllergies;
     std::vector<std::string> dogBreeds;
     int dogAge, dogSize, dogGender, dogFur; // Physical
     int quietness, followsCommandsDog, houseTrained; // Importance of
 
-    // Cat
+    // Cat-specific
     bool wantsCat, hasCatAllergies;
     std::vector<std::string> catBreeds;
     int catAge, catGender, catSize, catFur; // Physical
     int isCurious, followCommandsCat, doesntShed; // Importance of
 
-    // Bird
+    // Bird-specific
     bool wantsBird, hasBirdAllergies;
     std::vector<std::string> birdBreeds;
     int birdAge, birdGender, birdSize, birdFur; // Physical
     std::string birdColour;
     int isQuietBird, isSocialBird; // Importance of
 
-    // Lizard
+    // Lizard-specific
     bool wantsLizard, hasLizardAllergies;
     std::vector<std::string> lizardBreeds;
     int lizardAge, lizardGender, lizardSize, lizardFur; // Physical
     std::string lizardColour;
     int easyToFeed, simpleLiving; // Importance of
 
-    // Rabbit
+    // Rabbit-specific
     bool wantsRabbit, hasRabbitAllergies;
     std::vector<std::string> rabbitBreeds;
     int rabbitAge, rabbitGender, rabbitSize, rabbitFur; // Physical

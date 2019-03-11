@@ -91,3 +91,338 @@ void Client::setClientAttributes(std::string firstName, std::string lastName, st
     this->rabbitGender = rabbitGender; this->isSocialRabbit = isSocialRabbit; this->needsGrooming = needsGrooming; this->rabbitColour = rabbitColour;
 
 }
+
+int Client::getDwelling() const
+{
+    return dwelling;
+}
+
+int Client::getLocation() const
+{
+    return location;
+}
+
+int Client::getWorkSchedule() const
+{
+    return workSchedule;
+}
+
+int Client::getActivity() const
+{
+    return activity;
+}
+
+bool Client::getHasChildren() const
+{
+    return hasChildren;
+}
+
+bool Client::getHasAnimals() const
+{
+    return hasAnimals;
+}
+
+int Client::getTravels() const
+{
+    return travels;
+}
+
+int Client::getChildren() const
+{
+    return children;
+}
+
+int Client::getGoodWAnimals() const
+{
+    return goodWAnimals;
+}
+
+int Client::getStrangers() const
+{
+    return strangers;
+}
+
+int Client::getCrowds() const
+{
+    return crowds;
+}
+
+int Client::getNoises() const
+{
+    return noises;
+}
+
+int Client::getProtector() const
+{
+    return protector;
+}
+
+int Client::getEnergy() const
+{
+    return energy;
+}
+
+int Client::getFearful() const
+{
+    return fearful;
+}
+
+int Client::getAffection() const
+{
+    return affection;
+}
+
+int Client::getMessy() const
+{
+    return messy;
+}
+
+bool Client::getWantsDog() const
+{
+    return wantsDog;
+}
+
+bool Client::getHasDogAllergies() const
+{
+    return hasDogAllergies;
+}
+
+std::vector<std::string> Client::getDogBreeds() const
+{
+    return dogBreeds;
+}
+
+int Client::getDogAge() const
+{
+    return dogAge;
+}
+
+int Client::getDogSize() const
+{
+    return dogSize;
+}
+
+int Client::getDogGender() const
+{
+    return dogGender;
+}
+
+int Client::getDogFur() const
+{
+    return dogFur;
+}
+
+int Client::getQuietness() const
+{
+    return quietness;
+}
+
+int Client::getFollowsCommandsDog() const
+{
+    return followsCommandsDog;
+}
+
+int Client::getHouseTrained() const
+{
+    return houseTrained;
+}
+
+bool Client::getWantsCat() const
+{
+    return wantsCat;
+}
+
+bool Client::getHasCatAllergies() const
+{
+    return hasCatAllergies;
+}
+
+std::vector<std::string> Client::getCatBreeds() const
+{
+    return catBreeds;
+}
+
+int Client::getCatAge() const
+{
+    return catAge;
+}
+
+int Client::getCatGender() const
+{
+    return catGender;
+}
+
+int Client::getCatSize() const
+{
+    return catSize;
+}
+
+int Client::getCatFur() const
+{
+    return catFur;
+}
+
+int Client::getIsCurious() const
+{
+    return isCurious;
+}
+
+int Client::getFollowCommandsCat() const
+{
+    return followCommandsCat;
+}
+
+int Client::getDoesntShed() const
+{
+    return doesntShed;
+}
+
+bool Client::getWantsBird() const
+{
+    return wantsBird;
+}
+
+bool Client::getHasBirdAllergies() const
+{
+    return hasBirdAllergies;
+}
+
+std::vector<std::string> Client::getBirdBreeds() const
+{
+    return birdBreeds;
+}
+
+int Client::getBirdAge() const
+{
+    return birdAge;
+}
+
+int Client::getBirdGender() const
+{
+    return birdGender;
+}
+
+int Client::getBirdSize() const
+{
+    return birdSize;
+}
+
+int Client::getBirdFur() const
+{
+    return birdFur;
+}
+
+std::string Client::getBirdColour() const
+{
+    return birdColour;
+}
+
+int Client::getIsQuietBird() const
+{
+    return isQuietBird;
+}
+
+int Client::getIsSocialBird() const
+{
+    return isSocialBird;
+}
+
+bool Client::getWantsLizard() const
+{
+    return wantsLizard;
+}
+
+bool Client::getHasLizardAllergies() const
+{
+    return hasLizardAllergies;
+}
+
+std::vector<std::string> Client::getLizardBreeds() const
+{
+    return lizardBreeds;
+}
+
+int Client::getLizardAge() const
+{
+    return lizardAge;
+}
+
+int Client::getLizardGender() const
+{
+    return lizardGender;
+}
+
+int Client::getLizardSize() const
+{
+    return lizardSize;
+}
+
+int Client::getLizardFur() const
+{
+    return lizardFur;
+}
+
+std::string Client::getLizardColour() const
+{
+    return lizardColour;
+}
+
+int Client::getEasyToFeed() const
+{
+    return easyToFeed;
+}
+
+int Client::getSimpleLiving() const
+{
+    return simpleLiving;
+}
+
+bool Client::getWantsRabbit() const
+{
+    return wantsRabbit;
+}
+
+bool Client::getHasRabbitAllergies() const
+{
+    return hasRabbitAllergies;
+}
+
+std::vector<std::string> Client::getRabbitBreeds() const
+{
+    return rabbitBreeds;
+}
+
+int Client::getRabbitAge() const
+{
+    return rabbitAge;
+}
+
+int Client::getRabbitGender() const
+{
+    return rabbitGender;
+}
+
+int Client::getRabbitSize() const
+{
+    return rabbitSize;
+}
+
+int Client::getRabbitFur() const
+{
+    return rabbitFur;
+}
+
+std::string Client::getRabbitColour() const
+{
+    return rabbitColour;
+}
+
+int Client::getIsSocialRabbit() const
+{
+    return isSocialRabbit;
+}
+
+int Client::getNeedsGrooming() const
+{
+    return needsGrooming;
+}
