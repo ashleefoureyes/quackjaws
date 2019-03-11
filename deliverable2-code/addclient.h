@@ -21,7 +21,7 @@ class AddClient : public QDialog
 public:
     explicit AddClient(QWidget *parent = nullptr);
     ~AddClient();
-    int initNewClient(Client*);
+    int initNewClient(ClientStorage** clientStorage);
     void passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
                     std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds);
 
@@ -62,6 +62,7 @@ private:
     void setClientAttributes(Client* clientToSet);
     void createClient();
     std::vector<std::string> createBreedVector(QListWidget* widget);
+    void setupButtons();
 
     std::vector<std::string> dogBreeds;
     std::vector<std::string> catBreeds;

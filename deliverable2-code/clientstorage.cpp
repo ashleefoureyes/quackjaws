@@ -3,12 +3,14 @@
 
 #include <string>
 #include <iostream>
+#include <QTextStream>
 
 /** Function: Storage()
     Purpose: Constructor. */
 ClientStorage::ClientStorage()
 {
     numOfElements = 0;
+    largestId = CLIENT_STARTING_ID;
 }
 
 ClientStorage::~ClientStorage()
@@ -29,7 +31,6 @@ int ClientStorage::add(Client* newProfile)
 {   
     int id = newProfile->getId();
 
-    //if (newProfile->getId() < 0) { id = getNextId(); newProfile->setIdNumber(id); }
 
     // If clientId is -1 then they don't have an id yet and need to be assigned one
     if(newProfile->getId() < 0) { newProfile->setIdNumber(getNextId()); }

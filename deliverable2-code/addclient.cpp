@@ -11,6 +11,7 @@ AddClient::AddClient(QWidget *parent) :
     QTabBar *tabBar = ui->tabClientInfo->findChild<QTabBar *>();
     ui->tabClientInfo->setCurrentIndex(0);
     ui->tabWidgetBreeds->setCurrentIndex(0);
+    setupButtons();
     tabBar->hide();
 
 }
@@ -25,12 +26,42 @@ AddClient::~AddClient()
  *  purpose: Called to create set all the parameters for the new Client.
  *           Returns 1 if the Client is set or 0 if the user clicked Exit.
  *           The latter causes the instantiated Client to be delete. */
-int AddClient::initNewClient(Client* newClient)
+int AddClient::initNewClient(ClientStorage** clientStorage)
 {
-    this->newClient = &newClient;
+    //this->newClient = &newClient;
+    this->clientStorage = clientStorage;
     populateBreedBoxes();
     this->exec();
     return returnResult;
+}
+
+/** Function: setupButtons()
+    in-out: radio button indexes
+    purpose: Assigns radio buttons in group an index.
+             This is used to more easily assign values
+             to the new Client object created*/
+void AddClient::setupButtons()
+{
+    QButtonGroup* buttonGroups[12] = {
+        ui->groupTravel, ui->groupChildren, ui->groupAnimals,
+        ui->groupStrangers, ui->groupCrowds, ui->groupLoudNoise,
+        ui->groupProtector, ui->groupEnergy, ui->groupFearful,
+        ui->groupAffection, ui->groupMessy, ui->groupActivityLevel
+    };
+
+    int index;
+    int numOfButtons = sizeof(buttonGroups)/sizeof(buttonGroups[0]);
+
+    for(int i = 0; i < numOfButtons; ++i)
+    {
+        index = 0;
+
+        foreach(QAbstractButton *button, buttonGroups[i]->buttons())
+        {
+            buttonGroups[i]->setId(button, index);
+            ++index;
+        }
+    }
 }
 
 void AddClient::populateBreedBoxes()
@@ -92,24 +123,7 @@ void AddClient::handleSubmitButton()
 {
     if(areParenthesisInInput()) { displayTextBoxError(); return;}
 
-    std::string firstName, lastName, address,
-        phone, email, city, province;
-
-    firstName = (ui->txtFirstName->text()).toStdString();
-    lastName = (ui->txtLastName->text()).toStdString();
-    city = (ui->txtCity->text()).toStdString();
-    province = (ui->cbProvince->currentText()).toStdString();
-    address = (ui->txtAddress->text()).toStdString();
-    phone = std::to_string(ui->sbAreaCode->value()) + std::to_string(ui->sbPhone->value());
-    email = (ui->txtEmail->text()).toStdString();
-
-    (*newClient)->setContactInformation(firstName,lastName,address,phone, email, city, province);
-
-    if(firstName == "" || lastName == "" || city == "" || address == "" || phone == "" || email == "")
-    {
-        displaySubmissionError();
-        return;
-    }
+    createClient();
 
     returnResult = QDialog::Accepted;
     this->close();

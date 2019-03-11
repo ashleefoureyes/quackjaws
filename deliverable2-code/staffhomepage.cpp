@@ -63,13 +63,14 @@ void StaffHomepage::on_bAddClient_clicked()
     AddClient addClient;
     addClient.setModal(true);
     addClient.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
-    Client *newClient = new Client;
 
-    if(addClient.initNewClient(newClient) != 1) { delete newClient; return; }
+    addClient.initNewClient(&clientStorage);
 
-    clientStorage->add(newClient);
+    // CLIENT WILL NOW NEED TO BE ADDED TO DB IN ADDCLIENT PROGRAM
+    // OTHERWISE IT MAKES EDITING CLIENTS IN STORAGE
+    // VERY DIFFICULT
 
-    db->addClientToDatabase(newClient);
+    //db->addClientToDatabase(newClient);
 }
 
 /** Function: on_bViewClients_clicked()

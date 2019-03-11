@@ -207,8 +207,6 @@ void AddAnimal::setupButtons()
             ++index;
         }
     }
-
-
 }
 
 /** Function: on_bUpload_clicked()
