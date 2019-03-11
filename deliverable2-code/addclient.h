@@ -8,6 +8,7 @@
 #include <QComboBox>
 
 #include "client.h"
+#include "clientstorage.h"
 
 namespace Ui {
 class AddClient;
@@ -46,6 +47,7 @@ private slots:
 private:
     Ui::AddClient *ui;
     Client **newClient;
+    ClientStorage **clientStorage;
     int returnResult;
     void displaySubmissionError();
     bool areParenthesisInInput();
@@ -59,6 +61,7 @@ private:
     void removeBreedFromList(QString breed, QListWidget *breedList, QComboBox *breedBox, int index);
     void setClientAttributes(Client* clientToSet);
     void createClient();
+    std::vector<std::string> createBreedVector(QListWidget* widget);
 
     std::vector<std::string> dogBreeds;
     std::vector<std::string> catBreeds;

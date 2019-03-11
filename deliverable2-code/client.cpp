@@ -66,7 +66,8 @@ void Client::setClientAttributes(std::string firstName, std::string lastName, st
                     bool wantsLizard, bool hasLizardAllergies, std::vector<std::string> lizardBreeds, int lizardAge, int lizardSize, int lizardGender,
                             int easyToFeed, int simpleLiving, std::string lizardColour,
                     bool wantsRabbit, bool hasRabbitAllergies, std::vector<std::string> rabbitBreeds, int rabbitAge, int rabbitSize, int rabbitGender,
-                            int isSocialRabbit, int needsGrooming, std::string rabbitColour)
+                            int isSocialRabbit, int needsGrooming, std::string rabbitColour,
+                    int dogFur, int catFur, int birdFur, int lizardFur, int rabbitFur, int quietness)
 {
     setContactInformation(firstName, lastName, address, phone, email, city, province);
     this->dwelling = dwelling; this->location = location; this->workSchedule = workSchedule; this->activity = activity;
@@ -75,20 +76,21 @@ void Client::setClientAttributes(std::string firstName, std::string lastName, st
     this->energy = energy; this->fearful = fearful; this->affection = affection; this->messy = messy;
 
     this->wantsDog = wantsDog; this->hasDogAllergies = hasDogAllergies; this->dogBreeds = dogBreeds; this->dogAge = dogAge; this->dogSize = dogSize;
-    this->dogGender = dogGender; this->followsCommandsDog = followsCommandsDog; this->houseTrained = houseTrained;
+    this->dogGender = dogGender; this->followsCommandsDog = followsCommandsDog; this->houseTrained = houseTrained; this->dogFur = dogFur; this->quietness = quietness;
 
     this->wantsCat = wantsCat; this->hasCatAllergies = hasCatAllergies; this->catBreeds = catBreeds; this->catAge = catAge;
     this->catSize = catSize; this->catGender = catGender; this->isCurious = isCurious; this->followCommandsCat = followCommandsCat;
-    this->doesntShed = doesntShed;
+    this->doesntShed = doesntShed; this->catFur = catFur;
 
     this->wantsBird = wantsBird; this->hasBirdAllergies = hasBirdAllergies; this->birdBreeds = birdBreeds; this->birdAge = birdAge; this->birdSize = birdSize;
-    this->birdGender = birdGender; this->isQuietBird = isQuietBird; this->isSocialBird = isSocialBird; this->birdColour = birdColour;
+    this->birdGender = birdGender; this->isQuietBird = isQuietBird; this->isSocialBird = isSocialBird; this->birdColour = birdColour; this->birdFur = birdFur;
 
     this->wantsLizard = wantsLizard; this->hasLizardAllergies = hasLizardAllergies; this->lizardBreeds = lizardBreeds; this->lizardAge = lizardAge;
     this->lizardSize = lizardSize; this->lizardGender = lizardGender; this->easyToFeed = easyToFeed; this->simpleLiving = simpleLiving; this->lizardColour = lizardColour;
+    this->lizardFur = lizardFur;
 
     this->wantsRabbit = wantsRabbit; this->hasRabbitAllergies = hasRabbitAllergies; this->rabbitBreeds = rabbitBreeds; this->rabbitAge = rabbitAge; this->rabbitSize = rabbitSize;
-    this->rabbitGender = rabbitGender; this->isSocialRabbit = isSocialRabbit; this->needsGrooming = needsGrooming; this->rabbitColour = rabbitColour;
+    this->rabbitGender = rabbitGender; this->isSocialRabbit = isSocialRabbit; this->needsGrooming = needsGrooming; this->rabbitColour = rabbitColour; this->rabbitFur = rabbitFur;
 
 }
 

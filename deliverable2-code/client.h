@@ -37,7 +37,8 @@ public:
                         bool wantsLizard, bool hasLizardAllergies, std::vector<std::string> lizardBreeds, int lizardAge, int lizardSize, int lizardGender,
                                 int easyToFeed, int simpleLiving, std::string lizardColour,
                         bool wantsRabbit, bool hasRabbitAllergies, std::vector<std::string> rabbitBreeds, int rabbitAge, int rabbitSize, int rabbitGender,
-                                int isSocialRabbit, int needsGrooming, std::string rabbitColour);
+                                int isSocialRabbit, int needsGrooming, std::string rabbitColour, int dogFur, int catFur, int birdFur, int lizardFur, int rabbitFur,
+                        int quietness);
 
     // Client info
     int getDwelling() const; int getLocation() const; int getWorkSchedule() const;
@@ -97,7 +98,7 @@ private:
     bool wantsDog, hasDogAllergies;
     std::vector<std::string> dogBreeds;
     int dogAge, dogSize, dogGender, dogFur; // Physical
-    int quietness, followsCommandsDog, houseTrained; // Importance of
+    int quietness, followsCommandsDog, houseTrained;// Importance of
 
     // Cat-specific
     bool wantsCat, hasCatAllergies;

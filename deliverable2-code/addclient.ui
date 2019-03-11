@@ -351,309 +351,303 @@
     <attribute name="title">
      <string>Information</string>
     </attribute>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>6</x>
-       <y>6</y>
-       <width>523</width>
-       <height>341</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_8">
-      <property name="leftMargin">
-       <number>75</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>75</number>
-      </property>
-      <property name="bottomMargin">
-       <number>25</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="label_26">
-        <property name="minimumSize">
-         <size>
-          <width>254</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>254</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>16</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Personal information</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_22">
-        <item>
-         <widget class="QLabel" name="lbDwellingType">
-          <property name="text">
-           <string>Dwelling Type:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cbDwellingType">
-          <item>
+    <layout class="QGridLayout" name="gridLayout_7">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <property name="leftMargin">
+        <number>75</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>75</number>
+       </property>
+       <property name="bottomMargin">
+        <number>25</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_26">
+         <property name="minimumSize">
+          <size>
+           <width>254</width>
+           <height>24</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>254</width>
+           <height>24</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Personal information</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_22">
+         <item>
+          <widget class="QLabel" name="lbDwellingType">
            <property name="text">
-            <string>Small Apartment/Condominium</string>
+            <string>Dwelling Type:</string>
            </property>
-          </item>
-          <item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cbDwellingType">
+           <item>
+            <property name="text">
+             <string>Small Apartment/Condominium</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Large Apartment/Condominium</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Townhouse</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Detached House</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Farm</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_21">
+         <item>
+          <widget class="QLabel" name="lbDwellingLocation">
            <property name="text">
-            <string>Large Apartment/Condominium</string>
+            <string>Dwelling Location:</string>
            </property>
-          </item>
-          <item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cbLocation">
+           <item>
+            <property name="text">
+             <string>Urban</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Suburban</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Rural</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_20">
+         <item>
+          <widget class="QLabel" name="lbChildren">
            <property name="text">
-            <string>Townhouse</string>
+            <string>Do you have young children:</string>
            </property>
-          </item>
-          <item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbYoungChildrenYes">
            <property name="text">
-            <string>Detached House</string>
+            <string>Yes</string>
            </property>
-          </item>
-          <item>
+           <attribute name="buttonGroup">
+            <string notr="true">groupYoungChildren</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbYoungChildrenNo">
            <property name="text">
-            <string>Farm</string>
+            <string>No</string>
            </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_21">
-        <item>
-         <widget class="QLabel" name="lbDwellingLocation">
-          <property name="text">
-           <string>Dwelling Location:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cbLocation">
-          <item>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">groupYoungChildren</string>
+           </attribute>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_19">
+         <item>
+          <widget class="QLabel" name="lbOtherAnimals">
            <property name="text">
-            <string>Urban</string>
+            <string>Do you have any other animals:</string>
            </property>
-          </item>
-          <item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbOtherAnimalsYes">
            <property name="text">
-            <string>Suburban</string>
+            <string>Yes</string>
            </property>
-          </item>
-          <item>
+           <attribute name="buttonGroup">
+            <string notr="true">groupOtherAnimals</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbOtherAnimalsNo">
            <property name="text">
-            <string>Rural</string>
+            <string>No</string>
            </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_20">
-        <item>
-         <widget class="QLabel" name="lbChildren">
-          <property name="text">
-           <string>Do you have young children:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbYoungChildrenYes">
-          <property name="text">
-           <string>Yes</string>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">groupYoungChildren</string>
-          </attribute>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbYoungChildrenNo">
-          <property name="text">
-           <string>No</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">groupYoungChildren</string>
-          </attribute>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_19">
-        <item>
-         <widget class="QLabel" name="lbOtherAnimals">
-          <property name="text">
-           <string>Do you have any other animals:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbOtherAnimalsYes">
-          <property name="text">
-           <string>Yes</string>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">groupOtherAnimals</string>
-          </attribute>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbOtherAnimalsNo">
-          <property name="text">
-           <string>No</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">groupOtherAnimals</string>
-          </attribute>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_23">
-        <item>
-         <widget class="QLabel" name="lbActivityLevel">
-          <property name="text">
-           <string>How would you rate your level of activity:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbActivityLevel1">
-          <property name="text">
-           <string/>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">groupActivityLevel</string>
-          </attribute>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbActivityLevel2">
-          <property name="text">
-           <string/>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">groupActivityLevel</string>
-          </attribute>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbActivityLevel3">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">groupActivityLevel</string>
-          </attribute>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbActivityLevel4">
-          <property name="text">
-           <string/>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">groupActivityLevel</string>
-          </attribute>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbActivityLevel5">
-          <property name="text">
-           <string/>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">groupActivityLevel</string>
-          </attribute>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_24">
-        <item>
-         <widget class="QLabel" name="lbWorkSchedule">
-          <property name="text">
-           <string>Work Schedule:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cbWorkSchedule">
-          <item>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">groupOtherAnimals</string>
+           </attribute>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_23">
+         <item>
+          <widget class="QLabel" name="lbActivityLevel">
            <property name="text">
-            <string>9 to 5</string>
+            <string>How would you rate your level of activity:</string>
            </property>
-          </item>
-          <item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbActivityLevel1">
            <property name="text">
-            <string>Afternoon to late evening</string>
+            <string/>
            </property>
-          </item>
-          <item>
+           <attribute name="buttonGroup">
+            <string notr="true">groupActivityLevel</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbActivityLevel2">
            <property name="text">
-            <string>Varying shifts</string>
+            <string/>
            </property>
-          </item>
-          <item>
+           <attribute name="buttonGroup">
+            <string notr="true">groupActivityLevel</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbActivityLevel3">
            <property name="text">
-            <string>Overnight shifts</string>
+            <string/>
            </property>
-          </item>
-          <item>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">groupActivityLevel</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbActivityLevel4">
            <property name="text">
-            <string>Early morning to early afternoon</string>
+            <string/>
            </property>
-          </item>
-          <item>
+           <attribute name="buttonGroup">
+            <string notr="true">groupActivityLevel</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbActivityLevel5">
            <property name="text">
-            <string>Inconsistent</string>
+            <string/>
            </property>
-          </item>
-          <item>
+           <attribute name="buttonGroup">
+            <string notr="true">groupActivityLevel</string>
+           </attribute>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_24">
+         <item>
+          <widget class="QLabel" name="lbWorkSchedule">
            <property name="text">
-            <string>Unemployed</string>
+            <string>Work Schedule:</string>
            </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cbWorkSchedule">
+           <item>
+            <property name="text">
+             <string>9 to 5</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Afternoon to late evening</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Varying shifts</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Overnight shifts</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Early morning to early afternoon</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Inconsistent</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Unemployed</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
    <widget class="QWidget" name="tabPhysical">
     <property name="enabled">
@@ -2697,7 +2691,7 @@
          <height>50</height>
         </size>
        </property>
-       <widget class="QComboBox" name="comboBox">
+       <widget class="QComboBox" name="cbQuietDog">
         <property name="geometry">
          <rect>
           <x>70</x>
@@ -2732,7 +2726,7 @@
          </property>
         </item>
        </widget>
-       <widget class="QComboBox" name="comboBox_3">
+       <widget class="QComboBox" name="cdCommandsDog">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -2819,7 +2813,7 @@
          <string>Is house trained:</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_4">
+       <widget class="QComboBox" name="cbHouseTrainedDog">
         <property name="geometry">
          <rect>
           <x>290</x>
@@ -2877,7 +2871,7 @@
          <height>50</height>
         </size>
        </property>
-       <widget class="QComboBox" name="comboBox_5">
+       <widget class="QComboBox" name="cbCuriousCat">
         <property name="geometry">
          <rect>
           <x>70</x>
@@ -2912,7 +2906,7 @@
          </property>
         </item>
        </widget>
-       <widget class="QComboBox" name="comboBox_6">
+       <widget class="QComboBox" name="cbCommandsCat">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -2947,7 +2941,7 @@
          </property>
         </item>
        </widget>
-       <widget class="QComboBox" name="comboBox_7">
+       <widget class="QComboBox" name="cbShedCat">
         <property name="geometry">
          <rect>
           <x>290</x>
@@ -3057,7 +3051,7 @@
          <height>50</height>
         </size>
        </property>
-       <widget class="QComboBox" name="comboBox_8">
+       <widget class="QComboBox" name="cbQuietBird">
         <property name="geometry">
          <rect>
           <x>70</x>
@@ -3118,7 +3112,7 @@
          <string>Is social:</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_9">
+       <widget class="QComboBox" name="cbSocialBird">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -3202,7 +3196,7 @@
          <string>Lizard:</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_10">
+       <widget class="QComboBox" name="cbLizardFeed">
         <property name="geometry">
          <rect>
           <x>70</x>
@@ -3237,7 +3231,7 @@
          </property>
         </item>
        </widget>
-       <widget class="QComboBox" name="comboBox_11">
+       <widget class="QComboBox" name="cbLivingSpaceLizard">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -3334,7 +3328,7 @@
          <string>Rabbit:</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_12">
+       <widget class="QComboBox" name="cbSocialRabbit">
         <property name="geometry">
          <rect>
           <x>70</x>
@@ -3382,7 +3376,7 @@
          <string>Is social:</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_13">
+       <widget class="QComboBox" name="cbNeedsGroomingRabbit">
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -4470,23 +4464,23 @@
  <connections/>
  <buttongroups>
   <buttongroup name="groupLoudNoise"/>
-  <buttongroup name="groupYoungChildren"/>
+  <buttongroup name="groupProtector"/>
+  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupAnimals"/>
+  <buttongroup name="groupFearful"/>
+  <buttongroup name="groupRabbitAllergies"/>
+  <buttongroup name="groupChildren"/>
+  <buttongroup name="groupStrangers"/>
+  <buttongroup name="groupCrowds"/>
+  <buttongroup name="groupTravel"/>
   <buttongroup name="groupOtherAnimals"/>
   <buttongroup name="groupAffection"/>
-  <buttongroup name="groupTravel"/>
+  <buttongroup name="groupDogAllergies"/>
   <buttongroup name="groupMessy"/>
   <buttongroup name="groupActivityLevel"/>
-  <buttongroup name="groupCatAllergies"/>
-  <buttongroup name="groupRabbitAllergies"/>
+  <buttongroup name="groupYoungChildren"/>
   <buttongroup name="groupLizardAllergies"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupChildren"/>
-  <buttongroup name="groupBirdAllergies"/>
-  <buttongroup name="groupProtector"/>
   <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupFearful"/>
-  <buttongroup name="groupStrangers"/>
-  <buttongroup name="groupDogAllergies"/>
-  <buttongroup name="groupAnimals"/>
+  <buttongroup name="groupCatAllergies"/>
  </buttongroups>
 </ui>

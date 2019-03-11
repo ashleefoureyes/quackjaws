@@ -252,8 +252,39 @@ void AddClient::removeBreedFromList(QString breed, QListWidget *breedList, QComb
     breedList->takeItem(index);
 }
 
+std::vector<std::string> AddClient::createBreedVector(QListWidget* widget)
+{
+    std::vector<std::string> desiredBreeds;
+
+    // Take item removes the item from the list hence always using 0
+    // and saving the count in a variable
+    while(widget->count() != 0)
+    {
+        desiredBreeds.push_back(widget->takeItem(0)->text().toStdString());
+    }
+
+    return desiredBreeds;
+
+}
+
+void AddClient::createClient()
+{
+    Client * newClient = new Client;
+    setClientAttributes(newClient);
+    (*clientStorage)->add(newClient);
+
+}
+
 void AddClient::setClientAttributes(Client* clientToSet)
 {
+    std::string firstName = (ui->txtFirstName->text()).toStdString();
+    std::string lastName = (ui->txtLastName->text()).toStdString();
+    std::string city = (ui->txtCity->text()).toStdString();
+    std::string province = (ui->cbProvince->currentText()).toStdString();
+    std::string address = (ui->txtAddress->text()).toStdString();
+    std::string phone = std::to_string(ui->sbAreaCode->value()) + std::to_string(ui->sbPhone->value());
+    std::string email = (ui->txtEmail->text()).toStdString();
+
     // Client attributes
     int dwelling = ui->cbDwellingType->currentIndex();
     int location = ui->cbLocation->currentIndex();
@@ -281,53 +312,68 @@ void AddClient::setClientAttributes(Client* clientToSet)
     // Dog-specific
     bool wantsDog = ui->boxDog->isChecked();
     bool hasDogAllergies = ui->rbDogAllergiesYes->isChecked();
-    std::vector<std::string> dogBreeds; // TODO: IMPLEMENT THIS
+    std::vector<std::string> dogBreeds = createBreedVector(ui->listDog);
     int dogAge = ui->cbAgeDog->currentIndex() - 1;
     int dogSize = ui->cbSizeDog->currentIndex() - 1;
     int dogGender = ui->cbDogSex->currentIndex() - 1;
     int dogFur = ui->cbFurPrefDog->currentIndex() - 1;
-    int quietness, followsCommandsDog, houseTrained; // TODO: Rename and implement comboBoxes
+    int quietness = ui->cbQuietDog->currentIndex();
+    int followsCommandsDog = ui->cdCommandsDog->currentIndex();
+    int houseTrained = ui->cbHouseTrainedDog->currentIndex();
 
     // Cat-specific
     bool wantsCat = ui->boxCat->isChecked();
     bool hasCatAllergies = ui->rbCatAllergiesYes->isChecked();
-    std::vector<std::string> catBreeds; // TODO: IMPLEMENT THIS
+    std::vector<std::string> catBreeds = createBreedVector(ui->listCat);
     int catAge = ui->cbAgeCat->currentIndex() - 1;
     int catGender = ui->cbCatSex->currentIndex() - 1;
     int catSize = ui->cbSizeCat->currentIndex() - 1;
     int catFur = ui->cbFurPrefCat->currentIndex()-1;
-    int isCurious, followCommandsCat, doesntShed; // TODO: Rename and implement comboBoxes
+    int isCurious = ui->cbCuriousCat->currentIndex();
+    int followCommandsCat = ui->cbCommandsCat->currentIndex();
+    int doesntShed = ui->cbShedCat->currentIndex();
 
     // Bird-specific
     bool wantsBird = ui->boxBird->isChecked();
     bool hasBirdAllergies = ui->rbBirdAllergiesYes->isChecked();
-    std::vector<std::string> birdBreeds; // TODO: IMPLEMENT THIS
+    std::vector<std::string> birdBreeds = createBreedVector(ui->listBird);
     int birdAge = ui->cbAgeBird->currentIndex() - 1;
     int birdGender = ui->cbBirdSex->currentIndex() - 1;
     int birdSize = ui->cbSizeBird->currentIndex() - 1;
     int birdFur = ui->cbFurPrefBird->currentIndex()-1;
     std::string birdColour = ui->cbColourBird->currentText().toStdString();
-    int isQuietBird, isSocialBird; // TODO: Rename and implement comboBoxes
+    int isQuietBird = ui->cbQuietBird->currentIndex();
+    int isSocialBird = ui->cbSocialBird->currentIndex();
 
     // Lizard-specific
     bool wantsLizard = ui->boxLizard;
     bool hasLizardAllergies = ui->rbLizardAllergiesYes->isChecked();
-    std::vector<std::string> lizardBreeds; // TODO: IMPLEMENT THIS
+    std::vector<std::string> lizardBreeds = createBreedVector(ui->listLizard);
     int lizardAge = ui->cbAgeLizard->currentIndex()-1;
     int lizardGender = ui->cbLizardSex->currentIndex()-1;
     int lizardSize = ui->cbSizeLizard->currentIndex()-1;
     int lizardFur = ui->cbFurPrefLizard->currentIndex()-1;
     std::string lizardColour = ui->cbColorLizard->currentText().toStdString();
-    int easyToFeed, simpleLiving; // TODO: Rename and implement comboBoxes
+    int easyToFeed = ui->cbLizardFeed->currentIndex();
+    int simpleLiving = ui->cbLivingSpaceLizard->currentIndex();
 
     // Rabbit-specific
     bool wantsRabbit = ui->boxRabbit->isChecked();
     bool hasRabbitAllergies = ui->rbRabbitAllergiesYes->isChecked();
-    std::vector<std::string> rabbitBreeds; // TODO: Implement this
+    std::vector<std::string> rabbitBreeds = createBreedVector(ui->listRabbit);
     int rabbitAge = ui->cbAgeRabbit->currentIndex()-1;
     int rabbitGender = ui->cbRabbitSex->currentIndex()-1;
     int rabbitSize = ui->cbSizeRabbit->currentIndex()-1;
     int rabbitFur = ui->cbFurPrefRabbit->currentIndex()-1;
     std::string rabbitColour = ui->cbColourRabbit->currentText().toStdString();
-    int isSocialRabbit, needsGrooming; // TODO: Rename and implement comboBoxes
+    int isSocialRabbit = ui->cbSocialRabbit->currentIndex();
+    int needsGrooming = ui->cbNeedsGroomingRabbit->currentIndex();
+
+    clientToSet->setClientAttributes(firstName, lastName, address, phone, email, city, province, dwelling, location, workSchedule, activity, hasChildren, hasAnimals,
+                                     travels, children, goodWAnimals, strangers, crowds, noises, protector, energy, fearful, affection, messy, wantsDog, hasDogAllergies,
+                                     dogBreeds, dogAge, dogSize, dogGender, followsCommandsDog, houseTrained, wantsCat, hasCatAllergies, catBreeds, catAge, catSize,
+                                     catGender, isCurious, followCommandsCat, doesntShed, wantsBird, hasBirdAllergies, birdBreeds, birdAge, birdSize, birdGender, isQuietBird,
+                                     isSocialBird, birdColour, wantsLizard, hasLizardAllergies, lizardBreeds, lizardAge, lizardSize, lizardGender, easyToFeed, simpleLiving,
+                                     lizardColour, wantsRabbit, hasRabbitAllergies, rabbitBreeds, rabbitAge, rabbitSize, rabbitGender, isSocialRabbit, needsGrooming, rabbitColour,
+                                     dogFur, catFur, birdFur, lizardFur, rabbitFur, quietness);
 }
