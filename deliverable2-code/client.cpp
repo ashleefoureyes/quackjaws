@@ -11,6 +11,31 @@ std::string Client::getFormattedInfo()
     returnStr += "Email: " + email;
 
     return returnStr;
+
+}
+
+QString Client::getFormattedInfoQ()
+{
+    std::string returnStr = "";
+    returnStr += "<b>Name:</b> " + firstName + " " + lastName + "<br>";
+    returnStr += "<b>Address</b>: " + address + ", \n \t" + city + ", " + province + "<br>";
+    returnStr += "<b>Phone:</b> (" + phone.substr(0,3) + ")" + phone.substr(3,3) + "-" + phone.substr(6,phone.length()) + "<br>";
+    returnStr += "<b>Email:</b> " + email;
+
+    return QString::fromStdString(returnStr);
+
+}
+
+QString Client::getClientAttributesQ()
+{
+    std::string returnStr = "";
+    returnStr += "<b>Dwelling type: </b>" + getDwellingStr() + "<br>";
+    returnStr += "<b>Dwelling location: </b>" + getDwellingLocation() + "<br>";
+    returnStr += "<b>Has young children: </b>" + yesOrNo(hasChildren) + "<br>";
+    returnStr += "<b>Has other animals: </b>" + yesOrNo(hasAnimals) + "<br>";
+    returnStr += "<b>Work schedule: </b>" + getWorkScheduleStr() + "<br>";
+
+    return QString::fromStdString(returnStr);
 }
 
 void Client::setIdNumber(int newId)
@@ -37,14 +62,15 @@ std::string Client::getEmail() { return email; }
 
 int Client::getId() { return idNumber; }
 
-//(Id)(FirstName)(LastName)(Address)(City)(Province)(Phone)(Email)
-std::string Client::getSaveInfo()
+std::string dogPrefsStr()
 {
-    std::string returnStr = "";
-    returnStr = "(" + std::to_string(idNumber) + ")(" + firstName + ")(" + lastName + ")(" +
-            address + ")(" + city + ")(" + province + ")(" + phone + ")(" + email + ")";
-    return returnStr;
+    return "";
 }
+
+std::string catPrefsStr();
+std::string birdPrefsStr();
+std::string lizardPrefsStr();
+std::string rabbitPrefsStr();
 
 std::string Client::getFirstName() { return firstName; }
 std::string Client::getLastName() { return lastName; }
@@ -92,6 +118,66 @@ void Client::setClientAttributes(std::string firstName, std::string lastName, st
     this->wantsRabbit = wantsRabbit; this->hasRabbitAllergies = hasRabbitAllergies; this->rabbitBreeds = rabbitBreeds; this->rabbitAge = rabbitAge; this->rabbitSize = rabbitSize;
     this->rabbitGender = rabbitGender; this->isSocialRabbit = isSocialRabbit; this->needsGrooming = needsGrooming; this->rabbitColour = rabbitColour; this->rabbitFur = rabbitFur;
 
+}
+
+std::string Client::getDwellingStr()
+{
+    switch(dwelling)
+    {
+    case 0: return "Small apartment/condominium";
+    case 1: return "Large apartment/condominium";
+    case 2: return "Townhouse";
+    case 3: return "Detached house";
+    case 4: return "Farm";
+    default: return "Unknown";
+    }
+}
+
+
+std::string Client::getDwellingLocation()
+{
+    switch(location)
+    {
+    case 0: return "Urban";
+    case 1: return "Suburban";
+    case 2: return "Rural";
+    default: return "Unknown";
+    }
+}
+
+std::string Client::getActivityLevelStr()
+{
+    switch(activity)
+    {
+    case 0: return "Very Inactive";
+    case 1: return "Inactive";
+    case 2: return "Somewhat active";
+    case 3: return "Active";
+    case 4: return "Very active";
+    default: return "Unknown";
+    }
+}
+
+std::string Client::getWorkScheduleStr()
+{
+    switch(workSchedule)
+    {
+    case 0: return "9 to 5";
+    case 1: return "Afternoon to late evening";
+    case 2: return "Varying shifts";
+    case 3: return "Overnight shifts";
+    case 4: return "Early morning to early afternoon";
+    case 5: return "Inconsistent";
+    case 6: return "Unemployed";
+    default: return "Unknown";
+    }
+}
+
+
+std::string Client::yesOrNo(bool boolean)
+{
+    if(boolean == true) { return "Yes"; }
+    return "No";
 }
 
 int Client::getDwelling() const

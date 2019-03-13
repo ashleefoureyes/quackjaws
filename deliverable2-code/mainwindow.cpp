@@ -7,8 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
-    db->initDatabase();
+
+
+    // COMMENTED OUT FOR TESTING NEW VIEW CLIENT
+    //databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
+    //db->initDatabase();
     initBreeds();
 }
 

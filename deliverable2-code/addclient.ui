@@ -38,7 +38,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="tabContact">
     <attribute name="title">
@@ -4463,24 +4463,24 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupLoudNoise"/>
-  <buttongroup name="groupProtector"/>
+  <buttongroup name="groupChildren"/>
+  <buttongroup name="groupOtherAnimals"/>
   <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupEnergy"/>
+  <buttongroup name="groupCrowds"/>
+  <buttongroup name="groupLoudNoise"/>
+  <buttongroup name="groupCatAllergies"/>
   <buttongroup name="groupAnimals"/>
+  <buttongroup name="groupLizardAllergies"/>
+  <buttongroup name="groupAffection"/>
+  <buttongroup name="groupStrangers"/>
+  <buttongroup name="groupMessy"/>
   <buttongroup name="groupFearful"/>
   <buttongroup name="groupRabbitAllergies"/>
-  <buttongroup name="groupChildren"/>
-  <buttongroup name="groupStrangers"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupTravel"/>
-  <buttongroup name="groupOtherAnimals"/>
-  <buttongroup name="groupAffection"/>
-  <buttongroup name="groupDogAllergies"/>
-  <buttongroup name="groupMessy"/>
-  <buttongroup name="groupActivityLevel"/>
+  <buttongroup name="groupProtector"/>
   <buttongroup name="groupYoungChildren"/>
-  <buttongroup name="groupLizardAllergies"/>
-  <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupCatAllergies"/>
+  <buttongroup name="groupActivityLevel"/>
+  <buttongroup name="groupTravel"/>
+  <buttongroup name="groupDogAllergies"/>
  </buttongroups>
 </ui>

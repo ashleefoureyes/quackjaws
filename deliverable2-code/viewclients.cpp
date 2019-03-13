@@ -53,7 +53,18 @@ void ViewClients::on_clientList_itemClicked()
     purpose: Displays the information of the client clicked on in the list*/
 void ViewClients::displayClient(int index)
 {
-    if(storage->getNumOfElements() == 0) { ui->lbClientInfo->setText(QString::fromStdString("No clients in database")); return; }
+    if(storage->getNumOfElements() == 0) { ui->lbContactInfo->setText(QString::fromStdString("No clients in database")); return; }
 
-    ui->lbClientInfo->setText(QString::fromStdString(storage->get(index)->getFormattedInfo()));
+    ui->lbContactInfo->setText(storage->get(index)->getFormattedInfoQ());
+    ui->lbClientAttributes->setText(storage->get(index)->getClientAttributesQ());
+}
+
+void ViewClients::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
+                std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds)
+{
+    this->dogBreeds = dogBreeds;
+    this->catBreeds = catBreeds;
+    this->birdBreeds = birdBreeds;
+    this->lizardBreeds = lizardBreeds;
+    this->rabbitBreeds = rabbitBreeds;
 }

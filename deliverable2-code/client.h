@@ -3,19 +3,20 @@
 
 #include <string>
 #include <vector>
+#include <Qstring>
 
 class Client
 {
 public:
     Client();
     std::string getFormattedInfo();
+    QString getFormattedInfoQ();
     void setIdNumber(int);
     std::string getListInfoStr();
     void setContactInformation(std::string firstName, std::string lastName, std::string address, std::string phone,
                                std::string email, std::string city, std::string province);
     std::string getEmail();
     int getId();
-    std::string getSaveInfo();
 
     std::string getFirstName();
     std::string getLastName();
@@ -23,6 +24,8 @@ public:
     std::string getPhoneNum();
     std::string getCity();
     std::string getProvince();
+
+    QString getClientAttributesQ();
 
     void setClientAttributes(std::string firstName, std::string lastName, std::string address, std::string phone,
                         std::string email, std::string city, std::string province, int dwelling, int location, int workSchedule,
@@ -39,6 +42,9 @@ public:
                         bool wantsRabbit, bool hasRabbitAllergies, std::vector<std::string> rabbitBreeds, int rabbitAge, int rabbitSize, int rabbitGender,
                                 int isSocialRabbit, int needsGrooming, std::string rabbitColour, int dogFur, int catFur, int birdFur, int lizardFur, int rabbitFur,
                         int quietness);
+
+    std::string getDwellingStr(); std::string getDwellingLocation(); std::string getActivityLevelStr(); std::string getWorkScheduleStr();
+    std::string yesOrNo(bool boolean);
 
     // Client info
     int getDwelling() const; int getLocation() const; int getWorkSchedule() const;
@@ -79,6 +85,13 @@ public:
     int getRabbitAge() const; int getRabbitGender() const; int getRabbitSize() const;
     int getRabbitFur() const; std::string getRabbitColour() const; int getIsSocialRabbit() const;
     int getNeedsGrooming() const;
+
+    // Formatted getters
+    std::string dogPrefsStr();
+    std::string catPrefsStr();
+    std::string birdPrefsStr();
+    std::string lizardPrefsStr();
+    std::string rabbitPrefsStr();
 
 private:
     std::string firstName, lastName, address,
