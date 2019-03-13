@@ -1,6 +1,8 @@
 #include "addclient.h"
 #include "ui_addclient.h"
 
+#include <QTextStream>
+
 AddClient::AddClient(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddClient)
@@ -13,6 +15,7 @@ AddClient::AddClient(QWidget *parent) :
     ui->tabWidgetBreeds->setCurrentIndex(0);
     setupButtons();
     tabBar->hide();
+    this->isEditingClient = false;
 
 }
 
@@ -97,6 +100,9 @@ void AddClient::on_pbSubmit_clicked()
 
 bool AddClient::handleNextButton()
 {
+    if(!(ui->txtEmail->text().size() == 0) && verifyUniqueEmail(ui->txtEmail->text().toStdString()) && !isEditingClient)
+        { displayTextBoxError("Error: Client email is not unique"); return false; }
+
     ui->pbExit->setText("Back");
     // If still on Physical info tab move to Non-Physical tab
     if (ui->tabClientInfo->currentIndex() != 4)
@@ -121,7 +127,7 @@ bool AddClient::handleNextButton()
 //
 void AddClient::handleSubmitButton()
 {
-    if(areParenthesisInInput()) { displayTextBoxError(); return;}
+    if(areParenthesisInInput()) { displayTextBoxError("Error: Parenthesis in textbox"); return;}
 
     createClient();
 
@@ -139,35 +145,6 @@ void AddClient::on_pbExit_clicked()
     handleExitClicked();
 }
 
-void AddClient::handleExitClicked()
-{
-    if(ui->tabClientInfo->currentIndex() != 0)
-    {
-        // Moves to next tab
-        ui->tabClientInfo->setCurrentWidget(ui->tabClientInfo->widget(ui->tabClientInfo->currentIndex() - 1));
-        ui->barCompleted->setValue(ui->tabClientInfo->currentIndex());
-
-
-        ui->pbSubmit->setText("Next");
-        // If we're at the last tab then change "Next" to "Submit"
-        if(ui->tabClientInfo->currentIndex() == 0) { ui->pbExit->setText("Exit"); }
-        else { ui->pbExit->setText("Back"); }
-
-        return;
-    }
-
-    else {
-      QMessageBox::StandardButton answer;
-      answer = QMessageBox::question(this, "Quit?", "Are you sure you want to quit\n"
-                                                    "All client information will be lost",
-                                                     QMessageBox::Yes|QMessageBox::No);
-      if(answer == QMessageBox::Yes) {
-          this->close();
-      }
-      else { return; }
-    }
-}
-
 bool AddClient::areParenthesisInInput()
 {
     // Combines all strings then checks the combined string for ')' and '('
@@ -179,14 +156,6 @@ bool AddClient::areParenthesisInInput()
     comboStr += ui->txtAddress->text();
 
     return (comboStr.contains(QChar(')')) || comboStr.contains(QChar('(')));
-}
-
-void AddClient::displayTextBoxError()
-{
-    QMessageBox msgBox;
-    QString qst = QString::fromStdString("Error, one textbox contains character ')' and/or '(' symbols");
-    msgBox.setText(qst);
-    msgBox.exec();
 }
 
 /** Function: displaySubmissionError()
@@ -286,7 +255,36 @@ void AddClient::createClient()
     Client * newClient = new Client;
     setClientAttributes(newClient);
     (*clientStorage)->add(newClient);
+}
 
+bool AddClient::editClient(Client* clientToEdit, ClientStorage** storage)
+{
+    QTextStream cerr(stderr);
+    cerr << QString::fromStdString("Editing: " + clientToEdit->getFirstName());
+    this->isEditingClient = true;
+    this->clientStorage = storage;
+    fillInfoForEdit(clientToEdit);
+    setClientAttributes(clientToEdit);
+    this->exec();
+    return returnResult;
+}
+
+void AddClient::fillInfoForEdit(Client* client)
+{
+    ui->txtFirstName->setText(QString::fromStdString(client->getFirstName()));
+    ui->txtLastName->setText(QString::fromStdString(client->getLastName()));
+    ui->cbProvince->setCurrentIndex(ui->cbProvince->findText(QString::fromStdString(client->getProvince())));
+    ui->txtCity->setText(QString::fromStdString(client->getCity()));
+    ui->txtAddress->setText(QString::fromStdString(client->getAddress()));
+    ui->cbAge->setValue(client->getAge());
+    ui->sbAreaCode->setValue(std::stoi(client->getPhoneNum().substr(0,3)));
+    ui->sbPhone->setValue(std::stoi(client->getPhoneNum().substr(3)));
+    ui->txtEmail->setText(QString::fromStdString(client->getEmail()));
+}
+
+bool AddClient::verifyUniqueEmail(std::string email)
+{
+    return ((*clientStorage)->isEmailInStorage(email));
 }
 
 void AddClient::setClientAttributes(Client* clientToSet)
@@ -298,6 +296,7 @@ void AddClient::setClientAttributes(Client* clientToSet)
     std::string address = (ui->txtAddress->text()).toStdString();
     std::string phone = std::to_string(ui->sbAreaCode->value()) + std::to_string(ui->sbPhone->value());
     std::string email = (ui->txtEmail->text()).toStdString();
+    int age = ui->cbAge->value();
 
     // Client attributes
     int dwelling = ui->cbDwellingType->currentIndex();
@@ -389,5 +388,49 @@ void AddClient::setClientAttributes(Client* clientToSet)
                                      catGender, isCurious, followCommandsCat, doesntShed, wantsBird, hasBirdAllergies, birdBreeds, birdAge, birdSize, birdGender, isQuietBird,
                                      isSocialBird, birdColour, wantsLizard, hasLizardAllergies, lizardBreeds, lizardAge, lizardSize, lizardGender, easyToFeed, simpleLiving,
                                      lizardColour, wantsRabbit, hasRabbitAllergies, rabbitBreeds, rabbitAge, rabbitSize, rabbitGender, isSocialRabbit, needsGrooming, rabbitColour,
-                                     dogFur, catFur, birdFur, lizardFur, rabbitFur, quietness);
+                                     dogFur, catFur, birdFur, lizardFur, rabbitFur, quietness, age);
+}
+
+void AddClient::handleExitClicked()
+{
+    if(ui->tabClientInfo->currentIndex() != 0)
+    {
+        // Moves to next tab
+        ui->tabClientInfo->setCurrentWidget(ui->tabClientInfo->widget(ui->tabClientInfo->currentIndex() - 1));
+        ui->barCompleted->setValue(ui->tabClientInfo->currentIndex());
+
+
+        ui->pbSubmit->setText("Next");
+        // If we're at the last tab then change "Next" to "Submit"
+        if(ui->tabClientInfo->currentIndex() == 0) { ui->pbExit->setText("Exit"); }
+        else { ui->pbExit->setText("Back"); }
+
+        return;
+    }
+
+    else {
+      QMessageBox::StandardButton answer;
+      answer = QMessageBox::question(this, "Quit?", "Are you sure you want to quit\n"
+                                                    "All client information will be lost",
+                                                     QMessageBox::Yes|QMessageBox::No);
+      if(answer == QMessageBox::Yes) {
+          this->close();
+      }
+      else { return; }
+    }
+}
+
+void AddClient::displayTextBoxError()
+{
+    QMessageBox msgBox;
+    QString qst = QString::fromStdString("Unspecified error occured");
+    msgBox.setText(qst);
+    msgBox.exec();
+}
+
+void AddClient::displayTextBoxError(QString err)
+{
+    QMessageBox msgBox;
+    msgBox.setText(err);
+    msgBox.exec();
 }

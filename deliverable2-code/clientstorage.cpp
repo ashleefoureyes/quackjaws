@@ -150,3 +150,13 @@ void ClientStorage::checkForLargestId(int clientId)
     int rawId = std::stoi((std::to_string(clientId)).substr(1));
     if(rawId > largestId) { largestId = rawId; }
 }
+
+bool ClientStorage::isEmailInStorage(std::string email)
+{
+    for(std::vector<Client*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
+    {
+        if((*itera)->getEmail() == email) { return true; }
+    }
+
+    return false;
+}

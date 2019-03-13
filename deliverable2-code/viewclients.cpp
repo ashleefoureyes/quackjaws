@@ -37,7 +37,6 @@ void ViewClients::viewClientsFromStorage(ClientStorage *storage)
     this->storage = storage;
     populateList();
     displayClient(0);
-    fillBars();
     this->exec();
 }
 
@@ -62,6 +61,7 @@ void ViewClients::displayClient(int index)
     ui->lbClientAttributes->setText(storage->get(index)->getClientAttributesQ());
     disableUnusedSpeciesButtons();
     findFirstValidSpecies();
+    fillBars();
 }
 
 void ViewClients::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
@@ -124,3 +124,18 @@ void ViewClients::on_rbSpeciesBird_clicked() { ui->lbBreedPreferences->setText(s
 void ViewClients::on_rbSpeciesLizard_clicked() { ui->lbBreedPreferences->setText(storage->get(this->currentIndex)->lizardPrefsStrQ()); }
 void ViewClients::on_rbSpeciesRabbit_clicked() { ui->lbBreedPreferences->setText(storage->get(this->currentIndex)->rabbitPrefsStrQ()); }
 
+
+void ViewClients::on_buttonEdit_clicked()
+{
+    AddClient addClient;
+    Client* client = nullptr;
+    storage->get(&client, currentIndex);
+
+    addClient.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
+    if(addClient.editClient(client, &storage)) { reloadView(); }
+}
+
+void ViewClients::reloadView()
+{
+
+}

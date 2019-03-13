@@ -41,7 +41,7 @@ public:
                                 int easyToFeed, int simpleLiving, std::string lizardColour,
                         bool wantsRabbit, bool hasRabbitAllergies, std::vector<std::string> rabbitBreeds, int rabbitAge, int rabbitSize, int rabbitGender,
                                 int isSocialRabbit, int needsGrooming, std::string rabbitColour, int dogFur, int catFur, int birdFur, int lizardFur, int rabbitFur,
-                        int quietness);
+                        int quietness, int age);
 
     std::string getDwellingStr(); std::string getDwellingLocation();
 
@@ -49,6 +49,7 @@ public:
     // Client info
     int getDwelling() const; int getLocation() const; int getWorkSchedule() const;
     int getActivity() const; bool getHasChildren() const; bool getHasAnimals() const;
+    int getAge() const;
 
     // General animal prefs
     int getTravels() const; int getChildren() const; int getGoodWAnimals() const;
@@ -98,6 +99,7 @@ public:
 private:
     std::string firstName, lastName, address,
         phone, email, city, province;
+    int age;
     int idNumber;
     int CLIENT_STORAGE_CODE = 1;
 

@@ -24,6 +24,7 @@ public:
     int initNewClient(ClientStorage** clientStorage);
     void passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
                     std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds);
+    bool editClient(Client* clientToEdit, ClientStorage **storage);
 
 private slots:
     void on_pbSubmit_clicked();
@@ -49,9 +50,9 @@ private:
     Client **newClient;
     ClientStorage **clientStorage;
     int returnResult;
-    void displaySubmissionError();
+    bool isEditingClient;
+
     bool areParenthesisInInput();
-    void displayTextBoxError();
     void handleSubmitButton();
     bool handleNextButton();
     void handleExitClicked();
@@ -63,6 +64,12 @@ private:
     void createClient();
     std::vector<std::string> createBreedVector(QListWidget* widget);
     void setupButtons();
+    void fillInfoForEdit(Client* client);
+    bool verifyUniqueEmail(std::string email);
+
+    void displayTextBoxError();
+    void displayTextBoxError(QString err);
+    void displaySubmissionError();
 
     std::vector<std::string> dogBreeds;
     std::vector<std::string> catBreeds;

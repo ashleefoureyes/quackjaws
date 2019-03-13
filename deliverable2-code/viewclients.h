@@ -2,8 +2,10 @@
 #define VIEWCLIENTS_H
 
 #include <QDialog>
-#include "clientstorage.h"
 #include <QListWidgetItem>
+
+#include "clientstorage.h"
+#include "addclient.h"
 
 namespace Ui {
 class ViewClients;
@@ -28,6 +30,8 @@ private slots:
     void on_rbSpeciesLizard_clicked();
     void on_rbSpeciesRabbit_clicked();
 
+    void on_buttonEdit_clicked();
+
 private:
     Ui::ViewClients *ui;
     void populateList();
@@ -43,6 +47,7 @@ private:
     void disableUnusedSpeciesButtons();
     void findFirstValidSpecies();
     void fillBars();
+    void reloadView();
 };
 
 #endif // VIEWCLIENTS_H

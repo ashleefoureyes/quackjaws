@@ -130,13 +130,13 @@ void Client::setClientAttributes(std::string firstName, std::string lastName, st
                             int easyToFeed, int simpleLiving, std::string lizardColour,
                     bool wantsRabbit, bool hasRabbitAllergies, std::vector<std::string> rabbitBreeds, int rabbitAge, int rabbitSize, int rabbitGender,
                             int isSocialRabbit, int needsGrooming, std::string rabbitColour,
-                    int dogFur, int catFur, int birdFur, int lizardFur, int rabbitFur, int quietness)
+                    int dogFur, int catFur, int birdFur, int lizardFur, int rabbitFur, int quietness, int age)
 {
     setContactInformation(firstName, lastName, address, phone, email, city, province);
     this->dwelling = dwelling; this->location = location; this->workSchedule = workSchedule; this->activity = activity;
     this->hasChildren = hasChildren; this->hasAnimals = hasAnimals; this->travels = travels; this->children = children;
     this->goodWAnimals = goodWAnimals; this->strangers = strangers; this->crowds = crowds; this->noises = noises; this->protector = protector;
-    this->energy = energy; this->fearful = fearful; this->affection = affection; this->messy = messy;
+    this->energy = energy; this->fearful = fearful; this->affection = affection; this->messy = messy; this->age = age;
 
     this->wantsDog = wantsDog; this->hasDogAllergies = hasDogAllergies; this->dogBreeds = dogBreeds; this->dogAge = dogAge; this->dogSize = dogSize;
     this->dogGender = dogGender; this->followsCommandsDog = followsCommandsDog; this->houseTrained = houseTrained; this->dogFur = dogFur; this->quietness = quietness;
@@ -189,6 +189,11 @@ std::string Client::getBreedPreferencesStr(std::vector<std::string> desiredBreed
     }
 
     return returnStr;
+}
+
+int Client::getAge() const
+{
+    return age;
 }
 
 std::string Client::getDwellingLocation()
