@@ -62,15 +62,18 @@ std::string Client::getEmail() { return email; }
 
 int Client::getId() { return idNumber; }
 
-std::string dogPrefsStr()
+QString Client::dogPrefsStrQ()
 {
-    return "";
+    std::string returnStr = "";
+    returnStr += getBreedPreferencesStr(dogBreeds);
+
+    return QString::fromStdString(returnStr);
 }
 
-std::string catPrefsStr();
-std::string birdPrefsStr();
-std::string lizardPrefsStr();
-std::string rabbitPrefsStr();
+QString Client::catPrefsStrQ() {return QString::fromStdString(" ");}
+QString Client::birdPrefsStrQ() {return QString::fromStdString(" ");}
+QString Client::lizardPrefsStrQ() {return QString::fromStdString(" ");}
+QString Client::rabbitPrefsStrQ() {return QString::fromStdString(" ");}
 
 std::string Client::getFirstName() { return firstName; }
 std::string Client::getLastName() { return lastName; }
@@ -133,6 +136,24 @@ std::string Client::getDwellingStr()
     }
 }
 
+std::string Client::getBreedPreferencesStr(std::vector<std::string> desiredBreeds)
+{
+    // Using two variables here. newline is a buffer where breeds are added
+    // and once it passes a certain length it is flused into returnStr with a <br>
+    // at the end
+    std::string returnStr = "";
+    std::string newline = "";
+    for(int i = 0; i < static_cast<int>(desiredBreeds.size()); ++i)
+    {
+        newline += desiredBreeds.at(static_cast<unsigned int>(i));
+
+        if(i >= static_cast<int>(desiredBreeds.size())) { returnStr += newline; break; }
+        else if (newline.length() > 40) { returnStr += (newline + ",<br>"); newline = ""; }
+        else { newline += ", "; }
+    }
+
+    return returnStr;
+}
 
 std::string Client::getDwellingLocation()
 {

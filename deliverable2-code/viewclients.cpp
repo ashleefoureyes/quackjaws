@@ -57,6 +57,7 @@ void ViewClients::displayClient(int index)
 
     ui->lbContactInfo->setText(storage->get(index)->getFormattedInfoQ());
     ui->lbClientAttributes->setText(storage->get(index)->getClientAttributesQ());
+    ui->lbBreedPreferences->setText(storage->get(index)->dogPrefsStrQ());
 }
 
 void ViewClients::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,

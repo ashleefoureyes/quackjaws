@@ -87,11 +87,13 @@ public:
     int getNeedsGrooming() const;
 
     // Formatted getters
-    std::string dogPrefsStr();
-    std::string catPrefsStr();
-    std::string birdPrefsStr();
-    std::string lizardPrefsStr();
-    std::string rabbitPrefsStr();
+    QString dogPrefsStrQ();
+    QString catPrefsStrQ();
+    QString birdPrefsStrQ();
+    QString lizardPrefsStrQ();
+    QString rabbitPrefsStrQ();
+
+    std::string getBreedPreferencesStr(std::vector<std::string> breedPrefs);
 
 private:
     std::string firstName, lastName, address,
