@@ -62,18 +62,52 @@ std::string Client::getEmail() { return email; }
 
 int Client::getId() { return idNumber; }
 
-QString Client::dogPrefsStrQ()
+QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies)
 {
     std::string returnStr = "";
-    returnStr += getBreedPreferencesStr(dogBreeds);
+    returnStr += "<b>Desired breeds: </b>" + getBreedPreferencesStr(breeds) + "<br>";
+    returnStr += "<b>Desired age: </b>" + getAgePrefsStr(age) + "<br>";
+    returnStr += "<b>Desired size: </b>" + getSizePrefsStr(size) + "<br>";
+    returnStr += "<b>Desired sex: </b>" + getSexPrefsStr(gender) + "<br>";
+    returnStr += "<b>Desired fur: </b>" + getAnimalFurStr(fur) + "<br>";
+    returnStr += "<b>Has allergies: </b>" + yesOrNo(allergies);
 
     return QString::fromStdString(returnStr);
 }
 
-QString Client::catPrefsStrQ() {return QString::fromStdString(" ");}
-QString Client::birdPrefsStrQ() {return QString::fromStdString(" ");}
-QString Client::lizardPrefsStrQ() {return QString::fromStdString(" ");}
-QString Client::rabbitPrefsStrQ() {return QString::fromStdString(" ");}
+QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies, std::string colour, std::string species)
+{
+    std::string returnStr = "";
+    returnStr += "<b>Desired breeds: </b>" + getBreedPreferencesStr(breeds) + "<br>";
+    returnStr += "<b>Desired age: </b>" + getAgePrefsStr(age) + "<br>";
+    returnStr += "<b>Desired size: </b>" + getSizePrefsStr(size) + "<br>";
+    returnStr += "<b>Desired sex: </b>" + getSexPrefsStr(gender) + "<br>";
+
+    if(species == "bird")
+    {
+        returnStr += "<b>Wants bird with feathers: </b>";
+        if(birdFur == 0) { returnStr += "Yes<br>"; }
+        else {  returnStr += "No<br>";}
+    }
+
+    else if(species == "lizard")
+    {
+        returnStr += "<b>Desired scales: </b>" + getAnimalScaleStr(fur) + "<br>";
+    }
+    else { returnStr += "<b>Desired fur: </b>" + getAnimalFurStr(fur) + "<br>"; }
+
+
+    returnStr += "<b>Has allergies: </b>" + yesOrNo(allergies) + "<br>";
+    returnStr += "<b>Desired colour: </b>" + colour;
+
+    return QString::fromStdString(returnStr);
+}
+
+QString Client::dogPrefsStrQ() { return animalPrefsQ(dogBreeds, dogAge, dogSize, dogGender, dogFur, hasDogAllergies); }
+QString Client::catPrefsStrQ() { return animalPrefsQ(catBreeds, catAge, catSize, catGender, catFur, hasCatAllergies); }
+QString Client::birdPrefsStrQ() { return animalPrefsQ(birdBreeds, birdAge, birdSize, birdGender, birdFur, hasBirdAllergies, birdColour, "bird"); }
+QString Client::lizardPrefsStrQ() { return animalPrefsQ(lizardBreeds, lizardAge, lizardSize, lizardGender, lizardFur, hasLizardAllergies, lizardColour, "lizard"); }
+QString Client::rabbitPrefsStrQ() { return animalPrefsQ(rabbitBreeds, rabbitAge, rabbitSize, rabbitGender, rabbitFur, hasRabbitAllergies, rabbitColour, "rabbit"); }
 
 std::string Client::getFirstName() { return firstName; }
 std::string Client::getLastName() { return lastName; }
@@ -132,12 +166,14 @@ std::string Client::getDwellingStr()
     case 2: return "Townhouse";
     case 3: return "Detached house";
     case 4: return "Farm";
-    default: return "Unknown";
+    default: return "No preference";
     }
 }
 
 std::string Client::getBreedPreferencesStr(std::vector<std::string> desiredBreeds)
 {
+    if(desiredBreeds.empty()) { return "No preference"; }
+
     // Using two variables here. newline is a buffer where breeds are added
     // and once it passes a certain length it is flused into returnStr with a <br>
     // at the end
@@ -162,7 +198,7 @@ std::string Client::getDwellingLocation()
     case 0: return "Urban";
     case 1: return "Suburban";
     case 2: return "Rural";
-    default: return "Unknown";
+    default: return "No preference";
     }
 }
 
@@ -175,9 +211,10 @@ std::string Client::getActivityLevelStr()
     case 2: return "Somewhat active";
     case 3: return "Active";
     case 4: return "Very active";
-    default: return "Unknown";
+    default: return "No preference";
     }
 }
+
 
 std::string Client::getWorkScheduleStr()
 {
@@ -190,10 +227,68 @@ std::string Client::getWorkScheduleStr()
     case 4: return "Early morning to early afternoon";
     case 5: return "Inconsistent";
     case 6: return "Unemployed";
-    default: return "Unknown";
+    default: return "No preference";
     }
 }
 
+std::string Client::getAnimalFurStr(int speciesFurPrefs)
+{
+    switch(speciesFurPrefs)
+    {
+    case 0: return "Hairless";
+    case 1: return "Short";
+    case 2: return "Long";
+    default: return "No preference";
+    }
+}
+
+std::string Client::getAnimalScaleStr(int speciesScalePrefs)
+{
+    switch(speciesScalePrefs)
+    {
+    case 0: return "Smooth";
+    case 1: return "Rough";
+    case 2: return "Spikes";
+    default: return "No preference";
+    }
+}
+
+std::string Client::getAgePrefsStr(int speciesAgePrefs)
+{
+    switch(speciesAgePrefs)
+    {
+    case 0: return "0-3";
+    case 1: return "4-7";
+    case 2: return "8-11";
+    case 3: return "12-15";
+    case 4: return "15-25";
+    case 5: return "25-35";
+    case 6: return "35+";
+    default: return "No preference";
+    }
+}
+
+std::string Client::getSizePrefsStr(int speciesSizePrefs)
+{
+    switch(speciesSizePrefs)
+    {
+    case 0: return "Teacup";
+    case 1: return "Small";
+    case 2: return "Medium";
+    case 3: return "Large";
+    default: return "No preference";
+    }
+}
+
+std::string Client::getSexPrefsStr(int speciesSexPrefs)
+{
+    switch(speciesSexPrefs)
+    {
+    case 0: return "Male";
+    case 1: return "Female";
+    default: return "No preference";
+    }
+}
 
 std::string Client::yesOrNo(bool boolean)
 {

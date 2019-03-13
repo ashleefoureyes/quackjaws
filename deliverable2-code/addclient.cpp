@@ -360,7 +360,7 @@ void AddClient::setClientAttributes(Client* clientToSet)
     int isSocialBird = ui->cbSocialBird->currentIndex();
 
     // Lizard-specific
-    bool wantsLizard = ui->boxLizard;
+    bool wantsLizard = ui->boxLizard->isChecked();
     bool hasLizardAllergies = ui->rbLizardAllergiesYes->isChecked();
     std::vector<std::string> lizardBreeds = createBreedVector(ui->listLizard);
     int lizardAge = ui->cbAgeLizard->currentIndex()-1;

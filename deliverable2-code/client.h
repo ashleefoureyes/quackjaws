@@ -43,8 +43,8 @@ public:
                                 int isSocialRabbit, int needsGrooming, std::string rabbitColour, int dogFur, int catFur, int birdFur, int lizardFur, int rabbitFur,
                         int quietness);
 
-    std::string getDwellingStr(); std::string getDwellingLocation(); std::string getActivityLevelStr(); std::string getWorkScheduleStr();
-    std::string yesOrNo(bool boolean);
+    std::string getDwellingStr(); std::string getDwellingLocation();
+
 
     // Client info
     int getDwelling() const; int getLocation() const; int getWorkSchedule() const;
@@ -141,6 +141,14 @@ private:
     int rabbitAge, rabbitGender, rabbitSize, rabbitFur; // Physical
     std::string rabbitColour;
     int isSocialRabbit, needsGrooming; // Importance of
+
+    std::string getActivityLevelStr(); std::string getWorkScheduleStr();
+    std::string getAgePrefsStr(int speciesAgePrefs); std::string getSexPrefsStr(int speciesSexPrefs); std::string getSizePrefsStr(int speciesSizePrefs);
+    std::string getAnimalScaleStr(int speciesScalePrefs); std::string getAnimalFurStr(int speciesFurPrefs);
+    std::string yesOrNo(bool boolean);
+
+    QString animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies, std::string colour, std::string species);
+    QString animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies);
 
 };
 

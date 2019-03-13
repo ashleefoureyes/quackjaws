@@ -22,6 +22,11 @@ public:
 
 private slots:
     void on_clientList_itemClicked();
+    void on_rbSpeciesDog_clicked();
+    void on_rbSpeciesCat_clicked();
+    void on_rbSpeciesBird_clicked();
+    void on_rbSpeciesLizard_clicked();
+    void on_rbSpeciesRabbit_clicked();
 
 private:
     Ui::ViewClients *ui;
@@ -29,11 +34,15 @@ private:
     ClientStorage* storage;
     void displayClient(int index);
 
+    int currentIndex;
     std::vector<std::string> dogBreeds;
     std::vector<std::string> catBreeds;
     std::vector<std::string> birdBreeds;
     std::vector<std::string> lizardBreeds;
     std::vector<std::string> rabbitBreeds;
+    void disableUnusedSpeciesButtons();
+    void findFirstValidSpecies();
+    void fillBars();
 };
 
 #endif // VIEWCLIENTS_H

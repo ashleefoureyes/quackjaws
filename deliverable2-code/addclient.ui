@@ -754,7 +754,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="tab_5">
       <property name="enabled">
@@ -915,7 +915,17 @@
           </item>
           <item>
            <property name="text">
-            <string>15+</string>
+            <string>15 - 25</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>25 - 35</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>35+</string>
            </property>
           </item>
          </widget>
@@ -1244,7 +1254,17 @@
           </item>
           <item>
            <property name="text">
-            <string>15+</string>
+            <string>15 - 25</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>25 - 35</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>35+</string>
            </property>
           </item>
          </widget>
@@ -1568,7 +1588,17 @@
           </item>
           <item>
            <property name="text">
-            <string>15+</string>
+            <string>15 - 25</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>25 - 35</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>35+</string>
            </property>
           </item>
          </widget>
@@ -1975,7 +2005,17 @@
           </item>
           <item>
            <property name="text">
-            <string>15+</string>
+            <string>15 - 25</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>25 - 35</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>35+</string>
            </property>
           </item>
          </widget>
@@ -2385,7 +2425,17 @@
           </item>
           <item>
            <property name="text">
-            <string>15+</string>
+            <string>15 - 25</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>25 - 35</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>35+</string>
            </property>
           </item>
          </widget>
@@ -4463,24 +4513,24 @@
  <resources/>
  <connections/>
  <buttongroups>
+  <buttongroup name="groupFearful"/>
+  <buttongroup name="groupCrowds"/>
+  <buttongroup name="groupAffection"/>
   <buttongroup name="groupChildren"/>
+  <buttongroup name="groupActivityLevel"/>
+  <buttongroup name="groupLizardAllergies"/>
+  <buttongroup name="groupProtector"/>
+  <buttongroup name="groupTravel"/>
+  <buttongroup name="groupLoudNoise"/>
+  <buttongroup name="groupStrangers"/>
+  <buttongroup name="groupEnergy"/>
+  <buttongroup name="groupRabbitAllergies"/>
+  <buttongroup name="groupYoungChildren"/>
+  <buttongroup name="groupMessy"/>
+  <buttongroup name="groupDogAllergies"/>
   <buttongroup name="groupOtherAnimals"/>
   <buttongroup name="groupBirdAllergies"/>
-  <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupLoudNoise"/>
   <buttongroup name="groupCatAllergies"/>
   <buttongroup name="groupAnimals"/>
-  <buttongroup name="groupLizardAllergies"/>
-  <buttongroup name="groupAffection"/>
-  <buttongroup name="groupStrangers"/>
-  <buttongroup name="groupMessy"/>
-  <buttongroup name="groupFearful"/>
-  <buttongroup name="groupRabbitAllergies"/>
-  <buttongroup name="groupProtector"/>
-  <buttongroup name="groupYoungChildren"/>
-  <buttongroup name="groupActivityLevel"/>
-  <buttongroup name="groupTravel"/>
-  <buttongroup name="groupDogAllergies"/>
  </buttongroups>
 </ui>
