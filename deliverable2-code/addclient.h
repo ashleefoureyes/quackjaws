@@ -6,6 +6,7 @@
 #include <QComboBox>
 #include <QListWidget>
 #include <QComboBox>
+#include <QRadioButton>
 
 #include "client.h"
 #include "clientstorage.h"
@@ -51,6 +52,11 @@ private:
     ClientStorage **clientStorage;
     int returnResult;
     bool isEditingClient;
+    void setBreedAttributes(QComboBox *ageBox, QComboBox *sizeBox, QComboBox *sexBox, QComboBox *furBox, QRadioButton *allergiesYes, QRadioButton *allergiesNo,
+                                       int age, int size, int sex, int fur, bool allergies,
+                                       std::string colour, QComboBox *colourBox);
+
+    void handleBreedlist(std::vector<std::string> breeds, QListWidget *list, QComboBox *breedBox);
 
     bool areParenthesisInInput();
     void handleSubmitButton();
@@ -58,9 +64,9 @@ private:
     void handleExitClicked();
     void populateBreedBoxes();
     void populateBreedBox(std::vector<std::string> breed, QComboBox *breedBox );
-    void addBreedToList(QString breed, QListWidget* breedList, QComboBox *breedBox);
+    void addBreedToList(QString breed, QListWidget *breedList, QComboBox *breedBox);
     void removeBreedFromList(QString breed, QListWidget *breedList, QComboBox *breedBox, int index);
-    void setClientAttributes(Client* clientToSet);
+    void setClientAttributes(Client *clientToSet);
     void createClient();
     std::vector<std::string> createBreedVector(QListWidget* widget);
     void setupButtons();

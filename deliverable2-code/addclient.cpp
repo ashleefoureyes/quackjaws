@@ -263,6 +263,7 @@ bool AddClient::editClient(Client* clientToEdit, ClientStorage** storage)
     cerr << QString::fromStdString("Editing: " + clientToEdit->getFirstName());
     this->isEditingClient = true;
     this->clientStorage = storage;
+    populateBreedBoxes();
     fillInfoForEdit(clientToEdit);
     setClientAttributes(clientToEdit);
     this->exec();
@@ -280,7 +281,53 @@ void AddClient::fillInfoForEdit(Client* client)
     ui->sbAreaCode->setValue(std::stoi(client->getPhoneNum().substr(0,3)));
     ui->sbPhone->setValue(std::stoi(client->getPhoneNum().substr(3)));
     ui->txtEmail->setText(QString::fromStdString(client->getEmail()));
+
+    ui->cbDwellingType->setCurrentIndex(client->getDwelling());
+    ui->cbLocation->setCurrentIndex(client->getLocation());
+    if(client->getHasChildren()) { ui->rbYoungChildrenYes->setChecked(true);} else { ui->rbYoungChildrenNo->setChecked(true); }
+    if(client->getHasAnimals()) {ui->rbOtherAnimalsYes->setChecked(true); } else { ui->rbOtherAnimalsNo->setChecked(true); }
+    ui->groupActivityLevel->button(client->getActivity())->setChecked(true);
+    ui->cbWorkSchedule->setCurrentIndex(client->getWorkSchedule());
+
+    setBreedAttributes(ui->cbAgeDog, ui->cbSizeDog, ui->cbDogSex, ui->cbFurPrefDog, ui->rbDogAllergiesYes, ui->rbDogAllergiesNo,
+                       client->getDogAge(), client->getDogSize(), client->getDogGender(), client->getDogFur(), client->getHasDogAllergies(),
+                       "", nullptr);
+    setBreedAttributes(ui->cbAgeCat, ui->cbSizeCat, ui->cbCatSex, ui->cbFurPrefCat, ui->rbCatAllergiesYes, ui->rbCatAllergiesNo,
+                       client->getCatAge(), client->getCatSize(), client->getCatGender(), client->getCatFur(), client->getHasCatAllergies(),
+                       "", nullptr);
+    setBreedAttributes(ui->cbAgeBird, ui->cbSizeBird, ui->cbBirdSex, ui->cbFurPrefBird, ui->rbBirdAllergiesYes, ui->rbBirdAllergiesNo,
+                       client->getBirdAge(), client->getBirdSize(), client->getBirdGender(), client->getBirdFur(), client->getHasBirdAllergies(),
+                       client->getBirdColour(), ui->cbColourBird);
+    setBreedAttributes(ui->cbAgeLizard, ui->cbSizeLizard, ui->cbLizardSex, ui->cbFurPrefLizard, ui->rbLizardAllergiesYes, ui->rbLizardAllergiesNo,
+                       client->getLizardAge(), client->getLizardSize(), client->getLizardGender(), client->getLizardFur(), client->getHasLizardAllergies(),
+                       client->getLizardColour(), ui->cbColorLizard);
+    setBreedAttributes(ui->cbAgeRabbit, ui->cbSizeRabbit, ui->cbRabbitSex, ui->cbFurPrefRabbit, ui->rbRabbitAllergiesYes, ui->rbRabbitAllergiesNo,
+                       client->getRabbitAge(), client->getRabbitSize(), client->getRabbitGender(), client->getRabbitFur(), client->getHasRabbitAllergies(),
+                       client->getRabbitColour(), ui->cbColourRabbit);
 }
+
+void AddClient::setBreedAttributes(QComboBox *ageBox, QComboBox *sizeBox, QComboBox *sexBox, QComboBox *furBox, QRadioButton *allergiesYes, QRadioButton *allergiesNo,
+                                   int age, int size, int sex, int fur, bool allergies,
+                                   std::string colour, QComboBox *colourBox)
+{
+    ageBox->setCurrentIndex(age+1);
+    sizeBox->setCurrentIndex(size+1);
+    sexBox->setCurrentIndex(sex+1);
+    furBox->setCurrentIndex(fur+1);
+    if(allergies) { allergiesYes->setChecked(true); }
+    else {allergiesNo->setChecked(true); }
+
+    if(colourBox != nullptr) { colourBox->setCurrentIndex(colourBox->findText(QString::fromStdString(colour))); }
+}
+
+/** Not currently working. Breeds are removed from comboBox but not added to list
+void AddClient::handleBreedlist(std::vector<std::string> breeds, QListWidget *list, QComboBox *breedBox)
+{
+    for(std::vector<std::string>::iterator breed=breeds.begin(); breed != breeds.end(); ++breed)
+    {
+        addBreedToList(QString::fromStdString(*breed), list, breedBox);
+    }
+} */
 
 bool AddClient::verifyUniqueEmail(std::string email)
 {
