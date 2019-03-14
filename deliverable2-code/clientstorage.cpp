@@ -151,6 +151,10 @@ void ClientStorage::checkForLargestId(int clientId)
     if(rawId > largestId) { largestId = rawId; }
 }
 
+/** Function: isEmailInStorage
+ *  In: string email
+ *  Purpose: Checks storage for matching email
+ *           This is important for log-in purposes */
 bool ClientStorage::isEmailInStorage(std::string email)
 {
     for(std::vector<Client*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)

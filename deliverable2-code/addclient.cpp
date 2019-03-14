@@ -67,6 +67,9 @@ void AddClient::setupButtons()
     }
 }
 
+/** Function: PopulateBreedBoxes()
+ *  Purpose: Takes the breed vectors and uses them to populate the breed comboboxes
+ *           Delegates actual filling to populateBreedBox(...) */
 void AddClient::populateBreedBoxes()
 {
     populateBreedBox(dogBreeds, ui->cbDogBreeds);
@@ -76,6 +79,9 @@ void AddClient::populateBreedBoxes()
     populateBreedBox(rabbitBreeds, ui->cbRabbitBreeds);
 }
 
+/** Function: populateBreedBox()
+ *  In: vector breed, QComboBox *breedBox
+ *  Purpose: Takes all strings in the vector and puts them in the QComboBox */
 void AddClient::populateBreedBox(std::vector<std::string> breed, QComboBox *breedBox )
 {
     for(int i = 0; i < static_cast<int>(breed.size()); ++i)
@@ -98,6 +104,10 @@ void AddClient::on_pbSubmit_clicked()
     if(handleNextButton()) { handleSubmitButton(); }
 }
 
+/** Function: handleNextButton()
+ *  Purpose: Decides what to do when the user clicks on the next button
+ *           Decision based on multiple factors such as if entered info is valid
+ *           And what page user is currently on */
 bool AddClient::handleNextButton()
 {
     if(!(ui->txtEmail->text().size() == 0) && verifyUniqueEmail(ui->txtEmail->text().toStdString()) && !isEditingClient)
@@ -169,6 +179,9 @@ void AddClient::displaySubmissionError()
     msgBox.exec();
 }
 
+/** Function: passBreeds
+ *  In: Animal breed vectos
+ *  Purpose: Takes all the animal breed vectors and sets the object attributes */
 void AddClient::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
                 std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds)
 {
@@ -215,6 +228,10 @@ void AddClient::on_bBirdBreedAdd_clicked() { addBreedToList(ui->cbBirdBreeds->cu
 void AddClient::on_bLizardBreedAdd_clicked() { addBreedToList(ui->cbLizardBreeds->currentText(), ui->listLizard, ui->cbLizardBreeds); }
 void AddClient::on_bRabbitBreedAdd_clicked() { addBreedToList(ui->cbRabbitBreeds->currentText(), ui->listRabbit, ui->cbRabbitBreeds); }
 
+/** Function: addBreedToList()
+ *  In: QString breed
+ *  In-Out: QListWidget *breedList, QComboBox *breedBox
+ *  Purpose: Takes the QString and puts it in the breedList. Removes the QString from the QComboBox */
 void AddClient::addBreedToList(QString breed, QListWidget *breedList, QComboBox *breedBox)
 {
     if(breedBox->count() == 0) { return; }
@@ -228,6 +245,10 @@ void AddClient::on_bBirdBreedRemove_clicked() { if(ui->listBird->selectedItems()
 void AddClient::on_bLizardBreedRemove_clicked() { if(ui->listLizard->selectedItems().size() != 0) { removeBreedFromList(ui->listLizard->currentItem()->text(), ui->listLizard, ui->cbLizardBreeds, ui->listLizard->currentRow()); }}
 void AddClient::on_bRabbitBreedRemove_clicked() { if(ui->listRabbit->selectedItems().size() != 0) { removeBreedFromList(ui->listRabbit->currentItem()->text(), ui->listRabbit, ui->cbRabbitBreeds, ui->listRabbit->currentRow()); }}
 
+/** Function: removeBreedFromList()
+ *  In: QString breed, int index
+ *  In-Out: QListWidget *breedList, QComboBox *breedBox
+ *  Purpose: Takes the QString, removes it from the QListWidget and adds it to the QComboBox */
 void AddClient::removeBreedFromList(QString breed, QListWidget *breedList, QComboBox *breedBox, int index)
 {
     if(breedList->count() == 0) { return; }
@@ -235,6 +256,11 @@ void AddClient::removeBreedFromList(QString breed, QListWidget *breedList, QComb
     breedList->takeItem(index);
 }
 
+/** Function: createBreedVector()
+ *  In: QListWidget* widget
+ *  Out: vector<string> breeds
+ *  Purpose: Takes all the breeds in the QListWidget and puts it in a vector
+ *           This vector is then returned from the method */
 std::vector<std::string> AddClient::createBreedVector(QListWidget* widget)
 {
     std::vector<std::string> desiredBreeds;
@@ -250,6 +276,10 @@ std::vector<std::string> AddClient::createBreedVector(QListWidget* widget)
 
 }
 
+/** Function: createClient()
+ *  Purpose: Public function to be called when the user wants to create a new client
+ *           Initiates the process of opening a window and getting all user information
+ *           To create a new client object and putting it in storage */
 void AddClient::createClient()
 {
     Client * newClient = new Client;
@@ -257,6 +287,11 @@ void AddClient::createClient()
     (*clientStorage)->add(newClient);
 }
 
+/** Function: editClient(Client* clientToEdit, ClientStorage** storage)
+ *  In: ClientStorage** storage
+ *  In-Out: Client* clientToEdit
+ *  Purpose: Public function to be called when the user wants to edit a specific client
+ *           Client information is used to fill the fields */
 bool AddClient::editClient(Client* clientToEdit, ClientStorage** storage)
 {
     QTextStream cerr(stderr);
@@ -270,6 +305,10 @@ bool AddClient::editClient(Client* clientToEdit, ClientStorage** storage)
     return returnResult;
 }
 
+/** Function: fillInfoForEdit
+ *  In: Client* client
+ *  Purpose: Takes client attributes and uses them to fill out form
+ *           For user to edit */
 void AddClient::fillInfoForEdit(Client* client)
 {
     ui->txtFirstName->setText(QString::fromStdString(client->getFirstName()));
@@ -321,6 +360,8 @@ void AddClient::setBreedAttributes(QComboBox *ageBox, QComboBox *sizeBox, QCombo
 }
 
 /** Not currently working. Breeds are removed from comboBox but not added to list
+ *  Unable to find solution. Unsure if it is a limitation of Qt
+ * 
 void AddClient::handleBreedlist(std::vector<std::string> breeds, QListWidget *list, QComboBox *breedBox)
 {
     for(std::vector<std::string>::iterator breed=breeds.begin(); breed != breeds.end(); ++breed)
@@ -329,6 +370,11 @@ void AddClient::handleBreedlist(std::vector<std::string> breeds, QListWidget *li
     }
 } */
 
+/** Function: verifyUniqueEmail()
+ *  In: string email
+ *  Out: True if email is not unique, false otherwise
+ *  Purpose: Used to check if the entered email is already in the system
+ *           Should not be called if user is editing an existing client */
 bool AddClient::verifyUniqueEmail(std::string email)
 {
     return ((*clientStorage)->isEmailInStorage(email));
@@ -438,6 +484,9 @@ void AddClient::setClientAttributes(Client* clientToSet)
                                      dogFur, catFur, birdFur, lizardFur, rabbitFur, quietness, age);
 }
 
+/** Function: handleExitClicked()
+ *  Purpose: Decides what to do when the user clicks on the exit/back button
+ *           Sets relevant button text. Decision based on current tab.  */
 void AddClient::handleExitClicked()
 {
     if(ui->tabClientInfo->currentIndex() != 0)
@@ -467,6 +516,8 @@ void AddClient::handleExitClicked()
     }
 }
 
+/** Function: displayTextBoxError()
+ *  Purpose: Displays generic error */
 void AddClient::displayTextBoxError()
 {
     QMessageBox msgBox;
@@ -475,6 +526,9 @@ void AddClient::displayTextBoxError()
     msgBox.exec();
 }
 
+/** Function: displayTextBoxError()
+ *  In: QString err
+ *  Purpose: Displays error passed as argument */
 void AddClient::displayTextBoxError(QString err)
 {
     QMessageBox msgBox;

@@ -64,6 +64,9 @@ void ViewClients::displayClient(int index)
     fillBars();
 }
 
+/** Function: passBreeds
+ *  In: vectors of breeds
+ *  Purpose: Sets object attributes to breeds passed as arguments  */
 void ViewClients::passBreeds(std::vector<std::string> dogBreeds, std::vector<std::string> catBreeds,
                 std::vector<std::string> birdBreeds, std::vector<std::string> lizardBreeds, std::vector<std::string> rabbitBreeds)
 {
@@ -74,6 +77,10 @@ void ViewClients::passBreeds(std::vector<std::string> dogBreeds, std::vector<std
     this->rabbitBreeds = rabbitBreeds;
 }
 
+/** Function: disableUnusedSpeciesButtons()
+ *  Purpose: If user does not want an animal then this method makes
+ *           It so the user cannot view preferences for these animals considered
+ *           They have not expressed an interest in that species */
 void ViewClients::disableUnusedSpeciesButtons()
 {
     Client* client = nullptr;
@@ -88,6 +95,10 @@ void ViewClients::disableUnusedSpeciesButtons()
             && !client->getWantsLizard() && !client->getWantsRabbit()) { ui->lbBreedPreferences->setText("Does not want any species"); }
 }
 
+/** Function: findFirstValidSpecies()
+ *  Purpose: Finds the earliest species that a client has expressed interest
+ *           This ensures that when viewing a clients breed preferences we are
+ *           always shown the values for an animal that the client wants */
 void ViewClients::findFirstValidSpecies()
 {
     Client* client = nullptr;
@@ -100,6 +111,8 @@ void ViewClients::findFirstValidSpecies()
     else {ui->lbBreedPreferences->setText("Does not want any species"); }
 }
 
+/** Function: fillBars()
+ *  Purpose: Fills the bars on a clients profile based off that clients attributes */
 void ViewClients::fillBars()
 {
     Client* client = nullptr;
@@ -135,6 +148,9 @@ void ViewClients::on_buttonEdit_clicked()
     if(addClient.editClient(client, &storage)) { reloadView(); }
 }
 
+/** Function: reloadView()
+ *  Purpose: Reloads the list so that if a client is edited that clients' new
+ *           attributes are immediately shown */
 void ViewClients::reloadView()
 {
 

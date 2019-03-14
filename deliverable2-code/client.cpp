@@ -2,6 +2,8 @@
 
 Client::Client() { this->idNumber = -1; }
 
+/** Function: getFormattedInfo()
+ *  Out: Formatted string of client contract info  */
 std::string Client::getFormattedInfo()
 {
     std::string returnStr = "";
@@ -14,6 +16,10 @@ std::string Client::getFormattedInfo()
 
 }
 
+/** Function: getFormattedInfoQ()
+ *  Out: Formatted QString of client contact info
+ *  Purpose: Returns same info as getFormatted info but as a QString
+ *           with bolding in section names  */
 QString Client::getFormattedInfoQ()
 {
     std::string returnStr = "";
@@ -26,6 +32,10 @@ QString Client::getFormattedInfoQ()
 
 }
 
+/** Function: getClientAttributesQ()
+ *  Out: QString of client attributes
+ *  Purpose: Returns client attributes in formatted QString
+ *           with bolding and newlines */
 QString Client::getClientAttributesQ()
 {
     std::string returnStr = "";
@@ -62,6 +72,10 @@ std::string Client::getEmail() { return email; }
 
 int Client::getId() { return idNumber; }
 
+/** Function: animalPrefsQ
+ *  In: breeds, age, gender, fur, allergies
+ *  Out: Formatted QString
+ *  Purpose: Returns formatted info for breed information passed to input */
 QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies)
 {
     std::string returnStr = "";
@@ -75,6 +89,12 @@ QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size,
     return QString::fromStdString(returnStr);
 }
 
+/** Function: animalPrefsQ
+ *  In: breeds, age, gender, fur, allergies, colour, species
+ *  Out: Formatted QString
+ *  Purpose: Overloaded version of animalPrefsQ including the colour input parameter
+ *           If this extra value is passed then it also sets the colour and fur category
+ *           Based on the string passed  */
 QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies, std::string colour, std::string species)
 {
     std::string returnStr = "";
@@ -94,7 +114,7 @@ QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size,
     {
         returnStr += "<b>Desired scales: </b>" + getAnimalScaleStr(fur) + "<br>";
     }
-    else { returnStr += "<b>Desired fur: </b>" + getAnimalFurStr(fur) + "<br>"; }
+    else { returnStr += "<b>Desired fur: </b>" + getAnimalFurStr(fur) + "<br>"; } // If not bird or lizard use fur
 
 
     returnStr += "<b>Has allergies: </b>" + yesOrNo(allergies) + "<br>";
@@ -170,6 +190,11 @@ std::string Client::getDwellingStr()
     }
 }
 
+/** Function: getBreedPreferencesStr()
+ *  In: vector desiredBreeds string
+ *  Out: Formatted string of desired breeds
+ *  Purpose: Takes all breeds in the vector and returns a formatted string
+ *           If the string gets too long it starts on a new line */
 std::string Client::getBreedPreferencesStr(std::vector<std::string> desiredBreeds)
 {
     if(desiredBreeds.empty()) { return "No preference"; }
