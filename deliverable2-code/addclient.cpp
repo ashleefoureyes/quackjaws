@@ -344,6 +344,13 @@ void AddClient::fillInfoForEdit(Client* client)
                        client->getRabbitAge(), client->getRabbitSize(), client->getRabbitGender(), client->getRabbitFur(), client->getHasRabbitAllergies(),
                        client->getRabbitColour(), ui->cbColourRabbit);
 
+
+    ui->boxDog->setChecked(client->getWantsDog());
+    ui->boxCat->setChecked(client->getWantsCat());
+    ui->boxBird->setChecked(client->getWantsBird());
+    ui->boxLizard->setChecked(client->getWantsLizard());
+    ui->boxRabbit->setChecked(client->getWantsRabbit());
+
     ui->groupTravel->button(client->getTravels())->setChecked(true);
     ui->groupChildren->button(client->getChildren())->setChecked(true);
     ui->groupAnimals->button(client->getGoodWAnimals())->setChecked(true);
@@ -355,6 +362,23 @@ void AddClient::fillInfoForEdit(Client* client)
     ui->groupFearful->button(client->getEnergy())->setChecked(true);
     ui->groupAffection->button(client->getAffection())->setChecked(true);
     ui->groupMessy->button(client->getMessy())->setChecked(true);
+
+    ui->cbQuietDog->setCurrentIndex(client->getQuietness());
+    ui->cdCommandsDog->setCurrentIndex(client->getFollowsCommandsDog());
+    ui->cbHouseTrainedDog->setCurrentIndex(client->getHouseTrained());
+
+    ui->cbCuriousCat->setCurrentIndex(client->getIsCurious());
+    ui->cbCommandsCat->setCurrentIndex(client->getFollowCommandsCat());
+    ui->cbShedCat->setCurrentIndex(client->getDoesntShed());
+
+    ui->cbQuietBird->setCurrentIndex(client->getIsQuietBird());
+    ui->cbSocialBird->setCurrentIndex(client->getIsSocialBird());
+
+    ui->cbLizardFeed->setCurrentIndex(client->getEasyToFeed());
+    ui->cbLivingSpaceLizard->setCurrentIndex(client->getSimpleLiving());
+
+    ui->cbSocialRabbit->setCurrentIndex(client->getIsSocialRabbit());
+    ui->cbNeedsGroomingRabbit->setCurrentIndex(client->getNeedsGrooming());
 }
 
 void AddClient::setBreedAttributes(QComboBox *ageBox, QComboBox *sizeBox, QComboBox *sexBox, QComboBox *furBox, QRadioButton *allergiesYes, QRadioButton *allergiesNo,
@@ -413,7 +437,7 @@ void AddClient::setClientAttributes(Client* clientToSet)
 
     // General Animal Preferences
     int travels = ui->groupTravel->checkedId();
-    int children = ui->groupTravel->checkedId();
+    int children = ui->groupChildren->checkedId();
     int goodWAnimals = ui->groupAnimals->checkedId();
     int strangers = ui->groupStrangers->checkedId();
     int crowds = ui->groupCrowds->checkedId();
