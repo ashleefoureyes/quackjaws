@@ -343,6 +343,18 @@ void AddClient::fillInfoForEdit(Client* client)
     setBreedAttributes(ui->cbAgeRabbit, ui->cbSizeRabbit, ui->cbRabbitSex, ui->cbFurPrefRabbit, ui->rbRabbitAllergiesYes, ui->rbRabbitAllergiesNo,
                        client->getRabbitAge(), client->getRabbitSize(), client->getRabbitGender(), client->getRabbitFur(), client->getHasRabbitAllergies(),
                        client->getRabbitColour(), ui->cbColourRabbit);
+
+    ui->groupTravel->button(client->getTravels())->setChecked(true);
+    ui->groupChildren->button(client->getChildren())->setChecked(true);
+    ui->groupAnimals->button(client->getGoodWAnimals())->setChecked(true);
+    ui->groupStrangers->button(client->getStrangers())->setChecked(true);
+    ui->groupCrowds->button(client->getCrowds())->setChecked(true);
+    ui->groupLoudNoise->button(client->getNoises())->setChecked(true);
+    ui->groupProtector->button(client->getProtector())->setChecked(true);
+    ui->groupEnergy->button(client->getEnergy())->setChecked(true);
+    ui->groupFearful->button(client->getEnergy())->setChecked(true);
+    ui->groupAffection->button(client->getAffection())->setChecked(true);
+    ui->groupMessy->button(client->getMessy())->setChecked(true);
 }
 
 void AddClient::setBreedAttributes(QComboBox *ageBox, QComboBox *sizeBox, QComboBox *sexBox, QComboBox *furBox, QRadioButton *allergiesYes, QRadioButton *allergiesNo,

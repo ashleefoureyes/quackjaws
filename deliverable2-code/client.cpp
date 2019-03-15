@@ -76,7 +76,7 @@ int Client::getId() { return idNumber; }
  *  In: breeds, age, gender, fur, allergies
  *  Out: Formatted QString
  *  Purpose: Returns formatted info for breed information passed to input */
-QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies)
+std::string Client::generalAnimalPrefs(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies)
 {
     std::string returnStr = "";
     returnStr += "<b>Desired breeds: </b>" + getBreedPreferencesStr(breeds) + "<br>";
@@ -86,7 +86,9 @@ QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size,
     returnStr += "<b>Desired fur: </b>" + getAnimalFurStr(fur) + "<br>";
     returnStr += "<b>Has allergies: </b>" + yesOrNo(allergies);
 
-    return QString::fromStdString(returnStr);
+    returnStr += "<br><br><b>Preference for animals that: </b><br>";
+
+    return returnStr;
 }
 
 /** Function: animalPrefsQ
@@ -95,7 +97,7 @@ QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size,
  *  Purpose: Overloaded version of animalPrefsQ including the colour input parameter
  *           If this extra value is passed then it also sets the colour and fur category
  *           Based on the string passed  */
-QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies, std::string colour, std::string species)
+std::string Client::generalAnimalPrefs(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies, std::string colour, std::string species)
 {
     std::string returnStr = "";
     returnStr += "<b>Desired breeds: </b>" + getBreedPreferencesStr(breeds) + "<br>";
@@ -120,14 +122,118 @@ QString Client::animalPrefsQ(std::vector<std::string> breeds, int age, int size,
     returnStr += "<b>Has allergies: </b>" + yesOrNo(allergies) + "<br>";
     returnStr += "<b>Desired colour: </b>" + colour;
 
+    returnStr += "<br><br><b>Preference for animals that: </b><br>";
+
+    return returnStr;
+}
+
+QString Client::dogPrefsStrQ()
+{
+    std::string returnStr = "";
+
+    returnStr = generalAnimalPrefs(getDogBreeds(), getDogAge(), getDogSize(), getDogGender(), getDogFur(), getHasDogAllergies());
+
+    returnStr += "<b>Is quiet: </b>" + getBreedSpecificPrefsStr(getQuietness()) + "<br>";
+    returnStr += "<b>Follows commands: </b>" + getBreedSpecificPrefsStr(getFollowsCommandsDog()) + "<br>";
+    returnStr += "<b>Is house trained: </b>" + getBreedSpecificPrefsStr(getHouseTrained()) + "<br>";
+
+
     return QString::fromStdString(returnStr);
 }
 
-QString Client::dogPrefsStrQ() { return animalPrefsQ(dogBreeds, dogAge, dogSize, dogGender, dogFur, hasDogAllergies); }
-QString Client::catPrefsStrQ() { return animalPrefsQ(catBreeds, catAge, catSize, catGender, catFur, hasCatAllergies); }
-QString Client::birdPrefsStrQ() { return animalPrefsQ(birdBreeds, birdAge, birdSize, birdGender, birdFur, hasBirdAllergies, birdColour, "bird"); }
-QString Client::lizardPrefsStrQ() { return animalPrefsQ(lizardBreeds, lizardAge, lizardSize, lizardGender, lizardFur, hasLizardAllergies, lizardColour, "lizard"); }
-QString Client::rabbitPrefsStrQ() { return animalPrefsQ(rabbitBreeds, rabbitAge, rabbitSize, rabbitGender, rabbitFur, hasRabbitAllergies, rabbitColour, "rabbit"); }
+QString Client::catPrefsStrQ()
+{
+    std::string returnStr = "";
+
+    returnStr = generalAnimalPrefs(getCatBreeds(), getCatAge(), getCatSize(), getCatGender(), getCatFur(), getHasCatAllergies());
+
+    returnStr += "<b>Is curious: </b>" + getBreedSpecificPrefsStr(getIsCurious()) + "<br>";
+    returnStr += "<b>Follows commands: </b>" + getBreedSpecificPrefsStr(getFollowCommandsCat()) + "<br>";
+    returnStr += "<b>Doesn't shed: </b>" + getBreedSpecificPrefsStr(getDoesntShed()) + "<br>";
+
+    return QString::fromStdString(returnStr);
+}
+
+QString Client::birdPrefsStrQ()
+{
+    std::string returnStr = "";
+
+    returnStr = generalAnimalPrefs(getBirdBreeds(), getBirdAge(), getBirdSize(), getBirdGender(), getBirdFur(), getHasBirdAllergies(), getBirdColour(), "bird");
+
+    returnStr += "<b>Is quiet: </b>" + getBreedSpecificPrefsStr(getIsQuietBird()) + "<br>";
+    returnStr += "<b>Is social: </b>" + getBreedSpecificPrefsStr(getIsSocialBird()) + "<br>";
+
+    return QString::fromStdString(returnStr);
+}
+
+QString Client::lizardPrefsStrQ()
+{
+    std::string returnStr = "";
+
+    returnStr = generalAnimalPrefs(getLizardBreeds(), getLizardAge(), getLizardSize(), getLizardGender(), getLizardFur(), getHasLizardAllergies(), getLizardColour(), "lizard");
+
+    returnStr += "<b>Is easy to feed: </b>" + getBreedSpecificPrefsStr(getEasyToFeed()) + "<br>";
+    returnStr += "<b>Simple living space: </b>" + getBreedSpecificPrefsStr(getSimpleLiving()) + "<br>";
+
+    return QString::fromStdString(returnStr);
+}
+
+QString Client::rabbitPrefsStrQ()
+{
+    std::string returnStr = "";
+
+    returnStr = generalAnimalPrefs(getRabbitBreeds(), getRabbitAge(), getRabbitSize(), getRabbitGender(), getRabbitFur(), getHasRabbitAllergies(), getRabbitColour(), "rabbit");
+
+    returnStr += "<b>Is social: </b>" + getBreedSpecificPrefsStr(getIsSocialRabbit()) + "<br>";
+    returnStr += "<b>Needs grooming: </b>" + getBreedSpecificPrefsStr(getNeedsGrooming()) + "<br>";
+
+    return QString::fromStdString(returnStr);
+}
+
+std::string Client::getDogBreedStr() { return getDBBreeds(dogBreeds); }
+std::string Client::getCatBreedStr() { return getDBBreeds(catBreeds); }
+std::string Client::getBirdBreedStr() { return getDBBreeds(birdBreeds); }
+std::string Client::getLizardBreedStr() { return getDBBreeds(lizardBreeds); }
+std::string Client::getRabbitBreedStr() { return getDBBreeds(rabbitBreeds); }
+
+/** Function: getDBBreeds(desiredBreeds)
+ *  In: vector desriedBreeds
+ *  Out: Formatted str of breeds
+ *  Purpose: Takes the breed vector and formats it in a way that it can be stored in the DB */
+std::string Client::getDBBreeds(std::vector<std::string> desiredBreeds)
+{
+    if(desiredBreeds.size() == 0) { return ""; }
+
+    std::string returnStr = "(";
+
+    for(int i = 0; i < static_cast<int>(desiredBreeds.size()); ++i)
+    {
+        returnStr += desiredBreeds.at(static_cast<unsigned int>(i));
+
+        if(i >= static_cast<int>(desiredBreeds.size())) { returnStr += ")"; }
+        else { returnStr += ")("; }
+    }
+
+    return returnStr;
+}
+
+/** Function: static parseBreedsStr(string)
+ *  In: Formatted breeds string
+ *  Out: Vector of breeds
+ *  Purpose: Takes a string in the format returned by getDBBreeds() and turns it into a vector
+ *           that is returned */
+std::vector<std::string> Client::parseBreedsStr(std::string breedsStr)
+{
+    std::vector<std::string> vect;
+
+    while(breedsStr.length() > 0)
+    {
+        vect.push_back(breedsStr.substr(breedsStr.find("(") + 1, breedsStr.find(")") - 1));
+        breedsStr = breedsStr.substr(breedsStr.find(")") + 1);
+    }
+
+    return vect;
+}
 
 std::string Client::getFirstName() { return firstName; }
 std::string Client::getLastName() { return lastName; }
@@ -213,6 +319,7 @@ std::string Client::getBreedPreferencesStr(std::vector<std::string> desiredBreed
         else { newline += ", "; }
     }
 
+    returnStr += newline + "<br>";
     return returnStr;
 }
 
@@ -317,6 +424,19 @@ std::string Client::getSexPrefsStr(int speciesSexPrefs)
     case 0: return "Male";
     case 1: return "Female";
     default: return "No preference";
+    }
+}
+
+std::string Client::getBreedSpecificPrefsStr(int prefNum)
+{
+    switch(prefNum)
+    {
+    case 0: return "Not at all";
+    case 1: return "Not much";
+    case 2: return "Unimportant";
+    case 3: return "Somewhat";
+    case 4: return "A lot";
+    default: return "N/A";
     }
 }
 

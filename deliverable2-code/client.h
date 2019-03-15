@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include <Qstring>
+#include <QString>
 
 class Client
 {
@@ -56,6 +56,7 @@ public:
     int getStrangers() const; int getCrowds() const; int getNoises() const;
     int getProtector() const; int getEnergy() const; int getFearful() const;
     int getAffection() const; int getMessy() const;
+    std::string getBreedSpecificPrefsStr(int);
 
     // Dog-specific
     bool getWantsDog() const; bool getHasDogAllergies() const; std::vector<std::string> getDogBreeds() const;
@@ -86,6 +87,10 @@ public:
     int getRabbitAge() const; int getRabbitGender() const; int getRabbitSize() const;
     int getRabbitFur() const; std::string getRabbitColour() const; int getIsSocialRabbit() const;
     int getNeedsGrooming() const;
+
+    // Database-specific
+    static std::vector<std::string> parseBreedsStr(std::string formattedBreedsStr);
+    std::string getDogBreedStr(); std::string getCatBreedStr(); std::string getBirdBreedStr(); std::string getLizardBreedStr(); std::string getRabbitBreedStr();
 
     // Formatted getters
     QString dogPrefsStrQ();
@@ -149,9 +154,10 @@ private:
     std::string getAnimalScaleStr(int speciesScalePrefs); std::string getAnimalFurStr(int speciesFurPrefs);
     std::string yesOrNo(bool boolean);
 
-    QString animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies, std::string colour, std::string species);
-    QString animalPrefsQ(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies);
+    std::string generalAnimalPrefs(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies, std::string colour, std::string species);
+    std::string generalAnimalPrefs(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies);
 
+    std::string getDBBreeds(std::vector<std::string> breeds);
 };
 
 #endif // CLIENT_H
