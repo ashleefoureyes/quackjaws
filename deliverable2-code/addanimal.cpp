@@ -479,7 +479,7 @@ void AddAnimal::setCat(Cat* newCat)
         (*storage)->add(newCat);
         db->addCatToDatabase(newCat);
     }
-    else { } // TODO: Change animal info in db
+    else { } // Will Watt change dog in this else block
 
     this->close();
 }
@@ -509,7 +509,7 @@ void AddAnimal::setDog(Dog* newDog)
         (*storage)->add(newDog);
         db->addDogToDatabase(newDog);
     }
-    else { } // TODO: Change animal info in db
+    else { } // Will Watt change dog in this else block
 
 
     this->close();
@@ -539,7 +539,7 @@ void AddAnimal::setBird(Bird* newBird)
         (*storage)->add(newBird);
         db->addBirdToDatabase(newBird);
     }
-    else { } // TODO: Change animal info in db
+    else { } // Will Watt change dog in this else block
 
     this->close();
 }
@@ -571,7 +571,7 @@ void AddAnimal::setLizard(Lizard* newLizard)
         (*storage)->add(newLizard);
         db->addLizardToDatabase(newLizard);
     }
-    else { } // TODO: Change animal info in db
+    else { } // Will Watt change dog in this else block
 
 
     this->close();
@@ -603,7 +603,7 @@ void AddAnimal::setRabbit(Rabbit *newRabbit)
         (*storage)->add(newRabbit);
         db->addRabbitToDatabase(newRabbit);
     }
-    else { } // TODO: Change animal info in db
+    else { } // Will Watt change dog in this else block
 
 
     this->close();

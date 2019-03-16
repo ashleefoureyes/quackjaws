@@ -132,17 +132,20 @@ bool AddClient::handleNextButton()
     else { return true; }
 }
 
-//
-// TODO: Implement it so that the user cannot proceed further than the first screen
-//       If they have not filled in all the information
-// TODO: Make sure all users have a unique email address
-//
 void AddClient::handleSubmitButton()
 {
     if(areParenthesisInInput()) { displayTextBoxError("Error: Parenthesis in textbox"); return;}
 
     // If editing client don't create a new one
-    if(isEditingClient) { setClientAttributes(this->clientToEdit); returnResult = QDialog::Accepted; this->close(); return; }
+    if(isEditingClient)
+    {
+        setClientAttributes(this->clientToEdit);
+        returnResult = QDialog::Accepted;
+        // Will Watt makes changes to DB here. The client
+        // to use is this->clientToEdit
+        this->close();
+        return;
+    }
 
 
     if(createClient() == false) { return; }
@@ -293,6 +296,7 @@ bool AddClient::createClient()
         displayTextBoxError("Error, please fill out all attributes on this page"); return false; }
 
     (*clientStorage)->add(newClient);
+    // Will Watt add to db here
     return true;
 }
 
@@ -411,7 +415,10 @@ void AddClient::setBreedAttributes(QComboBox *ageBox, QComboBox *sizeBox, QCombo
     if(colourBox != nullptr) { colourBox->setCurrentIndex(colourBox->findText(QString::fromStdString(colour))); }
 }
 
-
+/** Function: handleBreedList()
+ *  In: breeds, list, breedBox
+ *  Purpose: Fills the list with clients' preferred breeds. Accounts for filling list with breeds
+ *           and removing these breeds from selection ComboBox */
 void AddClient::handleBreedlist(std::vector<std::string> breeds, QListWidget *list, QComboBox *breedBox)
 {
     for(std::vector<std::string>::iterator breed=breeds.begin(); breed != breeds.end(); ++breed)
@@ -571,6 +578,10 @@ void AddClient::handleExitClicked()
     }
 }
 
+/** Function: isContactInfoFilledOut()
+ *  Out: true if all filled out
+    Purpose: Checks basic contact information. If something isn't filled out
+             It returns true */
 bool AddClient::isContactInfoFilledOut()
 {
     std::string firstName = (ui->txtFirstName->text()).toStdString();
