@@ -32,7 +32,6 @@ SOURCES += \
     animal.cpp \
     addanimal.cpp \
     viewanimals.cpp \
-    profile.cpp \
     client.cpp \
     addclient.cpp \
     viewclients.cpp \
@@ -52,7 +51,6 @@ HEADERS += \
     animal.h \
     addanimal.h \
     viewanimals.h \
-    profile.h \
     client.h \
     addclient.h \
     viewclients.h \
