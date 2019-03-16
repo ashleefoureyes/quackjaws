@@ -389,6 +389,12 @@ void AddClient::fillInfoForEdit(Client* client)
 
     ui->cbSocialRabbit->setCurrentIndex(client->getIsSocialRabbit());
     ui->cbNeedsGroomingRabbit->setCurrentIndex(client->getNeedsGrooming());
+
+    handleBreedlist(client->getDogBreeds(), ui->listDog, ui->cbDogBreeds);
+    handleBreedlist(client->getCatBreeds(), ui->listCat, ui->cbCatBreeds);
+    handleBreedlist(client->getBirdBreeds(), ui->listBird, ui->cbBirdBreeds);
+    handleBreedlist(client->getLizardBreeds(), ui->listLizard, ui->cbLizardBreeds);
+    handleBreedlist(client->getRabbitBreeds(), ui->listRabbit, ui->cbRabbitBreeds);
 }
 
 void AddClient::setBreedAttributes(QComboBox *ageBox, QComboBox *sizeBox, QComboBox *sexBox, QComboBox *furBox, QRadioButton *allergiesYes, QRadioButton *allergiesNo,
@@ -405,16 +411,14 @@ void AddClient::setBreedAttributes(QComboBox *ageBox, QComboBox *sizeBox, QCombo
     if(colourBox != nullptr) { colourBox->setCurrentIndex(colourBox->findText(QString::fromStdString(colour))); }
 }
 
-/** Not currently working. Breeds are removed from comboBox but not added to list
- *  Unable to find solution. Unsure if it is a limitation of Qt
- * 
+
 void AddClient::handleBreedlist(std::vector<std::string> breeds, QListWidget *list, QComboBox *breedBox)
 {
     for(std::vector<std::string>::iterator breed=breeds.begin(); breed != breeds.end(); ++breed)
     {
         addBreedToList(QString::fromStdString(*breed), list, breedBox);
     }
-} */
+}
 
 /** Function: verifyUniqueEmail()
  *  In: string email

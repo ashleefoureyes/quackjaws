@@ -156,6 +156,7 @@ void ViewClients::reloadView()
     //currentRow needs to be saved in a variable. If the function is passed
     // to displayAnimal as a parameter it always passes -1
     int index = ui->clientList->currentRow();
+    if(index < 0 || index > 100000) { index = 0; }
     ui->clientList->clear();
     populateList();
     displayClient(index);
