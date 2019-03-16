@@ -51,3 +51,11 @@ void ClientHomepage::passBreeds(std::vector<std::string> dogBreeds, std::vector<
     this->lizardBreeds = lizardBreeds;
     this->rabbitBreeds = rabbitBreeds;
 }
+
+void ClientHomepage::on_lbEditClient_clicked()
+{
+    AddClient addClient;
+
+    addClient.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
+    addClient.editClient(client, &clientStorage);
+}

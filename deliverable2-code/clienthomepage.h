@@ -8,6 +8,7 @@
 #include "viewanimals.h"
 #include "animalstorage.h"
 #include "client.h"
+#include "addclient.h"
 
 namespace Ui {
 class ClientHomepage;
@@ -27,6 +28,8 @@ public:
 private slots:
     void on_lbLogout_clicked();
     void on_lbViewAnimals_clicked();
+
+    void on_lbEditClient_clicked();
 
 private:
     Ui::ClientHomepage *ui;
