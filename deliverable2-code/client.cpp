@@ -235,6 +235,13 @@ std::vector<std::string> Client::parseBreedsStr(std::string breedsStr)
     return vect;
 }
 
+bool Client::areAllAttributesSet()
+{
+    return !(travels < 0 || children < 0 || goodWAnimals < 0 || strangers < 0 ||
+             crowds < 0 || noises < 0 || protector < 0 || energy < 0 || fearful < 0 ||
+             affection < 0 || messy < 0);
+}
+
 std::string Client::getFirstName() { return firstName; }
 std::string Client::getLastName() { return lastName; }
 std::string Client::getAddress() { return address; }

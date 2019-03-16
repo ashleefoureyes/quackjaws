@@ -4,6 +4,9 @@
 #include <string>
 #include <vector>
 #include <QString>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
 
 class Client
 {
@@ -50,6 +53,7 @@ public:
     int getDwelling() const; int getLocation() const; int getWorkSchedule() const;
     int getActivity() const; bool getHasChildren() const; bool getHasAnimals() const;
     int getAge() const;
+    bool areAllAttributesSet();
 
     // General animal prefs
     int getTravels() const; int getChildren() const; int getGoodWAnimals() const;

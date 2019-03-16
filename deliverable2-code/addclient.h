@@ -49,6 +49,7 @@ private slots:
 private:
     Ui::AddClient *ui;
     Client **newClient;
+    Client *clientToEdit;
     ClientStorage **clientStorage;
     int returnResult;
     bool isEditingClient;
@@ -67,7 +68,7 @@ private:
     void addBreedToList(QString breed, QListWidget *breedList, QComboBox *breedBox);
     void removeBreedFromList(QString breed, QListWidget *breedList, QComboBox *breedBox, int index);
     void setClientAttributes(Client *clientToSet);
-    void createClient();
+    bool createClient();
     std::vector<std::string> createBreedVector(QListWidget* widget);
     void setupButtons();
     void fillInfoForEdit(Client* client);
@@ -76,6 +77,8 @@ private:
     void displayTextBoxError();
     void displayTextBoxError(QString err);
     void displaySubmissionError();
+    bool isContactInfoFilledOut();
+    bool areAnimalPreferencesFilledOut();
 
     std::vector<std::string> dogBreeds;
     std::vector<std::string> catBreeds;

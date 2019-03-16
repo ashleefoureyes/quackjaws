@@ -113,6 +113,8 @@ bool AddClient::handleNextButton()
     if(!(ui->txtEmail->text().size() == 0) && verifyUniqueEmail(ui->txtEmail->text().toStdString()) && !isEditingClient)
         { displayTextBoxError("Error: Client email is not unique"); return false; }
 
+    if(ui->tabClientInfo->currentIndex() == 0 && isContactInfoFilledOut()) { displayTextBoxError("Please fill out all contact information before proceeding"); return false; }
+
     ui->pbExit->setText("Back");
     // If still on Physical info tab move to Non-Physical tab
     if (ui->tabClientInfo->currentIndex() != 4)
@@ -139,8 +141,11 @@ void AddClient::handleSubmitButton()
 {
     if(areParenthesisInInput()) { displayTextBoxError("Error: Parenthesis in textbox"); return;}
 
-    createClient();
+    // If editing client don't create a new one
+    if(isEditingClient) { setClientAttributes(this->clientToEdit); returnResult = QDialog::Accepted; this->close(); return; }
 
+
+    if(createClient() == false) { return; }
     returnResult = QDialog::Accepted;
     this->close();
 }
@@ -277,14 +282,18 @@ std::vector<std::string> AddClient::createBreedVector(QListWidget* widget)
 }
 
 /** Function: createClient()
- *  Purpose: Public function to be called when the user wants to create a new client
- *           Initiates the process of opening a window and getting all user information
- *           To create a new client object and putting it in storage */
-void AddClient::createClient()
+ *  Purpose: Creates a new client and puts them in Storage */
+bool AddClient::createClient()
 {
     Client * newClient = new Client;
     setClientAttributes(newClient);
+
+    // If all attributes aren't set, don't save the client
+    if(newClient->areAllAttributesSet() == false) { delete newClient;
+        displayTextBoxError("Error, please fill out all attributes on this page"); return false; }
+
     (*clientStorage)->add(newClient);
+    return true;
 }
 
 /** Function: editClient(Client* clientToEdit, ClientStorage** storage)
@@ -298,9 +307,10 @@ bool AddClient::editClient(Client* clientToEdit, ClientStorage** storage)
     cerr << QString::fromStdString("Editing: " + clientToEdit->getFirstName());
     this->isEditingClient = true;
     this->clientStorage = storage;
+    this->clientToEdit = clientToEdit;
     populateBreedBoxes();
     fillInfoForEdit(clientToEdit);
-    setClientAttributes(clientToEdit);
+
     this->exec();
     return returnResult;
 }
@@ -550,6 +560,20 @@ void AddClient::handleExitClicked()
       }
       else { return; }
     }
+}
+
+bool AddClient::isContactInfoFilledOut()
+{
+    std::string firstName = (ui->txtFirstName->text()).toStdString();
+    std::string lastName = (ui->txtLastName->text()).toStdString();
+    std::string city = (ui->txtCity->text()).toStdString();
+    std::string province = (ui->cbProvince->currentText()).toStdString();
+    std::string address = (ui->txtAddress->text()).toStdString();
+    std::string phone = std::to_string(ui->sbAreaCode->value()) + std::to_string(ui->sbPhone->value());
+    std::string email = (ui->txtEmail->text()).toStdString();
+
+    if(firstName == "" || lastName == "" || city == "" || address == "" || email == "") { return true; }
+    return false;
 }
 
 /** Function: displayTextBoxError()
