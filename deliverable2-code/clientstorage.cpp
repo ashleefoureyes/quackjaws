@@ -164,3 +164,19 @@ bool ClientStorage::isEmailInStorage(std::string email)
 
     return false;
 }
+
+/** Function: getIdOfMatchingEmail()
+ *  In: string email
+ *  Out: Id of matching email. -1 if no match
+ *  Purpose: Checks storage for matching email
+ *           Returns Id of match. Used to check for unique email when
+             editing client*/
+int ClientStorage::getIdOfMatchingEmail(std::string email)
+{
+    for(std::vector<Client*>::iterator itera=profileList.begin(); itera != profileList.end(); ++itera)
+    {
+        if((*itera)->getEmail() == email) { return (*itera)->getId(); }
+    }
+
+    return -1;
+}

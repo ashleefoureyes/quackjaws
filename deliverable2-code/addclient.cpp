@@ -110,7 +110,7 @@ void AddClient::on_pbSubmit_clicked()
  *           And what page user is currently on */
 bool AddClient::handleNextButton()
 {
-    if(!(ui->txtEmail->text().size() == 0) && verifyUniqueEmail(ui->txtEmail->text().toStdString()) && !isEditingClient)
+    if(!(ui->txtEmail->text().size() == 0) && doesEmailAlreadyExist(ui->txtEmail->text().toStdString()))
         { displayTextBoxError("Error: Client email is not unique"); return false; }
 
     if(ui->tabClientInfo->currentIndex() == 0 && isContactInfoFilledOut()) { displayTextBoxError("Please fill out all contact information before proceeding"); return false; }
@@ -420,14 +420,19 @@ void AddClient::handleBreedlist(std::vector<std::string> breeds, QListWidget *li
     }
 }
 
-/** Function: verifyUniqueEmail()
+/** Function: doesEmailAlreadyExist()
  *  In: string email
  *  Out: True if email is not unique, false otherwise
  *  Purpose: Used to check if the entered email is already in the system
  *           Should not be called if user is editing an existing client */
-bool AddClient::verifyUniqueEmail(std::string email)
+bool AddClient::doesEmailAlreadyExist(std::string email)
 {
-    return ((*clientStorage)->isEmailInStorage(email));
+    if(!isEditingClient) { return ((*clientStorage)->isEmailInStorage(email)); }
+
+    int idOfMatch = (*clientStorage)->getIdOfMatchingEmail(email);
+
+    if(idOfMatch != clientToEdit->getId()) { return true; }
+    else { return false; }
 }
 
 void AddClient::setClientAttributes(Client* clientToSet)

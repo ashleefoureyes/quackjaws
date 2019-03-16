@@ -26,6 +26,7 @@ class ClientStorage
 
     std::string getFormattedInfo();
     bool isEmailInStorage(std::string email);
+    int getIdOfMatchingEmail(std::string email);
 
     void setLargestId(int);
 

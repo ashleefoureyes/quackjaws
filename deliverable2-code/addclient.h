@@ -72,7 +72,7 @@ private:
     std::vector<std::string> createBreedVector(QListWidget* widget);
     void setupButtons();
     void fillInfoForEdit(Client* client);
-    bool verifyUniqueEmail(std::string email);
+    bool doesEmailAlreadyExist(std::string email);
 
     void displayTextBoxError();
     void displayTextBoxError(QString err);
