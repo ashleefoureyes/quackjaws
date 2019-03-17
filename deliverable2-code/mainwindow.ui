@@ -26,8 +26,8 @@
    <string>cuACS Animal Management</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>cuacs_icon.png</normaloff>cuacs_icon.png</iconset>
+   <iconset resource="mainicon.qrc">
+    <normaloff>:/new/icons/cuacs_icon.png</normaloff>:/new/icons/cuacs_icon.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow{
@@ -52,6 +52,14 @@ border-radius:4px;
 
 QLabel{
 color: #ffffff
+}
+
+QMessageBox {
+	background-color: #1d1d1d;
+}
+
+QMessageBox QLabel{
+	color: #fff;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -149,10 +157,15 @@ color: #ffffff
     <property name="text">
      <string>Animal management system</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="mainicon.qrc"/>
+ </resources>
  <connections/>
 </ui>

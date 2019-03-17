@@ -67,6 +67,7 @@ void MainWindow::displayLoginError()
     QMessageBox msgBox;
     QString qst = QString::fromStdString("Error: Email address not in system");
     msgBox.setText(qst);
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
     msgBox.exec();
 }
 

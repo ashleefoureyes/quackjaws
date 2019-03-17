@@ -26,7 +26,83 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add Animal</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="mainicon.qrc">
+    <normaloff>:/new/icons/cuacs_icon.png</normaloff>:/new/icons/cuacs_icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color:#191919;
+}
+
+Line{
+color:#fff;
+}
+
+QPushButton{
+color: #fff;
+background-color:#c23b22;
+border-radius:7px;
+min-height: 20px;
+}
+
+QPushButton:hover{
+color:ccc;
+border-color:#2d89ef;
+border-width:2px;
+}
+
+QLabel{
+color: #ffffff
+}
+
+QTabWidget{
+background-color: #1d1d1d;
+}
+
+QTabWidget::pane{
+background-color: #1d1d1d;
+}
+
+QTabWidget QStackedWidget &gt; QWidget {
+background-color: #1d1d1d;
+}
+
+QLineEdit{
+border-radius: 4px;
+min-height: 20px;
+}
+
+QTabBar{
+background-color: #1d1d1d;
+}
+
+QTabBar::tab{
+background-color: #4d4d4d;
+border: 1px solid black;
+min-height: 15px;
+min-width: 75px;
+color: #ffffff;
+}
+
+QTabBar::tab:selected{
+background-color: #ffffff;
+color: #000000;
+}
+
+QTabBar::tab:hover{
+background-color: #aaaaaa;
+}
+
+QRadioButton{
+color: #ffffff;
+}
+
+QCheckBox{
+color: #ffffff;
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -72,8 +148,11 @@
        <height>400</height>
       </size>
      </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <property name="tabBarAutoHide">
       <bool>false</bool>
@@ -365,7 +444,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Likes travelling:</string>
+            <string>  Likes travelling:</string>
            </property>
           </widget>
          </item>
@@ -453,7 +532,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Is messy:</string>
+            <string>  Is messy:</string>
            </property>
           </widget>
          </item>
@@ -541,7 +620,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Good with animals:</string>
+            <string>  Good with animals:</string>
            </property>
           </widget>
          </item>
@@ -629,7 +708,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Good with loud noise:</string>
+            <string>  Good with loud noise:</string>
            </property>
           </widget>
          </item>
@@ -717,7 +796,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Good with children:</string>
+            <string>  Good with children:</string>
            </property>
           </widget>
          </item>
@@ -805,7 +884,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Is affectionate:</string>
+            <string>  Is affectionate:</string>
            </property>
           </widget>
          </item>
@@ -893,7 +972,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Lots of energy:</string>
+            <string>  Lots of energy:</string>
            </property>
           </widget>
          </item>
@@ -981,7 +1060,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Good in crowds:</string>
+            <string>  Good in crowds:</string>
            </property>
           </widget>
          </item>
@@ -1069,7 +1148,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Good with strangers:</string>
+            <string>  Good with strangers:</string>
            </property>
           </widget>
          </item>
@@ -1157,7 +1236,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Good home protector:</string>
+            <string>  Good home protector:</string>
            </property>
           </widget>
          </item>
@@ -1245,7 +1324,7 @@
             </size>
            </property>
            <property name="text">
-            <string>Is fearful:</string>
+            <string>  Is fearful:</string>
            </property>
           </widget>
          </item>
@@ -1333,6 +1412,18 @@
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
          <widget class="Line" name="line">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>1</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>1</height>
+           </size>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -2875,7 +2966,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="mainicon.qrc"/>
+ </resources>
  <connections/>
  <buttongroups>
   <buttongroup name="groupGender">
@@ -2883,54 +2976,12 @@
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupIsLoudBird"/>
-  <buttongroup name="groupCrowds">
+  <buttongroup name="groupStrange">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupCurious"/>
-  <buttongroup name="groupChildren">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupAffection">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupProtect">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupLifestyle">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupTravel">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupDogTrained"/>
   <buttongroup name="groupEnergy">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupAttentionRabbit"/>
-  <buttongroup name="groupTrainedCat"/>
-  <buttongroup name="groupAttentionBird"/>
-  <buttongroup name="groupMessy">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupSheds"/>
-  <buttongroup name="groupGoodAnimals">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -2940,13 +2991,55 @@
     <bool>true</bool>
    </property>
   </buttongroup>
+  <buttongroup name="groupProtect">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupTravel">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupSheds"/>
+  <buttongroup name="groupTrainedCat"/>
+  <buttongroup name="groupMessy">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupIsLoudBird"/>
+  <buttongroup name="groupCurious"/>
+  <buttongroup name="groupAttentionRabbit"/>
+  <buttongroup name="groupGoodAnimals">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
   <buttongroup name="groupBarks"/>
+  <buttongroup name="groupLifestyle">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
   <buttongroup name="groupNoise">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupStrange">
+  <buttongroup name="groupCrowds">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupDogTrained"/>
+  <buttongroup name="groupAttentionBird"/>
+  <buttongroup name="groupAffection">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupChildren">
    <property name="exclusive">
     <bool>true</bool>
    </property>

@@ -7,17 +7,53 @@
     <x>0</x>
     <y>0</y>
     <width>402</width>
-    <height>369</height>
+    <height>370</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>100</width>
-    <height>0</height>
+    <width>402</width>
+    <height>370</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>402</width>
+    <height>370</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Staff Homepage</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="mainicon.qrc">
+    <normaloff>:/new/icons/cuacs_icon.png</normaloff>:/new/icons/cuacs_icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color:#1d1d1d;
+}
+
+Line{
+color:#fff;
+}
+
+QPushButton{
+color: #fff;
+background-color:#c23b22;
+border-radius:7px;
+min-height: 20px;
+}
+
+QPushButton:hover{
+color:ccc;
+border-color:#2d89ef;
+border-width:2px;
+}
+
+QLabel{
+color: #ffffff
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -50,6 +86,18 @@
    </item>
    <item>
     <widget class="Line" name="line">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>1</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>1</height>
+      </size>
+     </property>
      <property name="lineWidth">
       <number>1</number>
      </property>
@@ -90,7 +138,7 @@
          <property name="minimumSize">
           <size>
            <width>100</width>
-           <height>41</height>
+           <height>20</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -109,7 +157,7 @@
          <property name="minimumSize">
           <size>
            <width>100</width>
-           <height>41</height>
+           <height>20</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -129,6 +177,18 @@
    </item>
    <item>
     <widget class="Line" name="line_2">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>1</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>1</height>
+      </size>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -166,7 +226,7 @@
          <property name="minimumSize">
           <size>
            <width>100</width>
-           <height>25</height>
+           <height>20</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -185,7 +245,7 @@
          <property name="minimumSize">
           <size>
            <width>100</width>
-           <height>41</height>
+           <height>20</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -205,6 +265,18 @@
    </item>
    <item>
     <widget class="Line" name="line_4">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>1</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>1</height>
+      </size>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -215,7 +287,7 @@
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>40</height>
+       <height>20</height>
       </size>
      </property>
      <property name="text">
@@ -225,6 +297,18 @@
    </item>
    <item>
     <widget class="Line" name="line_3">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>1</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>1</height>
+      </size>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -239,6 +323,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="mainicon.qrc"/>
+ </resources>
  <connections/>
 </ui>

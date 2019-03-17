@@ -36,6 +36,9 @@ void ViewAnimals::viewAnimalsFromStorage(AnimalStorage *storage, bool isStaff)
 
     this->storage = storage;
     populateList();
+
+    if(storage->getSize() == 0) { this->exec(); return;}
+
     displayAnimal(0);
     changeSpeciesTab(std::stoi(std::to_string(viewStorage.at(0)->getId()).substr(0,1)));
     this->exec();
@@ -258,6 +261,7 @@ void ViewAnimals::reloadView()
     //currentRow needs to be saved in a variable. If the function is passed
     // to displayAnimal as a parameter it always passes -1
     int index = ui->animalList->currentRow();
+    if(index < 0 || index > storage->getSize()) { index = 0; }
 
     populateList();
     displayAnimal(index);
