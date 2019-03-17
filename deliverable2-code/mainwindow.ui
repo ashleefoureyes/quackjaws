@@ -10,8 +10,49 @@
     <height>300</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>300</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>cuACS Animal Management</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>cuacs_icon.png</normaloff>cuacs_icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+background-color:#1d1d1d;
+}
+
+QPushButton{
+color: #fff;
+background-color:#c23b22;
+border-radius:7px;
+}
+
+QPushButton:hover{
+color:ccc;
+border-color:#2d89ef;
+border-width:2px;
+}
+
+QLineEdit{
+border-radius:4px;
+}
+
+QLabel{
+color: #ffffff
+}</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="bClientEntry">
@@ -110,15 +151,6 @@
     </property>
    </widget>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
     //db->initDatabase();
     initBreeds();
+    //QMainWindow::setWindowIcon(QIcon(":/cuacs_icon.png"));
 }
 
 MainWindow::~MainWindow()
