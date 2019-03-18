@@ -10,6 +10,7 @@
 
 #include "client.h"
 #include "clientstorage.h"
+#include "databasestorage.h"
 
 namespace Ui {
 class AddClient;
@@ -56,6 +57,8 @@ private:
     void setBreedAttributes(QComboBox *ageBox, QComboBox *sizeBox, QComboBox *sexBox, QComboBox *furBox, QRadioButton *allergiesYes, QRadioButton *allergiesNo,
                                        int age, int size, int sex, int fur, bool allergies,
                                        std::string colour, QComboBox *colourBox);
+
+    databaseStorage* db;
 
     void handleBreedlist(std::vector<std::string> breeds, QListWidget *list, QComboBox *breedBox);
 

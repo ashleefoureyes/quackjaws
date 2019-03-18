@@ -10,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     // COMMENTED OUT FOR TESTING NEW VIEW CLIENT
-    //databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
-    //db->initDatabase();
+    databaseStorage *db = new databaseStorage(&animalStorage, &clientStorage);
+    db->initDatabase();
     initBreeds();
     //QMainWindow::setWindowIcon(QIcon(":/cuacs_icon.png"));
 }

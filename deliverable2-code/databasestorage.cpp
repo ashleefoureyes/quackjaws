@@ -41,19 +41,18 @@ void databaseStorage::initDatabase(){
        if (db.open()){
            cerr << "SUCCESS - DB OPENED\n";
            QSqlQuery query;
-           query.exec("CREATE TABLE IF NOT EXISTS clientStorage(idNum INTEGER PRIMARY KEY, fName TEXT, lName TEXT, address TEXT, phone TEXT, email TEXT, city TEXT, prov TEXT);");
-           query.exec("CREATE TABLE IF NOT EXISTS dogStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, barks INTEGER, training INTEGER, bathroomTrained INTEGER, goodBoy INTEGER, filepath TEXT);");
-           query.exec("CREATE TABLE IF NOT EXISTS catStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, curiosity INTEGER, trained INTEGER, shedding INTEGER, filepath TEXT);");
-           query.exec("CREATE TABLE IF NOT EXISTS birdStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, loud INTEGER, social INTEGER, colour TEXT, filepath TEXT);");
-           query.exec("CREATE TABLE IF NOT EXISTS lizardStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, diet TEXT, colour TEXT, feed TEXT, space INTEGER, light INTEGER, filepath TEXT);");
-           query.exec("CREATE TABLE IF NOT EXISTS rabbitStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, pattern TEXT, colour TEXT, grooming INTEGER, attention INTEGER, filepath TEXT);");
-
-           query.exec("INSERT INTO clientStorage VALUES(1100,'Mitch','Marner','238 Bay Street','4837397362','mm16@gmail.com','Toronto','Ontario');");
-           query.exec("INSERT INTO clientStorage VALUES(1101,'Auston','Matthews','283 Beckwith St','4732796382','a.matthews34@gmail.com','Montreal','Quebec');");
-           query.exec("INSERT INTO clientStorage VALUES(1102,'John','Tavares','38 Main St','9362847625','jt9191@gmail.com','Happy Vally Goose Bay','Newfoundland and Labrador');");
-           query.exec("INSERT INTO clientStorage VALUES(1103,'William','Nylander','937 Patrick Lane','7309751372','slick_willie29@gmail.com','Calgary','Alberta');");
-           query.exec("INSERT INTO clientStorage VALUES(1104,'Morgan','Rielly','4836 Sharp St','479367287','mo.riles44@gmail.com','Vancouver','British Columbia');");
-           query.exec("INSERT INTO clientStorage VALUES(1105,'Nazim','Kadri','28547 Tenth Line', '7925670987','nazzer43@gmail.com','Moncton','New Brunswick');");
+             query.exec("CREATE TABLE IF NOT EXISTS clientStorage(idNum INTEGER PRIMARY KEY, fName TEXT, lName TEXT, address TEXT, phone TEXT, email TEXT, city TEXT, prov TEXT, dwelling INTEGER, location INTEGER, workSchedule INTEGER, activity INTEGER, hasChildren INTEGER, hasAnimals INTEGER, travels INTEGER, children INTEGER, goodWAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, wantsDog INTEGER, hasDogAllergies INTEGER, dogBreeds TEXT, dogAge INTEGER, dogSize INTEGER, dogGender INTEGER, followsCommandsDog INTEGER, houseTrained INTEGER, wantsCat, hasCatAllergies INTEGER, catBreeds TEXT, catAge INTEGER, catSize INTEGER, catGender INTEGER, isCurious INTEGER, followCommandsCat INTEGER, doesntShed INTEGER, wantsBird INTEGER, hasBirdAllergies INTEGER, birdBreeds TEXT, birdAge INTEGER, birdSize INTEGER, birdGender INTEGER, isQuietBird INTEGER, isSocialBird INTEGER, birdColour TEXT, wantsLizard INTEGER, hasLizardAllergies INTEGER, lizardBreeds TEXT, lizardAge INTEGER, lizardSize INTEGER, lizardGender INTEGER, easyToFeed INTEGER, simpleLiving INTEGER, lizardColour TEXT, wantsRabbit INTEGER, hasRabbitAllergies INTEGER, rabbitBreeds INTEGER, rabbitAge INTEGER, rabbitSize INTEGER, rabbitGender INTEGER, isSocialRabbit INTEGER, needsGrooming INTEGER, rabbitColour TEXT, dogFur INTEGER ,catFur INTEGER, birdFur INTEGER, lizardFur INTEGER, rabbitFur INTEGER, quietness INTEGER, age INTEGER);");
+             query.exec("CREATE TABLE IF NOT EXISTS dogStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, barks INTEGER, training INTEGER, bathroomTrained INTEGER, goodBoy INTEGER, filepath TEXT);");
+             query.exec("CREATE TABLE IF NOT EXISTS catStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, curiosity INTEGER, trained INTEGER, shedding INTEGER, filepath TEXT);");
+             query.exec("CREATE TABLE IF NOT EXISTS birdStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, loud INTEGER, social INTEGER, colour TEXT, filepath TEXT);");
+             query.exec("CREATE TABLE IF NOT EXISTS lizardStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, diet TEXT, colour TEXT, feed TEXT, space INTEGER, light INTEGER, filepath TEXT);");
+             query.exec("CREATE TABLE IF NOT EXISTS rabbitStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, pattern TEXT, colour TEXT, grooming INTEGER, attention INTEGER, filepath TEXT);");
+//           query.exec("INSERT INTO clientStorage VALUES(1100,'Mitch','Marner','238 Bay Street','4837397362','mm16@gmail.com','Toronto','Ontario');");
+//           query.exec("INSERT INTO clientStorage VALUES(1101,'Auston','Matthews','283 Beckwith St','4732796382','a.matthews34@gmail.com','Montreal','Quebec');");
+//           query.exec("INSERT INTO clientStorage VALUES(1102,'John','Tavares','38 Main St','9362847625','jt9191@gmail.com','Happy Vally Goose Bay','Newfoundland and Labrador');");
+//           query.exec("INSERT INTO clientStorage VALUES(1103,'William','Nylander','937 Patrick Lane','7309751372','slick_willie29@gmail.com','Calgary','Alberta');");
+//           query.exec("INSERT INTO clientStorage VALUES(1104,'Morgan','Rielly','4836 Sharp St','479367287','mo.riles44@gmail.com','Vancouver','British Columbia');");
+//           query.exec("INSERT INTO clientStorage VALUES(1105,'Nazim','Kadri','28547 Tenth Line', '7925670987','nazzer43@gmail.com','Moncton','New Brunswick');");
 
             query.exec("INSERT INTO dogStorage VALUES(2105,'Golden Retriever','Goldy',1,1,'M',1,4,4,4,4,3,2,1,4,1,4,4,0,0,'Outdoor','Street Animal',3,0,1,1,'animalPhotos/Goldy.jpg');");
             query.exec("INSERT INTO dogStorage VALUES(2106,'German Sheperd','Germaine',3,6,'F',2,4,3,2,3,1,2,3,1,4,2,0,0,0,'Outdoor','Street Animal',1,4,1,1,'animalPhotos/Germaine.jpg');");
@@ -97,24 +96,111 @@ int databaseStorage::addClientToDatabase(Client *c){
     QSqlQuery query;
     QTextStream cerr(stderr);
 
-   query.prepare("INSERT INTO clientStorage(idNum, fName, lName, address, phone, email, city, prov) VALUES (:i, :f, :l, :a, :p, :e, :c, :r)");
-    query.bindValue(":i", c->getId());
-    query.bindValue(":f", QString::fromStdString(c->getFirstName()));
-    query.bindValue(":l", QString::fromStdString(c->getLastName()));
-    query.bindValue(":a", QString::fromStdString(c->getAddress()));
-    query.bindValue(":p", QString::fromStdString(c->getPhoneNum()));
-    query.bindValue(":e", QString::fromStdString(c->getEmail()));
-    query.bindValue(":c", QString::fromStdString(c->getCity()));
-    query.bindValue(":r", QString::fromStdString(c->getProvince()));
-   if(query.exec()) {
-          cerr << "CLIENT ADDED";
-      }
-      else{
+    query.prepare("INSERT INTO clientStorage(idNum, fName, lName, address, phone, email, city, prov, "
+                  "dwelling, location, workSchedule, activity, hasChildren, hasAnimals, travels, children, "
+                  "goodWAnimals, strangers, crowds, noises, protector, energy, fearful, affection, messy, "
+                  "wantsDog, hasDogAllergies, dogBreeds, dogAge, dogSize, dogGender, followsCommandsDog, houseTrained, "
+                  "wantsCat, hasCatAllergies, catBreeds, catAge, catSize, catGender, isCurious, followCommandsCat, doesntShed,"
+                  " wantsBird, hasBirdAllergies, birdBreeds, birdAge, birdSize, birdGender, isQuietBird, isSocialBird, birdColour,"
+                  " wantsLizard, hasLizardAllergies, lizardBreeds, lizardAge, lizardSize, lizardGender, easyToFeed, simpleLiving, lizardColour, "
+                  "wantsRabbit, hasRabbitAllergies, rabbitBreeds, rabbitAge, rabbitSize, rabbitGender, isSocialRabbit, needsGrooming, rabbitColour,"
+                  " dogFur, catFur, birdFur, lizardFur, rabbitFur, quietness, age) VALUES (:idNum, :fName, :lName, :address, :phone, :email, :city, :prov, :dwelling, :location, :workSchedule, :activity, :hasChildren, :hasAnimals, :travels, :children, :goodWAnimals, :strangers, :crowds, :noises, :protector, :energy, :fearful, :affection, :messy, :wantsDog, :hasDogAllergies, :dogBreeds, :dogAge, :dogSize, :dogGender, :followsCommandsDog, :houseTrained, :wantsCat, :hasCatAllergies, :catBreeds, :catAge, :catSize, :catGender, :isCurious, :followCommandsCat, :doesntShed, :wantsBird, :hasBirdAllergies, :birdBreeds, :birdAge, :birdSize, :birdGender, :isQuietBird, :isSocialBird, :birdColour, :wantsLizard, :hasLizardAllergies, :lizardBreeds, :lizardAge, :lizardSize, :lizardGender, :easyToFeed, :simpleLiving, :lizardColour, :wantsRabbit, :hasRabbitAllergies, :rabbitBreeds, :rabbitAge, :rabbitSize, :rabbitGender, :isSocialRabbit, :needsGrooming, :rabbitColour, :dogFur, :catFur, :birdFur, :lizardFur, :rabbitFur, :quietness, :age)");
 
-       cerr << "ERROR ADDING \n";
-        qDebug() << "addPerson error:"
-                        << query.lastError();
-      }
+        query.bindValue(":idNum", c->getId());
+        query.bindValue(":fName", QString::fromStdString(c->getFirstName()));
+        query.bindValue(":lName", QString::fromStdString(c->getLastName()));
+        query.bindValue(":address", QString::fromStdString(c->getAddress()));
+        query.bindValue(":phone", QString::fromStdString(c->getPhoneNum()));
+        query.bindValue(":email", QString::fromStdString(c->getEmail()));
+        query.bindValue(":city", QString::fromStdString(c->getCity()));
+        query.bindValue(":prov", QString::fromStdString(c->getProvince()));
+
+        query.bindValue(":dwelling", c->getDwelling());
+        query.bindValue(":location", c->getLocation());
+        query.bindValue(":workSchedule", c->getWorkSchedule());
+        query.bindValue(":activity", c->getActivity());
+        query.bindValue(":hasChildren", c->getHasChildren());
+        query.bindValue(":hasAnimals", c->getHasAnimals());
+        query.bindValue(":travels", c->getTravels());
+        query.bindValue(":children", c->getChildren());
+
+        query.bindValue(":goodWAnimals", c->getGoodWAnimals());
+        query.bindValue(":strangers", c->getStrangers());
+        query.bindValue(":crowds", c->getCrowds());
+        query.bindValue(":noises", c->getNoises());
+        query.bindValue(":protector", c->getProtector());
+        query.bindValue(":energy", c->getEnergy());
+        query.bindValue(":fearful", c->getFearful());
+        query.bindValue(":affection", c->getAffection());
+        query.bindValue(":messy", c->getMessy());
+
+        query.bindValue(":wantsDog", c->getWantsDog());
+        query.bindValue(":hasDogAllergies", c->getHasDogAllergies());
+        query.bindValue(":dogBreeds", QString::fromStdString(c->getDogBreedStr()));
+        query.bindValue(":dogAge", c->getDogAge());
+        query.bindValue(":dogSize", c->getDogSize());
+        query.bindValue(":dogGender", c->getDogGender());
+        query.bindValue(":followsCommandsDog", c->getFollowsCommandsDog());
+        query.bindValue(":houseTrained", c->getHouseTrained());
+
+        query.bindValue(":wantsCat", c->getWantsCat());
+        query.bindValue(":hasCatAllergies", c->getHasCatAllergies());
+        query.bindValue(":catBreeds", QString::fromStdString(c->getCatBreedStr()));
+        query.bindValue(":catAge", c->getCatAge());
+        query.bindValue(":catSize", c->getCatSize());
+        query.bindValue(":catGender", c->getCatGender());
+        query.bindValue(":isCurious", c->getIsCurious());
+        query.bindValue(":followCommandsCat", c->getFollowCommandsCat());
+        query.bindValue(":doesntShed", c->getDoesntShed());
+
+        query.bindValue(":wantsBird", c->getWantsBird());
+        query.bindValue(":hasBirdAllergies", c->getHasBirdAllergies());
+        query.bindValue(":birdBreeds", QString::fromStdString(c->getBirdBreedStr()));
+        query.bindValue(":birdAge", c->getBirdAge());
+        query.bindValue(":birdSize", c->getBirdSize());
+        query.bindValue(":birdGender", c->getBirdGender());
+        query.bindValue(":isQuietBird", c->getIsQuietBird());
+        query.bindValue(":isSocialBird", c->getIsSocialBird());
+        query.bindValue(":birdColour", QString::fromStdString(c->getBirdColour()));
+
+        query.bindValue(":wantsLizard", c->getWantsLizard());
+        query.bindValue(":hasLizardAllergies", c->getHasLizardAllergies());
+        query.bindValue(":lizardBreeds", QString::fromStdString(c->getLizardBreedStr()));
+        query.bindValue(":lizardAge", c->getLizardAge());
+        query.bindValue(":lizardSize", c->getLizardSize());
+        query.bindValue(":lizardGender", c->getLizardGender());
+        query.bindValue(":easyToFeed", c->getEasyToFeed());
+        query.bindValue(":simpleLiving", c->getSimpleLiving());
+        query.bindValue(":lizardColour", QString::fromStdString(c->getLizardColour()));
+
+        query.bindValue(":wantsRabbit", c->getWantsRabbit());
+        query.bindValue(":hasRabbitAllergies", c->getHasRabbitAllergies());
+        query.bindValue(":rabbitBreeds", QString::fromStdString(c->getRabbitBreedStr()));
+        query.bindValue(":rabbitAge", c->getRabbitAge());
+        query.bindValue(":rabbitSize", c->getRabbitSize());
+        query.bindValue(":rabbitGender", c->getRabbitGender());
+        query.bindValue(":isSocialRabbit", c->getIsSocialRabbit());
+        query.bindValue(":needsGrooming", c->getNeedsGrooming());
+        query.bindValue(":rabbitColour", QString::fromStdString(c->getRabbitColour()));
+
+        query.bindValue(":dogFur", c->getDogFur());
+        query.bindValue(":catFur", c->getCatFur());
+        query.bindValue(":birdFur", c->getBirdFur());
+        query.bindValue(":lizardFur", c->getLizardFur());
+        query.bindValue(":rabbitFur", c->getRabbitFur());
+        query.bindValue(":quietness", c->getQuietness());
+        query.bindValue(":age", c->getAge());
+
+    if(query.exec()) {
+           cerr << "CLIENT ADDED TO TABLE";
+       }
+       else{
+
+        cerr << "ERROR ADDING \n";
+         qDebug() << "addPerson error:"
+                         << query.lastError();
+       }
+
     return 0;
 }
 
@@ -370,8 +456,12 @@ int databaseStorage::loadDatabase(){
     QSqlQuery q;
     QTextStream cerr(stderr);
 
- // Get All clients from Database //
+    //-------------------------------------------------//
+    //           GET CLIENTS FROM DATABASE             //
+    //-------------------------------------------------//
+
     q.exec("SELECT * FROM clientStorage;");
+
     while (q.next()) {
         int id = q.value(0).toInt();
         QString fName = q.value(1).toString();
@@ -381,18 +471,102 @@ int databaseStorage::loadDatabase(){
         QString email = q.value(5).toString();
         QString city = q.value(6).toString();
         QString prov = q.value(7).toString();
-
         std::stoi((std::to_string(id).substr(1)));
 
+        int dwelling = q.value(8).toInt();
+        int location = q.value(9).toInt();
+        int workSchedule = q.value(10).toInt();
+        int activity = q.value(11).toInt();
+        int hasChildren = q.value(12).toInt();
+        int hasAnimals = q.value(13).toInt();
+        int travels = q.value(14).toInt();
+        int children = q.value(15).toInt();
+        int goodWAnimals = q.value(16).toInt();
+        int strangers = q.value(17).toInt();
+        int crowds = q.value(18).toInt();
+        int noises = q.value(19).toInt();
+        int protector = q.value(20).toInt();
+        int energy = q.value(21).toInt();
+        int fearful = q.value(22).toInt();
+        int affection = q.value(23).toInt();
+        int messy = q.value(24).toInt();
+
+        int wantsDog = q.value(25).toInt();
+        int hasDogAllergies = q.value(26).toInt();
+        QString dogBreeds = q.value(27).toString();
+        int dogAge = q.value(28).toInt();
+        int dogSize = q.value(29).toInt();
+        int dogGender = q.value(30).toInt();
+        int followsCommandsDog = q.value(31).toInt();
+        int houseTrained = q.value(32).toInt();
+
+        int wantsCat = q.value(33).toInt();
+        int hasCatAllergies = q.value(34).toInt();
+        QString catBreeds = q.value(35).toString();
+        int catAge = q.value(36).toInt();
+        int catSize = q.value(37).toInt();
+        int catGender = q.value(38).toInt();
+        int isCurious = q.value(39).toInt();
+        int followCommandsCat = q.value(40).toInt();
+        int doesntShed = q.value(41).toInt();
+
+        int wantsBird = q.value(42).toInt();
+        int hasBirdAllergies = q.value(43).toInt();
+        QString birdBreeds = q.value(44).toString();
+        int birdAge = q.value(45).toInt();
+        int birdSize = q.value(46).toInt();
+        int birdGender = q.value(47).toInt();
+        int isQuietBird = q.value(48).toInt();
+        int isSocialBird = q.value(49).toInt();
+        QString birdColour = q.value(50).toString();
+
+        int wantsLizard = q.value(51).toInt();
+        int hasLizardAllergies = q.value(52).toInt();
+        QString lizardBreeds = q.value(53).toString();
+        int lizardAge = q.value(54).toInt();
+        int lizardSize = q.value(55).toInt();
+        int lizardGender = q.value(56).toInt();
+        int easyToFeed = q.value(57).toInt();
+        int simpleLiving = q.value(58).toInt();
+        QString lizardColour = q.value(59).toString();
+
+        int wantsRabbit = q.value(60).toInt();
+        int hasRabbitAllergies = q.value(61).toInt();
+        QString rabbitBreeds = q.value(62).toString();
+        int rabbitAge = q.value(63).toInt();
+        int rabbitSize = q.value(64).toInt();
+        int rabbitGender = q.value(65).toInt();
+        int isSocialRabbit = q.value(66).toInt();
+        int needsGrooming = q.value(67).toInt();
+        QString rabbitColour = q.value(68).toString();
+
+        int dogFur = q.value(69).toInt();
+        int catFur = q.value(70).toInt();
+        int birdFur = q.value(71).toInt();
+        int lizardFur = q.value(72).toInt();
+        int rabbitFur = q.value(73).toInt();
+        int quietness = q.value(74).toInt();
+        int age = q.value(75).toInt();
+
         Client *c = new Client;
-        c->setContactInformation(fName.toStdString(), lName.toStdString(), add.toStdString(), phone.toStdString(), email.toStdString(), city.toStdString(), prov.toStdString());
+
+        std::vector<std::string> dogB, catB, birdB, lizB, rabB;
+        dogB = c->parseBreedsStr(dogBreeds.toStdString());
+        catB = c->parseBreedsStr(catBreeds.toStdString());
+        birdB = c->parseBreedsStr(birdBreeds.toStdString());
+        lizB = c->parseBreedsStr(lizardBreeds.toStdString());
+        rabB = c->parseBreedsStr(rabbitBreeds.toStdString());
+
+        c->setClientAttributes(fName.toStdString(), lName.toStdString(), add.toStdString(), phone.toStdString(), email.toStdString(), city.toStdString(), prov.toStdString(), dwelling,  location,  workSchedule, activity,  hasChildren, hasAnimals,  travels,  children,  goodWAnimals,  strangers, crowds,  noises,  protector,  energy,  fearful,  affection, messy, wantsDog,  hasDogAllergies,  dogB,  dogAge,  dogSize,  dogGender, followsCommandsDog,  houseTrained, wantsCat,  hasCatAllergies,  catB,  catAge,  catSize,  catGender, isCurious,  followCommandsCat,  doesntShed, wantsBird,  hasBirdAllergies,  birdB,  birdAge,  birdSize,  birdGender, isQuietBird, isSocialBird, birdColour.toStdString(), wantsLizard, hasLizardAllergies,  lizB,  lizardAge,  lizardSize,  lizardGender, easyToFeed,  simpleLiving,  lizardColour.toStdString(), wantsRabbit,  hasRabbitAllergies,  rabB,  rabbitAge,  rabbitSize,  rabbitGender, isSocialRabbit,  needsGrooming,  rabbitColour.toStdString(), dogFur,  catFur,  birdFur,  lizardFur,  rabbitFur,  quietness,  age);
         c->setIdNumber(std::stoi((std::to_string(id).substr(1))));
         (*clientStorage).add(c);
+       }
 
-       // cerr << c->getId() << fName << lName << add << phone << email << city << prov << "\n";
-    }
 
-    // Get All Dogs from Database //
+    //-------------------------------------------------//
+    //           GET DOGS FROM DATABASE                //
+    //-------------------------------------------------//
+
     q.exec("SELECT * FROM dogStorage;");
     while (q.next()) {
         int idNum = q.value(0).toInt();
@@ -436,11 +610,12 @@ int databaseStorage::loadDatabase(){
         a->setImageFilePath(filepath.toStdString());
         a->setBreed(breed.toStdString());
         (*animalStorage).add(a);
-
-        //cerr << "DOG ID" <<a->getId()<<"\n";
     }
 
-        // Get All CATS from Database //
+    //-------------------------------------------------//
+    //           GET CATS FROM DATABASE                //
+    //-------------------------------------------------//
+
     q.exec("SELECT * FROM catStorage;");
         while (q.next()) {
         int idNum = q.value(0).toInt();
@@ -484,12 +659,13 @@ int databaseStorage::loadDatabase(){
         a->setBreed(breed.toStdString());
 
         (*animalStorage).add(a);
-
-        //cerr << "CAT ID" <<a->getId()<<"\n";
     }
 
-            // Get All LIZARD from Database //
-    q.exec("SELECT * FROM lizardStorage;");
+    //-------------------------------------------------//
+    //           GET LIZARDS FROM DATABASE             //
+    //-------------------------------------------------//
+
+        q.exec("SELECT * FROM lizardStorage;");
         while (q.next()) {
         int idNum = q.value(0).toInt();
         QString breed = q.value(1).toString();
@@ -534,10 +710,12 @@ int databaseStorage::loadDatabase(){
         a->setBreed(breed.toStdString());
 
         (*animalStorage).add(a);
-
-       // cerr << "LIZARD ID" <<a->getId()<<"\n";
     }
-    // Get All Birds from Database //
+
+    //-------------------------------------------------//
+    //           GET BIRDS FROM DATABASE               //
+    //-------------------------------------------------//
+
     q.exec("SELECT * FROM birdStorage;");
         while (q.next()) {
         int idNum = q.value(0).toInt();
@@ -581,11 +759,12 @@ int databaseStorage::loadDatabase(){
         a->setBreed(breed.toStdString());
 
         (*animalStorage).add(a);
-
-       // cerr << "Bird ID" <<a->getId()<<"\n";
     }
 
-    // Get All Rabbits from Database //
+    //-------------------------------------------------//
+    //           GET RABBITS FROM DATABASE             //
+    //-------------------------------------------------//
+
     q.exec("SELECT * FROM rabbitStorage;");
         while (q.next()) {
         int idNum = q.value(0).toInt();
@@ -632,8 +811,6 @@ int databaseStorage::loadDatabase(){
         a->setBreed(breed.toStdString());
 
         (*animalStorage).add(a);
-
-        //cerr << "Rabbit ID" <<a->getId() <<"\n";
     }
 
         int n;

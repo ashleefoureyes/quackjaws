@@ -296,6 +296,7 @@ bool AddClient::createClient()
         displayTextBoxError("Error, please fill out all attributes on this page"); return false; }
 
     (*clientStorage)->add(newClient);
+    db->addClientToDatabase(newClient);
     // Will Watt add to db here
     return true;
 }
