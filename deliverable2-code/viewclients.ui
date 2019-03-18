@@ -23,7 +23,92 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>View Clients</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="mainicon.qrc">
+    <normaloff>:/new/icons/cuacs_icon.png</normaloff>:/new/icons/cuacs_icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color:#191919;
+}
+
+Line{
+color:#fff;
+}
+
+QProgressBar{
+border: 2px solid grey;
+border-radius: 5px;
+}
+
+QProgressBar::chunk{
+background-color: #c23b22;
+}
+
+QPushButton{
+color: #fff;
+background-color:#c23b22;
+border-radius:7px;
+min-height: 20px;
+}
+
+QPushButton:hover{
+color:ccc;
+border-color:#2d89ef;
+border-width:2px;
+}
+
+QLabel{
+color: #ffffff
+}
+
+QTabWidget{
+background-color: #1d1d1d;
+}
+
+QTabWidget::pane{
+background-color: #1d1d1d;
+}
+
+QTabWidget QStackedWidget &gt; QWidget {
+background-color: #1d1d1d;
+}
+
+QLineEdit{
+border-radius: 4px;
+min-height: 20px;
+}
+
+QTabBar{
+background-color: #1d1d1d;
+}
+
+QTabBar::tab{
+background-color: #4d4d4d;
+border: 1px solid black;
+min-height: 15px;
+min-width: 100px;
+color: #ffffff;
+}
+
+QTabBar::tab:selected{
+background-color: #ffffff;
+color: #000000;
+}
+
+QTabBar::tab:hover{
+background-color: #aaaaaa;
+}
+
+QRadioButton{
+color: #ffffff;
+}
+
+QCheckBox{
+color: #ffffff;
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -56,7 +141,7 @@
          </size>
         </property>
         <property name="text">
-         <string>No clients in storage</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -769,7 +854,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="mainicon.qrc"/>
+ </resources>
  <connections/>
  <buttongroups>
   <buttongroup name="groupSpecies"/>

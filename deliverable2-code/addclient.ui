@@ -11,7 +11,100 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add Client</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="mainicon.qrc">
+    <normaloff>:/new/icons/cuacs_icon.png</normaloff>:/new/icons/cuacs_icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color:#191919;
+}
+
+Line{
+color:#fff;
+}
+
+QProgressBar{
+border: 2px solid grey;
+border-radius: 5px;
+}
+
+QProgressBar::chunk{
+background-color: #c23b22;
+}
+
+QPushButton{
+color: #fff;
+background-color:#c23b22;
+border-radius:7px;
+min-height: 20px;
+}
+
+QPushButton:hover{
+color:ccc;
+border-color:#2d89ef;
+border-width:2px;
+}
+
+QLabel{
+color: #ffffff
+}
+
+QTabWidget{
+background-color: #1d1d1d;
+}
+
+QTabWidget::pane{
+background-color: #1d1d1d;
+}
+
+QTabWidget QStackedWidget &gt; QWidget {
+background-color: #1d1d1d;
+}
+
+QLineEdit{
+border-radius: 4px;
+min-height: 20px;
+}
+
+QTabBar{
+background-color: #1d1d1d;
+}
+
+QTabBar::tab{
+background-color: #4d4d4d;
+border: 1px solid black;
+min-height: 15px;
+min-width: 50px;
+color: #ffffff;
+}
+
+QTabBar::tab:selected{
+background-color: #ffffff;
+color: #000000;
+}
+
+QTabBar::tab:hover{
+background-color: #aaaaaa;
+}
+
+QRadioButton{
+color: #ffffff;
+}
+
+QCheckBox{
+color: #ffffff;
+}
+
+QComboBox{
+background-color: #ffffff;
+border-radius: 4px;
+min-height: 20px;
+}
+
+</string>
   </property>
   <widget class="QTabWidget" name="tabClientInfo">
    <property name="enabled">
@@ -38,7 +131,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tabContact">
     <attribute name="title">
@@ -156,7 +249,7 @@
            <property name="minimumSize">
             <size>
              <width>150</width>
-             <height>0</height>
+             <height>20</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -754,7 +847,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tab_5">
       <property name="enabled">
@@ -4510,27 +4603,29 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="mainicon.qrc"/>
+ </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupRabbitAllergies"/>
-  <buttongroup name="groupLizardAllergies"/>
-  <buttongroup name="groupMessy"/>
-  <buttongroup name="groupOtherAnimals"/>
-  <buttongroup name="groupActivityLevel"/>
-  <buttongroup name="groupFearful"/>
-  <buttongroup name="groupProtector"/>
-  <buttongroup name="groupTravel"/>
   <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupLoudNoise"/>
-  <buttongroup name="groupChildren"/>
-  <buttongroup name="groupCatAllergies"/>
+  <buttongroup name="groupOtherAnimals"/>
   <buttongroup name="groupStrangers"/>
+  <buttongroup name="groupTravel"/>
+  <buttongroup name="groupActivityLevel"/>
+  <buttongroup name="groupLoudNoise"/>
+  <buttongroup name="groupRabbitAllergies"/>
+  <buttongroup name="groupMessy"/>
+  <buttongroup name="groupFearful"/>
+  <buttongroup name="groupCatAllergies"/>
   <buttongroup name="groupAnimals"/>
-  <buttongroup name="groupYoungChildren"/>
-  <buttongroup name="groupAffection"/>
   <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupLizardAllergies"/>
   <buttongroup name="groupDogAllergies"/>
+  <buttongroup name="groupProtector"/>
+  <buttongroup name="groupAffection"/>
+  <buttongroup name="groupChildren"/>
+  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupYoungChildren"/>
  </buttongroups>
 </ui>
