@@ -98,12 +98,6 @@ QCheckBox{
 color: #ffffff;
 }
 
-QComboBox{
-background-color: #ffffff;
-border-radius: 4px;
-min-height: 20px;
-}
-
 </string>
   </property>
   <widget class="QTabWidget" name="tabClientInfo">
@@ -249,7 +243,7 @@ min-height: 20px;
            <property name="minimumSize">
             <size>
              <width>150</width>
-             <height>20</height>
+             <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -4608,24 +4602,24 @@ min-height: 20px;
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupOtherAnimals"/>
-  <buttongroup name="groupStrangers"/>
-  <buttongroup name="groupTravel"/>
-  <buttongroup name="groupActivityLevel"/>
-  <buttongroup name="groupLoudNoise"/>
-  <buttongroup name="groupRabbitAllergies"/>
-  <buttongroup name="groupMessy"/>
-  <buttongroup name="groupFearful"/>
-  <buttongroup name="groupCatAllergies"/>
-  <buttongroup name="groupAnimals"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupLizardAllergies"/>
+  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupAffection"/>
   <buttongroup name="groupDogAllergies"/>
   <buttongroup name="groupProtector"/>
-  <buttongroup name="groupAffection"/>
+  <buttongroup name="groupRabbitAllergies"/>
+  <buttongroup name="groupOtherAnimals"/>
+  <buttongroup name="groupFearful"/>
+  <buttongroup name="groupStrangers"/>
   <buttongroup name="groupChildren"/>
-  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupAnimals"/>
+  <buttongroup name="groupCrowds"/>
+  <buttongroup name="groupTravel"/>
+  <buttongroup name="groupCatAllergies"/>
+  <buttongroup name="groupEnergy"/>
+  <buttongroup name="groupLizardAllergies"/>
   <buttongroup name="groupYoungChildren"/>
+  <buttongroup name="groupActivityLevel"/>
+  <buttongroup name="groupLoudNoise"/>
+  <buttongroup name="groupMessy"/>
  </buttongroups>
 </ui>

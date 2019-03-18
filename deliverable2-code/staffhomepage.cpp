@@ -89,6 +89,7 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
 {
     QMessageBox msgBox;
     QString qst = QString::fromStdString("Feature coming soon!");
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
     msgBox.setText(qst);
     msgBox.exec();
 }

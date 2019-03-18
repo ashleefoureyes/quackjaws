@@ -567,14 +567,13 @@ void AddClient::handleExitClicked()
     }
 
     else {
-      QMessageBox::StandardButton answer;
-      answer = QMessageBox::question(this, "Quit?", "Are you sure you want to quit\n"
-                                                    "All client information will be lost",
-                                                     QMessageBox::Yes|QMessageBox::No);
-      if(answer == QMessageBox::Yes) {
-          this->close();
-      }
-      else { return; }
+      QMessageBox msgBox;
+      msgBox.setText("Are you sure you want to quit\nAll client information will be lost");
+      msgBox.setStandardButtons(QMessageBox::Yes);
+      msgBox.addButton(QMessageBox::No);
+      msgBox.setDefaultButton(QMessageBox::No);
+      msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
+      if(msgBox.exec() == QMessageBox::Yes) { this->close(); }
     }
 }
 
@@ -603,6 +602,7 @@ void AddClient::displayTextBoxError()
     QMessageBox msgBox;
     QString qst = QString::fromStdString("Unspecified error occured");
     msgBox.setText(qst);
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
     msgBox.exec();
 }
 
@@ -612,6 +612,7 @@ void AddClient::displayTextBoxError()
 void AddClient::displayTextBoxError(QString err)
 {
     QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
     msgBox.setText(err);
     msgBox.exec();
 }

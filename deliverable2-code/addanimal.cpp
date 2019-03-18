@@ -684,6 +684,7 @@ void AddAnimal::displayAnimalNameError(QString name)
 
     QMessageBox msgBox;
     msgBox.setText(err);
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
     msgBox.exec();
 }
 
@@ -692,6 +693,7 @@ void AddAnimal::displayMissingInfoError()
     QString err = QString("Error:\nOne or more animal attributes are not complete\nPlease fill them all out before proceeding");
 
     QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
     msgBox.setText(err);
     msgBox.exec();
 }
