@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>433</width>
-    <height>438</height>
+    <height>451</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>433</width>
+    <height>451</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>433</width>
+    <height>451</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Add Client</string>
@@ -94,11 +106,69 @@ QRadioButton{
 color: #ffffff;
 }
 
+QRadioButton::indicator:hover{
+background-color: #c23b22;
+}
+
+QRadioButton::indicator:checked{
+background-color: #c23b22;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:checked:disabled{
+background-color: #e6aea4;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:unchecked{
+background-color: #ffffff;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:unchecked:hover{
+background-color: #e6aea4;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:checked:pressed{
+background-color: #aaaaaa
+}
+
+QCheckBox::indicator:checked{
+background-color: #000000;
+border: 3px solid white;
+}
+
+QCheckBox::indicator:unchecked{
+background-color: #ffffff;
+border: 3px solid white;
+}
+
 QCheckBox{
 color: #ffffff;
 }
 
-</string>
+QCheckBox::indicator:unchecked:disabled{
+background-color: #aaaaaa;
+border: 3px solid white;
+}
+
+QCheckBox::indicator:checked:pressed{
+background-color: #aaaaaa
+}
+
+QComboBox QAbstractItemView{
+selection-background-color: #c23b22;
+background-color: white;
+}
+
+QListWidget::item:selected{
+selection-background-color: #c23b22;
+}
+
+QListWidget::item:selected!active{
+selection-background-color: #e6aea4;
+}</string>
   </property>
   <widget class="QTabWidget" name="tabClientInfo">
    <property name="enabled">
@@ -439,51 +509,30 @@ color: #ffffff;
      <string>Information</string>
     </attribute>
     <layout class="QGridLayout" name="gridLayout_7">
-     <item row="0" column="0">
+     <item row="2" column="0">
       <layout class="QVBoxLayout" name="verticalLayout_8">
        <property name="leftMargin">
-        <number>75</number>
+        <number>25</number>
        </property>
        <property name="topMargin">
         <number>0</number>
        </property>
        <property name="rightMargin">
-        <number>75</number>
+        <number>25</number>
        </property>
        <property name="bottomMargin">
         <number>25</number>
        </property>
        <item>
-        <widget class="QLabel" name="label_26">
-         <property name="minimumSize">
-          <size>
-           <width>254</width>
-           <height>24</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>254</width>
-           <height>24</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Personal information</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_22">
          <item>
           <widget class="QLabel" name="lbDwellingType">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="text">
             <string>Dwelling Type:</string>
            </property>
@@ -524,6 +573,12 @@ color: #ffffff;
         <layout class="QHBoxLayout" name="horizontalLayout_21">
          <item>
           <widget class="QLabel" name="lbDwellingLocation">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="text">
             <string>Dwelling Location:</string>
            </property>
@@ -554,6 +609,12 @@ color: #ffffff;
         <layout class="QHBoxLayout" name="horizontalLayout_20">
          <item>
           <widget class="QLabel" name="lbChildren">
+           <property name="minimumSize">
+            <size>
+             <width>208</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="text">
             <string>Do you have young children:</string>
            </property>
@@ -588,6 +649,12 @@ color: #ffffff;
         <layout class="QHBoxLayout" name="horizontalLayout_19">
          <item>
           <widget class="QLabel" name="lbOtherAnimals">
+           <property name="minimumSize">
+            <size>
+             <width>208</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="text">
             <string>Do you have any other animals:</string>
            </property>
@@ -622,8 +689,14 @@ color: #ffffff;
         <layout class="QHBoxLayout" name="horizontalLayout_23">
          <item>
           <widget class="QLabel" name="lbActivityLevel">
+           <property name="minimumSize">
+            <size>
+             <width>178</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="text">
-            <string>How would you rate your level of activity:</string>
+            <string>What is your activity level: </string>
            </property>
           </widget>
          </item>
@@ -686,6 +759,12 @@ color: #ffffff;
         <layout class="QHBoxLayout" name="horizontalLayout_24">
          <item>
           <widget class="QLabel" name="lbWorkSchedule">
+           <property name="minimumSize">
+            <size>
+             <width>178</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="text">
             <string>Work Schedule:</string>
            </property>
@@ -734,6 +813,33 @@ color: #ffffff;
        </item>
       </layout>
      </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_26">
+       <property name="minimumSize">
+        <size>
+         <width>400</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>254</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Personal information</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="tabPhysical">
@@ -746,8 +852,8 @@ color: #ffffff;
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>10</y>
+       <x>60</x>
+       <y>0</y>
        <width>313</width>
        <height>50</height>
       </rect>
@@ -841,7 +947,7 @@ color: #ffffff;
       </size>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_5">
       <property name="enabled">
@@ -859,9 +965,9 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbDogAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>140</x>
-            <y>190</y>
-            <width>31</width>
+            <x>100</x>
+            <y>210</y>
+            <width>51</width>
             <height>20</height>
            </rect>
           </property>
@@ -878,7 +984,7 @@ color: #ffffff;
          <widget class="QComboBox" name="cbFurPrefDog">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>140</y>
             <width>81</width>
             <height>22</height>
@@ -910,7 +1016,7 @@ color: #ffffff;
            <rect>
             <x>0</x>
             <y>190</y>
-            <width>131</width>
+            <width>171</width>
             <height>16</height>
            </rect>
           </property>
@@ -928,15 +1034,15 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Breed preferences:</string>
+           <string>Breeds:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbDogSex">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>140</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -969,9 +1075,9 @@ color: #ffffff;
          <widget class="QComboBox" name="cbAgeDog">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>100</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -1019,9 +1125,9 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbDogAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>190</y>
-            <width>41</width>
+            <x>30</x>
+            <y>210</y>
+            <width>51</width>
             <height>20</height>
            </rect>
           </property>
@@ -1035,7 +1141,7 @@ color: #ffffff;
          <widget class="QPushButton" name="bDogBreedAdd">
           <property name="geometry">
            <rect>
-            <x>100</x>
+            <x>90</x>
             <y>40</y>
             <width>61</width>
             <height>20</height>
@@ -1068,13 +1174,13 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Age preference:</string>
+           <string>Age:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbSizeDog">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>100</y>
             <width>81</width>
             <height>22</height>
@@ -1109,11 +1215,17 @@ color: #ffffff;
          <widget class="QPushButton" name="bDogBreedRemove">
           <property name="geometry">
            <rect>
-            <x>170</x>
+            <x>160</x>
             <y>40</y>
-            <width>51</width>
+            <width>70</width>
             <height>20</height>
            </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>20</height>
+           </size>
           </property>
           <property name="text">
            <string>Remove</string>
@@ -1129,33 +1241,33 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Sex preference:</string>
+           <string>Sex:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_17">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>100</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Size preference:</string>
+           <string>Size:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_16">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>140</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Fur preference:</string>
+           <string>Fur:</string>
           </property>
          </widget>
          <widget class="Line" name="line">
@@ -1198,8 +1310,8 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbCatAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>140</x>
-            <y>190</y>
+            <x>100</x>
+            <y>210</y>
             <width>51</width>
             <height>20</height>
            </rect>
@@ -1217,7 +1329,7 @@ color: #ffffff;
          <widget class="QComboBox" name="cbFurPrefCat">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>140</y>
             <width>81</width>
             <height>22</height>
@@ -1249,7 +1361,7 @@ color: #ffffff;
            <rect>
             <x>0</x>
             <y>190</y>
-            <width>131</width>
+            <width>161</width>
             <height>16</height>
            </rect>
           </property>
@@ -1267,15 +1379,15 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Breed preferences:</string>
+           <string>Breeds:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbCatSex">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>140</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -1308,9 +1420,9 @@ color: #ffffff;
          <widget class="QComboBox" name="cbAgeCat">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>100</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -1358,9 +1470,9 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbCatAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>190</y>
-            <width>41</width>
+            <x>30</x>
+            <y>210</y>
+            <width>51</width>
             <height>20</height>
            </rect>
           </property>
@@ -1374,7 +1486,7 @@ color: #ffffff;
          <widget class="QPushButton" name="bCatBreedAdd">
           <property name="geometry">
            <rect>
-            <x>100</x>
+            <x>90</x>
             <y>40</y>
             <width>61</width>
             <height>20</height>
@@ -1407,13 +1519,13 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Age preference:</string>
+           <string>Age:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbSizeCat">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>100</y>
             <width>81</width>
             <height>22</height>
@@ -1448,11 +1560,17 @@ color: #ffffff;
          <widget class="QPushButton" name="bCatBreedRemove">
           <property name="geometry">
            <rect>
-            <x>170</x>
+            <x>160</x>
             <y>40</y>
-            <width>51</width>
+            <width>70</width>
             <height>20</height>
            </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>20</height>
+           </size>
           </property>
           <property name="text">
            <string>Remove</string>
@@ -1468,33 +1586,33 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Sex preference:</string>
+           <string>Sex:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_24">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>100</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Size preference:</string>
+           <string>Size:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_25">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>140</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Fur preference:</string>
+           <string>Fur:</string>
           </property>
          </widget>
          <widget class="Line" name="line_4">
@@ -1537,8 +1655,8 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbBirdAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>140</x>
-            <y>190</y>
+            <x>100</x>
+            <y>210</y>
             <width>51</width>
             <height>20</height>
            </rect>
@@ -1556,7 +1674,7 @@ color: #ffffff;
          <widget class="QComboBox" name="cbFurPrefBird">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>140</y>
             <width>81</width>
             <height>22</height>
@@ -1583,7 +1701,7 @@ color: #ffffff;
            <rect>
             <x>0</x>
             <y>190</y>
-            <width>131</width>
+            <width>161</width>
             <height>16</height>
            </rect>
           </property>
@@ -1601,15 +1719,15 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Breed preferences:</string>
+           <string>Breeds:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbBirdSex">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>140</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -1642,9 +1760,9 @@ color: #ffffff;
          <widget class="QComboBox" name="cbAgeBird">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>100</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -1692,9 +1810,9 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbBirdAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>190</y>
-            <width>31</width>
+            <x>30</x>
+            <y>210</y>
+            <width>51</width>
             <height>20</height>
            </rect>
           </property>
@@ -1708,7 +1826,7 @@ color: #ffffff;
          <widget class="QPushButton" name="bBirdBreedAdd">
           <property name="geometry">
            <rect>
-            <x>100</x>
+            <x>90</x>
             <y>40</y>
             <width>61</width>
             <height>20</height>
@@ -1741,13 +1859,13 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Age preference:</string>
+           <string>Age:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbSizeBird">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>100</y>
             <width>81</width>
             <height>22</height>
@@ -1782,11 +1900,17 @@ color: #ffffff;
          <widget class="QPushButton" name="bBirdBreedRemove">
           <property name="geometry">
            <rect>
-            <x>170</x>
+            <x>160</x>
             <y>40</y>
-            <width>51</width>
+            <width>70</width>
             <height>20</height>
            </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>20</height>
+           </size>
           </property>
           <property name="text">
            <string>Remove</string>
@@ -1802,33 +1926,33 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Sex preference:</string>
+           <string>Sex:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_36">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>100</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Size preference:</string>
+           <string>Size:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_37">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>140</y>
-            <width>81</width>
+            <width>71</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Feather preference:</string>
+           <string>Feathers:</string>
           </property>
          </widget>
          <widget class="Line" name="line_8">
@@ -1857,20 +1981,20 @@ color: #ffffff;
          <widget class="QLabel" name="label_85">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>200</y>
-            <width>71</width>
+            <width>121</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Colour preference:</string>
+           <string>Colour:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbColourBird">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>200</y>
             <width>81</width>
             <height>22</height>
@@ -1949,8 +2073,8 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbLizardAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>140</x>
-            <y>190</y>
+            <x>100</x>
+            <y>210</y>
             <width>51</width>
             <height>20</height>
            </rect>
@@ -1968,7 +2092,7 @@ color: #ffffff;
          <widget class="QComboBox" name="cbFurPrefLizard">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>140</y>
             <width>81</width>
             <height>22</height>
@@ -2000,7 +2124,7 @@ color: #ffffff;
            <rect>
             <x>0</x>
             <y>190</y>
-            <width>131</width>
+            <width>191</width>
             <height>16</height>
            </rect>
           </property>
@@ -2018,15 +2142,15 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Breed preferences:</string>
+           <string>Breeds:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbLizardSex">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>140</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -2059,9 +2183,9 @@ color: #ffffff;
          <widget class="QComboBox" name="cbAgeLizard">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>100</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -2109,9 +2233,9 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbLizardAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>190</y>
-            <width>41</width>
+            <x>30</x>
+            <y>210</y>
+            <width>61</width>
             <height>20</height>
            </rect>
           </property>
@@ -2125,7 +2249,7 @@ color: #ffffff;
          <widget class="QPushButton" name="bLizardBreedAdd">
           <property name="geometry">
            <rect>
-            <x>100</x>
+            <x>90</x>
             <y>40</y>
             <width>61</width>
             <height>20</height>
@@ -2158,13 +2282,13 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Age preference:</string>
+           <string>Age:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbSizeLizard">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>100</y>
             <width>81</width>
             <height>22</height>
@@ -2199,11 +2323,17 @@ color: #ffffff;
          <widget class="QPushButton" name="bLizardBreedRemove">
           <property name="geometry">
            <rect>
-            <x>170</x>
+            <x>160</x>
             <y>40</y>
-            <width>51</width>
+            <width>70</width>
             <height>20</height>
            </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>20</height>
+           </size>
           </property>
           <property name="text">
            <string>Remove</string>
@@ -2219,33 +2349,33 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Sex preference:</string>
+           <string>Sex:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_42">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>100</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Size preference:</string>
+           <string>Size:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_43">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>140</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Scale preference:</string>
+           <string>Scale:</string>
           </property>
          </widget>
          <widget class="Line" name="line_10">
@@ -2274,7 +2404,7 @@ color: #ffffff;
          <widget class="QComboBox" name="cbColorLizard">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>200</y>
             <width>81</width>
             <height>22</height>
@@ -2339,14 +2469,14 @@ color: #ffffff;
          <widget class="QLabel" name="label_86">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>200</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Colour preference:</string>
+           <string>Colour:</string>
           </property>
          </widget>
         </widget>
@@ -2369,9 +2499,9 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbRabbitAllergiesNo">
           <property name="geometry">
            <rect>
-            <x>140</x>
-            <y>190</y>
-            <width>51</width>
+            <x>100</x>
+            <y>210</y>
+            <width>61</width>
             <height>20</height>
            </rect>
           </property>
@@ -2388,7 +2518,7 @@ color: #ffffff;
          <widget class="QComboBox" name="cbFurPrefRabbit">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>140</y>
             <width>81</width>
             <height>22</height>
@@ -2420,7 +2550,7 @@ color: #ffffff;
            <rect>
             <x>0</x>
             <y>190</y>
-            <width>131</width>
+            <width>181</width>
             <height>16</height>
            </rect>
           </property>
@@ -2438,15 +2568,15 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Breed preferences:</string>
+           <string>Breeds:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbRabbitSex">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>140</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -2479,9 +2609,9 @@ color: #ffffff;
          <widget class="QComboBox" name="cbAgeRabbit">
           <property name="geometry">
            <rect>
-            <x>90</x>
+            <x>70</x>
             <y>100</y>
-            <width>71</width>
+            <width>91</width>
             <height>22</height>
            </rect>
           </property>
@@ -2529,9 +2659,9 @@ color: #ffffff;
          <widget class="QRadioButton" name="rbRabbitAllergiesYes">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>190</y>
-            <width>41</width>
+            <x>30</x>
+            <y>210</y>
+            <width>51</width>
             <height>20</height>
            </rect>
           </property>
@@ -2545,7 +2675,7 @@ color: #ffffff;
          <widget class="QPushButton" name="bRabbitBreedAdd">
           <property name="geometry">
            <rect>
-            <x>100</x>
+            <x>90</x>
             <y>40</y>
             <width>61</width>
             <height>20</height>
@@ -2578,13 +2708,13 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Age preference:</string>
+           <string>Age:</string>
           </property>
          </widget>
          <widget class="QComboBox" name="cbSizeRabbit">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>100</y>
             <width>81</width>
             <height>22</height>
@@ -2619,11 +2749,17 @@ color: #ffffff;
          <widget class="QPushButton" name="bRabbitBreedRemove">
           <property name="geometry">
            <rect>
-            <x>170</x>
+            <x>160</x>
             <y>40</y>
-            <width>51</width>
+            <width>70</width>
             <height>20</height>
            </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>20</height>
+           </size>
           </property>
           <property name="text">
            <string>Remove</string>
@@ -2639,33 +2775,33 @@ color: #ffffff;
            </rect>
           </property>
           <property name="text">
-           <string>Sex preference:</string>
+           <string>Sex:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_48">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>100</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Size preference:</string>
+           <string>Size:</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_49">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>140</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Fur preference:</string>
+           <string>Fur:</string>
           </property>
          </widget>
          <widget class="Line" name="line_12">
@@ -2694,7 +2830,7 @@ color: #ffffff;
          <widget class="QComboBox" name="cbColourRabbit">
           <property name="geometry">
            <rect>
-            <x>290</x>
+            <x>260</x>
             <y>200</y>
             <width>81</width>
             <height>22</height>
@@ -2739,14 +2875,14 @@ color: #ffffff;
          <widget class="QLabel" name="label_87">
           <property name="geometry">
            <rect>
-            <x>200</x>
+            <x>190</x>
             <y>200</y>
             <width>81</width>
             <height>16</height>
            </rect>
           </property>
           <property name="text">
-           <string>Coat preference:</string>
+           <string>Coat:</string>
           </property>
          </widget>
         </widget>
@@ -2758,9 +2894,9 @@ color: #ffffff;
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>330</y>
+       <y>349</y>
        <width>281</width>
-       <height>280</height>
+       <height>261</height>
       </rect>
      </property>
      <property name="font">
@@ -2777,7 +2913,7 @@ color: #ffffff;
       <rect>
        <x>20</x>
        <y>330</y>
-       <width>201</width>
+       <width>281</width>
        <height>16</height>
       </rect>
      </property>
@@ -2793,6 +2929,12 @@ color: #ffffff;
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <widget class="QLabel" name="label_97">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>15</height>
+        </size>
+       </property>
        <property name="maximumSize">
         <size>
          <width>16777215</width>
@@ -2903,8 +3045,8 @@ color: #ffffff;
          <rect>
           <x>10</x>
           <y>20</y>
-          <width>35</width>
-          <height>10</height>
+          <width>41</width>
+          <height>21</height>
          </rect>
         </property>
         <property name="text">
@@ -2934,20 +3076,20 @@ color: #ffffff;
          </rect>
         </property>
         <property name="text">
-         <string>Follows commands:</string>
+         <string>Well-trained:</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_80">
         <property name="geometry">
          <rect>
-          <x>300</x>
+          <x>290</x>
           <y>0</y>
-          <width>71</width>
+          <width>101</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Is house trained:</string>
+         <string>House trained:</string>
         </property>
        </widget>
        <widget class="QComboBox" name="cbHouseTrainedDog">
@@ -3118,7 +3260,7 @@ color: #ffffff;
          <rect>
           <x>70</x>
           <y>0</y>
-          <width>51</width>
+          <width>81</width>
           <height>16</height>
          </rect>
         </property>
@@ -3131,12 +3273,12 @@ color: #ffffff;
          <rect>
           <x>180</x>
           <y>0</y>
-          <width>71</width>
+          <width>101</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Follows commands:</string>
+         <string>Well-trained:</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_82">
@@ -3144,7 +3286,7 @@ color: #ffffff;
          <rect>
           <x>290</x>
           <y>0</y>
-          <width>71</width>
+          <width>111</width>
           <height>16</height>
          </rect>
         </property>
@@ -3325,8 +3467,8 @@ color: #ffffff;
          <rect>
           <x>10</x>
           <y>20</y>
-          <width>35</width>
-          <height>10</height>
+          <width>51</width>
+          <height>16</height>
          </rect>
         </property>
         <property name="text">
@@ -3408,7 +3550,7 @@ color: #ffffff;
          <rect>
           <x>70</x>
           <y>0</y>
-          <width>61</width>
+          <width>91</width>
           <height>16</height>
          </rect>
         </property>
@@ -3421,7 +3563,7 @@ color: #ffffff;
          <rect>
           <x>180</x>
           <y>0</y>
-          <width>81</width>
+          <width>141</width>
           <height>16</height>
          </rect>
         </property>
@@ -3457,8 +3599,8 @@ color: #ffffff;
          <rect>
           <x>10</x>
           <y>20</y>
-          <width>35</width>
-          <height>10</height>
+          <width>51</width>
+          <height>16</height>
          </rect>
         </property>
         <property name="text">
@@ -3553,7 +3695,7 @@ color: #ffffff;
          <rect>
           <x>180</x>
           <y>0</y>
-          <width>71</width>
+          <width>131</width>
           <height>16</height>
          </rect>
         </property>
@@ -3572,27 +3714,40 @@ color: #ffffff;
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>70</y>
-       <width>269</width>
-       <height>273</height>
+       <x>20</x>
+       <y>40</y>
+       <width>381</width>
+       <height>323</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_27">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
+         <widget class="QLabel" name="label_5">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QLabel" name="lbLikesTravel">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3604,14 +3759,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbGoodWithChildren">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3623,14 +3778,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbGoodWithAnimals">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3642,14 +3797,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbStrange">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3661,14 +3816,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbCrowds">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3680,14 +3835,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbNoise">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3699,14 +3854,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbProtect">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3718,14 +3873,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbEnergy">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3737,14 +3892,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbFear">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3756,14 +3911,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbAffection">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3775,14 +3930,14 @@ color: #ffffff;
          <widget class="QLabel" name="lbMessy">
           <property name="minimumSize">
            <size>
-            <width>120</width>
-            <height>0</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>120</width>
-            <height>100</height>
+            <width>185</width>
+            <height>21</height>
            </size>
           </property>
           <property name="text">
@@ -3800,12 +3955,48 @@ color: #ffffff;
            <number>8</number>
           </property>
           <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_29">
+            <item>
+             <widget class="QLabel" name="label_11">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_12">
+              <property name="maximumSize">
+               <size>
+                <width>27</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>5</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_8">
             <property name="spacing">
              <number>8</number>
             </property>
             <item>
              <widget class="QRadioButton" name="rbTravel1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3816,6 +4007,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbTravel2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3826,6 +4023,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbTravel3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3839,6 +4042,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbTravel4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3849,6 +4058,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbTravel5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3866,6 +4081,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbChildren1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3876,6 +4097,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbChildren2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3886,6 +4113,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbChildren3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3899,6 +4132,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbChildren4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3909,6 +4148,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbChildren5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3926,6 +4171,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbGdAnimals1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3936,6 +4187,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbGdAnimals2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3946,6 +4203,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbGdAnimals3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3959,6 +4222,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbGdAnimals4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3969,6 +4238,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbGdAnimals5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3986,6 +4261,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbStrange1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -3996,6 +4277,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbStrange2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4006,6 +4293,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbStrange3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4019,6 +4312,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbStrange4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4029,6 +4328,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbStrange5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4046,6 +4351,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbCrowds1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4056,6 +4367,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbCrowds2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4066,6 +4383,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbCrowds3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4079,6 +4402,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbCrowds4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4089,6 +4418,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbCrowds5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4106,6 +4441,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbNoise1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4116,6 +4457,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbNoise2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4126,6 +4473,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbNoise3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4139,6 +4492,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbNoise4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4149,6 +4508,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbNoise5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4166,6 +4531,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbProtect1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4176,6 +4547,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbProtect2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4186,6 +4563,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbProtect3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4199,6 +4582,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbProtect4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4209,6 +4598,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbProtect5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4226,6 +4621,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbEnergy1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4236,6 +4637,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbEnergy2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4246,6 +4653,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbEnergy3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4259,6 +4672,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbEnergy4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4269,6 +4688,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbEnergy5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4286,6 +4711,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbFear1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4296,6 +4727,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbFear2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4306,6 +4743,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbFear3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4319,6 +4762,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbFear4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4329,6 +4778,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbFear5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4346,6 +4801,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbAffection1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4356,6 +4817,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbAffection2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4366,6 +4833,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbAffection3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4379,6 +4852,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbAffection4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4389,6 +4868,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbAffection5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4406,6 +4891,12 @@ color: #ffffff;
             </property>
             <item>
              <widget class="QRadioButton" name="rbMessy1">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4416,6 +4907,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbMessy2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4426,6 +4923,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbMessy4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4439,6 +4942,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbMessy5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4449,6 +4958,12 @@ color: #ffffff;
             </item>
             <item>
              <widget class="QRadioButton" name="rbMessy3">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>21</height>
+               </size>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -4478,54 +4993,16 @@ color: #ffffff;
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_11">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>50</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>1</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_12">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>50</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>5</string>
-     </property>
-    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>0</x>
        <y>10</y>
-       <width>489</width>
-       <height>38</height>
+       <width>481</width>
+       <height>41</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_7">
-      <item>
-       <widget class="QLabel" name="label_8">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>On a scale from 1 to 5 where 1 is &quot;not important&quot; and 5 is &quot;very important&quot;</string>
-        </property>
-       </widget>
-      </item>
       <item>
        <widget class="QLabel" name="label_10">
         <property name="font">
@@ -4534,7 +5011,7 @@ color: #ffffff;
          </font>
         </property>
         <property name="text">
-         <string>How would you rate your preferences for an animal with the following attributes:</string>
+         <string>What is your preference for an animal with the following attributes:</string>
         </property>
        </widget>
       </item>
@@ -4545,8 +5022,8 @@ color: #ffffff;
   <widget class="QProgressBar" name="barCompleted">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>420</y>
+     <x>170</x>
+     <y>425</y>
      <width>100</width>
      <height>15</height>
     </rect>
@@ -4565,6 +5042,9 @@ color: #ffffff;
    </property>
    <property name="value">
     <number>0</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
    <property name="textVisible">
     <bool>false</bool>
@@ -4602,24 +5082,24 @@ color: #ffffff;
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupBirdAllergies"/>
-  <buttongroup name="groupAffection"/>
-  <buttongroup name="groupDogAllergies"/>
-  <buttongroup name="groupProtector"/>
-  <buttongroup name="groupRabbitAllergies"/>
-  <buttongroup name="groupOtherAnimals"/>
-  <buttongroup name="groupFearful"/>
-  <buttongroup name="groupStrangers"/>
-  <buttongroup name="groupChildren"/>
-  <buttongroup name="groupAnimals"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupTravel"/>
-  <buttongroup name="groupCatAllergies"/>
-  <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupLizardAllergies"/>
   <buttongroup name="groupYoungChildren"/>
-  <buttongroup name="groupActivityLevel"/>
+  <buttongroup name="groupStrangers"/>
+  <buttongroup name="groupEnergy"/>
+  <buttongroup name="groupTravel"/>
+  <buttongroup name="groupProtector"/>
   <buttongroup name="groupLoudNoise"/>
+  <buttongroup name="groupChildren"/>
   <buttongroup name="groupMessy"/>
+  <buttongroup name="groupOtherAnimals"/>
+  <buttongroup name="groupCatAllergies"/>
+  <buttongroup name="groupFearful"/>
+  <buttongroup name="groupDogAllergies"/>
+  <buttongroup name="groupCrowds"/>
+  <buttongroup name="groupLizardAllergies"/>
+  <buttongroup name="groupAnimals"/>
+  <buttongroup name="groupAffection"/>
+  <buttongroup name="groupRabbitAllergies"/>
+  <buttongroup name="groupActivityLevel"/>
+  <buttongroup name="groupBirdAllergies"/>
  </buttongroups>
 </ui>

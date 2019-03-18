@@ -100,8 +100,60 @@ QRadioButton{
 color: #ffffff;
 }
 
+QRadioButton::indicator:hover{
+background-color: #c23b22;
+}
+
+QRadioButton::indicator:checked{
+background-color: #c23b22;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:checked:disabled{
+background-color: #e6aea4;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:unchecked{
+background-color: #ffffff;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:unchecked:hover{
+background-color: #e6aea4;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:checked:pressed{
+background-color: #aaaaaa
+}
+
+QCheckBox::indicator:checked{
+background-color: #000000;
+border: 3px solid white;
+}
+
+QCheckBox::indicator:unchecked{
+background-color: #ffffff;
+border: 3px solid white;
+}
+
 QCheckBox{
 color: #ffffff;
+}
+
+QCheckBox::indicator:unchecked:disabled{
+background-color: #aaaaaa;
+border: 3px solid white;
+}
+
+QCheckBox::indicator:checked:pressed{
+background-color: #aaaaaa
+}
+
+QComboBox QAbstractItemView{
+selection-background-color: #c23b22;
+background-color: white;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -424,7 +476,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -512,7 +564,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>200</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -600,7 +652,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>40</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -688,7 +740,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>100</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -776,7 +828,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>20</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -864,7 +916,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>180</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -952,7 +1004,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>140</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -1040,7 +1092,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>80</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -1128,7 +1180,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>60</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -1216,7 +1268,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>120</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -1304,7 +1356,7 @@ color: #ffffff;
          <rect>
           <x>0</x>
           <y>160</y>
-          <width>279</width>
+          <width>284</width>
           <height>19</height>
          </rect>
         </property>
@@ -2971,27 +3023,7 @@ color: #ffffff;
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="groupGender">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupStrange">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
   <buttongroup name="groupEnergy">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupFear">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupProtect">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -3001,23 +3033,39 @@ color: #ffffff;
     <bool>true</bool>
    </property>
   </buttongroup>
+  <buttongroup name="groupGoodAnimals">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupDogTrained"/>
+  <buttongroup name="groupFear">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
   <buttongroup name="groupSheds"/>
-  <buttongroup name="groupTrainedCat"/>
+  <buttongroup name="groupAttentionBird"/>
+  <buttongroup name="groupLifestyle">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="groupChildren">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
   <buttongroup name="groupMessy">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
   <buttongroup name="groupIsLoudBird"/>
-  <buttongroup name="groupCurious"/>
   <buttongroup name="groupAttentionRabbit"/>
-  <buttongroup name="groupGoodAnimals">
-   <property name="exclusive">
-    <bool>true</bool>
-   </property>
-  </buttongroup>
-  <buttongroup name="groupBarks"/>
-  <buttongroup name="groupLifestyle">
+  <buttongroup name="groupTrainedCat"/>
+  <buttongroup name="groupCurious"/>
+  <buttongroup name="groupGender">
    <property name="exclusive">
     <bool>true</bool>
    </property>
@@ -3032,18 +3080,22 @@ color: #ffffff;
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupDogTrained"/>
-  <buttongroup name="groupAttentionBird"/>
+  <buttongroup name="groupGrooming"/>
   <buttongroup name="groupAffection">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupChildren">
+  <buttongroup name="groupBarks"/>
+  <buttongroup name="groupStrange">
    <property name="exclusive">
     <bool>true</bool>
    </property>
   </buttongroup>
-  <buttongroup name="groupGrooming"/>
+  <buttongroup name="groupProtect">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
  </buttongroups>
 </ui>

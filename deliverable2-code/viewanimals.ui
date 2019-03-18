@@ -106,8 +106,63 @@ QRadioButton{
 color: #ffffff;
 }
 
+QRadioButton::indicator:hover{
+background-color: #c23b22;
+}
+
+QRadioButton::indicator:checked{
+background-color: #c23b22;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:checked:disabled{
+background-color: #e6aea4;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:unchecked{
+background-color: #ffffff;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:unchecked:hover{
+background-color: #e6aea4;
+border: 3px solid white;
+}
+
+QRadioButton::indicator:checked:pressed{
+background-color: #aaaaaa
+}
+
+QCheckBox::indicator:checked{
+background-color: #000000;
+border: 3px solid white;
+}
+
+QCheckBox::indicator:unchecked{
+background-color: #ffffff;
+border: 3px solid white;
+}
+
 QCheckBox{
 color: #ffffff;
+}
+
+QCheckBox::indicator:unchecked:disabled{
+background-color: #aaaaaa;
+border: 3px solid white;
+}
+
+QCheckBox::indicator:checked:pressed{
+background-color: #aaaaaa
+}
+
+QListWidget::item:selected{
+selection-background-color: #c23b22;
+}
+
+QListWidget::item:selected!active{
+selection-background-color: #e6aea4;
 }</string>
   </property>
   <widget class="QWidget" name="widget" native="true">
@@ -509,7 +564,7 @@ color: #ffffff;
      <x>10</x>
      <y>460</y>
      <width>441</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_3">
