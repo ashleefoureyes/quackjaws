@@ -612,8 +612,9 @@ void AddAnimal::setRabbit(Rabbit *newRabbit)
         (*storage)->add(newRabbit);
         db->addRabbitToDatabase(newRabbit);
     }
-    else { } // Will Watt change dog in this else block
-
+    else {
+       db->editRabbitInDB(newRabbit);
+    } // Will Watt change dog in this else block
 
     this->close();
 }
