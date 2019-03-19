@@ -210,7 +210,7 @@ std::string Client::getDBBreeds(std::vector<std::string> desiredBreeds)
     {
         returnStr += desiredBreeds.at(static_cast<unsigned int>(i));
 
-        if(i >= static_cast<int>(desiredBreeds.size())) { returnStr += ")"; }
+        if((i+1) >= static_cast<int>(desiredBreeds.size())) { returnStr += ")"; break;}
         else { returnStr += ")("; }
     }
 
