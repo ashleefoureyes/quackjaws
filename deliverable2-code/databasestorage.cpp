@@ -298,7 +298,7 @@ int databaseStorage::loadDatabase(){
         QString history = q.value(21).toString();
         int curious = q.value(22).toInt();
         int trained = q.value(23).toInt();
-        bool shed = q.value(24).toInt();
+        int shed = q.value(24).toInt();
         QString filepath = q.value(25).toString();
 
         char g = QString(gender).toStdString().c_str()[0];
