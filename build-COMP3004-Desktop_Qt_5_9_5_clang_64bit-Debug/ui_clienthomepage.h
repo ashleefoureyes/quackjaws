@@ -55,6 +55,7 @@ public:
 "background-color:#c23b22;\n"
 "border-radius:7px;\n"
 "min-height: 20px;\n"
+"min-width: 150px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
@@ -96,9 +97,9 @@ public:
 "color: #ffffff;\n"
 "}\n"
 "\n"
-"QTabBar::tab:selected{\n"
-"background-col"
-                        "or: #ffffff;\n"
+"QTabBar::tab:select"
+                        "ed{\n"
+"background-color: #ffffff;\n"
 "color: #000000;\n"
 "}\n"
 "\n"
@@ -115,10 +116,10 @@ public:
 "}"));
         lbViewAnimals = new QPushButton(ClientHomepage);
         lbViewAnimals->setObjectName(QStringLiteral("lbViewAnimals"));
-        lbViewAnimals->setGeometry(QRect(140, 120, 101, 41));
+        lbViewAnimals->setGeometry(QRect(120, 100, 150, 41));
         lbLogout = new QPushButton(ClientHomepage);
         lbLogout->setObjectName(QStringLiteral("lbLogout"));
-        lbLogout->setGeometry(QRect(140, 260, 101, 25));
+        lbLogout->setGeometry(QRect(120, 240, 150, 25));
         lbUserWelcome = new QLabel(ClientHomepage);
         lbUserWelcome->setObjectName(QStringLiteral("lbUserWelcome"));
         lbUserWelcome->setGeometry(QRect(30, 40, 351, 41));
@@ -128,7 +129,7 @@ public:
         lbUserWelcome->setAlignment(Qt::AlignCenter);
         lbEditClient = new QPushButton(ClientHomepage);
         lbEditClient->setObjectName(QStringLiteral("lbEditClient"));
-        lbEditClient->setGeometry(QRect(140, 180, 101, 41));
+        lbEditClient->setGeometry(QRect(120, 160, 150, 41));
 
         retranslateUi(ClientHomepage);
 

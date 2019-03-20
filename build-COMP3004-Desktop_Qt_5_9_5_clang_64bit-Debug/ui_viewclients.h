@@ -204,7 +204,12 @@ public:
 "}\n"
 "\n"
 "QRadioButton::indicator:checked:pressed{\n"
-"background-color: #aaaaaa\n"
+"background-color: #aaaaaa;\n"
+"}\n"
+"\n"
+"QRadioButton::indicator:unchecked:disabled{\n"
+"background-color: #555555;\n"
+"border: 0px solid white;\n"
 "}\n"
 "\n"
 "QCheckBox::indicator:checked{\n"
@@ -212,15 +217,15 @@ public:
 "border: 3px solid white;\n"
 "}\n"
 "\n"
-"QCheckBox::indicator:unchecked{\n"
+"QCheckBox::indicator:un"
+                        "checked{\n"
 "background-color: #ffffff;\n"
 "border: 3px solid white;\n"
 "}\n"
 "\n"
 "QCheckBox{\n"
 "color: #ffffff;\n"
-"}"
-                        "\n"
+"}\n"
 "\n"
 "QCheckBox::indicator:unchecked:disabled{\n"
 "background-color: #aaaaaa;\n"
@@ -595,7 +600,7 @@ public:
         lbBreedPreferences->setObjectName(QStringLiteral("lbBreedPreferences"));
         lbBreedPreferences->setMinimumSize(QSize(425, 240));
         QFont font2;
-        font2.setPointSize(11);
+        font2.setPointSize(9);
         lbBreedPreferences->setFont(font2);
         lbBreedPreferences->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 

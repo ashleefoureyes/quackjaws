@@ -68,6 +68,7 @@ public:
 "background-color:#c23b22;\n"
 "border-radius:7px;\n"
 "min-height: 20px;\n"
+"min-width: 150px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
@@ -121,15 +122,18 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         bAddAnimal = new QPushButton(StaffHomepage);
         bAddAnimal->setObjectName(QStringLiteral("bAddAnimal"));
-        bAddAnimal->setMinimumSize(QSize(100, 20));
+        bAddAnimal->setMinimumSize(QSize(150, 20));
         bAddAnimal->setMaximumSize(QSize(100, 41));
 
         horizontalLayout->addWidget(bAddAnimal);
 
         bViewAnimals = new QPushButton(StaffHomepage);
         bViewAnimals->setObjectName(QStringLiteral("bViewAnimals"));
-        bViewAnimals->setMinimumSize(QSize(100, 20));
+        bViewAnimals->setMinimumSize(QSize(150, 20));
         bViewAnimals->setMaximumSize(QSize(100, 41));
+        QFont font2;
+        font2.setPointSize(10);
+        bViewAnimals->setFont(font2);
 
         horizontalLayout->addWidget(bViewAnimals);
 
@@ -162,14 +166,14 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         bAddClient = new QPushButton(StaffHomepage);
         bAddClient->setObjectName(QStringLiteral("bAddClient"));
-        bAddClient->setMinimumSize(QSize(100, 20));
+        bAddClient->setMinimumSize(QSize(150, 20));
         bAddClient->setMaximumSize(QSize(100, 41));
 
         horizontalLayout_2->addWidget(bAddClient);
 
         bViewClients = new QPushButton(StaffHomepage);
         bViewClients->setObjectName(QStringLiteral("bViewClients"));
-        bViewClients->setMinimumSize(QSize(100, 20));
+        bViewClients->setMinimumSize(QSize(150, 20));
         bViewClients->setMaximumSize(QSize(100, 41));
 
         horizontalLayout_2->addWidget(bViewClients);
@@ -191,7 +195,7 @@ public:
 
         bRunAlgorithm = new QPushButton(StaffHomepage);
         bRunAlgorithm->setObjectName(QStringLiteral("bRunAlgorithm"));
-        bRunAlgorithm->setMinimumSize(QSize(0, 20));
+        bRunAlgorithm->setMinimumSize(QSize(150, 20));
 
         verticalLayout_3->addWidget(bRunAlgorithm);
 
@@ -224,7 +228,7 @@ public:
         bViewAnimals->setText(QApplication::translate("StaffHomepage", "View/Edit Animals", Q_NULLPTR));
         lbClients->setText(QApplication::translate("StaffHomepage", "Clients", Q_NULLPTR));
         bAddClient->setText(QApplication::translate("StaffHomepage", "Add Client", Q_NULLPTR));
-        bViewClients->setText(QApplication::translate("StaffHomepage", "View Clients", Q_NULLPTR));
+        bViewClients->setText(QApplication::translate("StaffHomepage", "View/Edit Clients", Q_NULLPTR));
         bRunAlgorithm->setText(QApplication::translate("StaffHomepage", "Run Algorithm", Q_NULLPTR));
         bLogout->setText(QApplication::translate("StaffHomepage", "Logout", Q_NULLPTR));
     } // retranslateUi
