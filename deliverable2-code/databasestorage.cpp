@@ -33,7 +33,8 @@ databaseStorage::~databaseStorage(){}
  *  Purpose: Creates or locates database
  *           Initalizes the database.
  *           Creates tables within database
- *           Pupulates tables with clients and animals */
+ *           Pupulates tables with clients and animals
+ */
 void databaseStorage::initDatabase(){
 
     QTextStream cerr(stderr);
@@ -100,6 +101,431 @@ void databaseStorage::initDatabase(){
        }
 }
 
+/** Function: loadDatabase
+ *  Purpose:  loads all clients from the database, creating a
+ *               client object for each, and adds it to the internal
+ *               clientStorage List
+ *            loads all animal objects from each of the animal tables
+ *                stored within the database. For each of the animals,
+ *                the appropriate animal object is created, and then stored
+ *                to the internal AnimalStorage List.
+ */
+int databaseStorage::loadDatabase(){
+    QSqlQuery q;
+    QTextStream cerr(stderr);
+
+    /*-------------------------------------------------*
+    *           GET CLIENTS FROM DATABASE              *
+    * -------------------------------------------------*/
+    q.exec("SELECT * FROM clientStorage;");
+
+    while (q.next()) {
+        int id = q.value(0).toInt();
+        QString fName = q.value(1).toString();
+        QString lName = q.value(2).toString();
+        QString add = q.value(3).toString();
+        QString phone = q.value(4).toString();
+        QString email = q.value(5).toString();
+        QString city = q.value(6).toString();
+        QString prov = q.value(7).toString();
+        std::stoi((std::to_string(id).substr(1)));
+
+        int dwelling = q.value(8).toInt();
+        int location = q.value(9).toInt();
+        int workSchedule = q.value(10).toInt();
+        int activity = q.value(11).toInt();
+        int hasChildren = q.value(12).toInt();
+        int hasAnimals = q.value(13).toInt();
+        int travels = q.value(14).toInt();
+        int children = q.value(15).toInt();
+        int goodWAnimals = q.value(16).toInt();
+        int strangers = q.value(17).toInt();
+        int crowds = q.value(18).toInt();
+        int noises = q.value(19).toInt();
+        int protector = q.value(20).toInt();
+        int energy = q.value(21).toInt();
+        int fearful = q.value(22).toInt();
+        int affection = q.value(23).toInt();
+        int messy = q.value(24).toInt();
+
+        int wantsDog = q.value(25).toInt();
+        int hasDogAllergies = q.value(26).toInt();
+        QString dogBreeds = q.value(27).toString();
+        int dogAge = q.value(28).toInt();
+        int dogSize = q.value(29).toInt();
+        int dogGender = q.value(30).toInt();
+        int followsCommandsDog = q.value(31).toInt();
+        int houseTrained = q.value(32).toInt();
+
+        int wantsCat = q.value(33).toInt();
+        int hasCatAllergies = q.value(34).toInt();
+        QString catBreeds = q.value(35).toString();
+        int catAge = q.value(36).toInt();
+        int catSize = q.value(37).toInt();
+        int catGender = q.value(38).toInt();
+        int isCurious = q.value(39).toInt();
+        int followCommandsCat = q.value(40).toInt();
+        int doesntShed = q.value(41).toInt();
+
+        int wantsBird = q.value(42).toInt();
+        int hasBirdAllergies = q.value(43).toInt();
+        QString birdBreeds = q.value(44).toString();
+        int birdAge = q.value(45).toInt();
+        int birdSize = q.value(46).toInt();
+        int birdGender = q.value(47).toInt();
+        int isQuietBird = q.value(48).toInt();
+        int isSocialBird = q.value(49).toInt();
+        QString birdColour = q.value(50).toString();
+
+        int wantsLizard = q.value(51).toInt();
+        int hasLizardAllergies = q.value(52).toInt();
+        QString lizardBreeds = q.value(53).toString();
+        int lizardAge = q.value(54).toInt();
+        int lizardSize = q.value(55).toInt();
+        int lizardGender = q.value(56).toInt();
+        int easyToFeed = q.value(57).toInt();
+        int simpleLiving = q.value(58).toInt();
+        QString lizardColour = q.value(59).toString();
+
+        int wantsRabbit = q.value(60).toInt();
+        int hasRabbitAllergies = q.value(61).toInt();
+        QString rabbitBreeds = q.value(62).toString();
+        int rabbitAge = q.value(63).toInt();
+        int rabbitSize = q.value(64).toInt();
+        int rabbitGender = q.value(65).toInt();
+        int isSocialRabbit = q.value(66).toInt();
+        int needsGrooming = q.value(67).toInt();
+        QString rabbitColour = q.value(68).toString();
+
+        int dogFur = q.value(69).toInt();
+        int catFur = q.value(70).toInt();
+        int birdFur = q.value(71).toInt();
+        int lizardFur = q.value(72).toInt();
+        int rabbitFur = q.value(73).toInt();
+        int quietness = q.value(74).toInt();
+        int age = q.value(75).toInt();
+
+        Client *c = new Client;
+
+        std::vector<std::string> dogB, catB, birdB, lizB, rabB;
+        dogB = c->parseBreedsStr(dogBreeds.toStdString());
+        catB = c->parseBreedsStr(catBreeds.toStdString());
+        birdB = c->parseBreedsStr(birdBreeds.toStdString());
+        lizB = c->parseBreedsStr(lizardBreeds.toStdString());
+        rabB = c->parseBreedsStr(rabbitBreeds.toStdString());
+
+        c->setClientAttributes(fName.toStdString(), lName.toStdString(), add.toStdString(), phone.toStdString(), email.toStdString(), city.toStdString(), prov.toStdString(), dwelling,  location,  workSchedule, activity,  hasChildren, hasAnimals,  travels,  children,  goodWAnimals,  strangers, crowds,  noises,  protector,  energy,  fearful,  affection, messy, wantsDog,  hasDogAllergies,  dogB,  dogAge,  dogSize,  dogGender, followsCommandsDog,  houseTrained, wantsCat,  hasCatAllergies,  catB,  catAge,  catSize,  catGender, isCurious,  followCommandsCat,  doesntShed, wantsBird,  hasBirdAllergies,  birdB,  birdAge,  birdSize,  birdGender, isQuietBird, isSocialBird, birdColour.toStdString(), wantsLizard, hasLizardAllergies,  lizB,  lizardAge,  lizardSize,  lizardGender, easyToFeed,  simpleLiving,  lizardColour.toStdString(), wantsRabbit,  hasRabbitAllergies,  rabB,  rabbitAge,  rabbitSize,  rabbitGender, isSocialRabbit,  needsGrooming,  rabbitColour.toStdString(), dogFur,  catFur,  birdFur,  lizardFur,  rabbitFur,  quietness,  age);
+        c->setIdNumber(std::stoi((std::to_string(id).substr(1))));
+        (*clientStorage).add(c);
+       }
+
+
+    /*-------------------------------------------------*
+     *           GET DOGS FROM DATABASE                *
+     *-------------------------------------------------*/
+
+    q.exec("SELECT * FROM dogStorage;");
+    while (q.next()) {
+        int idNum = q.value(0).toInt();
+        QString breed = q.value(1).toString();
+        QString name = q.value(2).toString();
+        int size = q.value(3).toInt();
+        int age = q.value(4).toInt();
+        QString gender = q.value(5).toString();
+        int fur = q.value(6).toInt();
+        int travels = q.value(7).toInt();
+        int children = q.value(8).toInt();
+        int goodWithAnimals = q.value(9).toInt();
+        int strangers = q.value(10).toInt();
+        int crowds = q.value(11).toInt();
+        int noises = q.value(12).toInt();
+        int protector = q.value(13).toInt();
+        int energy = q.value(14).toInt();
+        int fearful = q.value(15).toInt();
+        int affection = q.value(16).toInt();
+        int messy = q.value(17).toInt();
+        bool nocturnal = q.value(18).toInt();
+        bool hypo = q.value(19).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
+        int barks = q.value(22).toInt();
+        int training = q.value(23).toInt();
+        bool bathroomTrained = q.value(24).toInt();
+        QString filepath = q.value(26).toString();
+
+        char g = QString(gender).toStdString().c_str()[0];
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
+
+        Dog* a = new Dog;
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
+        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
+                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
+                             hypo, ls, hst);
+        a->setSpeciesAttributes(barks, training, bathroomTrained);
+        a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
+        (*animalStorage).add(a);
+    }
+
+    /*-------------------------------------------------*
+     *           GET CATS FROM DATABASE                *
+     *-------------------------------------------------*/
+
+    q.exec("SELECT * FROM catStorage;");
+    while (q.next()) {
+        int idNum = q.value(0).toInt();
+        QString breed = q.value(1).toString();
+        QString name = q.value(2).toString();
+        int size = q.value(3).toInt();
+        int age = q.value(4).toInt();
+        QString gender = q.value(5).toString();
+        int fur = q.value(6).toInt();
+        int travels = q.value(7).toInt();
+        int children = q.value(8).toInt();
+        int goodWithAnimals = q.value(9).toInt();
+        int strangers = q.value(10).toInt();
+        int crowds = q.value(11).toInt();
+        int noises = q.value(12).toInt();
+        int protector = q.value(13).toInt();
+        int energy = q.value(14).toInt();
+        int fearful = q.value(15).toInt();
+        int affection = q.value(16).toInt();
+        int messy = q.value(17).toInt();
+        bool nocturnal = q.value(18).toInt();
+        bool hypo = q.value(19).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
+        int curious = q.value(22).toInt();
+        int trained = q.value(23).toInt();
+        bool shed = q.value(24).toInt();
+        QString filepath = q.value(25).toString();
+
+        char g = QString(gender).toStdString().c_str()[0];
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
+
+        Cat* a = new Cat;
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
+        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
+                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
+                             hypo, ls, hst);
+        a->setSpeciesAttributes(curious, trained, shed);
+        a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
+
+        (*animalStorage).add(a);
+    }
+
+    /*-------------------------------------------------*
+     *           GET LIZARDS FROM DATABASE             *
+     *-------------------------------------------------*/
+
+    q.exec("SELECT * FROM lizardStorage;");
+    while (q.next()) {
+        int idNum = q.value(0).toInt();
+        QString breed = q.value(1).toString();
+        QString name = q.value(2).toString();
+        int size = q.value(3).toInt();
+        int age = q.value(4).toInt();
+        QString gender = q.value(5).toString();
+        int fur = q.value(6).toInt();
+        int travels = q.value(7).toInt();
+        int children = q.value(8).toInt();
+        int goodWithAnimals = q.value(9).toInt();
+        int strangers = q.value(10).toInt();
+        int crowds = q.value(11).toInt();
+        int noises = q.value(12).toInt();
+        int protector = q.value(13).toInt();
+        int energy = q.value(14).toInt();
+        int fearful = q.value(15).toInt();
+        int affection = q.value(16).toInt();
+        int messy = q.value(17).toInt();
+        bool nocturnal = q.value(18).toInt();
+        bool hypo = q.value(19).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
+        QString diet = q.value(22).toString();
+        QString colour = q.value(23).toString();
+        QString feed = q.value(24).toString();
+        bool space = q.value(25).toInt();
+        bool light = q.value(26).toInt();
+        QString filepath = q.value(27).toString();
+
+        char g = QString(gender).toStdString().c_str()[0];
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
+
+        Lizard* a = new Lizard;
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
+        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
+                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
+                             hypo, ls, hst);
+        a->setSpeciesAttributes(diet.toStdString(), colour.toStdString(), feed.toStdString(), space, light);
+        a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
+
+        (*animalStorage).add(a);
+    }
+
+    /*-------------------------------------------------*
+     *           GET BIRDS FROM DATABASE               *
+     *-------------------------------------------------*/
+
+    q.exec("SELECT * FROM birdStorage;");
+    while (q.next()) {
+        int idNum = q.value(0).toInt();
+        QString breed = q.value(1).toString();
+        QString name = q.value(2).toString();
+        int size = q.value(3).toInt();
+        int age = q.value(4).toInt();
+        QString gender = q.value(5).toString();
+        int fur = q.value(6).toInt();
+        int travels = q.value(7).toInt();
+        int children = q.value(8).toInt();
+        int goodWithAnimals = q.value(9).toInt();
+        int strangers = q.value(10).toInt();
+        int crowds = q.value(11).toInt();
+        int noises = q.value(12).toInt();
+        int protector = q.value(13).toInt();
+        int energy = q.value(14).toInt();
+        int fearful = q.value(15).toInt();
+        int affection = q.value(16).toInt();
+        int messy = q.value(17).toInt();
+        bool nocturnal = q.value(18).toInt();
+        bool hypo = q.value(19).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
+        int loud = q.value(22).toInt();
+        int social = q.value(23).toInt();
+        QString colour = q.value(24).toString();
+        QString filepath = q.value(25).toString();
+
+        char g = QString(gender).toStdString().c_str()[0];
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
+
+        Bird* a = new Bird;
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
+        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
+                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
+                             hypo, ls, hst);
+        a->setSpeciesAttributes(loud, social, colour.toStdString());
+        a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
+
+        (*animalStorage).add(a);
+    }
+
+    /*-------------------------------------------------*
+     *           GET RABBITS FROM DATABASE             *
+     *-------------------------------------------------*/
+
+    q.exec("SELECT * FROM rabbitStorage;");
+    while (q.next()) {
+        int idNum = q.value(0).toInt();
+        QString breed = q.value(1).toString();
+        QString name = q.value(2).toString();
+        int size = q.value(3).toInt();
+        int age = q.value(4).toInt();
+        QString gender = q.value(5).toString();
+        int fur = q.value(6).toInt();
+        int travels = q.value(7).toInt();
+        int children = q.value(8).toInt();
+        int goodWithAnimals = q.value(9).toInt();
+        int strangers = q.value(10).toInt();
+        int crowds = q.value(11).toInt();
+        int noises = q.value(12).toInt();
+        int protector = q.value(13).toInt();
+        int energy = q.value(14).toInt();
+        int fearful = q.value(15).toInt();
+        int affection = q.value(16).toInt();
+        int messy = q.value(17).toInt();
+        bool nocturnal = q.value(18).toInt();
+        bool hypo = q.value(19).toInt();
+        QString lifeStyle = q.value(20).toString();
+        QString history = q.value(21).toString();
+        QString pattern = q.value(22).toString();
+        QString colour = q.value(23).toString();
+        int grooming = q.value(24).toInt();
+        int attention = q.value(25).toInt();
+        QString filepath = q.value(26).toString();
+
+        char g = QString(gender).toStdString().c_str()[0];
+        std::stoi((std::to_string(idNum).substr(1)));
+        int ls = lifeStyleToInt(lifeStyle);
+        int hst = historyToInt(history);
+
+
+        Rabbit* a = new Rabbit;
+        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
+        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
+                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
+                             hypo, ls, hst);
+        a->setSpeciesAttributes(pattern.toStdString(), colour.toStdString(), grooming, attention);
+        a->setImageFilePath(filepath.toStdString());
+        a->setBreed(breed.toStdString());
+
+        (*animalStorage).add(a);
+    }
+
+    numClients = getNumberOfClients();
+    numAnimals = getNumberOfAnimals();
+
+    return 0;
+}
+
+/** Function: getNumberOfAnimals()
+ *  Out: number of animals in the database
+ *  Purpose: queries the database and returns the
+ *              number of animals in persistant storage
+ *              Queries each of the animal tables and sums the total
+ */
+int databaseStorage::getNumberOfAnimals(){
+
+    int n;
+    QSqlQuery query;
+
+    query.exec("select count(*) from dogStorage;");
+    query.first();
+        n = query.value(0).toInt();
+
+    query.exec("select count(*) from catStorage;");
+    query.first();
+        n += query.value(0).toInt();
+
+    query.exec("select count(*) from birdStorage;");
+    query.first();
+        n += query.value(0).toInt();
+
+    query.exec("select count(*) from lizardStorage;");
+    query.first();
+        n += query.value(0).toInt();
+
+    query.exec("select count(*) from rabbitStorage;");
+    query.first();
+        n += query.value(0).toInt();
+
+    return n;
+}
+/** Function: getNumberOfClients
+ *  Out: number of clients in the database
+ *  Purpose: queries the database and returns the
+ *              number of clients in persistant storage
+ */
+int databaseStorage::getNumberOfClients(){
+    QSqlQuery query;
+
+    query.exec("select count (*) from clientStorage;");
+    query.first();
+    return query.value(0).toInt();
+}
+
+/** Function: addClientToDatabase()
+ *  In: a client, to be saved in persistant storage
+ *  Purpose: adds a client, and all it's attributes to
+ *              the database connected to the software
+ */
 int databaseStorage::addClientToDatabase(Client *c){
 
     QSqlQuery query;
@@ -213,6 +639,11 @@ int databaseStorage::addClientToDatabase(Client *c){
     return 0;
 }
 
+/** Function: addDogToDatabase()
+ *  In: a dog, to be saved in persistant storage
+ *  Purpose: adds a dog, and all it's attributes to
+ *              the database connected to the software
+ */
 int databaseStorage::addDogToDatabase(Dog *a){
 
     QSqlQuery query;
@@ -263,6 +694,11 @@ int databaseStorage::addDogToDatabase(Dog *a){
      return 0;
 }
 
+/** Function: addBirdToDatabase()
+ *  In: a bird, to be saved in persistant storage
+ *  Purpose: adds a bird, and all it's attributes to
+ *               the database connected to the software
+ */
 int databaseStorage::addBirdToDatabase(Bird *a){
     QSqlQuery query;
     QTextStream cerr(stderr);
@@ -311,6 +747,11 @@ int databaseStorage::addBirdToDatabase(Bird *a){
      return 0;
 }
 
+/** Function: addLizzardToDatabase()
+ *  In: a lizzard, to be saved in persistant storage
+ *  Purpose: adds a lizzard, and all it's attributes to
+ *               the database connected to the software
+ */
 int databaseStorage::addLizardToDatabase(Lizard *a){
     QSqlQuery query;
     QTextStream cerr(stderr);
@@ -361,6 +802,11 @@ int databaseStorage::addLizardToDatabase(Lizard *a){
      return 0;
 }
 
+/** Function: addCatToDatabase()
+ *  In: a cat, to be saved in persistant storage
+ *  Purpose: adds a cat, and all it's attributes to
+ *               the database connected to the software
+ */
 int databaseStorage::addCatToDatabase(Cat *a){
     QSqlQuery query;
     QTextStream cerr(stderr);
@@ -409,6 +855,11 @@ int databaseStorage::addCatToDatabase(Cat *a){
      return 0;
 }
 
+/** Function: addRabbitToDatabase()
+ *  In: a rabbit, to be saved in persistant storage
+ *  Purpose: adds a rabbit, and all it's attributes to
+ *               the database connected to the software
+ */
 int databaseStorage::addRabbitToDatabase(Rabbit *a){
     QSqlQuery query;
     QTextStream cerr(stderr);
@@ -461,421 +912,11 @@ int databaseStorage::addRabbitToDatabase(Rabbit *a){
      return 0;
 }
 
-int databaseStorage::loadDatabase(){
-    QSqlQuery q;
-    QTextStream cerr(stderr);
-
-    //-------------------------------------------------//
-    //           GET CLIENTS FROM DATABASE             //
-    //-------------------------------------------------//
-
-    q.exec("SELECT * FROM clientStorage;");
-
-    while (q.next()) {
-        int id = q.value(0).toInt();
-        QString fName = q.value(1).toString();
-        QString lName = q.value(2).toString();
-        QString add = q.value(3).toString();
-        QString phone = q.value(4).toString();
-        QString email = q.value(5).toString();
-        QString city = q.value(6).toString();
-        QString prov = q.value(7).toString();
-        std::stoi((std::to_string(id).substr(1)));
-
-        int dwelling = q.value(8).toInt();
-        int location = q.value(9).toInt();
-        int workSchedule = q.value(10).toInt();
-        int activity = q.value(11).toInt();
-        int hasChildren = q.value(12).toInt();
-        int hasAnimals = q.value(13).toInt();
-        int travels = q.value(14).toInt();
-        int children = q.value(15).toInt();
-        int goodWAnimals = q.value(16).toInt();
-        int strangers = q.value(17).toInt();
-        int crowds = q.value(18).toInt();
-        int noises = q.value(19).toInt();
-        int protector = q.value(20).toInt();
-        int energy = q.value(21).toInt();
-        int fearful = q.value(22).toInt();
-        int affection = q.value(23).toInt();
-        int messy = q.value(24).toInt();
-
-        int wantsDog = q.value(25).toInt();
-        int hasDogAllergies = q.value(26).toInt();
-        QString dogBreeds = q.value(27).toString();
-        int dogAge = q.value(28).toInt();
-        int dogSize = q.value(29).toInt();
-        int dogGender = q.value(30).toInt();
-        int followsCommandsDog = q.value(31).toInt();
-        int houseTrained = q.value(32).toInt();
-
-        int wantsCat = q.value(33).toInt();
-        int hasCatAllergies = q.value(34).toInt();
-        QString catBreeds = q.value(35).toString();
-        int catAge = q.value(36).toInt();
-        int catSize = q.value(37).toInt();
-        int catGender = q.value(38).toInt();
-        int isCurious = q.value(39).toInt();
-        int followCommandsCat = q.value(40).toInt();
-        int doesntShed = q.value(41).toInt();
-
-        int wantsBird = q.value(42).toInt();
-        int hasBirdAllergies = q.value(43).toInt();
-        QString birdBreeds = q.value(44).toString();
-        int birdAge = q.value(45).toInt();
-        int birdSize = q.value(46).toInt();
-        int birdGender = q.value(47).toInt();
-        int isQuietBird = q.value(48).toInt();
-        int isSocialBird = q.value(49).toInt();
-        QString birdColour = q.value(50).toString();
-
-        int wantsLizard = q.value(51).toInt();
-        int hasLizardAllergies = q.value(52).toInt();
-        QString lizardBreeds = q.value(53).toString();
-        int lizardAge = q.value(54).toInt();
-        int lizardSize = q.value(55).toInt();
-        int lizardGender = q.value(56).toInt();
-        int easyToFeed = q.value(57).toInt();
-        int simpleLiving = q.value(58).toInt();
-        QString lizardColour = q.value(59).toString();
-
-        int wantsRabbit = q.value(60).toInt();
-        int hasRabbitAllergies = q.value(61).toInt();
-        QString rabbitBreeds = q.value(62).toString();
-        int rabbitAge = q.value(63).toInt();
-        int rabbitSize = q.value(64).toInt();
-        int rabbitGender = q.value(65).toInt();
-        int isSocialRabbit = q.value(66).toInt();
-        int needsGrooming = q.value(67).toInt();
-        QString rabbitColour = q.value(68).toString();
-
-        int dogFur = q.value(69).toInt();
-        int catFur = q.value(70).toInt();
-        int birdFur = q.value(71).toInt();
-        int lizardFur = q.value(72).toInt();
-        int rabbitFur = q.value(73).toInt();
-        int quietness = q.value(74).toInt();
-        int age = q.value(75).toInt();
-
-        Client *c = new Client;
-
-        std::vector<std::string> dogB, catB, birdB, lizB, rabB;
-        dogB = c->parseBreedsStr(dogBreeds.toStdString());
-        catB = c->parseBreedsStr(catBreeds.toStdString());
-        birdB = c->parseBreedsStr(birdBreeds.toStdString());
-        lizB = c->parseBreedsStr(lizardBreeds.toStdString());
-        rabB = c->parseBreedsStr(rabbitBreeds.toStdString());
-
-        c->setClientAttributes(fName.toStdString(), lName.toStdString(), add.toStdString(), phone.toStdString(), email.toStdString(), city.toStdString(), prov.toStdString(), dwelling,  location,  workSchedule, activity,  hasChildren, hasAnimals,  travels,  children,  goodWAnimals,  strangers, crowds,  noises,  protector,  energy,  fearful,  affection, messy, wantsDog,  hasDogAllergies,  dogB,  dogAge,  dogSize,  dogGender, followsCommandsDog,  houseTrained, wantsCat,  hasCatAllergies,  catB,  catAge,  catSize,  catGender, isCurious,  followCommandsCat,  doesntShed, wantsBird,  hasBirdAllergies,  birdB,  birdAge,  birdSize,  birdGender, isQuietBird, isSocialBird, birdColour.toStdString(), wantsLizard, hasLizardAllergies,  lizB,  lizardAge,  lizardSize,  lizardGender, easyToFeed,  simpleLiving,  lizardColour.toStdString(), wantsRabbit,  hasRabbitAllergies,  rabB,  rabbitAge,  rabbitSize,  rabbitGender, isSocialRabbit,  needsGrooming,  rabbitColour.toStdString(), dogFur,  catFur,  birdFur,  lizardFur,  rabbitFur,  quietness,  age);
-        c->setIdNumber(std::stoi((std::to_string(id).substr(1))));
-        (*clientStorage).add(c);
-       }
-
-
-    //-------------------------------------------------//
-    //           GET DOGS FROM DATABASE                //
-    //-------------------------------------------------//
-
-    q.exec("SELECT * FROM dogStorage;");
-    while (q.next()) {
-        int idNum = q.value(0).toInt();
-        QString breed = q.value(1).toString();
-        QString name = q.value(2).toString();
-        int size = q.value(3).toInt();
-        int age = q.value(4).toInt();
-        QString gender = q.value(5).toString();
-        int fur = q.value(6).toInt();
-        int travels = q.value(7).toInt();
-        int children = q.value(8).toInt();
-        int goodWithAnimals = q.value(9).toInt();
-        int strangers = q.value(10).toInt();
-        int crowds = q.value(11).toInt();
-        int noises = q.value(12).toInt();
-        int protector = q.value(13).toInt();
-        int energy = q.value(14).toInt();
-        int fearful = q.value(15).toInt();
-        int affection = q.value(16).toInt();
-        int messy = q.value(17).toInt();
-        bool nocturnal = q.value(18).toInt();
-        bool hypo = q.value(19).toInt();
-        QString lifeStyle = q.value(20).toString();
-        QString history = q.value(21).toString();
-        int barks = q.value(22).toInt();
-        int training = q.value(23).toInt();
-        bool bathroomTrained = q.value(24).toInt();
-       // bool goodboy = q.value(25).toInt();
-        QString filepath = q.value(26).toString();
-
-        char g = QString(gender).toStdString().c_str()[0];
-        int ls = lifeStyleToInt(lifeStyle);
-        int hst = historyToInt(history);
-
-        Dog* a = new Dog;
-        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
-        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
-                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, ls, hst);
-        a->setSpeciesAttributes(barks, training, bathroomTrained);
-        a->setImageFilePath(filepath.toStdString());
-        a->setBreed(breed.toStdString());
-        (*animalStorage).add(a);
-    }
-
-    //-------------------------------------------------//
-    //           GET CATS FROM DATABASE                //
-    //-------------------------------------------------//
-
-    q.exec("SELECT * FROM catStorage;");
-        while (q.next()) {
-        int idNum = q.value(0).toInt();
-        QString breed = q.value(1).toString();
-        QString name = q.value(2).toString();
-        int size = q.value(3).toInt();
-        int age = q.value(4).toInt();
-        QString gender = q.value(5).toString();
-        int fur = q.value(6).toInt();
-        int travels = q.value(7).toInt();
-        int children = q.value(8).toInt();
-        int goodWithAnimals = q.value(9).toInt();
-        int strangers = q.value(10).toInt();
-        int crowds = q.value(11).toInt();
-        int noises = q.value(12).toInt();
-        int protector = q.value(13).toInt();
-        int energy = q.value(14).toInt();
-        int fearful = q.value(15).toInt();
-        int affection = q.value(16).toInt();
-        int messy = q.value(17).toInt();
-        bool nocturnal = q.value(18).toInt();
-        bool hypo = q.value(19).toInt();
-        QString lifeStyle = q.value(20).toString();
-        QString history = q.value(21).toString();
-        int curious = q.value(22).toInt();
-        int trained = q.value(23).toInt();
-        bool shed = q.value(24).toInt();
-        QString filepath = q.value(25).toString();
-
-        char g = QString(gender).toStdString().c_str()[0];
-        int ls = lifeStyleToInt(lifeStyle);
-        int hst = historyToInt(history);
-
-        Cat* a = new Cat;
-        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
-        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
-                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, ls, hst);
-        a->setSpeciesAttributes(curious, trained, shed);
-        a->setImageFilePath(filepath.toStdString());
-        a->setBreed(breed.toStdString());
-
-        (*animalStorage).add(a);
-    }
-
-    //-------------------------------------------------//
-    //           GET LIZARDS FROM DATABASE             //
-    //-------------------------------------------------//
-
-        q.exec("SELECT * FROM lizardStorage;");
-        while (q.next()) {
-        int idNum = q.value(0).toInt();
-        QString breed = q.value(1).toString();
-        QString name = q.value(2).toString();
-        int size = q.value(3).toInt();
-        int age = q.value(4).toInt();
-        QString gender = q.value(5).toString();
-        int fur = q.value(6).toInt();
-        int travels = q.value(7).toInt();
-        int children = q.value(8).toInt();
-        int goodWithAnimals = q.value(9).toInt();
-        int strangers = q.value(10).toInt();
-        int crowds = q.value(11).toInt();
-        int noises = q.value(12).toInt();
-        int protector = q.value(13).toInt();
-        int energy = q.value(14).toInt();
-        int fearful = q.value(15).toInt();
-        int affection = q.value(16).toInt();
-        int messy = q.value(17).toInt();
-        bool nocturnal = q.value(18).toInt();
-        bool hypo = q.value(19).toInt();
-        QString lifeStyle = q.value(20).toString();
-        QString history = q.value(21).toString();
-        QString diet = q.value(22).toString();
-        QString colour = q.value(23).toString();
-        QString feed = q.value(24).toString();
-        bool space = q.value(25).toInt();
-        bool light = q.value(26).toInt();
-        QString filepath = q.value(27).toString();
-
-        char g = QString(gender).toStdString().c_str()[0];
-        int ls = lifeStyleToInt(lifeStyle);
-        int hst = historyToInt(history);
-
-        Lizard* a = new Lizard;
-        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
-        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
-                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, ls, hst);
-        a->setSpeciesAttributes(diet.toStdString(), colour.toStdString(), feed.toStdString(), space, light);
-        a->setImageFilePath(filepath.toStdString());
-        a->setBreed(breed.toStdString());
-
-        (*animalStorage).add(a);
-    }
-
-    //-------------------------------------------------//
-    //           GET BIRDS FROM DATABASE               //
-    //-------------------------------------------------//
-
-    q.exec("SELECT * FROM birdStorage;");
-        while (q.next()) {
-        int idNum = q.value(0).toInt();
-        QString breed = q.value(1).toString();
-        QString name = q.value(2).toString();
-        int size = q.value(3).toInt();
-        int age = q.value(4).toInt();
-        QString gender = q.value(5).toString();
-        int fur = q.value(6).toInt();
-        int travels = q.value(7).toInt();
-        int children = q.value(8).toInt();
-        int goodWithAnimals = q.value(9).toInt();
-        int strangers = q.value(10).toInt();
-        int crowds = q.value(11).toInt();
-        int noises = q.value(12).toInt();
-        int protector = q.value(13).toInt();
-        int energy = q.value(14).toInt();
-        int fearful = q.value(15).toInt();
-        int affection = q.value(16).toInt();
-        int messy = q.value(17).toInt();
-        bool nocturnal = q.value(18).toInt();
-        bool hypo = q.value(19).toInt();
-        QString lifeStyle = q.value(20).toString();
-        QString history = q.value(21).toString();
-        int loud = q.value(22).toInt();
-        int social = q.value(23).toInt();
-        QString colour = q.value(24).toString();
-        QString filepath = q.value(25).toString();
-
-        char g = QString(gender).toStdString().c_str()[0];
-        int ls = lifeStyleToInt(lifeStyle);
-        int hst = historyToInt(history);
-
-        Bird* a = new Bird;
-        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
-        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
-                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, ls, hst);
-        a->setSpeciesAttributes(loud, social, colour.toStdString());
-        a->setImageFilePath(filepath.toStdString());
-        a->setBreed(breed.toStdString());
-
-        (*animalStorage).add(a);
-    }
-
-    //-------------------------------------------------//
-    //           GET RABBITS FROM DATABASE             //
-    //-------------------------------------------------//
-
-    q.exec("SELECT * FROM rabbitStorage;");
-        while (q.next()) {
-        int idNum = q.value(0).toInt();
-        QString breed = q.value(1).toString();
-        QString name = q.value(2).toString();
-        int size = q.value(3).toInt();
-        int age = q.value(4).toInt();
-        QString gender = q.value(5).toString();
-        int fur = q.value(6).toInt();
-        int travels = q.value(7).toInt();
-        int children = q.value(8).toInt();
-        int goodWithAnimals = q.value(9).toInt();
-        int strangers = q.value(10).toInt();
-        int crowds = q.value(11).toInt();
-        int noises = q.value(12).toInt();
-        int protector = q.value(13).toInt();
-        int energy = q.value(14).toInt();
-        int fearful = q.value(15).toInt();
-        int affection = q.value(16).toInt();
-        int messy = q.value(17).toInt();
-        bool nocturnal = q.value(18).toInt();
-        bool hypo = q.value(19).toInt();
-        QString lifeStyle = q.value(20).toString();
-        QString history = q.value(21).toString();
-        QString pattern = q.value(22).toString();
-        QString colour = q.value(23).toString();
-        int grooming = q.value(24).toInt();
-        int attention = q.value(25).toInt();
-        QString filepath = q.value(26).toString();
-
-        char g = QString(gender).toStdString().c_str()[0];
-        std::stoi((std::to_string(idNum).substr(1)));
-        int ls = lifeStyleToInt(lifeStyle);
-        int hst = historyToInt(history);
-
-
-        Rabbit* a = new Rabbit;
-        a->setIdNumber(std::stoi((std::to_string(idNum).substr(1))));
-        a->setBaseAttributes(name.toStdString(), size, age , g, fur, travels, children,goodWithAnimals,
-                             strangers, crowds, noises, protector, energy, fearful, affection, messy, nocturnal,
-                             hypo, ls, hst);
-        a->setSpeciesAttributes(pattern.toStdString(), colour.toStdString(), grooming, attention);
-        a->setImageFilePath(filepath.toStdString());
-        a->setBreed(breed.toStdString());
-
-        (*animalStorage).add(a);
-    }
-
-        int n;
-        QSqlQuery query;
-        query.exec("select count(*) from dogStorage;");
-        query.first();
-        n = query.value(0).toInt();
-        query.exec("select count(*) from catStorage;");
-        query.first();
-        n += query.value(0).toInt();
-        query.exec("select count(*) from birdStorage;");
-        query.first();
-        n += query.value(0).toInt();
-        query.exec("select count(*) from lizardStorage;");
-        query.first();
-        n += query.value(0).toInt();
-        query.exec("select count(*) from rabbitStorage;");
-        query.first();
-        n += query.value(0).toInt();
-        numAnimals = n;
-
-        query.exec("select count (*) from clientStorage;");
-        query.first();
-        numClients = query.value(0).toInt();
-
-    return 0;
-}
-
-int databaseStorage::lifeStyleToInt(QString str)
-{
-    if (QString::compare(str, "Indoor", Qt::CaseInsensitive) == 0){
-        return 0;
-    }
-    if (QString::compare(str, "Outdoor", Qt::CaseInsensitive) == 0){
-        return 1;
-    }
-    if (QString::compare(str, "Indoor/Outdoor", Qt::CaseInsensitive) == 0){
-        return 2;
-    }
-    else return 3;
-
-}
-
-int databaseStorage::historyToInt(QString str)
-{
-    if (QString::compare(str, "Brought by owner", Qt::CaseInsensitive) == 0){
-        return 0;
-    }
-    if (QString::compare(str, "Street Animal", Qt::CaseInsensitive) == 0){
-        return 1;
-    }
-    if (QString::compare(str, "Rescue", Qt::CaseInsensitive) == 0){
-        return 2;
-    }
-    else return 3;
-}
+/** Function: editClientInDB()
+ *  In: a client object that has been edited, via the UI
+ *  Purpose: saves the edited details of a client into
+ *               persistant storage.
+ */
 int databaseStorage::editClientInDB(Client *c){
 
     QTextStream cerr(stderr);
@@ -986,6 +1027,11 @@ int databaseStorage::editClientInDB(Client *c){
     return 0;
 }
 
+/** Function: editDogInDB()
+ *  In: a dog object that has been edited, via the UI
+ *  Purpose: saves the edited details of a dog into
+ *               persistant storage.
+ */
 int databaseStorage::editDogInDB(Dog *a){
     QTextStream cerr(stderr);
     QSqlQuery query;
@@ -1032,6 +1078,11 @@ int databaseStorage::editDogInDB(Dog *a){
     return 0;
 }
 
+/** Function: editCatInDB()
+ *  In: a cat object that has been edited, via the UI
+ *  Purpose: saves the edited details of a cat into
+ *               persistant storage.
+ */
 int databaseStorage::editCatInDB(Cat *a){
     QTextStream cerr(stderr);
     QSqlQuery query;
@@ -1077,6 +1128,11 @@ int databaseStorage::editCatInDB(Cat *a){
     return 0;
 }
 
+/** Function: editBirdInDB()
+ *  In: a bird object that has been edited, via the UI
+ *  Purpose: saves the edited details of a bird into
+ *               persistant storage.
+ */
 int databaseStorage::editBirdInDB(Bird *a){
     QTextStream cerr(stderr);
     QSqlQuery query;
@@ -1122,6 +1178,11 @@ int databaseStorage::editBirdInDB(Bird *a){
     return 0;
 }
 
+/** Function: editLizardInDB()
+ *  In: a lizard object that has been edited, via the UI
+ *  Purpose: saves the edited details of a lizard into
+ *               persistant storage.
+ */
 int databaseStorage::editLizardInDB(Lizard *a){
     QTextStream cerr(stderr);
     QSqlQuery query;
@@ -1169,6 +1230,11 @@ int databaseStorage::editLizardInDB(Lizard *a){
     return 0;
 }
 
+/** Function: editRabbitInDB()
+ *  In: a rabbit object that has been edited, via the UI
+ *  Purpose: saves the edited details of a rabbit into
+ *               persistant storage.
+ */
 int databaseStorage::editRabbitInDB(Rabbit *a){
 
     QTextStream cerr(stderr);
@@ -1215,4 +1281,49 @@ int databaseStorage::editRabbitInDB(Rabbit *a){
        }
 
     return 0;
+}
+
+/** Function: lifeStyleToInt()
+ *  In: a QString representing an animals lifestyle
+ *  Out: returns the equiv. integer value to be passed into
+ *              the constructor for an animal.
+ *  Purpose: converts a string representation of an animals
+ *              lifestyle into a integer version to pass
+ *              into the c-tor.
+ */
+int databaseStorage::lifeStyleToInt(QString str)
+{
+    if (QString::compare(str, "Indoor", Qt::CaseInsensitive) == 0){
+        return 0;
+    }
+    if (QString::compare(str, "Outdoor", Qt::CaseInsensitive) == 0){
+        return 1;
+    }
+    if (QString::compare(str, "Indoor/Outdoor", Qt::CaseInsensitive) == 0){
+        return 2;
+    }
+    else return 3;
+
+}
+
+/** Function: historyToInt()
+ *  In: a QString representing an animals history
+ *  Out: returns the equiv. integer value to be passed into
+ *              the constructor for an animal.
+ *  Purpose: converts a string representation of an animals
+ *              history into a integer version to pass
+ *              into the c-tor.
+ */
+int databaseStorage::historyToInt(QString str)
+{
+    if (QString::compare(str, "Brought by owner", Qt::CaseInsensitive) == 0){
+        return 0;
+    }
+    if (QString::compare(str, "Street Animal", Qt::CaseInsensitive) == 0){
+        return 1;
+    }
+    if (QString::compare(str, "Rescue", Qt::CaseInsensitive) == 0){
+        return 2;
+    }
+    else return 3;
 }

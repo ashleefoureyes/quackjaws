@@ -44,6 +44,10 @@ class databaseStorage
     int editBirdInDB(Bird*);
     int editLizardInDB(Lizard*);
     int editRabbitInDB(Rabbit*);
+    int getNumberOfClients();
+    int getNumberOfAnimals();
+
+
 
     private:
     int numClients;
@@ -53,6 +57,7 @@ class databaseStorage
     ClientStorage *clientStorage;
     int lifeStyleToInt(QString);
     int historyToInt(QString str);
+
 };
 
 
