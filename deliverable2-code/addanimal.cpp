@@ -587,7 +587,7 @@ void AddAnimal::setLizard(Lizard* newLizard)
         db->addLizardToDatabase(newLizard);
     }
     else {
-        db->addLizardToDatabase(newLizard);
+        db->editLizardInDB(newLizard);
     } // Will Watt change dog in this else block - DONE MAR 20 1:22PM
 
 
