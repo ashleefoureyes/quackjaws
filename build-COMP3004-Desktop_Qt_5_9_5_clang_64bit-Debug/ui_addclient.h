@@ -356,25 +356,25 @@ public:
     QHBoxLayout *horizontalLayout_25;
     QPushButton *pbExit;
     QPushButton *pbSubmit;
+    QButtonGroup *groupChildren;
+    QButtonGroup *groupTravel;
+    QButtonGroup *groupFearful;
+    QButtonGroup *groupProtector;
+    QButtonGroup *groupOtherAnimals;
+    QButtonGroup *groupActivityLevel;
     QButtonGroup *groupYoungChildren;
+    QButtonGroup *groupCrowds;
+    QButtonGroup *groupBirdAllergies;
+    QButtonGroup *groupAffection;
+    QButtonGroup *groupCatAllergies;
+    QButtonGroup *groupLizardAllergies;
+    QButtonGroup *groupRabbitAllergies;
+    QButtonGroup *groupDogAllergies;
     QButtonGroup *groupStrangers;
     QButtonGroup *groupEnergy;
-    QButtonGroup *groupTravel;
-    QButtonGroup *groupProtector;
-    QButtonGroup *groupLoudNoise;
-    QButtonGroup *groupChildren;
     QButtonGroup *groupMessy;
-    QButtonGroup *groupOtherAnimals;
-    QButtonGroup *groupCatAllergies;
-    QButtonGroup *groupFearful;
-    QButtonGroup *groupDogAllergies;
-    QButtonGroup *groupCrowds;
-    QButtonGroup *groupLizardAllergies;
     QButtonGroup *groupAnimals;
-    QButtonGroup *groupAffection;
-    QButtonGroup *groupRabbitAllergies;
-    QButtonGroup *groupActivityLevel;
-    QButtonGroup *groupBirdAllergies;
+    QButtonGroup *groupLoudNoise;
 
     void setupUi(QDialog *AddClient)
     {
@@ -585,8 +585,8 @@ public:
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         lbProvince = new QLabel(tabContact);
         lbProvince->setObjectName(QStringLiteral("lbProvince"));
-        lbProvince->setMinimumSize(QSize(150, 0));
-        lbProvince->setMaximumSize(QSize(150, 16777215));
+        lbProvince->setMinimumSize(QSize(122, 0));
+        lbProvince->setMaximumSize(QSize(122, 16777215));
 
         horizontalLayout_4->addWidget(lbProvince);
 
@@ -602,8 +602,8 @@ public:
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         cbProvince = new QComboBox(tabContact);
         cbProvince->setObjectName(QStringLiteral("cbProvince"));
-        cbProvince->setMinimumSize(QSize(150, 0));
-        cbProvince->setMaximumSize(QSize(150, 16777215));
+        cbProvince->setMinimumSize(QSize(122, 0));
+        cbProvince->setMaximumSize(QSize(122, 16777215));
 
         horizontalLayout_3->addWidget(cbProvince);
 

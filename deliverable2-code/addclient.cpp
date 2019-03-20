@@ -141,8 +141,9 @@ void AddClient::handleSubmitButton()
     {
         setClientAttributes(this->clientToEdit);
         returnResult = QDialog::Accepted;
+        db->editClientInDB(this->clientToEdit);
         // Will Watt makes changes to DB here. The client
-        // to use is this->clientToEdit
+        // to use is this->clientToEdit - DONE MAR 20 1:22PM
         this->close();
         return;
     }
@@ -297,7 +298,7 @@ bool AddClient::createClient()
 
     (*clientStorage)->add(newClient);
     db->addClientToDatabase(newClient);
-    // Will Watt add to db here
+    // Will Watt add to db here - DONE MAR 20 1:22PM
     return true;
 }
 

@@ -38,11 +38,11 @@ class databaseStorage
     int addRabbitToDatabase(Rabbit*);
     void initDatabase();
 
-    int editClient(Client*);
-    int editDog(Dog*);
-    int editCat(Cat*);
-    int editBird(Bird*);
-    int editLizard(Lizard*);
+    int editClientInDB(Client*);
+    int editDogInDB(Dog*);
+    int editCatInDB(Cat*);
+    int editBirdInDB(Bird*);
+    int editLizardInDB(Lizard*);
     int editRabbitInDB(Rabbit*);
 
     private:

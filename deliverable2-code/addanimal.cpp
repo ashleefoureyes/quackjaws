@@ -488,7 +488,9 @@ void AddAnimal::setCat(Cat* newCat)
         (*storage)->add(newCat);
         db->addCatToDatabase(newCat);
     }
-    else { } // Will Watt change dog in this else block
+    else {
+        db->editCatInDB(newCat);
+    } // Will Watt change dog in this else block - DONE MAR 20 1:22PM
 
     this->close();
 }
@@ -518,7 +520,9 @@ void AddAnimal::setDog(Dog* newDog)
         (*storage)->add(newDog);
         db->addDogToDatabase(newDog);
     }
-    else { } // Will Watt change dog in this else block
+    else {
+    db->editDogInDB(newDog);
+    } // Will Watt change dog in this else block - DONE MAR 20 1:22PM
 
 
     this->close();
@@ -546,9 +550,11 @@ void AddAnimal::setBird(Bird* newBird)
 
     if(!editingExistingAnimal) {
         (*storage)->add(newBird);
-        db->addBirdToDatabase(newBird);
+        db->addBirdToDatabase(newBird); // Will Watt change dog in this else block - DONE MAR 20 1:22PM
     }
-    else { } // Will Watt change dog in this else block
+    else {
+        db->editBirdInDB(newBird);
+    }
 
     this->close();
 }
@@ -580,7 +586,9 @@ void AddAnimal::setLizard(Lizard* newLizard)
         (*storage)->add(newLizard);
         db->addLizardToDatabase(newLizard);
     }
-    else { } // Will Watt change dog in this else block
+    else {
+        db->addLizardToDatabase(newLizard);
+    } // Will Watt change dog in this else block - DONE MAR 20 1:22PM
 
 
     this->close();
@@ -614,7 +622,7 @@ void AddAnimal::setRabbit(Rabbit *newRabbit)
     }
     else {
        db->editRabbitInDB(newRabbit);
-    } // Will Watt change dog in this else block
+    } // Will Watt change dog in this else block - DONE MAR 18
 
     this->close();
 }

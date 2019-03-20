@@ -1,7 +1,6 @@
 #include "databasestorage.h"
 #include "animal.h"
 #include "client.h"
-#include "dog.h"
 
 #include <string>
 #include <iostream>
@@ -18,7 +17,7 @@
 
 
 /** Function: databaseStorage()
-    Purpose: Constructor. */
+ *  Purpose: Constructor. */
 
 databaseStorage::databaseStorage(AnimalStorage *animalStorage, ClientStorage *clientStorage)
 {
@@ -30,7 +29,11 @@ databaseStorage::databaseStorage(AnimalStorage *animalStorage, ClientStorage *cl
 
 databaseStorage::~databaseStorage(){}
 
-
+/** Function: initDatabase
+ *  Purpose: Creates or locates database
+ *           Initalizes the database.
+ *           Creates tables within database
+ *           Pupulates tables with clients and animals */
 void databaseStorage::initDatabase(){
 
     QTextStream cerr(stderr);
@@ -42,7 +45,6 @@ void databaseStorage::initDatabase(){
            cerr << "SUCCESS - DB OPENED\n";
            QSqlQuery query;
 
-            //Create tables in the database - ClientStorage, DogStorage, CatStorage, BirdStorage, LizardStorage and RabbitStorage
             query.exec("CREATE TABLE IF NOT EXISTS clientStorage(idNum INTEGER PRIMARY KEY, fName TEXT, lName TEXT, address TEXT, phone TEXT, email TEXT, city TEXT, prov TEXT, dwelling INTEGER, location INTEGER, workSchedule INTEGER, activity INTEGER, hasChildren INTEGER, hasAnimals INTEGER, travels INTEGER, children INTEGER, goodWAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, wantsDog INTEGER, hasDogAllergies INTEGER, dogBreeds TEXT, dogAge INTEGER, dogSize INTEGER, dogGender INTEGER, followsCommandsDog INTEGER, houseTrained INTEGER, wantsCat, hasCatAllergies INTEGER, catBreeds TEXT, catAge INTEGER, catSize INTEGER, catGender INTEGER, isCurious INTEGER, followCommandsCat INTEGER, doesntShed INTEGER, wantsBird INTEGER, hasBirdAllergies INTEGER, birdBreeds TEXT, birdAge INTEGER, birdSize INTEGER, birdGender INTEGER, isQuietBird INTEGER, isSocialBird INTEGER, birdColour TEXT, wantsLizard INTEGER, hasLizardAllergies INTEGER, lizardBreeds TEXT, lizardAge INTEGER, lizardSize INTEGER, lizardGender INTEGER, easyToFeed INTEGER, simpleLiving INTEGER, lizardColour TEXT, wantsRabbit INTEGER, hasRabbitAllergies INTEGER, rabbitBreeds INTEGER, rabbitAge INTEGER, rabbitSize INTEGER, rabbitGender INTEGER, isSocialRabbit INTEGER, needsGrooming INTEGER, rabbitColour TEXT, dogFur INTEGER ,catFur INTEGER, birdFur INTEGER, lizardFur INTEGER, rabbitFur INTEGER, quietness INTEGER, age INTEGER);");
             query.exec("CREATE TABLE IF NOT EXISTS dogStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, barks INTEGER, training INTEGER, bathroomTrained INTEGER, goodBoy INTEGER, filepath TEXT);");
             query.exec("CREATE TABLE IF NOT EXISTS catStorage(idNum INTEGER PRIMARY KEY, breed TEXT, name TEXT, size INTEGER, age INTEGER, gender INTEGER, fur INTEGER, travels INTEGER, children INTEGER, goodWithAnimals INTEGER, strangers INTEGER, crowds INTEGER, noises INTEGER, protector INTEGER, energy INTEGER, fearful INTEGER, affection INTEGER, messy INTEGER, nocturnal INTEGER, hypo INTEGER, lifeStyle INTEGER, history INTEGER, curiosity INTEGER, trained INTEGER, shedding INTEGER, filepath TEXT);");
@@ -874,6 +876,298 @@ int databaseStorage::historyToInt(QString str)
     }
     else return 3;
 }
+int databaseStorage::editClientInDB(Client *c){
+
+    QTextStream cerr(stderr);
+    QSqlQuery query;
+    cerr << "EDIT my client\n";
+    query.prepare("UPDATE clientStorage SET fName = :fName, lName = :lName, address = :address, phone = :phone, email = :email, city = :city, prov = :prov, dwelling = :dwelling, "
+                  "location = :location, workSchedule = :workSchedule, activity = :activity, hasChildren = :hasChildren, hasAnimals = :hasAnimals, travel = :travels, children = :children, goodWAnimals = :goodWAnimals, strangers = :strangers, crowds = :crowds, noises = :noises, protector = :protector, energy = :energy, "
+                  "fearful = :fearful, affection = :affection, messy = :messy, wantsDog = :wantsDog, hasDogAllergies = :hasDogAllergies, dogBreeds = :dogBreeds, dogAge = :dogAge, dogSize = :dogSize, dogGender = :dogGender, followsCommandsDog = :followsCommandsDog, houseTrained = :houseTrained, wantsCat = :wantsCat, "
+                  "hasCatAllergies = :hasCatAllergies, catBreeds = :catBreeds, catAge = :catAge, catSize = :catSize, catGender = :catGender, isCurious = :isCurious, followCommandsCat = :followCommandsCat, doesntShed = :doesntShed, wantsBird = :wantsBird, hasBirdAllergies = :hasBirdAllergies, birdBreeds = :birdBreeds, "
+                  "birdAge = :birdAge, birdSize = :birdSize, birdGender = :birdGender, isQuietBird = :isQuietBird, isSocialBird = :isSocialBird, birdColour = :birdColour, wantsLizard = :wantsLizard, hasLizardAllergies = :hasLizardAllergies, lizardBreeds = :lizardBreeds, lizardAge = :lizardAge, lizardSize = :lizardSize, "
+                  "lizardGender = :lizardGender, easyToFeed = :easyToFeed, simpleLiving = :simpleLiving, lizardColour = :lizardColour, wantsRabbit = :wantsRabbit, hasRabbitAllergies = :hasRabbitAllergies, rabbitBreeds = :rabbitBreeds, rabbitAge = :rabbitAge, rabbitSize = :rabbitSize, rabbitGender = :rabbitGender, "
+                  "isSocialRabbit = :isSocialRabbit, needsGrooming = :needsGrooming, rabbitColour = :rabbitColour, dogFur = :dogFur, catFur = :catFur, birdFur = :birdFur, lizardFur = :lizardFur, rabbitFur = :rabbitFur, quietness = :quietness, age = :age  WHERE idNum = :idNum");
+
+    query.bindValue(":idNum", c->getId());
+    query.bindValue(":fName", QString::fromStdString(c->getFirstName()));
+    query.bindValue(":lName", QString::fromStdString(c->getLastName()));
+    query.bindValue(":address", QString::fromStdString(c->getAddress()));
+    query.bindValue(":phone", QString::fromStdString(c->getPhoneNum()));
+    query.bindValue(":email", QString::fromStdString(c->getEmail()));
+    query.bindValue(":city", QString::fromStdString(c->getCity()));
+    query.bindValue(":prov", QString::fromStdString(c->getProvince()));
+
+    query.bindValue(":dwelling", c->getDwelling());
+    query.bindValue(":location", c->getLocation());
+    query.bindValue(":workSchedule", c->getWorkSchedule());
+    query.bindValue(":activity", c->getActivity());
+    query.bindValue(":hasChildren", c->getHasChildren());
+    query.bindValue(":hasAnimals", c->getHasAnimals());
+    query.bindValue(":travels", c->getTravels());
+    query.bindValue(":children", c->getChildren());
+
+    query.bindValue(":goodWAnimals", c->getGoodWAnimals());
+    query.bindValue(":strangers", c->getStrangers());
+    query.bindValue(":crowds", c->getCrowds());
+    query.bindValue(":noises", c->getNoises());
+    query.bindValue(":protector", c->getProtector());
+    query.bindValue(":energy", c->getEnergy());
+    query.bindValue(":fearful", c->getFearful());
+    query.bindValue(":affection", c->getAffection());
+    query.bindValue(":messy", c->getMessy());
+
+    query.bindValue(":wantsDog", c->getWantsDog());
+    query.bindValue(":hasDogAllergies", c->getHasDogAllergies());
+    query.bindValue(":dogBreeds", QString::fromStdString(c->getDogBreedStr()));
+    query.bindValue(":dogAge", c->getDogAge());
+    query.bindValue(":dogSize", c->getDogSize());
+    query.bindValue(":dogGender", c->getDogGender());
+    query.bindValue(":followsCommandsDog", c->getFollowsCommandsDog());
+    query.bindValue(":houseTrained", c->getHouseTrained());
+
+    query.bindValue(":wantsCat", c->getWantsCat());
+    query.bindValue(":hasCatAllergies", c->getHasCatAllergies());
+    query.bindValue(":catBreeds", QString::fromStdString(c->getCatBreedStr()));
+    query.bindValue(":catAge", c->getCatAge());
+    query.bindValue(":catSize", c->getCatSize());
+    query.bindValue(":catGender", c->getCatGender());
+    query.bindValue(":isCurious", c->getIsCurious());
+    query.bindValue(":followCommandsCat", c->getFollowCommandsCat());
+    query.bindValue(":doesntShed", c->getDoesntShed());
+
+    query.bindValue(":wantsBird", c->getWantsBird());
+    query.bindValue(":hasBirdAllergies", c->getHasBirdAllergies());
+    query.bindValue(":birdBreeds", QString::fromStdString(c->getBirdBreedStr()));
+    query.bindValue(":birdAge", c->getBirdAge());
+    query.bindValue(":birdSize", c->getBirdSize());
+    query.bindValue(":birdGender", c->getBirdGender());
+    query.bindValue(":isQuietBird", c->getIsQuietBird());
+    query.bindValue(":isSocialBird", c->getIsSocialBird());
+    query.bindValue(":birdColour", QString::fromStdString(c->getBirdColour()));
+
+    query.bindValue(":wantsLizard", c->getWantsLizard());
+    query.bindValue(":hasLizardAllergies", c->getHasLizardAllergies());
+    query.bindValue(":lizardBreeds", QString::fromStdString(c->getLizardBreedStr()));
+    query.bindValue(":lizardAge", c->getLizardAge());
+    query.bindValue(":lizardSize", c->getLizardSize());
+    query.bindValue(":lizardGender", c->getLizardGender());
+    query.bindValue(":easyToFeed", c->getEasyToFeed());
+    query.bindValue(":simpleLiving", c->getSimpleLiving());
+    query.bindValue(":lizardColour", QString::fromStdString(c->getLizardColour()));
+
+    query.bindValue(":wantsRabbit", c->getWantsRabbit());
+    query.bindValue(":hasRabbitAllergies", c->getHasRabbitAllergies());
+    query.bindValue(":rabbitBreeds", QString::fromStdString(c->getRabbitBreedStr()));
+    query.bindValue(":rabbitAge", c->getRabbitAge());
+    query.bindValue(":rabbitSize", c->getRabbitSize());
+    query.bindValue(":rabbitGender", c->getRabbitGender());
+    query.bindValue(":isSocialRabbit", c->getIsSocialRabbit());
+    query.bindValue(":needsGrooming", c->getNeedsGrooming());
+    query.bindValue(":rabbitColour", QString::fromStdString(c->getRabbitColour()));
+
+    query.bindValue(":dogFur", c->getDogFur());
+    query.bindValue(":catFur", c->getCatFur());
+    query.bindValue(":birdFur", c->getBirdFur());
+    query.bindValue(":lizardFur", c->getLizardFur());
+    query.bindValue(":rabbitFur", c->getRabbitFur());
+    query.bindValue(":quietness", c->getQuietness());
+    query.bindValue(":age", c->getAge());
+
+    if(query.exec()) {
+           cerr << "CLIENT EDIT SUCCESS\n" << "\n";
+       }
+       else{
+        cerr << "ERROR EDITING Client \n";
+         qDebug() << "editClient error:"
+                         << query.lastError();
+       }
+
+    return 0;
+}
+
+int databaseStorage::editDogInDB(Dog *a){
+    QTextStream cerr(stderr);
+    QSqlQuery query;
+    cerr << "EDIT my dog\n";
+    query.prepare("UPDATE dogStorage SET breed = :breed, name = :name, size = :size, age = :age, gender = :gender, fur = :fur, travels = :travels, children = :children, goodWithAnimals = :goodWithAnimals, strangers = :strangers, crowds = :crowds, noises = :noises, protector = :protector, energy = :energy, fearful = :fearful, affection = :affection, messy = :messy, nocturnal = :nocturnal, hypo = :hypo, lifeStyle = :lifestyle, history = :history, barks = :barks, training = :training, bathroomTrained = :bathroomTrained, goodBoy = :goodBoy, filepath = :filepath WHERE idNum = :idNum");
+
+    query.bindValue(":idNum", a->getId());
+    query.bindValue(":breed", QString::fromStdString(a->getBreed()));
+    query.bindValue(":name", QString::fromStdString(a->getName()));
+    query.bindValue(":size", a->getSize());
+    query.bindValue(":age", a->getAge());
+    query.bindValue(":gender", QString(QChar::fromLatin1(a->getGender())));
+    query.bindValue(":fur", a->getFur());
+    query.bindValue(":travels", a->getTravels());
+    query.bindValue(":children", a->getChildren());
+    query.bindValue(":goodWithAnimals", a->getGoodWAnimals());
+    query.bindValue(":strangers", a->getStrangers());
+    query.bindValue(":crowds", a->getCrowds());
+    query.bindValue(":noises", a->getNoises());
+    query.bindValue(":protector", a->getProtector());
+    query.bindValue(":energy", a->getEnergy());
+    query.bindValue(":fearful", a->getFearful());
+    query.bindValue(":affection", a->getAffection());
+    query.bindValue(":messy", a->getMessy());
+    query.bindValue(":nocturnal", a->getNocturnal());
+    query.bindValue(":hypo", a->isHypo());
+    query.bindValue(":lifeStyle", QString::fromStdString(a->getLifestyleStr()));
+    query.bindValue(":history", QString::fromStdString(a->getHistoryStr()));
+    query.bindValue(":barks", a->getBarks());
+    query.bindValue(":training", a->getTraining());
+    query.bindValue(":bathroomTrained", a->getIsBathroomTrained());
+    query.bindValue(":goodBoy", a->isAGoodDog());
+    query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
+
+    if(query.exec()) {
+           cerr << "DOG EDIT SUCCESS\n" << "\n";
+       }
+       else{
+        cerr << "ERROR EDITING DOG \n";
+         qDebug() << "editDog error:"
+                         << query.lastError();
+       }
+
+    return 0;
+}
+
+int databaseStorage::editCatInDB(Cat *a){
+    QTextStream cerr(stderr);
+    QSqlQuery query;
+    cerr << "EDIT my dog\n";
+    query.prepare("UPDATE catStorage SET breed = :breed, name = :name, size = :size, age = :age, gender = :gender, fur = :fur, travels = :travels, children = :children, goodWithAnimals = :goodWithAnimals, strangers = :strangers, crowds = :crowds, noises = :noises, protector = :protector, energy = :energy, fearful = :fearful, affection = :affection, messy = :messy, nocturnal = :nocturnal, hypo = :hypo, lifeStyle = :lifestyle, history = :history, curiosity = :curiosity, trained = :trained, shedding = :shedding, filepath = :filepath WHERE idNum = :idNum");
+
+    query.bindValue(":idNum", a->getId());
+    query.bindValue(":breed", QString::fromStdString(a->getBreed()));
+    query.bindValue(":name", QString::fromStdString(a->getName()));
+    query.bindValue(":size", a->getSize());
+    query.bindValue(":age", a->getAge());
+    query.bindValue(":gender", QString(QChar::fromLatin1(a->getGender())));
+    query.bindValue(":fur", a->getFur());
+    query.bindValue(":travels", a->getTravels());
+    query.bindValue(":children", a->getChildren());
+    query.bindValue(":goodWithAnimals", a->getGoodWAnimals());
+    query.bindValue(":strangers", a->getStrangers());
+    query.bindValue(":crowds", a->getCrowds());
+    query.bindValue(":noises", a->getNoises());
+    query.bindValue(":protector", a->getProtector());
+    query.bindValue(":energy", a->getEnergy());
+    query.bindValue(":fearful", a->getFearful());
+    query.bindValue(":affection", a->getAffection());
+    query.bindValue(":messy", a->getMessy());
+    query.bindValue(":nocturnal", a->getNocturnal());
+    query.bindValue(":hypo", a->isHypo());
+    query.bindValue(":lifeStyle", QString::fromStdString(a->getLifestyleStr()));
+    query.bindValue(":history", QString::fromStdString(a->getHistoryStr()));
+    query.bindValue(":trained", a->getTrained());
+    query.bindValue(":shedding", a->getShedding());
+    query.bindValue(":curiosity", a->getCuriosity());
+    query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
+
+    if(query.exec()) {
+           cerr << "DOG EDIT SUCCESS" << "\n";
+       }
+       else{
+        cerr << "ERROR EDITING Dog \n";
+         qDebug() << "editDog error:"
+                         << query.lastError();
+       }
+
+    return 0;
+}
+
+int databaseStorage::editBirdInDB(Bird *a){
+    QTextStream cerr(stderr);
+    QSqlQuery query;
+    cerr << "EDIT my bird\n";
+    query.prepare("UPDATE birdStorage SET breed = :breed, name = :name, size = :size, age = :age, gender = :gender, fur = :fur, travels = :travels, children = :children, goodWithAnimals = :goodWithAnimals, strangers = :strangers, crowds = :crowds, noises = :noises, protector = :protector, energy = :energy, fearful = :fearful, affection = :affection, messy = :messy, nocturnal = :nocturnal, hypo = :hypo, lifeStyle = :lifestyle, history = :history, loud = :loud, social = :social, colour = :colour, filepath = :filepath WHERE idNum = :idNum");
+
+    query.bindValue(":idNum", a->getId());
+    query.bindValue(":breed", QString::fromStdString(a->getBreed()));
+    query.bindValue(":name", QString::fromStdString(a->getName()));
+    query.bindValue(":size", a->getSize());
+    query.bindValue(":age", a->getAge());
+    query.bindValue(":gender", QString(QChar::fromLatin1(a->getGender())));
+    query.bindValue(":fur", a->getFur());
+    query.bindValue(":travels", a->getTravels());
+    query.bindValue(":children", a->getChildren());
+    query.bindValue(":goodWithAnimals", a->getGoodWAnimals());
+    query.bindValue(":strangers", a->getStrangers());
+    query.bindValue(":crowds", a->getCrowds());
+    query.bindValue(":noises", a->getNoises());
+    query.bindValue(":protector", a->getProtector());
+    query.bindValue(":energy", a->getEnergy());
+    query.bindValue(":fearful", a->getFearful());
+    query.bindValue(":affection", a->getAffection());
+    query.bindValue(":messy", a->getMessy());
+    query.bindValue(":nocturnal", a->getNocturnal());
+    query.bindValue(":hypo", a->isHypo());
+    query.bindValue(":lifeStyle", QString::fromStdString(a->getLifestyleStr()));
+    query.bindValue(":history", QString::fromStdString(a->getHistoryStr()));
+    query.bindValue(":loud", a->getLoud());
+    query.bindValue(":social", a->getSocial());
+    query.bindValue(":colour", QString::fromStdString(a->getColour()));
+    query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
+
+    if(query.exec()) {
+           cerr << "BIRD EDIT SUCCESS\n" << "\n";
+       }
+       else{
+        cerr << "ERROR EDITING BIRD \n";
+         qDebug() << "editBIRD error:"
+                         << query.lastError();
+       }
+
+    return 0;
+}
+
+int databaseStorage::editLizardInDB(Lizard *a){
+    QTextStream cerr(stderr);
+    QSqlQuery query;
+    cerr << "EDIT my lizard\n";
+    query.prepare("UPDATE lizardStorage SET breed = :breed, name = :name, size = :size, age = :age, gender = :gender, fur = :fur, travels = :travels, children = :children, goodWithAnimals = :goodWithAnimals, strangers = :strangers, crowds = :crowds, noises = :noises, protector = :protector, energy = :energy, fearful = :fearful, affection = :affection, messy = :messy, nocturnal = :nocturnal, hypo = :hypo, lifeStyle = :lifestyle, history = :history, diet = :diet, colour = :colour, feed = :feed, space = :space, light = :light, filepath = :filepath WHERE idNum = :idNum");
+
+    query.bindValue(":idNum", a->getId());
+    query.bindValue(":breed", QString::fromStdString(a->getBreed()));
+    query.bindValue(":name", QString::fromStdString(a->getName()));
+    query.bindValue(":size", a->getSize());
+    query.bindValue(":age", a->getAge());
+    query.bindValue(":gender", QString(QChar::fromLatin1(a->getGender())));
+    query.bindValue(":fur", a->getFur());
+    query.bindValue(":travels", a->getTravels());
+    query.bindValue(":children", a->getChildren());
+    query.bindValue(":goodWithAnimals", a->getGoodWAnimals());
+    query.bindValue(":strangers", a->getStrangers());
+    query.bindValue(":crowds", a->getCrowds());
+    query.bindValue(":noises", a->getNoises());
+    query.bindValue(":protector", a->getProtector());
+    query.bindValue(":energy", a->getEnergy());
+    query.bindValue(":fearful", a->getFearful());
+    query.bindValue(":affection", a->getAffection());
+    query.bindValue(":messy", a->getMessy());
+    query.bindValue(":nocturnal", a->getNocturnal());
+    query.bindValue(":hypo", a->isHypo());
+    query.bindValue(":lifeStyle", QString::fromStdString(a->getLifestyleStr()));
+    query.bindValue(":history", QString::fromStdString(a->getHistoryStr()));
+    query.bindValue(":diet", QString::fromStdString(a->getDiet()));
+    query.bindValue(":colour", QString::fromStdString(a->getColour()));
+    query.bindValue(":feed", QString::fromStdString(a->getFeedingInterval()));
+    query.bindValue(":space", a->getSpaceReqs());
+    query.bindValue(":light", a->getLightingReqs());
+    query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
+
+    if(query.exec()) {
+           cerr << "LIZARD EDIT SUCCESS\n" << "\n";
+       }
+       else{
+        cerr << "ERROR EDITING Lizard \n";
+         qDebug() << "editLizard error:"
+                         << query.lastError();
+       }
+
+    return 0;
+}
 
 int databaseStorage::editRabbitInDB(Rabbit *a){
 
@@ -922,75 +1216,3 @@ int databaseStorage::editRabbitInDB(Rabbit *a){
 
     return 0;
 }
-
-
-
-//int editClient(Client *c){
-
-//    QSqlQuery query;
-//    query.prepare("UPDATE clientStorage SET ");
-
-
-//    return 0;
-//}
-
-int editDog(Dog *a){
-    QTextStream cerr(stderr);
-    QSqlQuery query;
-    cerr << "EDIT my dog\n";
-    query.prepare("UPDATE dogStorage SET breed = :breed, name = :name, size = :size, age = :age, gender = :gender, fur = :fur, travels = :travels, children = :children, goodWithAnimals = :goodWithAnimals, strangers = :strangers, crowds = :crowds, noises = :noises, protector = :protector, energy = :energy, fearful = :fearful, affection = :affection, messy = :messy, nocturnal = :nocturnal, hypo = :hypo, lifeStyle = :lifestyle, history = :history, barks = :barks, training = :training, bathroomTrained = :bathroomTrained, goodBoy = :goodBoy, filepath = :filepath WHERE idNum = :idNum");
-
-    query.bindValue(":idNum", a->getId());
-    query.bindValue(":breed", QString::fromStdString(a->getBreed()));
-    query.bindValue(":name", QString::fromStdString(a->getName()));
-    query.bindValue(":size", a->getSize());
-    query.bindValue(":age", a->getAge());
-    query.bindValue(":gender", QString(QChar::fromLatin1(a->getGender())));
-    query.bindValue(":fur", a->getFur());
-    query.bindValue(":travels", a->getTravels());
-    query.bindValue(":children", a->getChildren());
-    query.bindValue(":goodWithAnimals", a->getGoodWAnimals());
-    query.bindValue(":strangers", a->getStrangers());
-    query.bindValue(":crowds", a->getCrowds());
-    query.bindValue(":noises", a->getNoises());
-    query.bindValue(":protector", a->getProtector());
-    query.bindValue(":energy", a->getEnergy());
-    query.bindValue(":fearful", a->getFearful());
-    query.bindValue(":affection", a->getAffection());
-    query.bindValue(":messy", a->getMessy());
-    query.bindValue(":nocturnal", a->getNocturnal());
-    query.bindValue(":hypo", a->isHypo());
-    query.bindValue(":lifeStyle", QString::fromStdString(a->getLifestyleStr()));
-    query.bindValue(":history", QString::fromStdString(a->getHistoryStr()));
-    query.bindValue(":barks", a->getBarks());
-    query.bindValue(":training", a->getTraining());
-    query.bindValue(":bathroomTrained", a->getIsBathroomTrained());
-    query.bindValue(":goodBoy", a->isAGoodDog());
-    query.bindValue(":filepath", QString::fromStdString(a->getImageFilePath()));
-
-    if(query.exec()) {
-           cerr << "DOG EDIT SUCCESS\n" << "\n";
-       }
-       else{
-        cerr << "ERROR EDITING DOG \n";
-         qDebug() << "editDog error:"
-                         << query.lastError();
-       }
-
-    return 0;
-}
-
-//int editCat(Cat *a){
-
-//    return 0;
-//}
-
-//int editBird(Bird *a){
-
-//    return 0;
-//}
-
-//int editLizard(Lizard *a){
-
-//    return 0;
-//}
