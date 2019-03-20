@@ -1,4 +1,4 @@
-Program: cuACS Deliverable 2
+Program: cuACS Deliverable 3
 
 Authors:
 Jake Bauer 101040373
@@ -6,8 +6,7 @@ Ashlee Foureyes 101050609
 Will Watt 100973531
 Skyler Gubbels 100885506
 
-Purpose: To store and display Animals and their attributes. Animals are stored
-in persistent storage and loaded in at the startup.
+Purpose: To create, edit, view and store Animal and Client objects with all their attributes. Allow Clients to edit their own profile information.
 
 Files:
   - main.cpp
@@ -24,7 +23,6 @@ Files:
   - filesaver.h filesaver.cpp
   - lizard.h lizard.cpp
   - mainwindow.h mainwindow.cpp mainwindow.ui
-  - profile.h profile.cpp
   - rabbit.h rabbit.cpp
   - staffhomepage.h staffhomepage.cpp
   - storage.h storage.cpp
@@ -32,8 +30,8 @@ Files:
   - viewclients.h viewclients.cpp viewclients.ui
 
 Compilation:
-Navigate to the directory where the deliverable2-code was
-downloaded and extracted (for example: ~/Downloads/deliverable2-code/ and type
+Navigate to the directory where the deliverable3-code was
+downloaded and extracted (for example: ~/Downloads/deliverable3-code/ and type
 "make".
 
 Launching:
@@ -44,9 +42,9 @@ At program startup you will be prompted to enter a client email or log in as sta
 
 If you log in as staff you will be given the following options
   - Add Animal
-  - View Animals
+  - View/Edit Animals
   - Add Client
-  - View Clients
+  - View/Edit Clients
   - Run Algorithm (Not yet implemented)
   - Logout
 
@@ -54,6 +52,7 @@ If you log in as a client you will be given the following options (to view the
 emails for the client profiles that are provided, log in as a staff member first
 and navigate to View Clients):
   - View Animals
+  - Edit Profile Information
   - Logout
 
 Add Animal: User will be given a form of Animal information to fill out. Once
@@ -63,11 +62,18 @@ View Animals: A popup window will appear showing all animals in storage and
 their attributes. When clicked on detailed animal attributes will be displayed.
 Animals can be filtered by species.
 
+View/Edit Animals: All features of View Animals with the additional functionality of
+specific animal attributes
+
 Add Client: User will fill out basic client information. Once completed the client
 will be added to Client Storage.
 
-View Clients: A popup window will appear showing all clients in storage.
-When clicked on, basic client information will be displayed.
+View/Edit Clients: A popup window will appear showing all clients in storage.
+When clicked on, basic client information will be displayed. From here a staff
+Member can open a window to edit the Client information.
+
+Edit Profile Information: When logged in to their profile a Client can edit their
+own profile information.
 
 Exit: All animals in storage will be saved to persistent storage and the
 program will terminate.
