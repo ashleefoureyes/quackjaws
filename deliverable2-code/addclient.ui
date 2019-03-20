@@ -282,13 +282,13 @@ selection-background-color: #e6aea4;
           <widget class="QLabel" name="lbProvince">
            <property name="minimumSize">
             <size>
-             <width>150</width>
+             <width>122</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>122</width>
              <height>16777215</height>
             </size>
            </property>
@@ -312,13 +312,13 @@ selection-background-color: #e6aea4;
           <widget class="QComboBox" name="cbProvince">
            <property name="minimumSize">
             <size>
-             <width>150</width>
+             <width>122</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>122</width>
              <height>16777215</height>
             </size>
            </property>
@@ -5082,24 +5082,24 @@ selection-background-color: #e6aea4;
  </resources>
  <connections/>
  <buttongroups>
+  <buttongroup name="groupChildren"/>
+  <buttongroup name="groupTravel"/>
+  <buttongroup name="groupFearful"/>
+  <buttongroup name="groupProtector"/>
+  <buttongroup name="groupOtherAnimals"/>
+  <buttongroup name="groupActivityLevel"/>
   <buttongroup name="groupYoungChildren"/>
+  <buttongroup name="groupCrowds"/>
+  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupAffection"/>
+  <buttongroup name="groupCatAllergies"/>
+  <buttongroup name="groupLizardAllergies"/>
+  <buttongroup name="groupRabbitAllergies"/>
+  <buttongroup name="groupDogAllergies"/>
   <buttongroup name="groupStrangers"/>
   <buttongroup name="groupEnergy"/>
-  <buttongroup name="groupTravel"/>
-  <buttongroup name="groupProtector"/>
-  <buttongroup name="groupLoudNoise"/>
-  <buttongroup name="groupChildren"/>
   <buttongroup name="groupMessy"/>
-  <buttongroup name="groupOtherAnimals"/>
-  <buttongroup name="groupCatAllergies"/>
-  <buttongroup name="groupFearful"/>
-  <buttongroup name="groupDogAllergies"/>
-  <buttongroup name="groupCrowds"/>
-  <buttongroup name="groupLizardAllergies"/>
   <buttongroup name="groupAnimals"/>
-  <buttongroup name="groupAffection"/>
-  <buttongroup name="groupRabbitAllergies"/>
-  <buttongroup name="groupActivityLevel"/>
-  <buttongroup name="groupBirdAllergies"/>
+  <buttongroup name="groupLoudNoise"/>
  </buttongroups>
 </ui>

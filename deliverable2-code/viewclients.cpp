@@ -141,6 +141,9 @@ void ViewClients::on_rbSpeciesRabbit_clicked() { ui->lbBreedPreferences->setText
 
 void ViewClients::on_buttonEdit_clicked()
 {
+    int index = ui->clientList->currentRow();
+    if(index < 0 || index > storage->getNumOfElements()) { displayTextBoxError("Error: No client selected"); return; }
+
     AddClient addClient;
     Client* client = nullptr;
     storage->get(&client, currentIndex);
@@ -157,8 +160,19 @@ void ViewClients::reloadView()
     //currentRow needs to be saved in a variable. If the function is passed
     // to displayAnimal as a parameter it always passes -1
     int index = ui->clientList->currentRow();
-    if(index < 0 || index > 100000) { index = 0; }
+    if(index < 0 || index > storage->getNumOfElements()) { index = 0; }
     ui->clientList->clear();
     populateList();
     displayClient(index);
+}
+
+/** Function: displayTextBoxError()
+ *  In: QString err
+ *  Purpose: Displays error passed as argument */
+void ViewClients::displayTextBoxError(QString err)
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
+    msgBox.setText(err);
+    msgBox.exec();
 }

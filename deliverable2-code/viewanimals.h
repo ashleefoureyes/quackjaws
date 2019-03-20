@@ -11,6 +11,7 @@
 #include <QListWidgetItem>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QMessageBox>
 
 #define ATTRIBUTE_OPTIONS 4
 
@@ -45,6 +46,7 @@ private:
     std::vector<Animal*> viewStorage;
 
     void displayAnimal(int index);
+    void displayTextBoxError(QString err);
     void loadImage(std::string);
     void changeSpeciesTab(int);
     int getCorrectIndex(int index);

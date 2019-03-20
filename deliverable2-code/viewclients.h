@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QListWidgetItem>
+#include <QMessageBox>
 
 #include "clientstorage.h"
 #include "addclient.h"
@@ -48,6 +49,7 @@ private:
     void findFirstValidSpecies();
     void fillBars();
     void reloadView();
+    void displayTextBoxError(QString err);
 };
 
 #endif // VIEWCLIENTS_H

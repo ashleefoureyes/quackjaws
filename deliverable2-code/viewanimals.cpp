@@ -246,6 +246,7 @@ void ViewAnimals::displayAnimalAttributes(Animal* reqAnimal)
 void ViewAnimals::on_bEditAnimal_clicked()
 {
     int index = (ui->animalList->currentRow());
+    if(index < 0 || index > storage->getSize()) { displayTextBoxError("Error, no animal selected"); return; }
 
     // Gets text in list, gets first element which is the animal ID
     // and determines which tab to show based off that
@@ -280,4 +281,15 @@ void ViewAnimals::passBreeds(std::vector<std::string> dogBreeds, std::vector<std
     this->birdBreeds = birdBreeds;
     this->lizardBreeds = lizardBreeds;
     this->rabbitBreeds = rabbitBreeds;
+}
+
+/** Function: displayTextBoxError()
+ *  In: QString err
+ *  Purpose: Displays error passed as argument */
+void ViewAnimals::displayTextBoxError(QString err)
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
+    msgBox.setText(err);
+    msgBox.exec();
 }
