@@ -322,7 +322,7 @@ std::string Client::getBreedPreferencesStr(std::vector<std::string> desiredBreed
         newline += desiredBreeds.at(static_cast<unsigned int>(i));
 
         if(i >= static_cast<int>(desiredBreeds.size())) { returnStr += newline; break; }
-        else if (newline.length() > 40) { returnStr += (newline + ",<br>"); newline = ""; }
+        else if (newline.length() > 30) { returnStr += (newline + ",<br>"); newline = ""; }
         else { newline += ", "; }
     }
 

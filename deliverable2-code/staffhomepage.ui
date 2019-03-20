@@ -43,6 +43,7 @@ color: #fff;
 background-color:#c23b22;
 border-radius:7px;
 min-height: 20px;
+min-width: 150px;
 }
 
 QPushButton:hover{
@@ -137,7 +138,7 @@ color: #ffffff
         <widget class="QPushButton" name="bAddAnimal">
          <property name="minimumSize">
           <size>
-           <width>100</width>
+           <width>150</width>
            <height>20</height>
           </size>
          </property>
@@ -156,7 +157,7 @@ color: #ffffff
         <widget class="QPushButton" name="bViewAnimals">
          <property name="minimumSize">
           <size>
-           <width>100</width>
+           <width>150</width>
            <height>20</height>
           </size>
          </property>
@@ -165,6 +166,11 @@ color: #ffffff
            <width>100</width>
            <height>41</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
          </property>
          <property name="text">
           <string>View/Edit Animals</string>
@@ -225,7 +231,7 @@ color: #ffffff
         <widget class="QPushButton" name="bAddClient">
          <property name="minimumSize">
           <size>
-           <width>100</width>
+           <width>150</width>
            <height>20</height>
           </size>
          </property>
@@ -244,7 +250,7 @@ color: #ffffff
         <widget class="QPushButton" name="bViewClients">
          <property name="minimumSize">
           <size>
-           <width>100</width>
+           <width>150</width>
            <height>20</height>
           </size>
          </property>
@@ -255,7 +261,7 @@ color: #ffffff
           </size>
          </property>
          <property name="text">
-          <string>View Clients</string>
+          <string>View/Edit Clients</string>
          </property>
         </widget>
        </item>
@@ -286,7 +292,7 @@ color: #ffffff
     <widget class="QPushButton" name="bRunAlgorithm">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>150</width>
        <height>20</height>
       </size>
      </property>

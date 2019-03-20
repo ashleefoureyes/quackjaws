@@ -558,6 +558,14 @@ moc_viewanimals.cpp: clientstorage.h \
 
 moc_addclient.cpp: client.h \
 		clientstorage.h \
+		databasestorage.h \
+		animalstorage.h \
+		dog.h \
+		animal.h \
+		cat.h \
+		bird.h \
+		lizard.h \
+		rabbit.h \
 		addclient.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -566,6 +574,14 @@ moc_addclient.cpp: client.h \
 moc_viewclients.cpp: clientstorage.h \
 		client.h \
 		addclient.h \
+		databasestorage.h \
+		animalstorage.h \
+		dog.h \
+		animal.h \
+		cat.h \
+		bird.h \
+		lizard.h \
+		rabbit.h \
 		viewclients.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -727,6 +743,14 @@ client.o: client.cpp client.h
 addclient.o: addclient.cpp addclient.h \
 		client.h \
 		clientstorage.h \
+		databasestorage.h \
+		animalstorage.h \
+		dog.h \
+		animal.h \
+		cat.h \
+		bird.h \
+		lizard.h \
+		rabbit.h \
 		ui_addclient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addclient.o addclient.cpp
 
@@ -734,6 +758,14 @@ viewclients.o: viewclients.cpp viewclients.h \
 		clientstorage.h \
 		client.h \
 		addclient.h \
+		databasestorage.h \
+		animalstorage.h \
+		dog.h \
+		animal.h \
+		cat.h \
+		bird.h \
+		lizard.h \
+		rabbit.h \
 		ui_viewclients.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o viewclients.o viewclients.cpp
 

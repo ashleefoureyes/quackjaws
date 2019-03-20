@@ -131,7 +131,12 @@ border: 3px solid white;
 }
 
 QRadioButton::indicator:checked:pressed{
-background-color: #aaaaaa
+background-color: #aaaaaa;
+}
+
+QRadioButton::indicator:unchecked:disabled{
+background-color: #555555;
+border: 0px solid white;
 }
 
 QCheckBox::indicator:checked{
@@ -855,7 +860,7 @@ selection-background-color: #e6aea4;
             </property>
             <property name="font">
              <font>
-              <pointsize>11</pointsize>
+              <pointsize>9</pointsize>
              </font>
             </property>
             <property name="text">

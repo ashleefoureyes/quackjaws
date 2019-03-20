@@ -36,6 +36,7 @@ void ViewClients::viewClientsFromStorage(ClientStorage *storage)
 {
     this->storage = storage;
     populateList();
+    ui->tabWidget->setCurrentIndex(0);
     displayClient(0);
     this->exec();
 }

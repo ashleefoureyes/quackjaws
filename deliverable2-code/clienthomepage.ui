@@ -36,6 +36,7 @@ color: #fff;
 background-color:#c23b22;
 border-radius:7px;
 min-height: 20px;
+min-width: 150px;
 }
 
 QPushButton:hover{
@@ -97,9 +98,9 @@ color: #ffffff;
   <widget class="QPushButton" name="lbViewAnimals">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>120</y>
-     <width>101</width>
+     <x>120</x>
+     <y>100</y>
+     <width>150</width>
      <height>41</height>
     </rect>
    </property>
@@ -110,9 +111,9 @@ color: #ffffff;
   <widget class="QPushButton" name="lbLogout">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>260</y>
-     <width>101</width>
+     <x>120</x>
+     <y>240</y>
+     <width>150</width>
      <height>25</height>
     </rect>
    </property>
@@ -144,9 +145,9 @@ color: #ffffff;
   <widget class="QPushButton" name="lbEditClient">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>180</y>
-     <width>101</width>
+     <x>120</x>
+     <y>160</y>
+     <width>150</width>
      <height>41</height>
     </rect>
    </property>
