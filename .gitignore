@@ -1,6 +1,7 @@
 **/*.swp
 **/.~lock.*
 **/.DS_Store
+**/.qmake.stash
 deliverable*-code/*.o
 deliverable*-code/ui_*.h
 deliverable*-code/moc*.h
