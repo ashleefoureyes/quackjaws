@@ -80,7 +80,7 @@ void StaffHomepage::on_bViewClients_clicked()
     ViewClients viewClient;
     viewClient.setModal(true);
     viewClient.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
-    viewClient.viewClientsFromStorage(clientStorage);
+    viewClient.viewClientsFromStorage(clientStorage, true);
 
 }
 

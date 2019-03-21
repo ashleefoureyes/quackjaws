@@ -28,6 +28,8 @@ Files:
   - storage.h storage.cpp
   - viewanimals.h viewanimals.cpp viewanimals.ui
   - viewclients.h viewclients.cpp viewclients.ui
+  - animalPhotos/
+  - cuacs_icon.png
 
 Compilation:
 Navigate to the directory where the deliverable3-code was
@@ -44,7 +46,7 @@ If you log in as staff you will be given the following options
   - Add Animal
   - View/Edit Animals
   - Add Client
-  - View/Edit Clients
+  - View Clients
   - Run Algorithm (Not yet implemented)
   - Logout
 
@@ -68,9 +70,8 @@ specific animal attributes
 Add Client: User will fill out basic client information. Once completed the client
 will be added to Client Storage.
 
-View/Edit Clients: A popup window will appear showing all clients in storage.
-When clicked on, basic client information will be displayed. From here a staff
-Member can open a window to edit the Client information.
+View Clients: A popup window will appear showing all clients in storage.
+When clicked on, basic client information will be displayed.
 
 Edit Profile Information: When logged in to their profile a Client can edit their
 own profile information.
