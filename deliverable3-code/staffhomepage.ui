@@ -261,7 +261,7 @@ color: #ffffff
           </size>
          </property>
          <property name="text">
-          <string>View/Edit Clients</string>
+          <string>View Clients</string>
          </property>
         </widget>
        </item>

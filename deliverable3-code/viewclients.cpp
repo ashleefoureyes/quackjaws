@@ -32,8 +32,13 @@ void ViewClients::populateList()
 /** Function: viewClientsFromStorage(Storage*)
  *  in: Storage*
  *  purpose: To be called when ViewClients is clicked. Displays all clients in storage */
-void ViewClients::viewClientsFromStorage(ClientStorage *storage)
+void ViewClients::viewClientsFromStorage(ClientStorage *storage, bool isStaff)
 {
+    if(isStaff == true)
+    {
+        ui->buttonEdit->hide();
+    }
+
     this->storage = storage;
     populateList();
     ui->tabWidget->setCurrentIndex(0);
