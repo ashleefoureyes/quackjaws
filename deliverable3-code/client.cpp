@@ -447,6 +447,8 @@ std::string Client::getBreedSpecificPrefsStr(int prefNum)
     }
 }
 
+std::string Client::getFullName() { return firstName + " " + lastName; }
+
 std::string Client::yesOrNo(bool boolean)
 {
     if(boolean == true) { return "Yes"; }

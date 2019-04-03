@@ -28,6 +28,7 @@ public:
     int generateUniqueId();
 
     void get(Animal** animal, int);
+    Animal* get(int index);
     int getSize();
 
     std::string listInfo(int index);

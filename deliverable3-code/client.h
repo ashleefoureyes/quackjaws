@@ -23,6 +23,7 @@ public:
 
     std::string getFirstName();
     std::string getLastName();
+    std::string getFullName();
     std::string getAddress();
     std::string getPhoneNum();
     std::string getCity();

@@ -43,7 +43,8 @@ SOURCES += \
     rabbit.cpp \
     lizard.cpp \
     databasestorage.cpp \
-    clientstorage.cpp
+    clientstorage.cpp \
+    match.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -62,7 +63,8 @@ HEADERS += \
     rabbit.h \
     lizard.h \
     databasestorage.h \
-    clientstorage.h
+    clientstorage.h \
+    match.h
 
 FORMS += \
         mainwindow.ui \

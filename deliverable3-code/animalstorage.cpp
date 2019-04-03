@@ -136,6 +136,17 @@ void AnimalStorage::get(Animal** animal, int index)
     }
 }
 
+/** Function: get(int index)
+ *  in: Index in storage
+ *  in-out: Animal
+ *  purpose: Gets and returns the animal. Does not use in-out params*/
+Animal* AnimalStorage::get(int index)
+{
+    Animal* anim = nullptr;
+    get(&anim, index);
+    return anim;
+}
+
 std::string AnimalStorage::getSaveInfo()
 {
     std::string returnStr = "";

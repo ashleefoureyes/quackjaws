@@ -1,6 +1,8 @@
 #include "staffhomepage.h"
 #include "ui_staffhomepage.h"
 
+#include <QTextStream>
+
 StaffHomepage::StaffHomepage(QWidget *parent, AnimalStorage *animalStorage, ClientStorage *clientStorage) :
     QDialog(parent),
     ui(new Ui::StaffHomepage)
@@ -87,11 +89,14 @@ void StaffHomepage::on_bViewClients_clicked()
 // Not yet implemented
 void StaffHomepage::on_bRunAlgorithm_clicked()
 {
+    /**
     QMessageBox msgBox;
     QString qst = QString::fromStdString("Feature coming soon!");
     msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
     msgBox.setText(qst);
-    msgBox.exec();
+    msgBox.exec(); */
+
+    fillMapTesting(matches, animalStorage, clientStorage);
 }
 
 /** Function: passBreeds(breeds)
@@ -109,6 +114,46 @@ void StaffHomepage::passBreeds(std::vector<std::string> dogBreeds, std::vector<s
     this->rabbitBreeds = rabbitBreeds;
 }
 
+void StaffHomepage::fillMapTesting(std::map<int, std::vector<Match*>> matches, AnimalStorage *animalStorage, ClientStorage *clientStorage)
+{
+    // Used for testing purpose to generate random match score
+    srand(time(NULL));
+    QTextStream cerr(stderr);
+    cerr << "Adding to map";
+    int testIncrementor = 0;
+    Client* currentClient;
 
+    // c for client, a for animal
+    for(int c = 0; c < clientStorage->getNumOfElements(); c++)
+    {
+        for(int a = 0; a < animalStorage->getSize(); ++a)
+        {
+            currentClient = clientStorage->get(c);
+            Match *match = new Match(currentClient, animalStorage->get(a), rand() % 1000);
+
+            // If the key is not in the dictionary, then make the value a new vector that holds Match pointers
+            // and add the first match to the vector
+            if(matches.count(currentClient->getId()) == 0)
+            {
+                matches.insert(std::pair<int, std::vector<Match*>>(currentClient->getId(), std::vector<Match*>()));
+                matches.at(currentClient->getId()).push_back(match);
+            }
+            // If the key already exists then just add the match to the back of the vector
+            else { matches.at(currentClient->getId()).push_back(match); }
+
+            if(testIncrementor == a) { optimalMatches.push_back(match); }
+            testIncrementor = (testIncrementor + 1)%animalStorage->getSize();
+
+            cerr << QString::fromStdString(match->getMatchStr()) << "\n";
+        }
+    }
+}
+
+/**
+void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> matches, AnimalStorage* animalStorage, ClientStorage* clientStorage)
+{
+
+}
+*/
 
 

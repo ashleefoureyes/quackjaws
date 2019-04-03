@@ -4,6 +4,9 @@
 #include <QDialog>
 #include <QMessageBox>
 #include <vector>
+#include <map>
+#include <stdlib.h>
+#include <time.h>
 
 #include "clientstorage.h"
 #include "animalstorage.h"
@@ -14,6 +17,7 @@
 #include "client.h"
 #include "viewclients.h"
 #include "databasestorage.h"
+#include "match.h"
 
 namespace Ui {
 class StaffHomepage;
@@ -45,12 +49,16 @@ private:
     ClientStorage *clientStorage;
     int returnResult;
     databaseStorage *db;
+    std::map<int, std::vector<Match*>> matches;
+    std::vector<Match*> optimalMatches;
 
     std::vector<std::string> dogBreeds;
     std::vector<std::string> catBreeds;
     std::vector<std::string> birdBreeds;
     std::vector<std::string> lizardBreeds;
     std::vector<std::string> rabbitBreeds;
+
+    void fillMapTesting(std::map<int, std::vector<Match*>> matches, AnimalStorage *animalStorage, ClientStorage *clientStorage);
 
 };
 
