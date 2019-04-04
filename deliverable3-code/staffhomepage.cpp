@@ -137,9 +137,10 @@ void StaffHomepage::fillMapTesting(std::map<int, std::vector<Match*>> matches, A
     QTextStream cerr(stderr);
 
     // Might work but it's done too fast
-    QProgressDialog progress("Adding to map", "Cancel", 0, (animalStorage->getSize(), clientStorage->getNumOfElements()), this);
-    progress.setWindowModality(Qt::WindowModal);
-    progress.show();
+    //QProgressDialog progress("Adding to map", "Cancel", 0, (animalStorage->getSize(), clientStorage->getNumOfElements()), this);
+    //progress.setWindowModality(Qt::WindowModal);
+    //progress.show();
+
     int testIncrementor = 0;
     Client* currentClient;
 
@@ -148,7 +149,7 @@ void StaffHomepage::fillMapTesting(std::map<int, std::vector<Match*>> matches, A
     {
         for(int a = 0; a < animalStorage->getSize(); ++a)
         {
-            progress.setValue(c*animalStorage->getSize() + a);
+            //progress.setValue(c*animalStorage->getSize() + a);
             currentClient = clientStorage->get(c);
             Match *match = new Match(currentClient, animalStorage->get(a), rand() % 1000);
 
