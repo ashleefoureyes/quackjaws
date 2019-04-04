@@ -19,7 +19,7 @@
 #include "databasestorage.h"
 #include "match.h"
 #include "algorithm.h"
-#include "viewmatches.h"
+#include "viewresults.h"
 
 namespace Ui {
 class StaffHomepage;

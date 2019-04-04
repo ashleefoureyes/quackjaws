@@ -45,8 +45,8 @@ SOURCES += \
     databasestorage.cpp \
     clientstorage.cpp \
     match.cpp \
-    viewmatches.cpp \
-    algorithm.cpp
+    algorithm.cpp \
+    viewresults.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -67,8 +67,8 @@ HEADERS += \
     databasestorage.h \
     clientstorage.h \
     match.h \
-    viewmatches.h \
-    algorithm.h
+    algorithm.h \
+    viewresults.h
 
 FORMS += \
         mainwindow.ui \
@@ -78,7 +78,7 @@ FORMS += \
     addclient.ui \
     viewclients.ui \
     clienthomepage.ui \
-    viewmatches.ui
+    viewresults.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

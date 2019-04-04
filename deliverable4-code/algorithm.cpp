@@ -14,7 +14,7 @@ Algorithm::Algorithm()
  * Optimal matches go in std::vector *optimalMatches. This vector should only contain one Match object per client
  *           in clientStorage
 */
-void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::vecor<Match*> *optimalMatches, AnimalStorage *animalStorage, ClientStorage *clientStorage);
+void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches, AnimalStorage *animalStorage, ClientStorage *clientStorage)
 {
 
 }

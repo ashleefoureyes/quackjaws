@@ -1,53 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ViewMatches</class>
- <widget class="QWidget" name="ViewMatches">
+ <class>ViewResults</class>
+ <widget class="QDialog" name="ViewResults">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>422</width>
-    <height>503</height>
+    <width>400</width>
+    <height>502</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="tabOptimal">
       <attribute name="title">
        <string>Optimal Matches</string>
       </attribute>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="tabDetails">
       <attribute name="title">
        <string>Detailed Match Info</string>
       </attribute>
-      <widget class="QTableWidget" name="tableClientsDetailed">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>340</y>
-         <width>181</width>
-         <height>121</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QTableView" name="tableAnimalsDetailed">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>340</y>
-         <width>181</width>
-         <height>121</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
@@ -59,6 +39,26 @@
        </property>
        <property name="text">
         <string>-&gt;</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="listClientsDetailed">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>340</y>
+         <width>181</width>
+         <height>121</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="listAnimalsDetailed">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>340</y>
+         <width>181</width>
+         <height>121</height>
+        </rect>
        </property>
       </widget>
      </widget>

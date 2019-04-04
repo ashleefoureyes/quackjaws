@@ -12,6 +12,12 @@ public:
     Match();
     std::string getMatchStr();
 
+    Client *getClient() const;
+    void setClient(Client *value);
+
+    Animal *getAnimal() const;
+    void setAnimal(Animal *value);
+
 private:
     Client *client;
     Animal *animal;

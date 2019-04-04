@@ -15,3 +15,8 @@ Match::Match()
 }
 
 std::string Match::getMatchStr() { return client->getFullName() + " -> " + animal->getName() + " : " + std::to_string(score); }
+
+Client *Match::getClient() const { return client; }
+void Match::setClient(Client *value) { client = value; }
+Animal *Match::getAnimal() const { return animal; }
+void Match::setAnimal(Animal *value) { animal = value; }
