@@ -105,7 +105,7 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     emptyMatchMap();
     //Algorithm algo;
     //algo.runAlgorithm(&matches, animalStorage, clientStorage);
-    fillMapTesting(matches, animalStorage, clientStorage);
+    fillMapTesting();
     changesSinceLastRun = false;
 }
 
@@ -130,7 +130,7 @@ void StaffHomepage::passBreeds(std::vector<std::string> dogBreeds, std::vector<s
     this->rabbitBreeds = rabbitBreeds;
 }
 
-void StaffHomepage::fillMapTesting(std::map<int, std::vector<Match*>> matches, AnimalStorage *animalStorage, ClientStorage *clientStorage)
+void StaffHomepage::fillMapTesting()
 {
     // Used for testing purpose to generate random match score
     srand(time(NULL));
@@ -173,12 +173,15 @@ void StaffHomepage::fillMapTesting(std::map<int, std::vector<Match*>> matches, A
 
 void StaffHomepage::emptyMatchMap()
 {
+    QTextStream cerr(stderr);
+
     std::map<int, std::vector<Match*>>::iterator it;
     std::vector<Match*>::iterator itVect;
-    for(it = matches.begin(); it != matches.end(); it++)
+    for(it = matches.begin(); it != matches.end(); it++)        
     {
         for(itVect = it->second.begin(); itVect != it->second.end(); itVect++)
         {
+            cerr << "Deleting: " << QString::fromStdString((*itVect)->getMatchStr()) << "\n";
             delete *itVect;
         }
     }

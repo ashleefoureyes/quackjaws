@@ -65,7 +65,7 @@ private:
     bool changesSinceLastRun = false;
 
     void emptyMatchMap();
-    void fillMapTesting(std::map<int, std::vector<Match*>> matches, AnimalStorage *animalStorage, ClientStorage *clientStorage);
+    void fillMapTesting();
 
     void displayTextBox(QString txt);
 
