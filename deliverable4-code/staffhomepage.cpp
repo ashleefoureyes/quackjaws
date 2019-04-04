@@ -107,10 +107,12 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     //algo.runAlgorithm(&matches, &optimalMatches, animalStorage, clientStorage);
     fillMapTesting();
     changesSinceLastRun = false;
+    algorithmHasBeenRun = true;
 }
 
 void StaffHomepage::on_bViewMatches_clicked()
 {
+    if (!algorithmHasBeenRun) { displayTextBox("Error: Algorithm has not been run since logging in as staff\nPlease run algorithm before viewing results"); return; }
     if(changesSinceLastRun) { displayTextBox("Note: Animals or Clients have been added since the last time the algorithm was run\nMatching results may be outdated"); }
     ViewResults viewResults;
     viewResults.setModal(true);

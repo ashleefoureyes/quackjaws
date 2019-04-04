@@ -63,6 +63,7 @@ private:
     std::vector<std::string> rabbitBreeds;
 
     bool changesSinceLastRun = false;
+    bool algorithmHasBeenRun = false;
 
     void emptyMatchMap();
     void fillMapTesting();
