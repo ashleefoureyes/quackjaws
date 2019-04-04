@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ViewMatches</class>
+ <widget class="QWidget" name="ViewMatches">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>422</width>
+    <height>503</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Optimal Matches</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Detailed Match Info</string>
+      </attribute>
+      <widget class="QTableWidget" name="tableClientsDetailed">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>340</y>
+         <width>181</width>
+         <height>121</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QTableView" name="tableAnimalsDetailed">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>340</y>
+         <width>181</width>
+         <height>121</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>400</y>
+         <width>21</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>-&gt;</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

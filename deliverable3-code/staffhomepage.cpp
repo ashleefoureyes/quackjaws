@@ -2,6 +2,8 @@
 #include "ui_staffhomepage.h"
 
 #include <QTextStream>
+#include <QProgressDialog>
+#include <QThread>
 
 StaffHomepage::StaffHomepage(QWidget *parent, AnimalStorage *animalStorage, ClientStorage *clientStorage) :
     QDialog(parent),
@@ -31,10 +33,15 @@ int StaffHomepage::showStaffPage()
  *           If staff clicked exit then the animal is deleted */
 void StaffHomepage::on_bAddAnimal_clicked()
 {
+    int animalStorageSize = animalStorage->getSize();
+
     AddAnimal addAnim;
     addAnim.setModal(true);
     addAnim.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
     addAnim.createNewAnimal(&animalStorage);
+
+    // If size grew then we know a new animal was added
+    if(animalStorage->getSize() > animalStorageSize) { changesSinceLastRun = true; }
 }
 
 /** Function: on_bViewAnimals_clicked()
@@ -62,17 +69,16 @@ void StaffHomepage::on_bLogout_clicked()
  *           If staff clicked exit then the client is deleted */
 void StaffHomepage::on_bAddClient_clicked()
 {
+    int clientStorageSize = clientStorage->getNumOfElements();
+
     AddClient addClient;
     addClient.setModal(true);
     addClient.passBreeds(dogBreeds, catBreeds, birdBreeds, lizardBreeds, rabbitBreeds);
 
     addClient.initNewClient(&clientStorage);
 
-    // CLIENT WILL NOW NEED TO BE ADDED TO DB IN ADDCLIENT PROGRAM
-    // OTHERWISE IT MAKES EDITING CLIENTS IN STORAGE
-    // VERY DIFFICULT
-
-    //db->addClientToDatabase(newClient);
+    // If this is true then that means we added a new client
+    if(clientStorage->getNumOfElements() > clientStorageSize) { changesSinceLastRun = true; }
 }
 
 /** Function: on_bViewClients_clicked()
@@ -96,7 +102,17 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     msgBox.setText(qst);
     msgBox.exec(); */
 
+    emptyMatchMap();
+    //Algorithm algo;
+    //algo.runAlgorithm(&matches, animalStorage, clientStorage);
     fillMapTesting(matches, animalStorage, clientStorage);
+    changesSinceLastRun = false;
+}
+
+void StaffHomepage::on_bViewMatches_clicked()
+{
+    if(changesSinceLastRun) { displayTextBox("Note: Animals or Clients have been added since the last time the algorithm was run\nMatching results may be outdated"); }
+    ViewMatches viewMatches;
 }
 
 /** Function: passBreeds(breeds)
@@ -119,7 +135,11 @@ void StaffHomepage::fillMapTesting(std::map<int, std::vector<Match*>> matches, A
     // Used for testing purpose to generate random match score
     srand(time(NULL));
     QTextStream cerr(stderr);
-    cerr << "Adding to map";
+
+    // Might work but it's done too fast
+    QProgressDialog progress("Adding to map", "Cancel", 0, (animalStorage->getSize(), clientStorage->getNumOfElements()), this);
+    progress.setWindowModality(Qt::WindowModal);
+    progress.show();
     int testIncrementor = 0;
     Client* currentClient;
 
@@ -128,6 +148,7 @@ void StaffHomepage::fillMapTesting(std::map<int, std::vector<Match*>> matches, A
     {
         for(int a = 0; a < animalStorage->getSize(); ++a)
         {
+            progress.setValue(c*animalStorage->getSize() + a);
             currentClient = clientStorage->get(c);
             Match *match = new Match(currentClient, animalStorage->get(a), rand() % 1000);
 
@@ -149,11 +170,25 @@ void StaffHomepage::fillMapTesting(std::map<int, std::vector<Match*>> matches, A
     }
 }
 
-/**
-void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> matches, AnimalStorage* animalStorage, ClientStorage* clientStorage)
+void StaffHomepage::emptyMatchMap()
 {
+    std::map<int, std::vector<Match*>>::iterator it;
+    std::vector<Match*>::iterator itVect;
+    for(it = matches.begin(); it != matches.end(); it++)
+    {
+        for(itVect = it->second.begin(); itVect != it->second.end(); itVect++)
+        {
+            delete *itVect;
+        }
+    }
 
+    matches.clear();
 }
-*/
 
-
+void StaffHomepage::displayTextBox(QString txt)
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
+    msgBox.setText(txt);
+    msgBox.exec();
+}

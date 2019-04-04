@@ -56,8 +56,8 @@ QLabel{
 color: #ffffff
 }</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
-   <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="minimumSize">
       <size>
@@ -85,7 +85,7 @@ color: #ffffff
      </property>
     </widget>
    </item>
-   <item>
+   <item row="1" column="0">
     <widget class="Line" name="line">
      <property name="minimumSize">
       <size>
@@ -107,7 +107,7 @@ color: #ffffff
      </property>
     </widget>
    </item>
-   <item>
+   <item row="2" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QLabel" name="lbAnimals">
@@ -181,7 +181,7 @@ color: #ffffff
      </item>
     </layout>
    </item>
-   <item>
+   <item row="3" column="0">
     <widget class="Line" name="line_2">
      <property name="minimumSize">
       <size>
@@ -200,7 +200,7 @@ color: #ffffff
      </property>
     </widget>
    </item>
-   <item>
+   <item row="4" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QLabel" name="lbClients">
@@ -269,7 +269,7 @@ color: #ffffff
      </item>
     </layout>
    </item>
-   <item>
+   <item row="5" column="0">
     <widget class="Line" name="line_4">
      <property name="minimumSize">
       <size>
@@ -288,20 +288,52 @@ color: #ffffff
      </property>
     </widget>
    </item>
-   <item>
-    <widget class="QPushButton" name="bRunAlgorithm">
-     <property name="minimumSize">
-      <size>
-       <width>150</width>
-       <height>20</height>
-      </size>
+   <item row="6" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>4</number>
      </property>
-     <property name="text">
-      <string>Run Algorithm</string>
-     </property>
-    </widget>
+     <item>
+      <widget class="QPushButton" name="bRunAlgorithm">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Run Algorithm</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="bViewMatches">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>View Matches</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
-   <item>
+   <item row="7" column="0">
     <widget class="Line" name="line_3">
      <property name="minimumSize">
       <size>
@@ -320,7 +352,7 @@ color: #ffffff
      </property>
     </widget>
    </item>
-   <item>
+   <item row="8" column="0">
     <widget class="QPushButton" name="bLogout">
      <property name="text">
       <string>Logout</string>

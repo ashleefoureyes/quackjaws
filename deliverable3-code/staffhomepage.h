@@ -18,6 +18,8 @@
 #include "viewclients.h"
 #include "databasestorage.h"
 #include "match.h"
+#include "algorithm.h"
+#include "viewmatches.h"
 
 namespace Ui {
 class StaffHomepage;
@@ -43,6 +45,8 @@ private slots:
     void on_bViewClients_clicked();
     void on_bRunAlgorithm_clicked();
 
+    void on_bViewMatches_clicked();
+
 private:
     Ui::StaffHomepage *ui;
     AnimalStorage *animalStorage;
@@ -58,7 +62,12 @@ private:
     std::vector<std::string> lizardBreeds;
     std::vector<std::string> rabbitBreeds;
 
+    bool changesSinceLastRun = false;
+
+    void emptyMatchMap();
     void fillMapTesting(std::map<int, std::vector<Match*>> matches, AnimalStorage *animalStorage, ClientStorage *clientStorage);
+
+    void displayTextBox(QString txt);
 
 };
 

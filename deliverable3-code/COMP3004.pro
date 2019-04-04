@@ -44,7 +44,9 @@ SOURCES += \
     lizard.cpp \
     databasestorage.cpp \
     clientstorage.cpp \
-    match.cpp
+    match.cpp \
+    viewmatches.cpp \
+    algorithm.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -64,7 +66,9 @@ HEADERS += \
     lizard.h \
     databasestorage.h \
     clientstorage.h \
-    match.h
+    match.h \
+    viewmatches.h \
+    algorithm.h
 
 FORMS += \
         mainwindow.ui \
@@ -73,7 +77,8 @@ FORMS += \
     viewanimals.ui \
     addclient.ui \
     viewclients.ui \
-    clienthomepage.ui
+    clienthomepage.ui \
+    viewmatches.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
