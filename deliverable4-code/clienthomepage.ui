@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ClientHomepage</class>
+ <widget class="QDialog" name="ClientHomepage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color:#191919;
+}
+
+Line{
+color:#fff;
+}
+
+QProgressBar{
+border: 2px solid grey;
+border-radius: 5px;
+}
+
+QProgressBar::chunk{
+background-color: #c23b22;
+}
+
+QPushButton{
+color: #fff;
+background-color:#c23b22;
+border-radius:7px;
+min-height: 20px;
+min-width: 150px;
+}
+
+QPushButton:hover{
+color:ccc;
+border-color:#2d89ef;
+border-width:2px;
+}
+
+QLabel{
+color: #ffffff
+}
+
+QTabWidget{
+background-color: #1d1d1d;
+}
+
+QTabWidget::pane{
+background-color: #1d1d1d;
+}
+
+QTabWidget QStackedWidget &gt; QWidget {
+background-color: #1d1d1d;
+}
+
+QLineEdit{
+border-radius: 4px;
+min-height: 20px;
+}
+
+QTabBar{
+background-color: #1d1d1d;
+}
+
+QTabBar::tab{
+background-color: #4d4d4d;
+border: 1px solid black;
+min-height: 15px;
+min-width: 100px;
+color: #ffffff;
+}
+
+QTabBar::tab:selected{
+background-color: #ffffff;
+color: #000000;
+}
+
+QTabBar::tab:hover{
+background-color: #aaaaaa;
+}
+
+QRadioButton{
+color: #ffffff;
+}
+
+QCheckBox{
+color: #ffffff;
+}</string>
+  </property>
+  <widget class="QPushButton" name="lbViewAnimals">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>100</y>
+     <width>150</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View Animals</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="lbLogout">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>240</y>
+     <width>150</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbUserWelcome">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>351</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Welcome back: </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="lbEditClient">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>160</y>
+     <width>150</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Edit Client Info</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
