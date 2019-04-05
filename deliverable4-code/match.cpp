@@ -20,3 +20,5 @@ Client *Match::getClient() const { return client; }
 void Match::setClient(Client *value) { client = value; }
 Animal *Match::getAnimal() const { return animal; }
 void Match::setAnimal(Animal *value) { animal = value; }
+int Match::getScore() const { return score; }
+void Match::setScore(int value){ score = value; }

@@ -18,6 +18,9 @@ public:
     Animal *getAnimal() const;
     void setAnimal(Animal *value);
 
+    int getScore() const;
+    void setScore(int value);
+
 private:
     Client *client;
     Animal *animal;

@@ -61,6 +61,32 @@
         </rect>
        </property>
       </widget>
+      <widget class="QLabel" name="lbMatchScore">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>40</y>
+         <width>151</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Match score:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbMatchName">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>10</y>
+         <width>291</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </widget>
    </item>
