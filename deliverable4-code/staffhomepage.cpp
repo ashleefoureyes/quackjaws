@@ -168,16 +168,14 @@ void StaffHomepage::fillMapTesting()
             else { matches.at(currentClient->getId()).push_back(match); }
 
             if(testIncrementor == a) { optimalMatches.push_back(match); }
-            testIncrementor = (testIncrementor + 1)%animalStorage->getSize();
-
-            cerr << QString::fromStdString(match->getMatchStr()) << "\n";
         }
+
+        testIncrementor = (testIncrementor + 1)%animalStorage->getSize();
     }
 }
 
 void StaffHomepage::emptyMatchMap()
 {
-    QTextStream cerr(stderr);
 
     std::map<int, std::vector<Match*>>::iterator it;
     std::vector<Match*>::iterator itVect;
@@ -185,7 +183,6 @@ void StaffHomepage::emptyMatchMap()
     {
         for(itVect = it->second.begin(); itVect != it->second.end(); itVect++)
         {
-            cerr << "Deleting: " << QString::fromStdString((*itVect)->getMatchStr()) << "\n";
             delete *itVect;
         }
     }

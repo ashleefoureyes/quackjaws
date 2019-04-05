@@ -6,6 +6,7 @@ ViewResults::ViewResults(QWidget *parent) :
     ui(new Ui::ViewResults)
 {
     ui->setupUi(this);
+    ui->tabWidget_2->findChild<QTabBar *>()->hide();
 }
 
 ViewResults::~ViewResults()
@@ -30,7 +31,12 @@ void ViewResults::populateClientQList()
     {
         Client* client = it->second.front()->getClient();
         clientList->addItem(QString::fromStdString(std::to_string(client->getId()) + ": " + client->getFullName()));
+    }
 
+    std::vector<Match*>::iterator itV;
+    for(itV = optimalMatches->begin(); itV != optimalMatches->end(); itV++)
+    {
+        ui->listOptimalMatches->addItem(QString::fromStdString((*itV)->getMatchStr()));
     }
 }
 
@@ -75,8 +81,22 @@ void ViewResults::on_listClientsDetailed_itemClicked(QListWidgetItem *item)
 
 void ViewResults::displayMatchInfo(Match* match)
 {
+    Client* cl = match->getClient();
+    Animal* an = match->getAnimal();
+
     ui->lbMatchScore->setText("Match score: " + QString::fromStdString(std::to_string(match->getScore())));
     ui->lbMatchName->setText("Comparing: " + QString::fromStdString(match->getClient()->getFullName() + " and " + match->getAnimal()->getName()));
+    ui->barClTravel->setValue(cl->getTravels()); ui->BarAnTravel->setValue(an->getTravels());
+    ui->barClChildren->setValue(cl->getChildren()); ui->BarAnChildren->setValue(an->getChildren());
+    ui->barClAnimals->setValue(cl->getGoodWAnimals()); ui->barAnAnimals->setValue(an->getGoodWAnimals());
+    ui->barClStrangers->setValue(cl->getStrangers()); ui->barAnStrangers->setValue(an->getStrangers());
+    ui->barClCrowds->setValue(cl->getCrowds()); ui->barAnCrowds->setValue(an->getCrowds());
+    ui->barClNoise->setValue(cl->getNoises()); ui->barAnNoise->setValue(an->getNoises());
+    ui->barClProtective->setValue(cl->getProtector()); ui->barAnProtective->setValue(an->getProtector());
+    ui->barClEnergetic->setValue(cl->getEnergy()); ui->barAnEnergetic->setValue(an->getEnergy());
+    ui->barClFearful->setValue(cl->getFearful()); ui->barAnFearful->setValue(an->getFearful());
+    ui->barClAffectionate->setValue(cl->getAffection()); ui->barAnAffectionate->setValue(an->getAffection());
+    ui->barClMessy->setValue(cl->getMessy()); ui->barAnMessy->setValue(an->getMessy());
 }
 
 void ViewResults::on_listAnimalsDetailed_itemClicked(QListWidgetItem *item)
