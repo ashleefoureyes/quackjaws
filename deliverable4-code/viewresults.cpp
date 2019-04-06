@@ -134,3 +134,22 @@ void ViewResults::on_buttonBack_clicked()
 {
     on_buttonNext_clicked();
 }
+
+void ViewResults::on_buttonDetailedMatchInfo_clicked()
+{
+    if (ui->listOptimalMatches->currentRow() < 0 || static_cast<unsigned int>(ui->listOptimalMatches->currentRow()) > optimalMatches->size()) { displayTextBoxError("Error: Please select a match"); return; }
+
+    ui->tabWidget->setCurrentIndex(1);
+    displayMatchInfo(optimalMatches->at(static_cast<unsigned int>(ui->listOptimalMatches->currentRow())));
+}
+
+/** Function: displayTextBoxError()
+ *  In: QString err
+ *  Purpose: Displays error passed as argument */
+void ViewResults::displayTextBoxError(QString err)
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
+    msgBox.setText(err);
+    msgBox.exec();
+}

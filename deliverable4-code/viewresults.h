@@ -6,6 +6,7 @@
 #include <vector>
 #include <QListWidget>
 #include <QTextStream>
+#include <QMessageBox>
 
 #include "animal.h"
 #include "client.h"
@@ -33,6 +34,8 @@ private slots:
 
      void on_buttonBack_clicked();
 
+     void on_buttonDetailedMatchInfo_clicked();
+
 private:
     Ui::ViewResults *ui;
     std::map<int, std::vector<Match*>> *matches;
@@ -45,6 +48,7 @@ private:
     void populateAnimalQList(int id);
     void displayMatchInfo(Match* match);
     void setDetailedDefault();
+    void displayTextBoxError(QString err);
 };
 
 #endif // VIEWRESULTS_H
