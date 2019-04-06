@@ -14,10 +14,12 @@ ViewResults::~ViewResults()
     delete ui;
 }
 
-void ViewResults::showMatchUi(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches)
+void ViewResults::showMatchUi(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches, int numOfAnimals, int numOfClients)
 {
     this->matches = matches;
     this->optimalMatches = optimalMatches;
+    ui->lbAnimalMatches->setText(QString::fromStdString(std::to_string(optimalMatches->size()) + "/" + std::to_string(numOfAnimals)) + " animals have optimal matches");
+    ui->lbClientMatches->setText(QString::fromStdString(std::to_string(optimalMatches->size()) + "/" + std::to_string(numOfClients)) + " clients have optimal matches");
     populateClientQList();
     this->exec();
 }

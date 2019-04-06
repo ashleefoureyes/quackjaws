@@ -44,6 +44,106 @@ QString Match::speciesTraitsQStr()
         if(returnStr == "") { returnStr = "This dog does not meet any species-specific client preferences"; }
         else { returnStr = "Dog-specific match info\n\n" + returnStr; }
     }
+    else if (animal->getSpecies() == "Cat")
+    {
+        Cat *cat = static_cast<Cat*>(animal);
+        std::vector<std::string> breeds = client->getCatBreeds();
+        if(std::find(breeds.begin(), breeds.end(), cat->getBreed()) != breeds.end()) { returnStr += "- Wants a " + QString::fromStdString(cat->getBreed() + "\n"); }
+
+        if(cat->getGender() == 'M' && client->getCatGender() == 0) { returnStr += "- Want a male cat\n"; }
+        else if (cat->getGender() == 'F' && client->getCatGender() == 1) { returnStr += "- Wants a female cat\n"; }
+
+        if(cat->getSize() == client->getCatSize()) { returnStr += "- Want a " + QString::fromStdString(cat->getSizeStr()) + " cat\n"; }
+        if(cat->getFur() == client->getCatFur()) { if (cat->getFur() == 0) { returnStr += "- Wants a hairless cat"; } else { returnStr += "- Wants a " + QString::fromStdString(cat->getFurStr() + "-haired cat\n"); }}
+        if(cat->getChildren() >= 3 && client->getHasChildren()) { returnStr += "- Cat would be good with " + QString::fromStdString(client->getFirstName()) + "'s children\n"; }
+        if(cat->getGoodWAnimals() >= 3 && client->getHasAnimals()) { returnStr += "- Cat would be good with " + QString::fromStdString(client->getFirstName()) + "'s other animals\n"; }
+
+        if(cat->getEnergy() >= 3 && client->getActivity() >= 3) { returnStr += "- Cat and client are both very active\n"; }
+        else if(cat->getEnergy() <= 2 && client->getActivity() <= 2) { returnStr += "- Cat and client both live relaxed lifestyles\n"; }
+
+        if(cat->getCuriosity() && client->getIsCurious() >= 3) { returnStr += "- Cat is curious which was important to client\n"; }
+        if(cat->getTrained() >= 3 && client->getFollowCommandsCat() >= 3) { returnStr += "- Cat follows commands as requested by client\n"; }
+        if(cat->getShedding() <= 3 && client->getDoesntShed() >= 3) { returnStr += "- Cat doesn't shed which was important to client\n"; }
+
+        if(returnStr == "") { returnStr = "This cat does not meet any species-specific client preferences"; }
+        else { returnStr = "Cat-specific match info\n\n" + returnStr; }
+    }
+    else if (animal->getSpecies() == "Bird")
+    {
+        Bird *bird = static_cast<Bird*>(animal);
+        std::vector<std::string> breeds = client->getBirdBreeds();
+        if(std::find(breeds.begin(), breeds.end(), bird->getBreed()) != breeds.end()) { returnStr += "- Wants a " + QString::fromStdString(bird->getBreed() + "\n"); }
+
+        if(bird->getGender() == 'M' && client->getBirdGender() == 0) { returnStr += "- Want a male bird\n"; }
+        else if (bird->getGender() == 'F' && client->getBirdGender() == 1) { returnStr += "- Wants a female bird\n"; }
+
+        if(bird->getColour() == client->getBirdColour()) { returnStr += "- Wants a " + QString::fromStdString(bird->getColour()) + " bird\n"; }
+        if(bird->getSize() == client->getBirdSize()) { returnStr += "- Want a " + QString::fromStdString(bird->getSizeStr()) + " bird\n"; }
+        if(bird->getFur() - 3 == client->getBirdFur()) { if (bird->getFur() == 4) { returnStr += "- Wants a featherless bird\n"; } else { returnStr += "- Wants a Feathered bird\n"; }}
+        if(bird->getChildren() >= 3 && client->getHasChildren()) { returnStr += "- Bird would be good with " + QString::fromStdString(client->getFirstName()) + "'s children\n"; }
+        if(bird->getGoodWAnimals() >= 3 && client->getHasAnimals()) { returnStr += "- Bird would be good with " + QString::fromStdString(client->getFirstName()) + "'s other animals\n"; }
+
+        if(bird->getEnergy() >= 3 && client->getActivity() >= 3) { returnStr += "- Bird and client are both very active\n"; }
+        else if(bird->getEnergy() <= 2 && client->getActivity() <= 2) { returnStr += "- Bird and client both live relaxed lifestyles\n"; }
+
+        if(bird->getLoud() <= 2 && client->getIsQuietBird() >= 3) { returnStr += "- Bird is quiet as requested by client\n"; }
+        if(bird->getSocial() >= 3 && client->getIsSocialBird() >= 3) { returnStr += "- Bird is social which was important to client\n"; }
+
+
+        if(returnStr == "") { returnStr = "This bird does not meet any species-specific client preferences"; }
+        else { returnStr = "Bird-specific match info\n\n" + returnStr; }
+    }
+    else if (animal->getSpecies() == "Lizard")
+    {
+        Lizard *lizard = static_cast<Lizard*>(animal);
+        std::vector<std::string> breeds = client->getLizardBreeds();
+        if(std::find(breeds.begin(), breeds.end(), lizard->getBreed()) != breeds.end()) { returnStr += "- Wants a " + QString::fromStdString(lizard->getBreed() + "\n"); }
+
+        if(lizard->getGender() == 'M' && client->getLizardGender() == 0) { returnStr += "- Want a male lizard\n"; }
+        else if (lizard->getGender() == 'F' && client->getLizardGender() == 1) { returnStr += "- Wants a female lizard\n"; }
+
+        if(lizard->getColour() == client->getLizardColour()) { returnStr += "- Wants a " + QString::fromStdString(lizard->getColour()) + " lizard\n"; }
+        if(lizard->getSize() == client->getLizardSize()) { returnStr += "- Want a " + QString::fromStdString(lizard->getSizeStr()) + " lizard\n"; }
+        if(lizard->getFur() - 5 == client->getLizardFur()) { if (lizard->getFur() == 5) { returnStr += "- Wants a smooth-scaled lizard\n"; } else if (lizard->getFur() == 6) { returnStr += "- Wants a rough-scaled lizard\n"; } else {returnStr += "wants a spiked lizard\n"; } }
+        if(lizard->getChildren() >= 3 && client->getHasChildren()) { returnStr += "- Lizard would be good with " + QString::fromStdString(client->getFirstName()) + "'s children\n"; }
+        if(lizard->getGoodWAnimals() >= 3 && client->getHasAnimals()) { returnStr += "- Lizard would be good with " + QString::fromStdString(client->getFirstName()) + "'s other animals\n"; }
+
+        if(lizard->getEnergy() >= 3 && client->getActivity() >= 3) { returnStr += "- Lizard and client are both very active\n"; }
+        else if(lizard->getEnergy() <= 2 && client->getActivity() <= 2) { returnStr += "- Lizard and client both live relaxed lifestyles\n"; }
+
+        if((lizard->getLightingReqs() || lizard->getSpaceReqs()) && client->getSimpleLiving() >= 3) { returnStr += "- Lizard has simple living conditions as requested by client\n"; }
+        if((lizard->getDiet() != "Mice" || lizard->getFeedingInterval() != "Daily") && client->getEasyToFeed() >= 3) { returnStr += "Lizard is easy to feed as requested by client"; }
+
+
+        if(returnStr == "") { returnStr = "This lizard does not meet any species-specific client preferences"; }
+        else { returnStr = "Lizard-specific match info\n\n" + returnStr; }
+    }
+    else if (animal->getSpecies() == "Rabbit")
+    {
+        Rabbit *rabbit = static_cast<Rabbit*>(animal);
+        std::vector<std::string> breeds = client->getRabbitBreeds();
+        if(std::find(breeds.begin(), breeds.end(), rabbit->getBreed()) != breeds.end()) { returnStr += "- Wants a " + QString::fromStdString(rabbit->getBreed() + "\n"); }
+
+        if(rabbit->getGender() == 'M' && client->getRabbitGender() == 0) { returnStr += "- Want a male rabbit\n"; }
+        else if (rabbit->getGender() == 'F' && client->getRabbitGender() == 1) { returnStr += "- Wants a female rabbit\n"; }
+
+        if(rabbit->getColour() == client->getRabbitColour()) { returnStr += "- Wants a " + QString::fromStdString(rabbit->getColour()) + " rabbit\n"; }
+        if(rabbit->getSize() == client->getRabbitSize()) { returnStr += "- Want a " + QString::fromStdString(rabbit->getSizeStr()) + " rabbit\n"; }
+        if(rabbit->getFur() == client->getRabbitFur()) { if (rabbit->getFur() == 0) { returnStr += "- Wants a hairless rabbit"; } else { returnStr += "- Wants a " + QString::fromStdString(rabbit->getFurStr() + "-haired rabbit\n"); }}
+        if(rabbit->getChildren() >= 3 && client->getHasChildren()) { returnStr += "- Rabbit would be good with " + QString::fromStdString(client->getFirstName()) + "'s children\n"; }
+        if(rabbit->getGoodWAnimals() >= 3 && client->getHasAnimals()) { returnStr += "- Rabbit would be good with " + QString::fromStdString(client->getFirstName()) + "'s other animals\n"; }
+
+        if(rabbit->getEnergy() >= 3 && client->getActivity() >= 3) { returnStr += "- Rabbit and client are both very active\n"; }
+        else if(rabbit->getEnergy() <= 2 && client->getActivity() <= 2) { returnStr += "- Rabbit and client both live relaxed lifestyles\n"; }
+
+        if(rabbit->getGrooming() >= 3 && client->getNeedsGrooming() >= 3) { returnStr += "- Rabbit needs grooming as requested by client\n"; }
+        if(rabbit->getAttention() >= 3 && client->getIsSocialRabbit() >= 3) { returnStr += "- Rabbit is social which was important to client"; }
+
+
+
+        if(returnStr == "") { returnStr = "This rabbit does not meet any species-specific client preferences"; }
+        else { returnStr = "Rabbit-specific match info\n\n" + returnStr; }
+    }
 
     return returnStr;
 }

@@ -116,7 +116,7 @@ void StaffHomepage::on_bViewMatches_clicked()
     if(changesSinceLastRun) { displayTextBox("Note: Animals or Clients have been added since the last time the algorithm was run\nMatching results may be outdated"); }
     ViewResults viewResults;
     viewResults.setModal(true);
-    viewResults.showMatchUi(&matches, &optimalMatches);
+    viewResults.showMatchUi(&matches, &optimalMatches, animalStorage->getSize(), clientStorage->getNumOfElements());
 }
 
 /** Function: passBreeds(breeds)

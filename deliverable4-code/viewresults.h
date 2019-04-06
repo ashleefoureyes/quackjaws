@@ -22,7 +22,7 @@ class ViewResults : public QDialog
 public:
     explicit ViewResults(QWidget *parent = nullptr);
     ~ViewResults();
-     void showMatchUi(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches);
+     void showMatchUi(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches, int numOfAnimals, int numOfClients);
 
 private slots:
      void on_listClientsDetailed_itemClicked(QListWidgetItem *item);
