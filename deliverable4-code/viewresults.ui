@@ -163,7 +163,7 @@ selection-background-color: #e6aea4;
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabOptimal">
       <attribute name="title">
@@ -173,10 +173,80 @@ selection-background-color: #e6aea4;
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>411</y>
+         <y>201</y>
          <width>431</width>
-         <height>131</height>
+         <height>321</height>
         </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>10</y>
+         <width>191</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Optimal Matches</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="buttonDetailedMatchInfo">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>530</y>
+         <width>271</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>View Detailed Information For Selected Match</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbClientMatches">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>211</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X/X out of X clients have an optimal match</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbAnimalMatches">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>221</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X/X out of X animals have an optimal match</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbOptimalMatchScore">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>130</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Match score:</string>
        </property>
       </widget>
      </widget>
@@ -308,13 +378,13 @@ selection-background-color: #e6aea4;
         </widget>
        </widget>
       </widget>
-      <widget class="QTabWidget" name="tabWidget_2">
+      <widget class="QTabWidget" name="tabWidgetDetailed">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>110</y>
          <width>426</width>
-         <height>281</height>
+         <height>266</height>
         </rect>
        </property>
        <property name="currentIndex">
@@ -1375,6 +1445,15 @@ selection-background-color: #e6aea4;
         <attribute name="title">
          <string>Tab 2</string>
         </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="lbDetailedAnimalInfo">
+           <property name="text">
+            <string>Detailed animal info</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
      </widget>

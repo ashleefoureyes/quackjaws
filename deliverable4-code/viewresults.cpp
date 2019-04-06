@@ -6,7 +6,7 @@ ViewResults::ViewResults(QWidget *parent) :
     ui(new Ui::ViewResults)
 {
     ui->setupUi(this);
-    ui->tabWidget_2->findChild<QTabBar *>()->hide();
+    ui->tabWidgetDetailed->findChild<QTabBar *>()->hide();
 }
 
 ViewResults::~ViewResults()
@@ -97,6 +97,7 @@ void ViewResults::displayMatchInfo(Match* match)
     ui->barClFearful->setValue(cl->getFearful()); ui->barAnFearful->setValue(an->getFearful());
     ui->barClAffectionate->setValue(cl->getAffection()); ui->barAnAffectionate->setValue(an->getAffection());
     ui->barClMessy->setValue(cl->getMessy()); ui->barAnMessy->setValue(an->getMessy());
+    ui->lbDetailedAnimalInfo->setText(match->speciesTraitsQStr());
 }
 
 void ViewResults::on_listAnimalsDetailed_itemClicked(QListWidgetItem *item)
@@ -119,4 +120,15 @@ void ViewResults::setDetailedDefault()
 {
     ui->lbMatchName->setText("");
     ui->lbMatchScore->setText("");
+}
+
+void ViewResults::on_buttonNext_clicked()
+{
+    if(ui->tabWidgetDetailed->currentIndex() == 0) { ui->tabWidgetDetailed->setCurrentIndex(1); }
+    else { ui->tabWidgetDetailed->setCurrentIndex(0); }
+}
+
+void ViewResults::on_buttonBack_clicked()
+{
+    on_buttonNext_clicked();
 }

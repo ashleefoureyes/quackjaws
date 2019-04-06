@@ -29,6 +29,10 @@ private slots:
 
      void on_listAnimalsDetailed_itemClicked(QListWidgetItem *item);
 
+     void on_buttonNext_clicked();
+
+     void on_buttonBack_clicked();
+
 private:
     Ui::ViewResults *ui;
     std::map<int, std::vector<Match*>> *matches;

@@ -1,7 +1,14 @@
 #ifndef MATCH_H
 #define MATCH_H
 
+#include <QString>
+
 #include "animal.h"
+#include "dog.h"
+#include "cat.h"
+#include "bird.h"
+#include "rabbit.h"
+#include "lizard.h"
 #include "client.h"
 
 
@@ -17,6 +24,8 @@ public:
 
     Animal *getAnimal() const;
     void setAnimal(Animal *value);
+
+    QString speciesTraitsQStr();
 
     int getScore() const;
     void setScore(int value);
