@@ -328,7 +328,7 @@ double Algorithm::categorize(Animal* a){
     return distance;
 }
 
-std::map<int, std::vector<Match*>> countMatches (std::map<int, std::vector<Match*>> *matches,
+std::map<int, std::vector<Match*>>* countMatches (std::map<int, std::vector<Match*>> *matches,
         double matchThreshold) {
     std::map<int, int> matchCounts;
     std::map<int, std::vector<Match*>>::iterator mIter;
@@ -349,11 +349,12 @@ std::map<int, std::vector<Match*>> countMatches (std::map<int, std::vector<Match
             }
         }
     }
-    return matchCounts;
+    return &matchCounts;
 }
 
 void makeMatch(std::map<int, std::vector<Match*>> *matches,
-        std::vector<Match*> *optimalMatches, int clientId, Match *match) {
+        std::vector<Match*> *optimalMatches, int clientId, Match *match,
+        std::map<int, std::vector<Match*>> *matchCounts) {
         // Add match to optimal matches
         // Remove client from matches map
         // Loop through remaining clients in matches map and remove the
@@ -366,14 +367,14 @@ void computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
     double matchThreshold = 4.00;
     while (matchThreshold < 11.00) {
         // Count number of matches for remaining clients
-        std::map<int, std::vector<Match*>> matchCounts = countMatches(matches, matchThreshold);
+        std::map<int, std::vector<Match*>> *matchCounts = countMatches(matches, matchThreshold);
         // Keep matching those with only one match until none left or there
         // exists only clients with 2+ matches. In that case match one client
         // based on their lowest score and keep matching those with only one match.
         std::map<int, std::vector<Match*>>::iterator iter;
         for (iter = matchCounts.begin(); iter < matchCounts.end; iter++) {
-            if (iter->second == 1) {
-                makeMatch(matches, optimalMatches, iter->first, )
+            if (iter->second.size() == 1) {
+                makeMatch(matches, optimalMatches, iter->first, iter->second[1], matchCounts)
             }
         }
         // Repeat until no clients remain in match count
