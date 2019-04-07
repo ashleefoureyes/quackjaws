@@ -17,6 +17,7 @@ public:
 
 private:
     double computeDistance(Animal*, Client*);
+    double categorize(Animal*);
 
 };
 
