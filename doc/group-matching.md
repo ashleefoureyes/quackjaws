@@ -55,6 +55,41 @@ optimal array:
 ### Matching Client to Group
 Traits used to identify which classification group the client matches with: 
 
+- Dwelling Type (0-4)
+- Location (0-2)
+- Work Schedule (0-6)
+- Children (bool)
+- Activity Level (0-4)
+- Other Animals (bool)
+
+Array is represented by: 
+{ dwelling, location, workSchedule, activity, hasChildren, hasAnimals }
+
+#### Rural Rovers
+
+client optimal array: 
+{4,2,5,4,True,True}
+
+#### Family Pal
+
+client optimal array: 
+{3,1,0,2,True,True}
+
+#### Urban Dweller
+client optimal array
+{0,0,0,1,False,False}
+
+#### Cuddly Companion
+client optimal array: 
+{2,1,5,1,False,False}
+
+#### Fierce Convoy
+optimal array: 
+{3,1,3,3,False,False}
+
+#### Experienced Sidekick
+client optimal array: 
+{1,0,6,0,False,False}
 
 ### Optional Animal Groups
 To be used if we want, for other species (rabbits, lizards and birds) Let me know if you think this is best then we can come up with groups and optimal arrays for them. 
