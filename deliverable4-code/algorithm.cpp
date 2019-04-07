@@ -137,17 +137,6 @@ double Algorithm::computeDistance(Animal *a, Client *c){
 }
 
 /*
-Urban Dweller
-    {0,2,2,1,4,4,0,2,2,2,1,True,0}
-
-Cuddly Companion
-    optimal array: {1,2,2,1,1,1,1,1,1,4,2,True,0}
-
-Fierce Convoy
-    optimal array: {4,2,0,0,1,3,4,4,0,1,2,False,2}
-
-Experienced Sidekick
-    optimal array: {2,4,2,2,3,4,1,1,2,3,0,True,0}
 
 {size,age,children,goodWAnimals,crowds,noises,protector,energy,fearful,affection,messy,hypo,lifestyle}
 
@@ -174,79 +163,83 @@ double Algorithm::categorize(Animal* a){
     rurDist = qSqrt(rural);
 
     // Family Pal optimal array: {3,1,4,3,3,4,2,3,1,3,2,False,2}
-    family += qPow(4 - a->getSize(), 2);
-    family += qPow(2 - a->getAge(), 2);
-    family += qPow(2 - a->getChildren(), 2);
-    family += qPow(4 - a->getGoodWAnimals(), 2);
-    family += qPow(2 - a->getCrowds(), 2);
-    family += qPow(3 - a->getNoises(), 2);
-    family += qPow(3 - a->getProtector(), 2);
-    family += qPow(4 - a->getEnergy(), 2);
-    family += qPow(0 - a->getFearful(), 2);
-    family += qPow(1 - a->getAffection(), 2);
-    family += qPow(4 - a->getMessy(), 2);
+    family += qPow(3 - a->getSize(), 2);
+    family += qPow(1 - a->getAge(), 2);
+    family += qPow(4 - a->getChildren(), 2);
+    family += qPow(3 - a->getGoodWAnimals(), 2);
+    family += qPow(3 - a->getCrowds(), 2);
+    family += qPow(4 - a->getNoises(), 2);
+    family += qPow(2 - a->getProtector(), 2);
+    family += qPow(3 - a->getEnergy(), 2);
+    family += qPow(1 - a->getFearful(), 2);
+    family += qPow(3 - a->getAffection(), 2);
+    family += qPow(2 - a->getMessy(), 2);
     family += qPow(0 - a->isHypo(), 2); //false
-    family += qPow(1 - a->getLifestyle(), 2);
+    family += qPow(2 - a->getLifestyle(), 2);
     famDist = qSqrt(family);
 
-    urban += qPow(4 - a->getSize(), 2);
-    urban += qPow(2 - a->getAge(), 2);
-    urban += qPow(2 - a->getChildren(), 2);
-    urban += qPow(4 - a->getGoodWAnimals(), 2);
-    urban += qPow(2 - a->getCrowds(), 2);
-    urban += qPow(3 - a->getNoises(), 2);
-    urban += qPow(3 - a->getProtector(), 2);
-    urban += qPow(4 - a->getEnergy(), 2);
-    urban += qPow(0 - a->getFearful(), 2);
-    urban += qPow(1 - a->getAffection(), 2);
-    urban += qPow(4 - a->getMessy(), 2);
-    urban += qPow(0 - a->isHypo(), 2); //false
-    urban += qPow(1 - a->getLifestyle(), 2);
-    urbDist = qSqrt(urban);
-
-    cuddle += qPow(4 - a->getSize(), 2);
+   // Cuddly Companion optimal array: {1,2,2,1,1,1,1,1,1,4,2,True,0}
+    cuddle += qPow(1 - a->getSize(), 2);
     cuddle += qPow(2 - a->getAge(), 2);
     cuddle += qPow(2 - a->getChildren(), 2);
-    cuddle += qPow(4 - a->getGoodWAnimals(), 2);
-    cuddle += qPow(2 - a->getCrowds(), 2);
-    cuddle += qPow(3 - a->getNoises(), 2);
-    cuddle += qPow(3 - a->getProtector(), 2);
-    cuddle += qPow(4 - a->getEnergy(), 2);
-    cuddle += qPow(0 - a->getFearful(), 2);
-    cuddle += qPow(1 - a->getAffection(), 2);
-    cuddle += qPow(4 - a->getMessy(), 2);
-    cuddle += qPow(0 - a->isHypo(), 2); //false
-    cuddle += qPow(1 - a->getLifestyle(), 2);
+    cuddle += qPow(1 - a->getGoodWAnimals(), 2);
+    cuddle += qPow(1 - a->getCrowds(), 2);
+    cuddle += qPow(1 - a->getNoises(), 2);
+    cuddle += qPow(1 - a->getProtector(), 2);
+    cuddle += qPow(1 - a->getEnergy(), 2);
+    cuddle += qPow(1 - a->getFearful(), 2);
+    cuddle += qPow(4 - a->getAffection(), 2);
+    cuddle += qPow(2 - a->getMessy(), 2);
+    cuddle += qPow(1 - a->isHypo(), 2); //false
+    cuddle += qPow(0 - a->getLifestyle(), 2);
     cudDist = qSqrt(cuddle);
 
+    // Urban Dweller {0,2,2,1,4,4,0,2,2,2,1,True,0}
+    urban += qPow(0 - a->getSize(), 2);
+    urban += qPow(2 - a->getAge(), 2);
+    urban += qPow(2 - a->getChildren(), 2);
+    urban += qPow(1 - a->getGoodWAnimals(), 2);
+    urban += qPow(4 - a->getCrowds(), 2);
+    urban += qPow(4 - a->getNoises(), 2);
+    urban += qPow(0 - a->getProtector(), 2);
+    urban += qPow(2 - a->getEnergy(), 2);
+    urban += qPow(2 - a->getFearful(), 2);
+    urban += qPow(2 - a->getAffection(), 2);
+    urban += qPow(1 - a->getMessy(), 2);
+    urban += qPow(1 - a->isHypo(), 2); //false
+    urban += qPow(0 - a->getLifestyle(), 2);
+    urbDist = qSqrt(urban);
+
+   // Fierce Convoy optimal array: {4,2,0,0,1,3,4,4,0,1,2,False,2}
     fierce += qPow(4 - a->getSize(), 2);
     fierce += qPow(2 - a->getAge(), 2);
-    fierce += qPow(2 - a->getChildren(), 2);
-    fierce += qPow(4 - a->getGoodWAnimals(), 2);
-    fierce += qPow(2 - a->getCrowds(), 2);
+    fierce += qPow(0 - a->getChildren(), 2);
+    fierce += qPow(0 - a->getGoodWAnimals(), 2);
+    fierce += qPow(1 - a->getCrowds(), 2);
     fierce += qPow(3 - a->getNoises(), 2);
-    fierce += qPow(3 - a->getProtector(), 2);
+    fierce += qPow(4 - a->getProtector(), 2);
     fierce += qPow(4 - a->getEnergy(), 2);
     fierce += qPow(0 - a->getFearful(), 2);
     fierce += qPow(1 - a->getAffection(), 2);
-    fierce += qPow(4 - a->getMessy(), 2);
+    fierce += qPow(2 - a->getMessy(), 2);
     fierce += qPow(0 - a->isHypo(), 2); //false
-    fierce += qPow(1 - a->getLifestyle(), 2);
+    fierce += qPow(2 - a->getLifestyle(), 2);
     fierDist = qSqrt(fierce);
 
-    exper += qPow(4 - a->getSize(), 2);
-    exper += qPow(2 - a->getAge(), 2);
+   // Experienced Sidekick optimal array: {2,4,2,2,3,4,1,1,2,3,0,True,0}
+    exper += qPow(2 - a->getSize(), 2);
+    exper += qPow(4 - a->getAge(), 2);
     exper += qPow(2 - a->getChildren(), 2);
-    exper += qPow(4 - a->getGoodWAnimals(), 2);
-    exper += qPow(2 - a->getCrowds(), 2);
-    exper += qPow(3 - a->getNoises(), 2);
-    exper += qPow(3 - a->getProtector(), 2);
-    exper += qPow(4 - a->getEnergy(), 2);
-    exper += qPow(0 - a->getFearful(), 2);
-    exper += qPow(1 - a->getAffection(), 2);
-    exper += qPow(4 - a->getMessy(), 2);
-    exper += qPow(0 - a->isHypo(), 2); //false
-    exper += qPow(1 - a->getLifestyle(), 2);
+    exper += qPow(2 - a->getGoodWAnimals(), 2);
+    exper += qPow(3 - a->getCrowds(), 2);
+    exper += qPow(4 - a->getNoises(), 2);
+    exper += qPow(1 - a->getProtector(), 2);
+    exper += qPow(1 - a->getEnergy(), 2);
+    exper += qPow(2 - a->getFearful(), 2);
+    exper += qPow(3 - a->getAffection(), 2);
+    exper += qPow(0 - a->getMessy(), 2);
+    exper += qPow(1 - a->isHypo(), 2); //false
+    exper += qPow(0 - a->getLifestyle(), 2);
     expDist = qSqrt(exper);
 
    // return qMin(rurDist, famDist, urbDist, cudDist, fierDist, expDist);
