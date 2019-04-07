@@ -143,6 +143,11 @@ void ViewResults::on_buttonDetailedMatchInfo_clicked()
     displayMatchInfo(optimalMatches->at(static_cast<unsigned int>(ui->listOptimalMatches->currentRow())));
 }
 
+void ViewResults::on_listOptimalMatches_currentRowChanged(int currentRow)
+{
+    ui->lbOptimalMatchScore->setText(QString::fromStdString(std::to_string(optimalMatches->at(currentRow)->getScore())));
+}
+
 /** Function: displayTextBoxError()
  *  In: QString err
  *  Purpose: Displays error passed as argument */

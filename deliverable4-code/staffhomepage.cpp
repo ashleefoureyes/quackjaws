@@ -188,6 +188,7 @@ void StaffHomepage::emptyMatchMap()
     }
 
     matches.clear();
+    optimalMatches.clear();
 }
 
 void StaffHomepage::displayTextBox(QString txt)
