@@ -92,7 +92,9 @@ void StaffHomepage::on_bViewClients_clicked()
 
 }
 
-// Not yet implemented
+/** Function: on_bRunAlgorithm_clicked()
+ *  Purpose: Calls public function in Algorithm class to get the map of all matches and the vector of optimal matches
+ *           based on the AnimalStorage and ClientStorage objects passed. */
 void StaffHomepage::on_bRunAlgorithm_clicked()
 {
     /**
@@ -110,6 +112,8 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     algorithmHasBeenRun = true;
 }
 
+/** Function: on_bViewMatches_clicked()
+ *  Purpose: Calls public function showMatchUi() in ViewResults object to view results of the algorithm */
 void StaffHomepage::on_bViewMatches_clicked()
 {
     if (!algorithmHasBeenRun) { displayTextBox("Error: Algorithm has not been run since logging in as staff\nPlease run algorithm before viewing results"); return; }
@@ -134,6 +138,10 @@ void StaffHomepage::passBreeds(std::vector<std::string> dogBreeds, std::vector<s
     this->rabbitBreeds = rabbitBreeds;
 }
 
+/** Function: fillMapTesting()
+ *  Purpose: Fills the match map and optimalMatch vector with random data.
+             Used to create and test the ViewResults Ui before the algorithm was
+             fully implemented */
 void StaffHomepage::fillMapTesting()
 {
     // Used for testing purpose to generate random match score
@@ -174,6 +182,11 @@ void StaffHomepage::fillMapTesting()
     }
 }
 
+/** Function: emptyMatchMap()
+ *  Purpose: Empties the match map and optimalMatches vector so it can be refilled by the algorithm
+ *           Deallocates memory for each Match object.
+ *           NOTE: Do NOT deallocate memory for animal and client pointers inside Match objects
+ */
 void StaffHomepage::emptyMatchMap()
 {
 
@@ -188,6 +201,7 @@ void StaffHomepage::emptyMatchMap()
     }
 
     matches.clear();
+    optimalMatches.clear();
 }
 
 void StaffHomepage::displayTextBox(QString txt)

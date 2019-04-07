@@ -17,6 +17,10 @@ Match::Match()
 
 std::string Match::getMatchStr() { return client->getFullName() + " and " + animal->getName(); }
 
+/** Function: speciesTraitsQStr()
+ *  Out: QString returnStr
+ *  Purpose: Dynamically builds a QString depending on which criteria is met by the client and animal in the match object
+ */
 QString Match::speciesTraitsQStr()
 {
     QString returnStr = "";
@@ -42,6 +46,8 @@ QString Match::speciesTraitsQStr()
         if(dog->getTraining() >= 3 && client->getFollowsCommandsDog() >= 3) { returnStr += "- Dog follows commands as requested by client\n"; }
         if(dog->getBarks() <= 3 && client->getQuietness() >= 3) { returnStr += "- Dog is quiet as requested by client\n"; }
 
+        if(dog->getIsHypoAllergenic() == true && client->getHasDogAllergies() == true) { returnStr += "- Client has dog allergies but this dog is hypo-allergenic\n"; }
+
         if(returnStr == "") { returnStr = "This dog does not meet any species-specific client preferences"; }
         else { returnStr = "Dog-specific match info\n\n" + returnStr; }
     }
@@ -65,6 +71,8 @@ QString Match::speciesTraitsQStr()
         if(cat->getCuriosity() && client->getIsCurious() >= 3) { returnStr += "- Cat is curious which was important to client\n"; }
         if(cat->getTrained() >= 3 && client->getFollowCommandsCat() >= 3) { returnStr += "- Cat follows commands as requested by client\n"; }
         if(cat->getShedding() <= 3 && client->getDoesntShed() >= 3) { returnStr += "- Cat doesn't shed which was important to client\n"; }
+
+        if(cat->getIsHypoAllergenic() == true && client->getHasCatAllergies() == true) { returnStr += "- Client has cat allergies but this cat is hypo-allergenic\n"; }
 
         if(returnStr == "") { returnStr = "This cat does not meet any species-specific client preferences"; }
         else { returnStr = "Cat-specific match info\n\n" + returnStr; }
@@ -90,6 +98,7 @@ QString Match::speciesTraitsQStr()
         if(bird->getLoud() <= 2 && client->getIsQuietBird() >= 3) { returnStr += "- Bird is quiet as requested by client\n"; }
         if(bird->getSocial() >= 3 && client->getIsSocialBird() >= 3) { returnStr += "- Bird is social which was important to client\n"; }
 
+        if(bird->getIsHypoAllergenic() == true && client->getHasBirdAllergies() == true) { returnStr += "- Client has bird allergies but this bird is hypo-allergenic\n"; }
 
         if(returnStr == "") { returnStr = "This bird does not meet any species-specific client preferences"; }
         else { returnStr = "Bird-specific match info\n\n" + returnStr; }
@@ -115,6 +124,7 @@ QString Match::speciesTraitsQStr()
         if((lizard->getLightingReqs() || lizard->getSpaceReqs()) && client->getSimpleLiving() >= 3) { returnStr += "- Lizard has simple living conditions as requested by client\n"; }
         if((lizard->getDiet() != "Mice" || lizard->getFeedingInterval() != "Daily") && client->getEasyToFeed() >= 3) { returnStr += "Lizard is easy to feed as requested by client"; }
 
+        if(lizard->getIsHypoAllergenic() == true && client->getHasLizardAllergies() == true) { returnStr += "- Client has lizard allergies but this lizard is hypo-allergenic\n"; }
 
         if(returnStr == "") { returnStr = "This lizard does not meet any species-specific client preferences"; }
         else { returnStr = "Lizard-specific match info\n\n" + returnStr; }
@@ -140,7 +150,7 @@ QString Match::speciesTraitsQStr()
         if(rabbit->getGrooming() >= 3 && client->getNeedsGrooming() >= 3) { returnStr += "- Rabbit needs grooming as requested by client\n"; }
         if(rabbit->getAttention() >= 3 && client->getIsSocialRabbit() >= 3) { returnStr += "- Rabbit is social which was important to client"; }
 
-
+        if(rabbit->getIsHypoAllergenic() == true && client->getHasRabbitAllergies() == true) { returnStr += "- Client has rabbit allergies but this rabbit is hypo-allergenic\n"; }
 
         if(returnStr == "") { returnStr = "This rabbit does not meet any species-specific client preferences"; }
         else { returnStr = "Rabbit-specific match info\n\n" + returnStr; }
