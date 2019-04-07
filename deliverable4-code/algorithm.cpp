@@ -13,7 +13,7 @@ Algorithm::Algorithm()
  *  in-out: map<int, std::vector<Match*>> *matches, std::vector<Match*> optimalMatches
  *  Purpose: To be called by another class to run the matching algorithm. Puts all matches in the map with
  *           the clientId as the key.
- *           
+ *
  * Optimal matches go in std::vector *optimalMatches. This vector should only contain one Match object per client
  *           in clientStorage
 */
@@ -254,3 +254,57 @@ double Algorithm::categorize(Animal* a){
     return 0;
 }
 
+std::map<int, std::vector<Match*>> countMatches (std::map<int, std::vector<Match*>> *matches,
+        double matchThreshold) {
+    std::map<int, int> matchCounts;
+    std::map<int, std::vector<Match*>>::iterator mIter;
+
+    for (mIter = *matches.begin(); mIter < *matches.end(); mIter++) {
+        int clientId = mIter->first;
+        std::vector<Match*>::iterator vIter;
+
+        for (vIter = mIter->d.begin(); vIter < mIter->second.end(); vIter++) {
+            if (vIter->getScore() <= matchThreshold) {
+                if(matchCounts.count(clientId) == 0) {
+                    matchCounts.insert(std::pair<int, std::vector<Match*>>(clientId, std::vector<Match*>()));
+                    matchCounts.at(clientId).push_back(vIter);
+                }
+                else {
+                    matchCounts.at(clientId).push_back(vIter);
+                }
+            }
+        }
+    }
+    return matchCounts;
+}
+
+void makeMatch(std::map<int, std::vector<Match*>> *matches,
+        std::vector<Match*> *optimalMatches, int clientId, Match *match) {
+        // Add match to optimal matches
+        // Remove client from matches map
+        // Loop through remaining clients in matches map and remove the
+        // match from their vector where the animal in `match` is the same
+        // as the animal in the match that client's vector
+}
+
+void computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
+        std::vector<Match*> *optimalMatches) {
+    double matchThreshold = 4.00;
+    while (matchThreshold < 11.00) {
+        // Count number of matches for remaining clients
+        std::map<int, std::vector<Match*>> matchCounts = countMatches(matches, matchThreshold);
+        // Keep matching those with only one match until none left or there
+        // exists only clients with 2+ matches. In that case match one client
+        // based on their lowest score and keep matching those with only one match.
+        std::map<int, std::vector<Match*>>::iterator iter;
+        for (iter = matchCounts.begin(); iter < matchCounts.end; iter++) {
+            if (iter->second == 1) {
+                makeMatch(matches, optimalMatches, iter->first, )
+            }
+        }
+        // Repeat until no clients remain in match count
+        // Increment matchThreshold by 1.00 and do it all again.
+        matchThreshold += 1.00;
+    }
+
+}

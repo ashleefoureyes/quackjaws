@@ -18,7 +18,8 @@ public:
 private:
     double computeDistance(Animal*, Client*);
     double categorize(Animal*);
+    void computeOptimalMatches(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches);
+    std::map<int, std::vector<Match*>> countMatches (std::map<int, std::vector<Match*>> *matches, double matchThreshold);
 
 };
-
 #endif // ALGORITHM_H
