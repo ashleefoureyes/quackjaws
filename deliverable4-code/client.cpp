@@ -782,7 +782,7 @@ std::string Client::getRabbitColour() const
 
 int Client::getIsSocialRabbit() const
 {
-    return isSocialRabbit;
+    return isSocialRabbit   ;
 }
 
 int Client::getNeedsGrooming() const
