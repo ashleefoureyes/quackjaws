@@ -17,6 +17,10 @@ Match::Match()
 
 std::string Match::getMatchStr() { return client->getFullName() + " and " + animal->getName(); }
 
+/** Function: speciesTraitsQStr()
+ *  Out: QString returnStr
+ *  Purpose: Dynamically builds a QString depending on which criteria is met by the client and animal in the match object
+ */
 QString Match::speciesTraitsQStr()
 {
     QString returnStr = "";

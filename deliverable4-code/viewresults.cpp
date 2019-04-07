@@ -106,23 +106,6 @@ void ViewResults::on_listClientsDetailed_itemClicked(QListWidgetItem *item)
 {   
     setDetailedDefault();
 
-    int def = 0;
-
-    // Resets bars and text back to default when user
-    // selects a different client
-    ui->barClTravel->setValue(def); ui->BarAnTravel->setValue(def);
-    ui->barClChildren->setValue(def); ui->BarAnChildren->setValue(def);
-    ui->barClAnimals->setValue(def); ui->barAnAnimals->setValue(def);
-    ui->barClStrangers->setValue(def); ui->barAnStrangers->setValue(def);
-    ui->barClCrowds->setValue(def); ui->barAnCrowds->setValue(def);
-    ui->barClNoise->setValue(def); ui->barAnNoise->setValue(def);
-    ui->barClProtective->setValue(def); ui->barAnProtective->setValue(def);
-    ui->barClEnergetic->setValue(def); ui->barAnEnergetic->setValue(def);
-    ui->barClFearful->setValue(def); ui->barAnFearful->setValue(def);
-    ui->barClAffectionate->setValue(def); ui->barAnAffectionate->setValue(def);
-    ui->barClMessy->setValue(def); ui->barAnMessy->setValue(def);
-    ui->lbDetailedAnimalInfo->setText("Please select an animal to compare");
-
     // Uses string from QListWidgetItem to get the Id
     // Faster retrieval method but if we remove the Id from the QListWidget
     // then the way we retrieve the id of the clicked user will need to change
@@ -167,7 +150,8 @@ void ViewResults::displayMatchInfo(Match* match)
 
 /** Function: on_listAnimalsDetailed_itemClicked(QListWidgetItem *item)
  *  In: QListWidgetItem *item
- *  Purpose:
+ *  Purpose: Gets the animal id from the QListWidgetItem then searches the matchesForClient vector for a match.
+ *           Once found it takes that match object and delegates display of that information to displayMatchInfo((*it))
 */
 void ViewResults::on_listAnimalsDetailed_itemClicked(QListWidgetItem *item)
 {
@@ -185,23 +169,50 @@ void ViewResults::on_listAnimalsDetailed_itemClicked(QListWidgetItem *item)
     }
 }
 
+
+/** Function: setDetailedDefault()
+ *  Purpose: Resets all dynamic ui elements to their defaults */
 void ViewResults::setDetailedDefault()
 {
     ui->lbMatchName->setText("");
     ui->lbMatchScore->setText("");
+
+    int def = 0;
+
+    // Resets bars and text back to default when user
+    // selects a different client
+    ui->barClTravel->setValue(def); ui->BarAnTravel->setValue(def);
+    ui->barClChildren->setValue(def); ui->BarAnChildren->setValue(def);
+    ui->barClAnimals->setValue(def); ui->barAnAnimals->setValue(def);
+    ui->barClStrangers->setValue(def); ui->barAnStrangers->setValue(def);
+    ui->barClCrowds->setValue(def); ui->barAnCrowds->setValue(def);
+    ui->barClNoise->setValue(def); ui->barAnNoise->setValue(def);
+    ui->barClProtective->setValue(def); ui->barAnProtective->setValue(def);
+    ui->barClEnergetic->setValue(def); ui->barAnEnergetic->setValue(def);
+    ui->barClFearful->setValue(def); ui->barAnFearful->setValue(def);
+    ui->barClAffectionate->setValue(def); ui->barAnAffectionate->setValue(def);
+    ui->barClMessy->setValue(def); ui->barAnMessy->setValue(def);
+    ui->lbDetailedAnimalInfo->setText("Please select an animal to compare");
 }
 
+/** Function: on_buttonNext_clicked()
+ *  Purpose: Changes the match details tab to show the one that isn't currently showing */
 void ViewResults::on_buttonNext_clicked()
 {
     if(ui->tabWidgetDetailed->currentIndex() == 0) { ui->tabWidgetDetailed->setCurrentIndex(1); }
     else { ui->tabWidgetDetailed->setCurrentIndex(0); }
 }
 
+/** Function: on_buttonBack_clicked()
+ *  Purpose: Changes the match details tab to show the one that isn't currently showing */
 void ViewResults::on_buttonBack_clicked()
 {
     on_buttonNext_clicked();
 }
 
+/** Function: on_buttonDetailedMatchInfo_clicked()
+ *  Purpose: Changes from optimal matches tab to detailed matches tab displaying information
+             for the optimal match that was currently selected in the optimal matches QListWidget */
 void ViewResults::on_buttonDetailedMatchInfo_clicked()
 {
     if (ui->listOptimalMatches->currentRow() < 0 || static_cast<unsigned int>(ui->listOptimalMatches->currentRow()) > optimalMatches->size()) { displayTextBoxError("Error: Please select a match"); return; }
@@ -210,6 +221,9 @@ void ViewResults::on_buttonDetailedMatchInfo_clicked()
     displayMatchInfo(optimalMatches->at(static_cast<unsigned int>(ui->listOptimalMatches->currentRow())));
 }
 
+/** Function: on_listOptimalMatches_currentRowChanges(int currentRow)
+ *  In: int currentRow
+ *  Purpose: Changes optimalMatches displayed elements depending on select optimal match */
 void ViewResults::on_listOptimalMatches_currentRowChanged(int currentRow)
 {
     // Removes decimal points for printing int
