@@ -55,6 +55,8 @@ void StaffHomepage::on_bViewAnimals_clicked()
 
 }
 
+
+
 /** Function: on_bLogout_clicked()
     purpose: Returns to mainwindow*/
 void StaffHomepage::on_bLogout_clicked()
@@ -103,11 +105,16 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     msgBox.exec(); */
 
     emptyMatchMap();
-    //Algorithm algo;
-    //algo.runAlgorithm(&matches, &optimalMatches, animalStorage, clientStorage);
+    Algorithm algo;
+    algo.runAlgorithm(&matches, &optimalMatches, animalStorage, clientStorage);
     fillMapTesting();
     changesSinceLastRun = false;
     algorithmHasBeenRun = true;
+
+//   // this will work i think just need algo implementation ..
+//    QProgressDialog progressBar("Running Algorithm", "Cancel",0, *algoirthm function*, this);
+//    progressBar.setWindowModality(Qt::WindowModal);
+//    progressBar.show();
 }
 
 void StaffHomepage::on_bViewMatches_clicked()
