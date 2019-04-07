@@ -14,6 +14,10 @@ class Algorithm
 public:
     Algorithm();
     void runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches, AnimalStorage *animalStorage, ClientStorage *clientStorage);
+
+private:
+    double computeDistance(Animal*, Client*);
+
 };
 
 #endif // ALGORITHM_H

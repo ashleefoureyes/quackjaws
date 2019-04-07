@@ -1,6 +1,7 @@
 #include "match.h"
 
-Match::Match(Client *client, Animal *animal, int score)
+
+Match::Match(Client *client, Animal *animal, double score)
 {
     this->client = client;
     this->animal = animal;
@@ -152,5 +153,8 @@ Client *Match::getClient() const { return client; }
 void Match::setClient(Client *value) { client = value; }
 Animal *Match::getAnimal() const { return animal; }
 void Match::setAnimal(Animal *value) { animal = value; }
-int Match::getScore() const { return score; }
-void Match::setScore(int value){ score = value; }
+double Match::getScore() const { return score; }
+void Match::setScore(double value){ score = value; }
+
+
+

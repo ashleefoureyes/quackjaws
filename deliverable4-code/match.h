@@ -15,7 +15,7 @@
 class Match
 {
 public:
-    Match(Client *client, Animal *animal, int score);
+    Match(Client *client, Animal *animal, double score);
     Match();
     std::string getMatchStr();
 
@@ -27,13 +27,16 @@ public:
 
     QString speciesTraitsQStr();
 
-    int getScore() const;
-    void setScore(int value);
+    double getScore() const;
+    void setScore(double value);
 
 private:
     Client *client;
     Animal *animal;
-    int score;
+    double score;
+
+
+
 };
 
 #endif // MATCH_H
