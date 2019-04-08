@@ -25,6 +25,8 @@ class Animal
     bool isNocturnal;
     bool isHypoAllergenic;
 
+    std::string classification;
+
     public:
     Animal();
     Animal(std::string name,
@@ -87,6 +89,9 @@ class Animal
     int getHistory() const;
     bool getIsHypoAllergenic() const;
     int getLifestyle() const;
+
+    void setClassification(std::string);
+    std::string getClassification();
 };
 
 #endif

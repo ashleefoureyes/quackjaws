@@ -31,6 +31,9 @@ public:
 
     QString getClientAttributesQ();
 
+    void setClassification(std::string);
+    std::string getClassification();
+
     void setClientAttributes(std::string firstName, std::string lastName, std::string address, std::string phone,
                         std::string email, std::string city, std::string province, int dwelling, int location, int workSchedule,
                         int activity, bool hasChildren, bool hasAnimals, int travels, int children, int goodWAnimals, int strangers,
@@ -163,6 +166,9 @@ private:
     std::string generalAnimalPrefs(std::vector<std::string> breeds, int age, int size, int gender, int fur, int allergies);
 
     std::string getDBBreeds(std::vector<std::string> breeds);
+
+    std::string classification;
+
 };
 
 #endif // CLIENT_H

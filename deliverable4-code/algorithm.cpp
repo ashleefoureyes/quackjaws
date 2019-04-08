@@ -91,6 +91,9 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
     std::string clientCategory = categorizeClient(c);
     std::string animalCategory = categorizeAnimal(a);
 
+    a->setClassification(animalCategory);
+    c->setClassification(clientCategory);
+
     cerr << "Client category: " << QString::fromStdString(clientCategory) << "\n";
     cerr << "Animal category: " << QString::fromStdString(animalCategory) << "\n";
 

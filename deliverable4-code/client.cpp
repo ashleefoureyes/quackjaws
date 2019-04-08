@@ -789,3 +789,11 @@ int Client::getNeedsGrooming() const
 {
     return needsGrooming;
 }
+
+void Client::setClassification(std::string c){
+    this->classification = c;
+}
+
+std::string Client::getClassification(){
+    return classification;
+}
