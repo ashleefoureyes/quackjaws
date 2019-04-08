@@ -536,6 +536,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                 // Make the match with the smallest score
                 makeMatch(&matchesCopy, optimalMatches, matchWithSmallestScore->getClient()->getId(), matchWithSmallestScore, matchCounts);
                 // Remove that client from the clientsWithOneMatch vector also
+
                 std::vector<int>::iterator eraseIt = std::find(clientsWithOneMatch.begin(), clientsWithOneMatch.end(), matchWithSmallestScore->getClient()->getId());
                 clientsWithOneMatch.erase(eraseIt);
             }
