@@ -508,7 +508,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
             std::map<int, std::vector<Match*>>::iterator iter;
             // Loop through all clients, add those with a single match to a vector
             std::vector<int> clientsWithOneMatch;
-            for (iter = matchCounts->begin(); iter < matchCounts->end(); iter++) {
+            for (iter = matchCounts->begin(); iter != matchCounts->end(); iter++) {
                 if (iter->second.size() == 1) {
                     clientsWithOneMatch.push_back(iter->first);
                 }
@@ -521,21 +521,22 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                 std::vector<Match*> sameMatches;
                 for (vInnerIter = clientsWithOneMatch.begin(); vInnerIter < clientsWithOneMatch.end(); vInnerIter++) {
                     // There will always be at least one match because the original client gets counted
-                    if (matchCounts->at(vIter)[0]->getAnimal()->getId() == matchCounts->at(vInnerIter)[0]->getAnimal()->getId()) {
-                        sameMatches.push_back(matchCounts->at(vInnerIter)[0]);
+                    if ((matchCounts->at(*vIter)).front()->getAnimal()->getId() == (matchCounts->at(*vInnerIter)).front()->getAnimal()->getId()) {
+                        sameMatches.push_back((matchCounts->at(*vInnerIter)).front());
                     }
                 }
                 // Find the match in the sameMatches vector with the smallest score
+                std::vector<Match*>::iterator vMatchItr;
                 Match* matchWithSmallestScore = NULL;
-                for (vInnerIter = sameMatches.begin(); vInnerIter < sameMatches.end(); vInnerIter++) {
-                    if (matchWithSmallestScore == NULL || vInnerIter->getScore() <= matchWithSmallestScore->getScore()) {
-                        matchWithSmallestScore = vInnerIter;
+                for (vMatchItr = sameMatches.begin(); vMatchItr != sameMatches.end(); vMatchItr++) {
+                    if (matchWithSmallestScore == NULL || (*vMatchItr)->getScore() <= matchWithSmallestScore->getScore()) {
+                        matchWithSmallestScore = (*vMatchItr);
                     }
                 }
                 // Make the match with the smallest score
                 makeMatch(&matchesCopy, optimalMatches, matchWithSmallestScore->getClient()->getId(), matchWithSmallestScore, matchCounts);
                 // Remove that client from the clientsWithOneMatch vector also
-                clientsWithOneMatch.erase(matchWithSmallestScore->getClient()->getId());
+                clientsWithOneMatch.erase(clientsWithOneMatch.begin() + matchWithSmallestScore->getClient()->getId());
             }
         }
         // Increment matchThreshold by 1.00 and do it all again.
