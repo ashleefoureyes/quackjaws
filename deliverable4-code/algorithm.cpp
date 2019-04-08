@@ -250,12 +250,18 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
 
         } else { badMatch = true; }
     }
+<<<<<<< HEAD
     score = qSqrt(sum);
     cerr << QString::fromStdString(a->getName()) << " and " << QString::fromStdString(c->getFullName()) << "= "<< score << " - " << auxScore <<"\n";
 
     score -= auxScore;
     cerr << "------" << QString::fromStdString(a->getName()) << " and " << QString::fromStdString(c->getFullName()) << "= "<< score << "\n";
 
+=======
+    QTextStream cerr(stderr);
+    distance = qSqrt(sum);
+    cerr << "Distance for " << QString::fromStdString(a->getName() + " | " + a->getSpecies()) << " and " << QString::fromStdString(c->getFullName()) <<" is: " << distance << "\n";
+>>>>>>> b544e12ff64e3b0fba4a18a91b0f9c97dbca0919
 
 
     if (score < 0) { score = 0;}
