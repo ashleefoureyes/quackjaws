@@ -108,17 +108,14 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             std::vector<std::string> breeds = c->getDogBreeds();
             if(std::find(breeds.begin(), breeds.end(), d->getBreed()) != breeds.end()){ auxScore +=2; }
 
-            sum += qPow((d->getSize() - c->getDogSize()), 2);
-            sum += qPow((d->getFur() - c->getDogFur()), 2);
-
             int bathTrained = 0;
             if(d->getIsBathroomTrained()) {bathTrained = 5;}
             else { bathTrained = 0; }
 
+            sum += qPow((d->getSize() - c->getDogSize()), 2);
+            sum += qPow((d->getFur() - c->getDogFur()), 2);
             sum += qPow((bathTrained - c->getHouseTrained()),2);
-
             sum+= qPow((d->getTraining() - c->getFollowsCommandsDog()), 2);
-
             sum += qPow((d->getBarks() - c->getQuietness()), 2);
 
             if(d->getBarks() >= 4 && (c->getDwelling() == 0 || c->getDwelling() == 1)) { auxScore -=2;}
@@ -140,14 +137,10 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             else { catGender = 5; }
 
             sum += qPow((catGender - c->getCatGender()), 2);
-
             sum += qPow((cat->getSize() - c->getCatSize()), 2);
             sum += qPow((cat->getFur() - c->getCatFur()), 2);
-
             sum += qPow((cat->getCuriosity() - c->getIsCurious()), 2);
-
             sum += qPow((cat->getTrained() - c->getFollowCommandsCat()), 2);
-
             sum += qPow((cat->getShedding() - c->getDoesntShed()), 2);
 
         } else { badMatch = true; }
@@ -167,7 +160,6 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             else { birdGender = 5; }
 
             sum += qPow((birdGender - c->getBirdGender()), 2);
-
             sum += qPow((b->getSize() - c->getCatSize()), 2);
             sum += qPow((b->getFur() - c->getCatFur()), 2);
 
@@ -175,7 +167,6 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             if (QString::compare(QString::fromStdString(c->getBirdColour()), QString::fromStdString(b->getColour()), Qt::CaseInsensitive)){ auxScore+=2; }
 
             sum += qPow((b->getLoud() - c->getIsQuietBird()), 2);
-
             sum += qPow((b->getSocial() - c->getIsSocialBird()), 2);
 
             if(b->getLoud() && (c->getDwelling() == 0 || c->getDwelling() == 1)) { auxScore -=2;}
@@ -197,7 +188,6 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             else { lizGender = 5; }
 
             sum += qPow((lizGender - c->getLizardGender()),2);
-
             sum += qPow((l->getSize() - c->getLizardSize()),2);
             sum += qPow((l->getFur() - c->getLizardFur()),2);
 
@@ -239,7 +229,6 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             else { rabGender = 5; }
 
             sum += qPow((rabGender - c->getRabbitGender()),2);
-
             sum += qPow((r->getSize() - c->getRabbitSize()),2);
             sum += qPow((r->getFur() - c->getRabbitFur()),2);
 
