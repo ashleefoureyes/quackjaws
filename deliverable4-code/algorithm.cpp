@@ -458,6 +458,7 @@ void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
 
 void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
         std::vector<Match*> *optimalMatches) {
+    // Make a copy of these matches for use internally because matches also needed in final display
     std::map<int, std::vector<Match*>> matchesCopy = *matches;
     double matchThreshold = 4.00;
     while (matchThreshold < 11.00) {
@@ -482,6 +483,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                 for (vIter = clientsWithOneMatch.begin(); vIter < clientsWithOneMatch.end(); vIter++) {
                     std::vector<Match*> sameMatches;
                     for (vInnerIter = clientsWithOneMatch.begin(); vInnerIter < clientsWithOneMatch.end(); vInnerIter++) {
+                        // There will always be at least one match because the original client gets counted
                         if (matchCounts->at(vIter)[0]->getAnimal()->getId() == matchCounts->at(vInnerIter)[0]->getAnimal()->getId()) {
                             sameMatches.push_back(matchCounts->at(vIter)[0]);
                         }
@@ -489,7 +491,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                     // Find the match in the sameMatches vector with the smallest score
                     Match* matchWithSmallestScore = NULL;
                     for (vInnerIter = sameMatches.begin(); vInnerIter < sameMatches.end(); vInnerIter++) {
-                        if (vInnerIter->getScore() <= matchWithSmallestScore->getScore()) {
+                        if (matchWithSmallestScore == NULL || vInnerIter->getScore() <= matchWithSmallestScore->getScore()) {
                             matchWithSmallestScore = vInnerIter;
                         }
                     }
