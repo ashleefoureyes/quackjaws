@@ -67,6 +67,7 @@ private:
 
     void emptyMatchMap();
     void fillMapTesting();
+    void testMakeMatch(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches, int clientId, Match *match, std::map<int, std::vector<Match*>> *matchCounts);
 
     void displayTextBox(QString txt);
 

@@ -108,6 +108,8 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     //Algorithm algo;
     //algo.runAlgorithm(&matches, &optimalMatches, animalStorage, clientStorage);
     fillMapTesting();
+    std::map<int, std::vector<Match*>> matchesCount = matches;
+    testMakeMatch(&matches,&optimalMatches,optimalMatches.front()->getClient()->getId(), optimalMatches.front(), &matchesCount);
     changesSinceLastRun = false;
     algorithmHasBeenRun = true;
 }
@@ -136,6 +138,93 @@ void StaffHomepage::passBreeds(std::vector<std::string> dogBreeds, std::vector<s
     this->birdBreeds = birdBreeds;
     this->lizardBreeds = lizardBreeds;
     this->rabbitBreeds = rabbitBreeds;
+}
+
+/** Function: emptyMatchMap()
+ *  Purpose: Empties the match map and optimalMatches vector so it can be refilled by the algorithm
+ *           Deallocates memory for each Match object.
+ *           NOTE: Do NOT deallocate memory for animal and client pointers inside Match objects */
+void StaffHomepage::emptyMatchMap()
+{
+
+    std::map<int, std::vector<Match*>>::iterator it;
+    std::vector<Match*>::iterator itVect;
+    for(it = matches.begin(); it != matches.end(); it++)        
+    {
+        for(itVect = it->second.begin(); itVect != it->second.end(); itVect++)
+        {
+            delete *itVect;
+        }
+    }
+
+    matches.clear();
+    optimalMatches.clear();
+}
+
+void StaffHomepage::displayTextBox(QString txt)
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
+    msgBox.setText(txt);
+    msgBox.exec();
+}
+
+/** #############################
+    #TESTING/DEBUGGING FUNCTIONS#
+    ############################# */
+
+/** Function: testMakeMatch
+ *  Purpose: Used to test the makeMatch function in Algorithm.cpp at a time when Algorithm.cpp
+             was not complete
+
+### To call for testing have the following lines of code precede this function call ###
+             fillMapTesting();
+             std::map<int, std::vector<Match*>> matchesCount = matches;
+             testMakeMatch(&matches,&optimalMatches,optimalMatches.front()->getClient()->getId(), optimalMatches.front(), &matchesCount);
+*/
+void StaffHomepage::testMakeMatch(std::map<int, std::vector<Match*>> *matches,
+        std::vector<Match*> *optimalMatches, int clientId, Match *match,
+        std::map<int, std::vector<Match*>> *matchCounts) {
+
+        QTextStream cerr(stderr);
+
+        // Add match to optimal matches
+        optimalMatches->push_back(match);
+        cerr << QString::fromStdString("Optimal match: " + match->getClient()->getFullName() + " and " + match->getAnimal()->getName() + "\n");
+
+        cerr << "Matches size before: " << QString::fromStdString(std::to_string(matches->size()) + "\n");
+        // Remove client from matches map
+        matches->erase(clientId);
+        matchCounts->erase(clientId);
+        cerr << "Matches size after: " << QString::fromStdString(std::to_string(matches->size()) + "\n");
+
+        // Loop through remaining clients in matches map and remove the
+        // match from their vector where the animal in `match` is the same
+        // as the animal in the match that client's vector
+        std::map<int, std::vector<Match*>>::iterator it;
+        std::vector<Match*>::iterator itVect;
+        for(it = matches->begin(); it != matches->end(); it++)
+        {
+            int vectorIndex = 0;
+            Client* cl = (it->second).front()->getClient();
+            std::vector<Match*> *matchVect = &(it->second);
+            for(itVect = it->second.begin(); itVect != it->second.end(); itVect++)
+            {
+
+                if((*itVect)->getAnimal()->getId() == match->getAnimal()->getId())
+                {
+                    cerr << "Removing: " << QString::fromStdString((*itVect)->getAnimal()->getName() + " from " + (*itVect)->getClient()->getFullName() + "'s vector\n");
+                    cerr << "Vector 1 size before: " << QString::fromStdString(std::to_string(matchVect->size()) + "\n");
+                    cerr << "Vector 2 size before: " << QString::fromStdString(std::to_string(matchCounts->at(cl->getId()).size()) + "\n");
+                    matchVect->erase(matchVect->begin() + vectorIndex);
+                    matchCounts->at(cl->getId()).erase(matchCounts->at(cl->getId()).begin() + vectorIndex);
+                    cerr << "Vector 1 size after: " << QString::fromStdString(std::to_string(matchVect->size()) + "\n");
+                    cerr << "Vector 2 size after: " << QString::fromStdString(std::to_string(matchCounts->at(cl->getId()).size()) + "\n");
+                    break;
+                }
+                ++vectorIndex;
+            }
+        }
 }
 
 /** Function: fillMapTesting()
@@ -180,34 +269,4 @@ void StaffHomepage::fillMapTesting()
 
         testIncrementor = (testIncrementor + 1)%animalStorage->getSize();
     }
-}
-
-/** Function: emptyMatchMap()
- *  Purpose: Empties the match map and optimalMatches vector so it can be refilled by the algorithm
- *           Deallocates memory for each Match object.
- *           NOTE: Do NOT deallocate memory for animal and client pointers inside Match objects
- */
-void StaffHomepage::emptyMatchMap()
-{
-
-    std::map<int, std::vector<Match*>>::iterator it;
-    std::vector<Match*>::iterator itVect;
-    for(it = matches.begin(); it != matches.end(); it++)        
-    {
-        for(itVect = it->second.begin(); itVect != it->second.end(); itVect++)
-        {
-            delete *itVect;
-        }
-    }
-
-    matches.clear();
-    optimalMatches.clear();
-}
-
-void StaffHomepage::displayTextBox(QString txt)
-{
-    QMessageBox msgBox;
-    msgBox.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
-    msgBox.setText(txt);
-    msgBox.exec();
 }

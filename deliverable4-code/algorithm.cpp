@@ -17,6 +17,7 @@ Algorithm::Algorithm()
  * Optimal matches go in std::vector *optimalMatches. This vector should only contain one Match object per client
  *           in clientStorage
 */
+
 void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches, AnimalStorage *animalStorage, ClientStorage *clientStorage)
 {
     Client* currentClient;
@@ -42,6 +43,7 @@ void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::v
         }
     }
 }
+
 
 
 double Algorithm::computeDistance(Animal *a, Client *c){
@@ -425,10 +427,33 @@ void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
         std::vector<Match*> *optimalMatches, int clientId, Match *match,
         std::map<int, std::vector<Match*>> *matchCounts) {
         // Add match to optimal matches
+        optimalMatches->push_back(match);
+
         // Remove client from matches map
+        matches->erase(clientId);
+        matchCounts->erase(clientId);
+
         // Loop through remaining clients in matches map and remove the
         // match from their vector where the animal in `match` is the same
         // as the animal in the match that client's vector
+        std::map<int, std::vector<Match*>>::iterator it;
+        std::vector<Match*>::iterator itVect;
+        for(it = matches->begin(); it != matches->end(); it++)
+        {
+            int vectorIndex = 0;
+            Client* cl = (it->second).front()->getClient();
+            std::vector<Match*> *matchVect = &(it->second);
+            for(itVect = it->second.begin(); itVect != it->second.end(); itVect++)
+            {
+                if((*itVect)->getAnimal()->getId() == match->getAnimal()->getId())
+                {
+                    matchVect->erase(matchVect->begin() + vectorIndex);
+                    matchCounts->at(cl->getId()).erase(matchCounts->at(cl->getId()).begin() + vectorIndex);
+                    break;
+                }
+                ++vectorIndex;
+            }
+        }
 }
 
 void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
