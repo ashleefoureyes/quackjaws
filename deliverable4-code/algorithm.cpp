@@ -217,6 +217,75 @@ double Algorithm::computeDistance(Animal *a, Client *c){
     return distance;
 }
 
+
+
+/*
+ *
+ * { dwelling, location, workSchedule, activity, hasChildren, hasAnimals }
+ *
+ */
+double Algorithm:: categorize(Client* c){
+    double distance = 0, rural = 0, family = 0, urban = 0, cuddle = 0, fierce = 0, exper = 0;
+    double rurDist = 0, famDist = 0, urbDist = 0, cudDist = 0, fierDist = 0, expDist = 0;
+
+    // Rural Rovers client optimal array: {4,2,5,4,True,True}
+    rural += qPow(4 - c->getDwelling(),2);
+    rural += qPow(2 - c->getLocation(),2);
+    rural += qPow(5 - c->getWorkSchedule(),2);
+    rural += qPow(4 - c->getActivity(),2);
+    rural += qPow(1 - c->getHasChildren(),2);
+    rural += qPow(1 - c->getHasAnimals(),2);
+    rurDist = qSqrt(rural);
+
+    // Family Pal client optimal array: {3,1,0,2,True,True}
+    family += qPow(3 - c->getDwelling(),2);
+    family += qPow(1 - c->getLocation(),2);
+    family += qPow(0 - c->getWorkSchedule(),2);
+    family += qPow(2 - c->getActivity(),2);
+    family += qPow(1 - c->getHasChildren(),2);
+    family += qPow(1 - c->getHasAnimals(),2);
+    famDist = qSqrt(family);
+
+    // Urban Dweller client optimal array {0,0,0,1,False,False}
+    urban += qPow(0 - c->getDwelling(),2);
+    urban += qPow(0 - c->getLocation(),2);
+    urban += qPow(0 - c->getWorkSchedule(),2);
+    urban += qPow(1 - c->getActivity(),2);
+    urban += qPow(0 - c->getHasChildren(),2);
+    urban += qPow(0 - c->getHasAnimals(),2);
+    urbDist = qSqrt(urban);
+
+    // Cuddly Companion client optimal array: {2,1,5,1,True,False}
+    cuddle += qPow(2 - c->getDwelling(),2);
+    cuddle += qPow(1 - c->getLocation(),2);
+    cuddle += qPow(5 - c->getWorkSchedule(),2);
+    cuddle += qPow(1 - c->getActivity(),2);
+    cuddle += qPow(1 - c->getHasChildren(),2);
+    cuddle += qPow(0 - c->getHasAnimals(),2);
+    cudDist = qSqrt(cuddle);
+
+    // Fierce Convoy optimal array: {3,1,3,3,False,False}
+    fierce += qPow(3 - c->getDwelling(),2);
+    fierce += qPow(1 - c->getLocation(),2);
+    fierce += qPow(3 - c->getWorkSchedule(),2);
+    fierce += qPow(3 - c->getActivity(),2);
+    fierce += qPow(0 - c->getHasChildren(),2);
+    fierce += qPow(0 - c->getHasAnimals(),2);
+    fierDist = qSqrt(fierce);
+
+    // Experienced Sidekick client optimal array: {1,0,6,0,False,False}
+    exper += qPow(1 - c->getDwelling(),2);
+    exper += qPow(0 - c->getLocation(),2);
+    exper += qPow(6 - c->getWorkSchedule(),2);
+    exper += qPow(0 - c->getActivity(),2);
+    exper += qPow(0 - c->getHasChildren(),2);
+    exper += qPow(0 - c->getHasAnimals(),2);
+    expDist = qSqrt(exper);
+
+    return distance;
+
+}
+
 /*
 
 {size,age,children,goodWAnimals,crowds,noises,protector,energy,fearful,affection,messy,hypo,lifestyle}
