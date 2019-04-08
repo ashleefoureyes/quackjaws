@@ -57,10 +57,13 @@ void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::v
  *
  */
 double Algorithm::computeMatchScore(Animal *a, Client *c){
-    double distance = 0;
+    double score = 0;
     double sum = 0;
     double auxScore = 0;
     bool badMatch = false;
+    QTextStream cerr(stderr);
+
+     cerr << "The animal is: " << QString::fromStdString(a->getSpecies()) << "\n";
 
     //General Animal Preferences
     sum += qPow(c->getTravels() - a->getTravels(), 2);
@@ -77,18 +80,21 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
 
     if(c->getWorkSchedule() != 0 && a->getNocturnal()){ auxScore -= 1; }
 
-    sum += qPow(a->getChildren(), c->getChildren());
-    sum += qPow(a->getGoodWAnimals(), c->getGoodWAnimals());
-    sum += qPow(a->getEnergy(), c->getEnergy());
-    sum += qPow(a->getEnergy(), c->getActivity());
+    sum += qPow((a->getChildren() - c->getChildren()),2);
+    sum += qPow((a->getGoodWAnimals() - c->getGoodWAnimals()),2);
+    sum += qPow((a->getEnergy() - c->getEnergy()),2);
+    sum += qPow((a->getEnergy() - c->getActivity()),2);
 
     std::string clientCategory = categorizeClient(c);
     std::string animalCategory = categorizeAnimal(a);
 
+    cerr << "Client category: " << QString::fromStdString(clientCategory) << "\n";
+    cerr << "Animal category: " << QString::fromStdString(animalCategory) << "\n";
+
     if(clientCategory == animalCategory){ auxScore +=1;}
 
     //Dog Specific Preferences
-    if (QString::compare(QString::fromStdString(a->getSpecies()), "dog", Qt::CaseInsensitive)){
+    if (QString::compare(QString::fromStdString(a->getSpecies()), "Dog", Qt::CaseInsensitive) == 0){
         Dog *d = static_cast<Dog*>(a);
         if (c->getWantsDog()){
             if(c->getHasDogAllergies() && !d->getIsHypoAllergenic()){ auxScore -= 5; }
@@ -97,23 +103,23 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             if(d->getGender() == 'M') {dogGender = 1;}
             else { dogGender = 5; }
 
-            sum += qPow(dogGender, c->getDogGender());
+            sum += qPow((dogGender - c->getDogGender()), 2);
 
             std::vector<std::string> breeds = c->getDogBreeds();
             if(std::find(breeds.begin(), breeds.end(), d->getBreed()) != breeds.end()){ auxScore +=2; }
 
-            sum += qPow(d->getSize(), c->getDogSize());
-            sum += qPow(d->getFur(), c->getDogFur());
+            sum += qPow((d->getSize() - c->getDogSize()), 2);
+            sum += qPow((d->getFur() - c->getDogFur()), 2);
 
             int bathTrained = 0;
             if(d->getIsBathroomTrained()) {bathTrained = 5;}
             else { bathTrained = 0; }
 
-            sum += qPow(bathTrained, c->getHouseTrained());
+            sum += qPow((bathTrained - c->getHouseTrained()),2);
 
-            sum+= qPow(d->getTraining() >= 3, c->getFollowsCommandsDog());
+            sum+= qPow((d->getTraining() - c->getFollowsCommandsDog()), 2);
 
-            sum += qPow(d->getBarks(), c->getQuietness());
+            sum += qPow((d->getBarks() - c->getQuietness()), 2);
 
             if(d->getBarks() >= 4 && (c->getDwelling() == 0 || c->getDwelling() == 1)) { auxScore -=2;}
 
@@ -121,7 +127,7 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
     }
 
     //Cat Specific Preferences
-    if (QString::compare(QString::fromStdString(a->getSpecies()), "cat", Qt::CaseInsensitive)){
+    if (QString::compare(QString::fromStdString(a->getSpecies()), "cat", Qt::CaseInsensitive) == 0){
         Cat *cat = static_cast<Cat*>(a);
         if (c->getWantsCat()){
             if(c->getHasCatAllergies() && !cat->getIsHypoAllergenic()){ auxScore -= 5; }
@@ -133,22 +139,22 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             if(cat->getGender() == 'M') {catGender = 1;}
             else { catGender = 5; }
 
-            sum += qPow(catGender, c->getCatGender());
+            sum += qPow((catGender - c->getCatGender()), 2);
 
-            sum += qPow(cat->getSize(), c->getCatSize());
-            sum += qPow(cat->getFur(), c->getCatFur());
+            sum += qPow((cat->getSize() - c->getCatSize()), 2);
+            sum += qPow((cat->getFur() - c->getCatFur()), 2);
 
-            sum += qPow(cat->getCuriosity(), c->getIsCurious());
+            sum += qPow((cat->getCuriosity() - c->getIsCurious()), 2);
 
-            sum += qPow(cat->getTrained(), c->getFollowCommandsCat());
+            sum += qPow((cat->getTrained() - c->getFollowCommandsCat()), 2);
 
-            sum += qPow(cat->getShedding(), c->getDoesntShed());
+            sum += qPow((cat->getShedding() - c->getDoesntShed()), 2);
 
         } else { badMatch = true; }
     }
 
     //Bird Specific Preferences
-    if (QString::compare(QString::fromStdString(a->getSpecies()), "bird", Qt::CaseInsensitive)){
+    if (QString::compare(QString::fromStdString(a->getSpecies()), "bird", Qt::CaseInsensitive) == 0){
         Bird *b = static_cast<Bird*>(a);
         if (c->getWantsBird()){
             if(c->getHasBirdAllergies() && !b->getIsHypoAllergenic()){ auxScore -= 5; }
@@ -160,16 +166,17 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             if(b->getGender() == 'M') {birdGender = 1;}
             else { birdGender = 5; }
 
-            sum += qPow(birdGender, c->getBirdGender());
+            sum += qPow((birdGender - c->getBirdGender()), 2);
 
-            sum += qPow(b->getSize(), c->getBirdSize());
-            sum += qPow(b->getFur(), c->getBirdFur());
+            sum += qPow((b->getSize() - c->getCatSize()), 2);
+            sum += qPow((b->getFur() - c->getCatFur()), 2);
+
 
             if (QString::compare(QString::fromStdString(c->getBirdColour()), QString::fromStdString(b->getColour()), Qt::CaseInsensitive)){ auxScore+=2; }
 
-            sum += qPow(b->getLoud(), c->getIsQuietBird());
+            sum += qPow((b->getLoud() - c->getIsQuietBird()), 2);
 
-            sum += qPow(b->getSocial(), c->getIsSocialBird());
+            sum += qPow((b->getSocial() - c->getIsSocialBird()), 2);
 
             if(b->getLoud() && (c->getDwelling() == 0 || c->getDwelling() == 1)) { auxScore -=2;}
 
@@ -177,7 +184,7 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
     }
 
     //Lizard Specific Preferences
-    if (QString::compare(QString::fromStdString(a->getSpecies()), "lizard", Qt::CaseInsensitive)){
+    if (QString::compare(QString::fromStdString(a->getSpecies()), "lizard", Qt::CaseInsensitive) == 0){
         Lizard *l = static_cast<Lizard*>(a);
         if (c->getWantsLizard()){
             if(c->getHasLizardAllergies() && !l->getIsHypoAllergenic()){ auxScore -= 5; }
@@ -189,31 +196,31 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             if(l->getGender() == 'M') {lizGender = 1;}
             else { lizGender = 5; }
 
-            sum += qPow(lizGender, c->getLizardGender());
+            sum += qPow((lizGender - c->getLizardGender()),2);
 
-            sum += qPow(l->getSize(), c->getLizardSize());
-            sum += qPow(l->getFur(), c->getLizardFur());
+            sum += qPow((l->getSize() - c->getLizardSize()),2);
+            sum += qPow((l->getFur() - c->getLizardFur()),2);
 
             if (QString::compare(QString::fromStdString(c->getLizardColour()), QString::fromStdString(l->getColour()), Qt::CaseInsensitive)){ auxScore+=2; }
 
             if((l->getLightingReqs() || l->getSpaceReqs()) && c->getSimpleLiving() >= 3) { auxScore +=1; }
-            if((l->getLightingReqs() || l->getSpaceReqs()) && c->getSimpleLiving() == 0) { auxScore -=1; }
+            else if ((l->getLightingReqs() || l->getSpaceReqs()) && c->getSimpleLiving() == 0) { auxScore -=1; }
 
             int simple = 0;
             if (l->getLightingReqs() || l->getSpaceReqs()) { simple = 5; }
-            if (!l->getLightingReqs() || l->getSpaceReqs()) { simple = 5; }
-            if (l->getLightingReqs() || !l->getSpaceReqs()) { simple = 5; }
+            else if (!l->getLightingReqs() || l->getSpaceReqs()) { simple = 5; }
+            else if (l->getLightingReqs() || !l->getSpaceReqs()) { simple = 5; }
             else { simple = 0; }
 
-            sum += qPow(simple, c->getSimpleLiving());
+            sum += qPow((simple -c->getSimpleLiving()),2);;
 
             int feed = 0;
             if((l->getDiet() == "Mice" || l->getFeedingInterval() == "Daily")) { feed = 5; }
-            if((l->getDiet() == "Mice" || l->getFeedingInterval() != "Daily")) { feed = 3; }
-            if((l->getDiet() != "Mice" || l->getFeedingInterval() == "Daily")) { feed = 3; }
+            else if((l->getDiet() == "Mice" || l->getFeedingInterval() != "Daily")) { feed = 3; }
+            else if((l->getDiet() != "Mice" || l->getFeedingInterval() == "Daily")) { feed = 3; }
             else { feed = 0; }
 
-            sum += qPow(feed, c->getEasyToFeed());
+            sum += qPow((feed - c->getEasyToFeed()),2);
 
             if(l->getSpaceReqs() && (c->getDwelling() == 0 || c->getDwelling() == 1)) { auxScore -=2;}
 
@@ -222,7 +229,7 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
     }
 
     //Rabbit Specific Preferences
-    if (QString::compare(QString::fromStdString(a->getSpecies()), "rabbit", Qt::CaseInsensitive)){
+    if (QString::compare(QString::fromStdString(a->getSpecies()), "rabbit", Qt::CaseInsensitive) == 0){
         Rabbit *r = static_cast<Rabbit*>(a);
         if (c->getWantsRabbit()){
             if(c->getHasRabbitAllergies() && !r->getIsHypoAllergenic()){ auxScore -= 5; }
@@ -231,29 +238,30 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             if(r->getGender() == 'M') {rabGender = 1;}
             else { rabGender = 5; }
 
-            sum += qPow(rabGender, c->getRabbitGender());
+            sum += qPow((rabGender - c->getRabbitGender()),2);
 
-            sum += qPow(r->getSize(), c->getRabbitSize());
-            sum += qPow(r->getFur(), c->getRabbitFur());
+            sum += qPow((r->getSize() - c->getRabbitSize()),2);
+            sum += qPow((r->getFur() - c->getRabbitFur()),2);
 
             if (QString::compare(QString::fromStdString(c->getRabbitColour()), QString::fromStdString(r->getColour()), Qt::CaseInsensitive)){ auxScore+=2; }
 
-            sum += qPow(r->getGrooming(), c->getNeedsGrooming());
-            sum += qPow(r->getAttention(), c->getIsSocialRabbit());
+            sum += qPow((r->getGrooming() - c->getNeedsGrooming()),2);
+            sum += qPow((r->getAttention() - c->getIsSocialRabbit()),2);
 
         } else { badMatch = true; }
     }
-    QTextStream cerr(stderr);
-    distance = qSqrt(sum);
-    cerr << "Distance for " << QString::fromStdString(a->getName()) << "and" << QString::fromStdString(c->getFullName()) <<"is: " << distance;
+    score = qSqrt(sum);
+    cerr << QString::fromStdString(a->getName()) << " and " << QString::fromStdString(c->getFullName()) << "= "<< score << " - " << auxScore <<"\n";
 
-    //if animalCategory = clientCategory then auxScore += 5
-    distance -= auxScore;
+    score -= auxScore;
+    cerr << "------" << QString::fromStdString(a->getName()) << " and " << QString::fromStdString(c->getFullName()) << "= "<< score << "\n";
 
-    if (distance < 0) {distance = 0;}
 
-    if (badMatch) { distance = -1;}
-    return distance;
+
+    if (score < 0) { score = 0;}
+
+    if (badMatch) { score = -1;}
+    return score;
 }
 
 
