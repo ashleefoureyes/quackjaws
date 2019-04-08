@@ -97,6 +97,8 @@ void StaffHomepage::on_bViewClients_clicked()
  *           based on the AnimalStorage and ClientStorage objects passed. */
 void StaffHomepage::on_bRunAlgorithm_clicked()
 {
+    QTextStream cerr(stderr);
+
     /**
     QMessageBox msgBox;
     QString qst = QString::fromStdString("Feature coming soon!");
@@ -105,11 +107,20 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     msgBox.exec(); */
 
     emptyMatchMap();
-    //Algorithm algo;
+    Algorithm algo;
     //algo.runAlgorithm(&matches, &optimalMatches, animalStorage, clientStorage);
     fillMapTesting();
-    std::map<int, std::vector<Match*>> matchesCount = matches;
-    testMakeMatch(&matches,&optimalMatches,optimalMatches.front()->getClient()->getId(), optimalMatches.front(), &matchesCount);
+    //optimalMatches.empty();
+    //std::vector<Match*> optimalMatches;
+    cerr << QString::fromStdString(std::to_string(optimalMatches.size()));
+    algo.test(&matches, &optimalMatches);
+    for(int i = 0; i < optimalMatches.size(); ++i)
+    {
+        cerr << "Optimal match: " << QString::fromStdString(optimalMatches.at(i)->getMatchStr() + " " + std::to_string(optimalMatches.at(i)->getScore()) + "\n");
+    }
+
+    //std::map<int, std::vector<Match*>> matchesCount = matches;
+    //testMakeMatch(&matches,&optimalMatches,optimalMatches.front()->getClient()->getId(), optimalMatches.front(), &matchesCount);
     changesSinceLastRun = false;
     algorithmHasBeenRun = true;
 }
@@ -252,7 +263,7 @@ void StaffHomepage::fillMapTesting()
         {
             //progress.setValue(c*animalStorage->getSize() + a);
             currentClient = clientStorage->get(c);
-            Match *match = new Match(currentClient, animalStorage->get(a), rand() % 1000);
+            Match *match = new Match(currentClient, animalStorage->get(a), rand() % 15);
 
             // If the key is not in the dictionary, then make the value a new vector that holds Match pointers
             // and add the first match to the vector

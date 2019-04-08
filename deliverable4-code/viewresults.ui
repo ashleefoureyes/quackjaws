@@ -179,7 +179,7 @@ selection-background-color: #e6aea4;
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabOptimal">
       <attribute name="title">
@@ -264,7 +264,7 @@ selection-background-color: #e6aea4;
          <x>0</x>
          <y>390</y>
          <width>451</width>
-         <height>151</height>
+         <height>181</height>
         </rect>
        </property>
        <widget class="QListWidget" name="listAnimalsDetailed">
@@ -283,7 +283,7 @@ selection-background-color: #e6aea4;
           <x>10</x>
           <y>40</y>
           <width>181</width>
-          <height>111</height>
+          <height>121</height>
          </rect>
         </property>
        </widget>
