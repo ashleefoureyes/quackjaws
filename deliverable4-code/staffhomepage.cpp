@@ -119,10 +119,25 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     changesSinceLastRun = false;
     algorithmHasBeenRun = true;
 
-    QProgressDialog progressBar("Running Algorithm","cancel",0,(&matches,&optimalMatches,animalStorage->getSize(), clientStorage->getNumOfElements()),this);
-    progressBar.setMinimumDuration(0);
-    progressBar.setWindowModality(Qt::WindowModal);
-    progressBar.show();
+    QMessageBox message;
+    QString qstr = QString::fromStdString("Matching Algorithm Completed.");
+    message.setStyleSheet("QMessageBox {background-color: #1d1d1d;} QMessageBox QLabel{color: #fff;} QPushButton{color: #fff; min-width:30px; background-color:#c23b22; border-radius:1px; } QPushButton:hover{color:ccc; border-color:#2d89ef; border-width:2px;}");
+    message.setText(qstr);
+    message.exec();
+//    QPushButton *b=new QPushButton("Ok");
+
+//    QProgressDialog progressBar("Running Algorithm","cancel",0,(&matches,&optimalMatches,animalStorage->getSize(), clientStorage->getNumOfElements()),this);
+//    progressBar.setWindowModality(Qt::WindowModal);
+//    progressBar.setAutoReset(false);
+//    progressBar.setAutoClose(false);
+//    progressBar.setModal(true);
+//    progressBar.setMinimumDuration(0);
+//    progressBar.setAttribute(Qt::WA_DeleteOnClose,false);
+//    progressBar.setCancelButton(b);
+//    progressBar.show();
+//    progressBar.close();
+
+
 }
 
 /** Function: on_bViewMatches_clicked()
