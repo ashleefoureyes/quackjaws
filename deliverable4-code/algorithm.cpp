@@ -26,7 +26,7 @@ void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::v
         for (int j = 0; j < animalStorage->getSize(); ++j) {
 
             // calculate the match score value for the animal-client pair
-            double score = computeDistance(animalStorage->get(j), clientStorage->get(i));
+            double score = computeMatchScore(animalStorage->get(j), clientStorage->get(i));
 
             currentClient = clientStorage->get(i);
             Match *match = new Match(currentClient, animalStorage->get(j), score);
@@ -45,8 +45,16 @@ void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::v
 }
 
 
-
-double Algorithm::computeDistance(Animal *a, Client *c){
+/** Function: computeMatchScore
+ *  Input:    Client and Animal objects
+ *  Purpose:  computes the match score between a client and an animal
+ *              Using client/animal attributes, the euclidean distance is calculated
+ *              From here, the auxiliary scoring is applied to the match scores
+ *                  Both general aux scoring and animal-specific scoring is computed
+ *              the match score is then returned to be added into the map of matches
+ *
+ */
+double Algorithm::computeMatchScore(Animal *a, Client *c){
     double distance = 0;
     double sum = 0;
     double auxScore = 0;
@@ -67,24 +75,15 @@ double Algorithm::computeDistance(Animal *a, Client *c){
 
     if(c->getWorkSchedule() != 0 && a->getNocturnal()){ auxScore -= 1; }
 
-//    if(a->getChildren() >= 3 && c->getHasChildren()) {auxScore += 1;}
-//    if(a->getChildren() == 0 && c->getHasChildren()) {auxScore -= 1; }
     sum += qPow(a->getChildren(), c->getChildren());
-
-//    if(a->getGoodWAnimals() >= 3 && c->getHasAnimals()) {auxScore += 1;}
-//    if(a->getGoodWAnimals() == 0 && c->getHasAnimals()) {auxScore -=1;}
     sum += qPow(a->getGoodWAnimals(), c->getGoodWAnimals());
-
-//    if(a->getEnergy() >= 3 && c->getActivity() >= 3) { auxScore +=1; }
-//    if(a->getEnergy() <= 2 && c->getActivity() <= 2) { auxScore +=1; }
     sum += qPow(a->getEnergy(), c->getEnergy());
-
-
-//    if(a->getEnergy() == 0 && c->getActivity() >= 3) { auxScore -=1; }
-//    if(a->getEnergy() >= 3 && c->getActivity() == 0) { auxScore -=1; }
     sum += qPow(a->getEnergy(), c->getActivity());
 
+    std::string clientCategory = categorizeClient(c);
+    std::string animalCategory = categorizeAnimal(a);
 
+    if(clientCategory == animalCategory){ auxScore +=1;}
 
     //Dog Specific Preferences
     if (QString::compare(QString::fromStdString(a->getSpecies()), "dog", Qt::CaseInsensitive)){
@@ -257,14 +256,18 @@ double Algorithm::computeDistance(Animal *a, Client *c){
 
 
 
-/*
- *
- * { dwelling, location, workSchedule, activity, hasChildren, hasAnimals }
+/** Function: categorizeClient
+ *  Input:    Client  objects
+ *  Purpose:  using the client's attributes, a classification is computed
+ *               the Euclidean distance is calculated between the client, and the
+ *               classification vector (noted below) for all classifications, and stored in a map
+ *            The smallest distance-classification pairing is the classification a client is given
  *
  */
-double Algorithm:: categorize(Client* c){
-    double distance = 0, rural = 0, family = 0, urban = 0, cuddle = 0, fierce = 0, exper = 0;
+std::string Algorithm:: categorizeClient(Client* c){
+    double rural = 0, family = 0, urban = 0, cuddle = 0, fierce = 0, exper = 0;
     double rurDist = 0, famDist = 0, urbDist = 0, cudDist = 0, fierDist = 0, expDist = 0;
+    std::map<std::string, double> category;
 
     // Rural Rovers client optimal array: {4,2,5,4,True,True}
     rural += qPow(4 - c->getDwelling(),2);
@@ -274,6 +277,7 @@ double Algorithm:: categorize(Client* c){
     rural += qPow(1 - c->getHasChildren(),2);
     rural += qPow(1 - c->getHasAnimals(),2);
     rurDist = qSqrt(rural);
+    category.insert(std::pair<std::string, double> ("rural", rurDist));
 
     // Family Pal client optimal array: {3,1,0,2,True,True}
     family += qPow(3 - c->getDwelling(),2);
@@ -283,6 +287,7 @@ double Algorithm:: categorize(Client* c){
     family += qPow(1 - c->getHasChildren(),2);
     family += qPow(1 - c->getHasAnimals(),2);
     famDist = qSqrt(family);
+    category.insert(std::pair<std::string, double> ("family", famDist));
 
     // Urban Dweller client optimal array {0,0,0,1,False,False}
     urban += qPow(0 - c->getDwelling(),2);
@@ -292,6 +297,8 @@ double Algorithm:: categorize(Client* c){
     urban += qPow(0 - c->getHasChildren(),2);
     urban += qPow(0 - c->getHasAnimals(),2);
     urbDist = qSqrt(urban);
+    category.insert(std::pair<std::string, double> ("urban", urbDist));
+
 
     // Cuddly Companion client optimal array: {2,1,5,1,True,False}
     cuddle += qPow(2 - c->getDwelling(),2);
@@ -301,6 +308,8 @@ double Algorithm:: categorize(Client* c){
     cuddle += qPow(1 - c->getHasChildren(),2);
     cuddle += qPow(0 - c->getHasAnimals(),2);
     cudDist = qSqrt(cuddle);
+    category.insert(std::pair<std::string, double> ("cuddle", cudDist));
+
 
     // Fierce Convoy optimal array: {3,1,3,3,False,False}
     fierce += qPow(3 - c->getDwelling(),2);
@@ -310,6 +319,8 @@ double Algorithm:: categorize(Client* c){
     fierce += qPow(0 - c->getHasChildren(),2);
     fierce += qPow(0 - c->getHasAnimals(),2);
     fierDist = qSqrt(fierce);
+    category.insert(std::pair<std::string, double> ("fierce", fierDist));
+
 
     // Experienced Sidekick client optimal array: {1,0,6,0,False,False}
     exper += qPow(1 - c->getDwelling(),2);
@@ -319,20 +330,32 @@ double Algorithm:: categorize(Client* c){
     exper += qPow(0 - c->getHasChildren(),2);
     exper += qPow(0 - c->getHasAnimals(),2);
     expDist = qSqrt(exper);
+    category.insert(std::pair<std::string, double> ("exper", expDist));
 
-    return distance;
+    std::string classification = "";
+    double catWithSmallestScore = 0;
+        for (std::map<std::string,double>::iterator it=category.begin(); it!=category.end(); ++it){
+            if(catWithSmallestScore == NULL || it->second <= catWithSmallestScore){
+                catWithSmallestScore = it->second;
+                classification = it->first;
+            }
+        }
 
+    return classification;
 }
 
-/*
-
-{size,age,children,goodWAnimals,crowds,noises,protector,energy,fearful,affection,messy,hypo,lifestyle}
-
-*/
-
-double Algorithm::categorize(Animal* a){
-  double distance = 0, rural = 0, family = 0, urban = 0, cuddle = 0, fierce = 0, exper = 0;
+/** Function: categorizeAnimal
+ *  Input:    Animal  objects
+ *  Purpose:  using the animals's attributes, a classification is computed
+ *               the Euclidean distance is calculated between the animal, and the
+ *               classification vector (noted below) for all 6 classifications, and stored in a map
+ *            The smallest distance-classification pairing is the classification an animal is given
+ *
+ */
+std::string Algorithm::categorizeAnimal(Animal* a){
+  double rural = 0, family = 0, urban = 0, cuddle = 0, fierce = 0, exper = 0;
   double rurDist = 0, famDist = 0, urbDist = 0, cudDist = 0, fierDist = 0, expDist = 0;
+  std::map<std::string, double> category;
 
     // Rural Rovers optimal array: {4,2,2,4,2,3,3,4,0,1,4,False,1}
     rural += qPow(4 - a->getSize(), 2);
@@ -348,7 +371,9 @@ double Algorithm::categorize(Animal* a){
     rural += qPow(4 - a->getMessy(), 2);
     rural += qPow(0 - a->isHypo(), 2); //false
     rural += qPow(1 - a->getLifestyle(), 2);
+
     rurDist = qSqrt(rural);
+    category.insert(std::pair<std::string, double> ("rural", rurDist));
 
     // Family Pal optimal array: {3,1,4,3,3,4,2,3,1,3,2,False,2}
     family += qPow(3 - a->getSize(), 2);
@@ -364,7 +389,9 @@ double Algorithm::categorize(Animal* a){
     family += qPow(2 - a->getMessy(), 2);
     family += qPow(0 - a->isHypo(), 2); //false
     family += qPow(2 - a->getLifestyle(), 2);
+
     famDist = qSqrt(family);
+    category.insert(std::pair<std::string, double> ("family", famDist));
 
    // Cuddly Companion optimal array: {1,2,2,1,1,1,1,1,1,4,2,True,0}
     cuddle += qPow(1 - a->getSize(), 2);
@@ -380,7 +407,9 @@ double Algorithm::categorize(Animal* a){
     cuddle += qPow(2 - a->getMessy(), 2);
     cuddle += qPow(1 - a->isHypo(), 2); //false
     cuddle += qPow(0 - a->getLifestyle(), 2);
+
     cudDist = qSqrt(cuddle);
+    category.insert(std::pair<std::string, double> ("cuddle", cudDist));
 
     // Urban Dweller {0,2,2,1,4,4,0,2,2,2,1,True,0}
     urban += qPow(0 - a->getSize(), 2);
@@ -396,7 +425,9 @@ double Algorithm::categorize(Animal* a){
     urban += qPow(1 - a->getMessy(), 2);
     urban += qPow(1 - a->isHypo(), 2); //false
     urban += qPow(0 - a->getLifestyle(), 2);
+
     urbDist = qSqrt(urban);
+    category.insert(std::pair<std::string, double> ("urban", urbDist));
 
    // Fierce Convoy optimal array: {4,2,0,0,1,3,4,4,0,1,2,False,2}
     fierce += qPow(4 - a->getSize(), 2);
@@ -412,7 +443,9 @@ double Algorithm::categorize(Animal* a){
     fierce += qPow(2 - a->getMessy(), 2);
     fierce += qPow(0 - a->isHypo(), 2); //false
     fierce += qPow(2 - a->getLifestyle(), 2);
+
     fierDist = qSqrt(fierce);
+    category.insert(std::pair<std::string, double> ("fierce", fierDist));
 
    // Experienced Sidekick optimal array: {2,4,2,2,3,4,1,1,2,3,0,True,0}
     exper += qPow(2 - a->getSize(), 2);
@@ -428,12 +461,23 @@ double Algorithm::categorize(Animal* a){
     exper += qPow(0 - a->getMessy(), 2);
     exper += qPow(1 - a->isHypo(), 2); //false
     exper += qPow(0 - a->getLifestyle(), 2);
+
     expDist = qSqrt(exper);
+    category.insert(std::pair<std::string, double> ("exper", expDist));
 
-   // rurDist, famDist, urbDist, cudDist, fierDist, expDist;
+    std::string classification = "";
+    double catWithSmallestScore = 0;
+        for (std::map<std::string,double>::iterator it=category.begin(); it!=category.end(); ++it){
+            if(catWithSmallestScore == NULL || it->second <= catWithSmallestScore){
+                catWithSmallestScore = it->second;
+                classification = it->first;
+            }
+        }
 
-    return distance;
+    return classification;
 }
+
+
 
 std::map<int, std::vector<Match*>>* Algorithm::countMatches (std::map<int, std::vector<Match*>> *matches,
         double matchThreshold) {
@@ -494,6 +538,9 @@ void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
 
 void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
         std::vector<Match*> *optimalMatches) {
+
+    QTextStream cerr(stdout);
+
     // Make a copy of these matches for use internally because matches also needed in final display
     std::map<int, std::vector<Match*>> matchesCopy = *matches;
     double matchThreshold = 4.00;
@@ -581,9 +628,20 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                     clientsWithOneMatch.erase(clientsWithOneMatch.begin() + matchWithSmallestScore->getClient()->getId());
                     // Remove clients from clientsWithOneMatch who also had matches in sameMatches
                 }
+                // Remove that client from the clientsWithOneMatch vector also
+
+                std::vector<int>::iterator eraseIt = std::find(clientsWithOneMatch.begin(), clientsWithOneMatch.end(), matchWithSmallestScore->getClient()->getId());
+                clientsWithOneMatch.erase(eraseIt);
             }
         }
         // Increment matchThreshold by 1.00 and do it all again.
         matchThreshold += 1.00;
     }
+}
+
+void Algorithm::test(std::map<int, std::vector<Match*>> *matches,
+                     std::vector<Match*> *optimalMatches)
+{
+    computeOptimalMatches(matches, optimalMatches);
+    countMatches(matches, 6.00);
 }
