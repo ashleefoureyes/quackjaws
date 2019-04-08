@@ -108,16 +108,11 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
 
     emptyMatchMap();
     Algorithm algo;
-    //algo.runAlgorithm(&matches, &optimalMatches, animalStorage, clientStorage);
-    fillMapTesting();
+    algo.runAlgorithm(&matches, &optimalMatches, animalStorage, clientStorage);
+    //fillMapTesting();
     //optimalMatches.empty();
     //std::vector<Match*> optimalMatches;
     cerr << QString::fromStdString(std::to_string(optimalMatches.size()));
-    algo.test(&matches, &optimalMatches);
-    for(int i = 0; i < optimalMatches.size(); ++i)
-    {
-        cerr << "Optimal match: " << QString::fromStdString(optimalMatches.at(i)->getMatchStr() + " " + std::to_string(optimalMatches.at(i)->getScore()) + "\n");
-    }
 
     //std::map<int, std::vector<Match*>> matchesCount = matches;
     //testMakeMatch(&matches,&optimalMatches,optimalMatches.front()->getClient()->getId(), optimalMatches.front(), &matchesCount);

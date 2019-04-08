@@ -20,6 +20,8 @@ Algorithm::Algorithm()
 
 void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches, AnimalStorage *animalStorage, ClientStorage *clientStorage)
 {
+    QTextStream cerr(stdout);
+
     Client* currentClient;
 
     for (int i = 0; i < clientStorage->getNumOfElements(); ++i) {
@@ -565,10 +567,11 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
             // in matchCounts have more than one match in their vector
             if (clientsWithOneMatch.size() == 0) {
                 // Loop through every client in matchCounts
-                std::map<int, std::vector<Math*>>::iterator mClientsIter;
-                for (mClientsIter = matchCounts->begin(); mClientsIter < matchCounts->end(); mClientsIter++) {
+                Match* matchWithSmallestScore = NULL;
+                std::map<int, std::vector<Match*>>::iterator mClientsIter;
+                for (mClientsIter = matchCounts->begin(); mClientsIter != matchCounts->end(); mClientsIter++) {
                     std::vector<Match*>::iterator vMatchIter;
-                    Match* matchWithSmallestScore = NULL;
+                    //Match* matchWithSmallestScore = NULL;
                     // Find match with lowest score for that client
                     for (vMatchIter = mClientsIter->second.begin(); vMatchIter < mClientsIter->second.end(); vMatchIter++) {
                         if (matchWithSmallestScore == NULL || (*vMatchIter)->getScore() <= matchWithSmallestScore->getScore()) {
@@ -578,12 +581,12 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                     // See if any other client also matches for that animal and make
                     //      match with the lowest score similar to below
                     std::vector<Match*> sameMatches;
-                    std::map<int, std::vector<Math*>>::iterator mClientsIter2;
-                    for (mClientsIter2 = matchCounts->begin(); mClientsIter2 < matchCounts->end(); mClientsIter2++) {
+                    std::map<int, std::vector<Match*>>::iterator mClientsIter2;
+                    for (mClientsIter2 = matchCounts->begin(); mClientsIter2 != matchCounts->end(); mClientsIter2++) {
                         std::vector<Match*>::iterator vInnerIter2;
                         for (vInnerIter2 = mClientsIter->second.begin(); vInnerIter2 < mClientsIter->second.end(); vInnerIter2++) {
-                            if (matchWithSmallestScore->getAnimal()->getId() == (matchCounts->at(*vInnerIter2)).front()->getAnimal()->getId()) {
-                                sameMatches.push_back((matchCounts->at(*vInnerIter)).front());
+                            if (matchWithSmallestScore->getAnimal()->getId() == (matchCounts->at((*vInnerIter2)->getClient()->getId())).front()->getAnimal()->getId()) {
+                                sameMatches.push_back((matchCounts->at((*vInnerIter2)->getClient()->getId()).front()));
                             }
                         }
                     }
@@ -627,11 +630,11 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                     // Remove that client from the clientsWithOneMatch vector also
                     clientsWithOneMatch.erase(clientsWithOneMatch.begin() + matchWithSmallestScore->getClient()->getId());
                     // Remove clients from clientsWithOneMatch who also had matches in sameMatches
-                }
-                // Remove that client from the clientsWithOneMatch vector also
+                    // Remove that client from the clientsWithOneMatch vector also
 
-                std::vector<int>::iterator eraseIt = std::find(clientsWithOneMatch.begin(), clientsWithOneMatch.end(), matchWithSmallestScore->getClient()->getId());
-                clientsWithOneMatch.erase(eraseIt);
+                    std::vector<int>::iterator eraseIt = std::find(clientsWithOneMatch.begin(), clientsWithOneMatch.end(), matchWithSmallestScore->getClient()->getId());
+                    clientsWithOneMatch.erase(eraseIt);
+                }
             }
         }
         // Increment matchThreshold by 1.00 and do it all again.
