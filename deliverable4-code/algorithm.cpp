@@ -538,6 +538,9 @@ void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
 
 void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
         std::vector<Match*> *optimalMatches) {
+
+    QTextStream cerr(stdout);
+
     // Make a copy of these matches for use internally because matches also needed in final display
     std::map<int, std::vector<Match*>> matchesCopy = *matches;
     double matchThreshold = 4.00;
@@ -557,6 +560,14 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                     clientsWithOneMatch.push_back(iter->first);
                 }
             }
+
+            // ################################################
+            // ########### DEBUGGING METHOD ###################
+            // ################################################
+            if(clientsWithOneMatch.size() == 0) { break; }//###
+            // ################################################
+
+
             // For each client with one match, loop through all clients with one match and
             // see if that client has the same animal matched. If so, add those matches to a vector
             std::vector<int>::iterator vIter;
@@ -575,6 +586,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                 for (vMatchItr = sameMatches.begin(); vMatchItr != sameMatches.end(); vMatchItr++) {
                     if (matchWithSmallestScore == NULL || (*vMatchItr)->getScore() <= matchWithSmallestScore->getScore()) {
                         matchWithSmallestScore = (*vMatchItr);
+                        cerr << QString::fromStdString(std::to_string(matchWithSmallestScore->getScore()));
                     }
                 }
                 // Make the match with the smallest score
@@ -588,4 +600,11 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
         // Increment matchThreshold by 1.00 and do it all again.
         matchThreshold += 1.00;
     }
+}
+
+void Algorithm::test(std::map<int, std::vector<Match*>> *matches,
+                     std::vector<Match*> *optimalMatches)
+{
+    computeOptimalMatches(matches, optimalMatches);
+    countMatches(matches, 6.00);
 }
