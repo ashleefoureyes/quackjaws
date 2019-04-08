@@ -1,4 +1,4 @@
-Program: cuACS Deliverable 3
+Program: cuACS Deliverable 4
 
 Authors:
 Jake Bauer 101040373
@@ -6,12 +6,13 @@ Ashlee Foureyes 101050609
 Will Watt 100973531
 Skyler Gubbels 100885506
 
-Purpose: To create, edit, view and store Animal and Client objects with all their attributes. Allow Clients to edit their own profile information.
+Purpose: To come up with a set of optimal matches between clients and animals.
 
 Files:
   - main.cpp
   - addanimal.h addanimal.cpp addanimal.ui
   - addclient.h addclient.cpp addclient.ui
+  - algorithm.h algorithm.cpp
   - animal.h animal.cpp
   - animalstorage.h animalstorage.cpp
   - bird.h bird.cpp
@@ -28,11 +29,12 @@ Files:
   - storage.h storage.cpp
   - viewanimals.h viewanimals.cpp viewanimals.ui
   - viewclients.h viewclients.cpp viewclients.ui
+  - viewresults.h viewresults.cpp viewresults.ui
   - animalPhotos/
   - cuacs_icon.png
 
 Compilation:
-Navigate to the directory where the deliverable3-code was
+Navigate to the directory where the deliverable4-code was
 downloaded and extracted (for example: ~/Downloads/deliverable3-code/ and type
 "make".
 
@@ -47,7 +49,8 @@ If you log in as staff you will be given the following options
   - View/Edit Animals
   - Add Client
   - View Clients
-  - Run Algorithm (Not yet implemented)
+  - Run Algorithm
+  - View Results
   - Logout
 
 If you log in as a client you will be given the following options (to view the
@@ -75,6 +78,12 @@ When clicked on, basic client information will be displayed.
 
 Edit Profile Information: When logged in to their profile a Client can edit their
 own profile information.
+
+Run Algorithm: Will run the client-matching algorithm and return a set of all client/animal matches
+and a set of optimal matches
+
+View Results: Once you have run algorithm you can view information regarding all matches. Also
+allows you to view the set of optimal matches.
 
 Exit: All animals in storage will be saved to persistent storage and the
 program will terminate.
