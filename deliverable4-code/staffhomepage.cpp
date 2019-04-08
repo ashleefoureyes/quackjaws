@@ -119,9 +119,10 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     changesSinceLastRun = false;
     algorithmHasBeenRun = true;
 
-//    QProgressDialog progressBar("Running Algorithm","cancel",0,**algorithm**,this);
-//    progressBar.setWindowModality(Qt::WindowModal);
-//    progressBar.show();
+    QProgressDialog progressBar("Running Algorithm","cancel",0,(&matches,&optimalMatches,animalStorage->getSize(), clientStorage->getNumOfElements()),this);
+    progressBar.setMinimumDuration(0);
+    progressBar.setWindowModality(Qt::WindowModal);
+    progressBar.show();
 }
 
 /** Function: on_bViewMatches_clicked()
