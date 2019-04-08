@@ -18,6 +18,7 @@ public:
 private:
     double computeDistance(Animal*, Client*);
     double categorize(Animal*);
+    double categorize(Client*);
     void computeOptimalMatches(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches);
     std::map<int, std::vector<Match*>> countMatches (std::map<int, std::vector<Match*>> *matches, double matchThreshold);
     void makeMatch(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches, int clientId, Match *match, std::map<int, std::vector<Match*>> *matchCounts);
