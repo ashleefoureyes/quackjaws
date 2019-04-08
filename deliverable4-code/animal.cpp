@@ -201,3 +201,11 @@ bool Animal::getNocturnal(){return isNocturnal; }
 
 std::string getFormattedInfo() { return ""; }
 
+void Animal::setClassification(std::string c){
+    this->classification = c;
+}
+
+std::string Animal::getClassification(){
+    return classification;
+}
+
