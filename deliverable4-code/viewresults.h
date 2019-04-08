@@ -29,7 +29,6 @@ private slots:
      void on_listClientsDetailed_itemClicked(QListWidgetItem *item);
      void on_listAnimalsDetailed_itemClicked(QListWidgetItem *item);
      void on_buttonNext_clicked();
-     void on_buttonBack_clicked();
      void on_buttonDetailedMatchInfo_clicked();
      void on_listOptimalMatches_currentRowChanged(int currentRow);
 

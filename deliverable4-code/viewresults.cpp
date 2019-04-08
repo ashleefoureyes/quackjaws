@@ -130,7 +130,7 @@ void ViewResults::displayMatchInfo(Match* match)
     Animal* an = match->getAnimal();
 
     std::string matchScore = std::to_string(match->getScore());
-    matchScore = matchScore.substr(0, matchScore.find('.'));
+    matchScore = matchScore.substr(0, matchScore.find('.') + 5);
 
     // Left side corresponds to client, right side corresponds to animals
     ui->lbMatchScore->setText("Match score: " + QString::fromStdString(matchScore));
@@ -201,15 +201,8 @@ void ViewResults::setDetailedDefault()
  *  Purpose: Changes the match details tab to show the one that isn't currently showing */
 void ViewResults::on_buttonNext_clicked()
 {
-    if(ui->tabWidgetDetailed->currentIndex() == 0) { ui->tabWidgetDetailed->setCurrentIndex(1); }
-    else { ui->tabWidgetDetailed->setCurrentIndex(0); }
-}
-
-/** Function: on_buttonBack_clicked()
- *  Purpose: Changes the match details tab to show the one that isn't currently showing */
-void ViewResults::on_buttonBack_clicked()
-{
-    on_buttonNext_clicked();
+    if(ui->tabWidgetDetailed->currentIndex() == 0) { ui->tabWidgetDetailed->setCurrentIndex(1); ui->buttonNext->setText("View animal attribute information"); }
+    else { ui->tabWidgetDetailed->setCurrentIndex(0); ui->buttonNext->setText("View species-specific information"); }
 }
 
 /** Function: on_buttonDetailedMatchInfo_clicked()
@@ -230,9 +223,9 @@ void ViewResults::on_listOptimalMatches_currentRowChanged(int currentRow)
 {
     // Removes decimal points for printing int
     std::string matchScore = std::to_string(optimalMatches->at(currentRow)->getScore());
-    matchScore = matchScore.substr(0, matchScore.find('.'));
+    matchScore = matchScore.substr(0, matchScore.find('.') + 3);
 
-    ui->lbOptimalMatchScore->setText(QString::fromStdString("Match score: " + matchScore));
+    ui->lbOptimalMatchScore->setText(QString::fromStdString("Match score: " + matchScore) + QString::fromStdString("  (0 is a perfect and >10 is poor)"));
 }
 
 /** Function: displayTextBoxError()

@@ -1,4 +1,6 @@
 #include "match.h"
+#include <QTextStream>
+#include <QMessageBox>
 
 
 Match::Match(Client *client, Animal *animal, double score)
@@ -24,6 +26,7 @@ std::string Match::getMatchStr() { return client->getFullName() + " and " + anim
 QString Match::speciesTraitsQStr()
 {
     QString returnStr = "";
+    QString classStr = "Animal classification: " + QString::fromStdString(animal->getClassification()) + "\nClient classification: " + QString::fromStdString(client->getClassification()) + "\n \n";
 
     if (animal->getSpecies() == "Dog")
     {
@@ -49,7 +52,7 @@ QString Match::speciesTraitsQStr()
         if(dog->getIsHypoAllergenic() == true && client->getHasDogAllergies() == true) { returnStr += "- Client has dog allergies but this dog is hypo-allergenic\n"; }
 
         if(returnStr == "") { returnStr = "This dog does not meet any species-specific client preferences"; }
-        else { returnStr = "Dog-specific match info\n\n" + returnStr; }
+        else { returnStr = classStr + "Dog-specific match info\n\n" + returnStr; }
     }
     else if (animal->getSpecies() == "Cat")
     {
@@ -75,7 +78,7 @@ QString Match::speciesTraitsQStr()
         if(cat->getIsHypoAllergenic() == true && client->getHasCatAllergies() == true) { returnStr += "- Client has cat allergies but this cat is hypo-allergenic\n"; }
 
         if(returnStr == "") { returnStr = "This cat does not meet any species-specific client preferences"; }
-        else { returnStr = "Cat-specific match info\n\n" + returnStr; }
+        else { returnStr = classStr + "Cat-specific match info\n\n" + returnStr; }
     }
     else if (animal->getSpecies() == "Bird")
     {
@@ -101,7 +104,7 @@ QString Match::speciesTraitsQStr()
         if(bird->getIsHypoAllergenic() == true && client->getHasBirdAllergies() == true) { returnStr += "- Client has bird allergies but this bird is hypo-allergenic\n"; }
 
         if(returnStr == "") { returnStr = "This bird does not meet any species-specific client preferences"; }
-        else { returnStr = "Bird-specific match info\n\n" + returnStr; }
+        else { returnStr = classStr + "Bird-specific match info\n\n" + returnStr; }
     }
     else if (animal->getSpecies() == "Lizard")
     {
@@ -127,7 +130,7 @@ QString Match::speciesTraitsQStr()
         if(lizard->getIsHypoAllergenic() == true && client->getHasLizardAllergies() == true) { returnStr += "- Client has lizard allergies but this lizard is hypo-allergenic\n"; }
 
         if(returnStr == "") { returnStr = "This lizard does not meet any species-specific client preferences"; }
-        else { returnStr = "Lizard-specific match info\n\n" + returnStr; }
+        else { returnStr = classStr + "Lizard-specific match info\n\n" + returnStr; }
     }
     else if (animal->getSpecies() == "Rabbit")
     {
@@ -153,7 +156,7 @@ QString Match::speciesTraitsQStr()
         if(rabbit->getIsHypoAllergenic() == true && client->getHasRabbitAllergies() == true) { returnStr += "- Client has rabbit allergies but this rabbit is hypo-allergenic\n"; }
 
         if(returnStr == "") { returnStr = "This rabbit does not meet any species-specific client preferences"; }
-        else { returnStr = "Rabbit-specific match info\n\n" + returnStr; }
+        else { returnStr = classStr + "Rabbit-specific match info\n\n" + returnStr; }
     }
 
     return returnStr;
