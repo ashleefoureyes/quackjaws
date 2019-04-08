@@ -464,12 +464,12 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                     // Find the match in the sameMatches vector with the smallest score
                     Match* matchWithSmallestScore = NULL;
                     for (vInnerIter = sameMatches.begin(); vInnerIter < sameMatches.end(); vInnerIter++) {
-                        if (vInnerIter.getScore() <= matchWithSmallestScore.getScore()) {
+                        if (vInnerIter->getScore() <= matchWithSmallestScore->getScore()) {
                             matchWithSmallestScore = vInnerIter;
                         }
                     }
                     // Make the match with the smallest score
-                    makeMatch(&matchesCopy, optimalMatches, matchWithSmallestScore->getClient()->getId(), matchWithSmallestScore, matchCounts)
+                    makeMatch(&matchesCopy, optimalMatches, matchWithSmallestScore->getClient()->getId(), matchWithSmallestScore, matchCounts);
                 }
             }
         }
