@@ -26,7 +26,7 @@ void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::v
         for (int j = 0; j < animalStorage->getSize(); ++j) {
 
             // calculate the match score value for the animal-client pair
-            double score = computeDistance(animalStorage->get(j), clientStorage->get(i));
+            double score = computeMatchScore(animalStorage->get(j), clientStorage->get(i));
 
             currentClient = clientStorage->get(i);
             Match *match = new Match(currentClient, animalStorage->get(j), score);
@@ -45,8 +45,16 @@ void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::v
 }
 
 
-
-double Algorithm::computeDistance(Animal *a, Client *c){
+/** Function: computeMatchScore
+ *  Input:    Client and Animal objects
+ *  Purpose:  computes the match score between a client and an animal
+ *              Using client/animal attributes, the euclidean distance is calculated
+ *              From here, the auxiliary scoring is applied to the match scores
+ *                  Both general aux scoring and animal-specific scoring is computed
+ *              the match score is then returned to be added into the map of matches
+ *
+ */
+double Algorithm::computeMatchScore(Animal *a, Client *c){
     double distance = 0;
     double sum = 0;
     double auxScore = 0;
@@ -72,8 +80,8 @@ double Algorithm::computeDistance(Animal *a, Client *c){
     sum += qPow(a->getEnergy(), c->getEnergy());
     sum += qPow(a->getEnergy(), c->getActivity());
 
-    std::string clientCategory = categorize(c);
-    std::string animalCategory = categorize(a);
+    std::string clientCategory = categorizeClient(c);
+    std::string animalCategory = categorizeAnimal(a);
 
     if(clientCategory == animalCategory){ auxScore +=1;}
 
@@ -247,13 +255,17 @@ double Algorithm::computeDistance(Animal *a, Client *c){
 }
 
 
-/*
- *
- * { dwelling, location, workSchedule, activity, hasChildren, hasAnimals }
+
+/** Function: categorizeClient
+ *  Input:    Client  objects
+ *  Purpose:  using the client's attributes, a classification is computed
+ *               the Euclidean distance is calculated between the client, and the
+ *               classification vector (noted below) for all classifications, and stored in a map
+ *            The smallest distance-classification pairing is the classification a client is given
  *
  */
-std::string Algorithm:: categorize(Client* c){
-    double distance = 0, rural = 0, family = 0, urban = 0, cuddle = 0, fierce = 0, exper = 0;
+std::string Algorithm:: categorizeClient(Client* c){
+    double rural = 0, family = 0, urban = 0, cuddle = 0, fierce = 0, exper = 0;
     double rurDist = 0, famDist = 0, urbDist = 0, cudDist = 0, fierDist = 0, expDist = 0;
     std::map<std::string, double> category;
 
@@ -320,9 +332,8 @@ std::string Algorithm:: categorize(Client* c){
     expDist = qSqrt(exper);
     category.insert(std::pair<std::string, double> ("exper", expDist));
 
-
-    std::string classification = NULL;
-    double catWithSmallestScore = NULL;
+    std::string classification = "";
+    double catWithSmallestScore = 0;
         for (std::map<std::string,double>::iterator it=category.begin(); it!=category.end(); ++it){
             if(catWithSmallestScore == NULL || it->second <= catWithSmallestScore){
                 catWithSmallestScore = it->second;
@@ -333,14 +344,16 @@ std::string Algorithm:: categorize(Client* c){
     return classification;
 }
 
-/*
-
-{size,age,children,goodWAnimals,crowds,noises,protector,energy,fearful,affection,messy,hypo,lifestyle}
-
-*/
-
-std::string Algorithm::categorize(Animal* a){
-  double distance = 0, rural = 0, family = 0, urban = 0, cuddle = 0, fierce = 0, exper = 0;
+/** Function: categorizeAnimal
+ *  Input:    Animal  objects
+ *  Purpose:  using the animals's attributes, a classification is computed
+ *               the Euclidean distance is calculated between the animal, and the
+ *               classification vector (noted below) for all 6 classifications, and stored in a map
+ *            The smallest distance-classification pairing is the classification an animal is given
+ *
+ */
+std::string Algorithm::categorizeAnimal(Animal* a){
+  double rural = 0, family = 0, urban = 0, cuddle = 0, fierce = 0, exper = 0;
   double rurDist = 0, famDist = 0, urbDist = 0, cudDist = 0, fierDist = 0, expDist = 0;
   std::map<std::string, double> category;
 
@@ -452,8 +465,8 @@ std::string Algorithm::categorize(Animal* a){
     expDist = qSqrt(exper);
     category.insert(std::pair<std::string, double> ("exper", expDist));
 
-    std::string classification = NULL;
-    double catWithSmallestScore = NULL;
+    std::string classification = "";
+    double catWithSmallestScore = 0;
         for (std::map<std::string,double>::iterator it=category.begin(); it!=category.end(); ++it){
             if(catWithSmallestScore == NULL || it->second <= catWithSmallestScore){
                 catWithSmallestScore = it->second;
