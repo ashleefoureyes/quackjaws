@@ -118,6 +118,10 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     //testMakeMatch(&matches,&optimalMatches,optimalMatches.front()->getClient()->getId(), optimalMatches.front(), &matchesCount);
     changesSinceLastRun = false;
     algorithmHasBeenRun = true;
+
+//    QProgressDialog progressBar("Running Algorithm","cancel",0,**algorithm**,this);
+//    progressBar.setWindowModality(Qt::WindowModal);
+//    progressBar.show();
 }
 
 /** Function: on_bViewMatches_clicked()
