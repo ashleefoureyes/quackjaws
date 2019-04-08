@@ -225,7 +225,7 @@ void ViewResults::on_listOptimalMatches_currentRowChanged(int currentRow)
     std::string matchScore = std::to_string(optimalMatches->at(currentRow)->getScore());
     matchScore = matchScore.substr(0, matchScore.find('.') + 3);
 
-    ui->lbOptimalMatchScore->setText(QString::fromStdString("Match score: " + matchScore) + QString::fromStdString("  (0 is a perfect and >10 is poor)"));
+    ui->lbOptimalMatchScore->setText(QString::fromStdString("Match score: " + matchScore) + QString::fromStdString("  (0 - 14 where 0 is a perfect match)"));
 }
 
 /** Function: displayTextBoxError()

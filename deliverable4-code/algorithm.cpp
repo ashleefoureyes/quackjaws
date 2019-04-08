@@ -483,7 +483,11 @@ std::string Algorithm::categorizeAnimal(Animal* a){
 }
 
 
-
+/** Function: countMatches(map<int, vector<Matches*>> matches, double)
+ *  in: matches, matchThreshold
+ *  out: matchCounts
+ *  Purpose: Checks all matches and if the match is under the threshold it adds it to a new map
+ *           Then returns the map of matches under the threshold */
 std::map<int, std::vector<Match*>>* Algorithm::countMatches (std::map<int, std::vector<Match*>> *matches,
         double matchThreshold) {
     std::map<int, std::vector<Match*>>* matchCounts = new std::map<int, std::vector<Match*>>;
@@ -508,6 +512,11 @@ std::map<int, std::vector<Match*>>* Algorithm::countMatches (std::map<int, std::
     return matchCounts;
 }
 
+/** Function: makeMatch(...)
+ *  In: int client-id, Match *match
+ *  In-Out: map<int, vector<Match*>> matches, vector<Match*> *optimalMatches, map<int, vector<Match*>> matchCounts
+ *  Purpose: Uses input parameter to add that match from the matches map to the optimal matches vctor. It then removes
+ *           that match as an option from matchCounts and matches. */
 void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
         std::vector<Match*> *optimalMatches, int clientId, Match *match,
         std::map<int, std::vector<Match*>> *matchCounts) {
@@ -559,6 +568,11 @@ void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
 
 }
 
+/** Function: computeOptimalMatches(...)
+ *  In: map<int, vector<Match*>> matches
+ *  In-Out: vector<Match*> *optimalMatches
+ *  Purpose: Takes the map of all matches and uses the value saved to compute the set of optimal
+ *           matches from this map */
 void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
         std::vector<Match*> *optimalMatches) {
 
@@ -664,6 +678,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
     }
 }
 
+// Testing function. Used to test functionality before fully implemented
 void Algorithm::test(std::map<int, std::vector<Match*>> *matches,
                      std::vector<Match*> *optimalMatches)
 {
