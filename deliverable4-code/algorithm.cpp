@@ -282,7 +282,7 @@ std::string Algorithm:: categorizeClient(Client* c){
     rural += qPow(1 - c->getHasChildren(),2);
     rural += qPow(1 - c->getHasAnimals(),2);
     rurDist = qSqrt(rural);
-    category.insert(std::pair<std::string, double> ("rural", rurDist));
+    category.insert(std::pair<std::string, double> ("Rural Rovers", rurDist));
 
     // Family Pal client optimal array: {3,1,0,2,True,True}
     family += qPow(3 - c->getDwelling(),2);
@@ -292,7 +292,7 @@ std::string Algorithm:: categorizeClient(Client* c){
     family += qPow(1 - c->getHasChildren(),2);
     family += qPow(1 - c->getHasAnimals(),2);
     famDist = qSqrt(family);
-    category.insert(std::pair<std::string, double> ("family", famDist));
+    category.insert(std::pair<std::string, double> ("Family Pal", famDist));
 
     // Urban Dweller client optimal array {0,0,0,1,False,False}
     urban += qPow(0 - c->getDwelling(),2);
@@ -302,7 +302,7 @@ std::string Algorithm:: categorizeClient(Client* c){
     urban += qPow(0 - c->getHasChildren(),2);
     urban += qPow(0 - c->getHasAnimals(),2);
     urbDist = qSqrt(urban);
-    category.insert(std::pair<std::string, double> ("urban", urbDist));
+    category.insert(std::pair<std::string, double> ("Urban Dweller", urbDist));
 
 
     // Cuddly Companion client optimal array: {2,1,5,1,True,False}
@@ -313,7 +313,7 @@ std::string Algorithm:: categorizeClient(Client* c){
     cuddle += qPow(1 - c->getHasChildren(),2);
     cuddle += qPow(0 - c->getHasAnimals(),2);
     cudDist = qSqrt(cuddle);
-    category.insert(std::pair<std::string, double> ("cuddle", cudDist));
+    category.insert(std::pair<std::string, double> ("Cuddly Companion", cudDist));
 
 
     // Fierce Convoy optimal array: {3,1,3,3,False,False}
@@ -324,7 +324,7 @@ std::string Algorithm:: categorizeClient(Client* c){
     fierce += qPow(0 - c->getHasChildren(),2);
     fierce += qPow(0 - c->getHasAnimals(),2);
     fierDist = qSqrt(fierce);
-    category.insert(std::pair<std::string, double> ("fierce", fierDist));
+    category.insert(std::pair<std::string, double> ("Fierce Convoy", fierDist));
 
 
     // Experienced Sidekick client optimal array: {1,0,6,0,False,False}
@@ -335,7 +335,7 @@ std::string Algorithm:: categorizeClient(Client* c){
     exper += qPow(0 - c->getHasChildren(),2);
     exper += qPow(0 - c->getHasAnimals(),2);
     expDist = qSqrt(exper);
-    category.insert(std::pair<std::string, double> ("exper", expDist));
+    category.insert(std::pair<std::string, double> ("Experienced Sidekick", expDist));
 
     std::string classification = "";
     double catWithSmallestScore = 0;
@@ -374,11 +374,11 @@ std::string Algorithm::categorizeAnimal(Animal* a){
     rural += qPow(0 - a->getFearful(), 2);
     rural += qPow(1 - a->getAffection(), 2);
     rural += qPow(4 - a->getMessy(), 2);
-    rural += qPow(0 - a->isHypo(), 2); //false
+    rural += qPow(0 - a->isHypo(), 2);
     rural += qPow(1 - a->getLifestyle(), 2);
 
     rurDist = qSqrt(rural);
-    category.insert(std::pair<std::string, double> ("rural", rurDist));
+    category.insert(std::pair<std::string, double> ("Rural Rovers", rurDist));
 
     // Family Pal optimal array: {3,1,4,3,3,4,2,3,1,3,2,False,2}
     family += qPow(3 - a->getSize(), 2);
@@ -392,11 +392,11 @@ std::string Algorithm::categorizeAnimal(Animal* a){
     family += qPow(1 - a->getFearful(), 2);
     family += qPow(3 - a->getAffection(), 2);
     family += qPow(2 - a->getMessy(), 2);
-    family += qPow(0 - a->isHypo(), 2); //false
+    family += qPow(0 - a->isHypo(), 2);
     family += qPow(2 - a->getLifestyle(), 2);
 
     famDist = qSqrt(family);
-    category.insert(std::pair<std::string, double> ("family", famDist));
+    category.insert(std::pair<std::string, double> ("Family Pal", famDist));
 
    // Cuddly Companion optimal array: {1,2,2,1,1,1,1,1,1,4,2,True,0}
     cuddle += qPow(1 - a->getSize(), 2);
@@ -410,11 +410,11 @@ std::string Algorithm::categorizeAnimal(Animal* a){
     cuddle += qPow(1 - a->getFearful(), 2);
     cuddle += qPow(4 - a->getAffection(), 2);
     cuddle += qPow(2 - a->getMessy(), 2);
-    cuddle += qPow(1 - a->isHypo(), 2); //false
+    cuddle += qPow(1 - a->isHypo(), 2);
     cuddle += qPow(0 - a->getLifestyle(), 2);
 
     cudDist = qSqrt(cuddle);
-    category.insert(std::pair<std::string, double> ("cuddle", cudDist));
+    category.insert(std::pair<std::string, double> ("Cuddly Companion", cudDist));
 
     // Urban Dweller {0,2,2,1,4,4,0,2,2,2,1,True,0}
     urban += qPow(0 - a->getSize(), 2);
@@ -428,11 +428,11 @@ std::string Algorithm::categorizeAnimal(Animal* a){
     urban += qPow(2 - a->getFearful(), 2);
     urban += qPow(2 - a->getAffection(), 2);
     urban += qPow(1 - a->getMessy(), 2);
-    urban += qPow(1 - a->isHypo(), 2); //false
+    urban += qPow(1 - a->isHypo(), 2);
     urban += qPow(0 - a->getLifestyle(), 2);
 
     urbDist = qSqrt(urban);
-    category.insert(std::pair<std::string, double> ("urban", urbDist));
+    category.insert(std::pair<std::string, double> ("Urban Dweller", urbDist));
 
    // Fierce Convoy optimal array: {4,2,0,0,1,3,4,4,0,1,2,False,2}
     fierce += qPow(4 - a->getSize(), 2);
@@ -450,7 +450,7 @@ std::string Algorithm::categorizeAnimal(Animal* a){
     fierce += qPow(2 - a->getLifestyle(), 2);
 
     fierDist = qSqrt(fierce);
-    category.insert(std::pair<std::string, double> ("fierce", fierDist));
+    category.insert(std::pair<std::string, double> ("Fierce Convoy", fierDist));
 
    // Experienced Sidekick optimal array: {2,4,2,2,3,4,1,1,2,3,0,True,0}
     exper += qPow(2 - a->getSize(), 2);
@@ -464,11 +464,11 @@ std::string Algorithm::categorizeAnimal(Animal* a){
     exper += qPow(2 - a->getFearful(), 2);
     exper += qPow(3 - a->getAffection(), 2);
     exper += qPow(0 - a->getMessy(), 2);
-    exper += qPow(1 - a->isHypo(), 2); //false
+    exper += qPow(1 - a->isHypo(), 2);
     exper += qPow(0 - a->getLifestyle(), 2);
 
     expDist = qSqrt(exper);
-    category.insert(std::pair<std::string, double> ("exper", expDist));
+    category.insert(std::pair<std::string, double> ("Experienced Sidekick", expDist));
 
     std::string classification = "";
     double catWithSmallestScore = 0;

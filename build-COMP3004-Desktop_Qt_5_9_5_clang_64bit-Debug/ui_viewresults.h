@@ -53,7 +53,6 @@ public:
     QFrame *line;
     QWidget *widget_2;
     QPushButton *buttonNext;
-    QPushButton *buttonBack;
     QTabWidget *tabWidgetDetailed;
     QWidget *tab;
     QWidget *widget_4;
@@ -351,11 +350,7 @@ public:
         widget_2->setMinimumSize(QSize(0, 20));
         buttonNext = new QPushButton(widget_2);
         buttonNext->setObjectName(QStringLiteral("buttonNext"));
-        buttonNext->setGeometry(QRect(360, 0, 61, 20));
-        buttonBack = new QPushButton(widget_2);
-        buttonBack->setObjectName(QStringLiteral("buttonBack"));
-        buttonBack->setGeometry(QRect(0, 0, 61, 20));
-        buttonBack->setMinimumSize(QSize(61, 20));
+        buttonNext->setGeometry(QRect(10, 0, 411, 20));
         tabWidgetDetailed = new QTabWidget(tabDetails);
         tabWidgetDetailed->setObjectName(QStringLiteral("tabWidgetDetailed"));
         tabWidgetDetailed->setGeometry(QRect(0, 70, 451, 311));
@@ -858,8 +853,7 @@ public:
         buttonDetailedMatchInfo->setText(QApplication::translate("ViewResults", "View Detailed Information For Selected Match", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tabOptimal), QApplication::translate("ViewResults", "Optimal Matches", Q_NULLPTR));
         label->setText(QApplication::translate("ViewResults", "->", Q_NULLPTR));
-        buttonNext->setText(QApplication::translate("ViewResults", "Next >", Q_NULLPTR));
-        buttonBack->setText(QApplication::translate("ViewResults", "< Back", Q_NULLPTR));
+        buttonNext->setText(QApplication::translate("ViewResults", "View Species-specific information", Q_NULLPTR));
         label_14->setText(QApplication::translate("ViewResults", "Client Preferences:", Q_NULLPTR));
         label_15->setText(QApplication::translate("ViewResults", "Animal Attributes:", Q_NULLPTR));
         label_2->setText(QApplication::translate("ViewResults", "Travel", Q_NULLPTR));
