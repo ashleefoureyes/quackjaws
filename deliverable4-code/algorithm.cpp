@@ -75,7 +75,7 @@ double Algorithm::computeDistance(Animal *a, Client *c){
     std::string clientCategory = categorize(c);
     std::string animalCategory = categorize(a);
 
-    if(clientCategory == animalCategory){ auxScore +=1}
+    if(clientCategory == animalCategory){ auxScore +=1;}
 
     //Dog Specific Preferences
     if (QString::compare(QString::fromStdString(a->getSpecies()), "dog", Qt::CaseInsensitive)){
