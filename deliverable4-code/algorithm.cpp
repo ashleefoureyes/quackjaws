@@ -401,26 +401,26 @@ double Algorithm::categorize(Animal* a){
 
 std::map<int, std::vector<Match*>>* Algorithm::countMatches (std::map<int, std::vector<Match*>> *matches,
         double matchThreshold) {
-    std::map<int, int> matchCounts;
+    std::map<int, std::vector<Match*>>* matchCounts = new std::map<int, std::vector<Match*>>;
     std::map<int, std::vector<Match*>>::iterator mIter;
 
-    for (mIter = *matches.begin(); mIter < *matches.end(); mIter++) {
+    for (mIter = matches->begin(); mIter != matches->end(); mIter++) {
         int clientId = mIter->first;
         std::vector<Match*>::iterator vIter;
 
-        for (vIter = mIter->d.begin(); vIter < mIter->second.end(); vIter++) {
-            if (vIter->getScore() <= matchThreshold && vIter->getScore() >= 0.00) {
-                if(matchCounts.count(clientId) == 0) {
-                    matchCounts.insert(std::pair<int, std::vector<Match*>>(clientId, std::vector<Match*>()));
-                    matchCounts.at(clientId).push_back(vIter);
+        for (vIter = mIter->second.begin(); vIter < mIter->second.end(); vIter++) {
+            if ((*vIter)->getScore() <= matchThreshold && (*vIter)->getScore() >= 0.00) {
+                if(matchCounts->count(clientId) == 0) {
+                    matchCounts->insert(std::pair<int, std::vector<Match*>>(clientId, std::vector<Match*>()));
+                    matchCounts->at(clientId).push_back(*vIter);
                 }
                 else {
-                    matchCounts.at(clientId).push_back(vIter);
+                    matchCounts->at(clientId).push_back(*vIter);
                 }
             }
         }
     }
-    return &matchCounts;
+    return matchCounts;
 }
 
 void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,

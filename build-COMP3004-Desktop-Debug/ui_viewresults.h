@@ -34,7 +34,7 @@ public:
     QVBoxLayout *verticalLayout_5;
     QTabWidget *tabWidget;
     QWidget *tabOptimal;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_4;
     QWidget *widget_3;
     QGridLayout *gridLayout_3;
@@ -46,7 +46,7 @@ public:
     QListWidget *listOptimalMatches;
     QPushButton *buttonDetailedMatchInfo;
     QWidget *tabDetails;
-    QWidget *widget1;
+    QWidget *widget;
     QListWidget *listAnimalsDetailed;
     QListWidget *listClientsDetailed;
     QLabel *label;
@@ -59,7 +59,7 @@ public:
     QWidget *widget_4;
     QLabel *label_14;
     QLabel *label_15;
-    QWidget *widget2;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QProgressBar *barClTravel;
@@ -108,7 +108,7 @@ public:
     QWidget *tab_2;
     QVBoxLayout *verticalLayout_2;
     QLabel *lbDetailedAnimalInfo;
-    QWidget *widget3;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_6;
     QLabel *lbMatchName;
     QLabel *lbMatchScore;
@@ -118,6 +118,8 @@ public:
         if (ViewResults->objectName().isEmpty())
             ViewResults->setObjectName(QStringLiteral("ViewResults"));
         ViewResults->resize(468, 602);
+        ViewResults->setMinimumSize(QSize(468, 602));
+        ViewResults->setMaximumSize(QSize(468, 602));
         QIcon icon;
         icon.addFile(QStringLiteral(":/new/icons/cuacs_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         ViewResults->setWindowIcon(icon);
@@ -271,13 +273,13 @@ public:
         tabWidget->setStyleSheet(QStringLiteral(""));
         tabOptimal = new QWidget();
         tabOptimal->setObjectName(QStringLiteral("tabOptimal"));
-        widget = new QWidget(tabOptimal);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(0, 9, 451, 551));
-        verticalLayout_4 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(tabOptimal);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(0, 9, 451, 551));
+        verticalLayout_4 = new QVBoxLayout(layoutWidget);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        widget_3 = new QWidget(widget);
+        widget_3 = new QWidget(layoutWidget);
         widget_3->setObjectName(QStringLiteral("widget_3"));
         gridLayout_3 = new QGridLayout(widget_3);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
@@ -310,12 +312,12 @@ public:
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        listOptimalMatches = new QListWidget(widget);
+        listOptimalMatches = new QListWidget(layoutWidget);
         listOptimalMatches->setObjectName(QStringLiteral("listOptimalMatches"));
 
         verticalLayout_3->addWidget(listOptimalMatches);
 
-        buttonDetailedMatchInfo = new QPushButton(widget);
+        buttonDetailedMatchInfo = new QPushButton(layoutWidget);
         buttonDetailedMatchInfo->setObjectName(QStringLiteral("buttonDetailedMatchInfo"));
 
         verticalLayout_3->addWidget(buttonDetailedMatchInfo);
@@ -326,33 +328,34 @@ public:
         tabWidget->addTab(tabOptimal, QString());
         tabDetails = new QWidget();
         tabDetails->setObjectName(QStringLiteral("tabDetails"));
-        widget1 = new QWidget(tabDetails);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(0, 390, 451, 151));
-        listAnimalsDetailed = new QListWidget(widget1);
+        widget = new QWidget(tabDetails);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(0, 390, 451, 151));
+        listAnimalsDetailed = new QListWidget(widget);
         listAnimalsDetailed->setObjectName(QStringLiteral("listAnimalsDetailed"));
         listAnimalsDetailed->setGeometry(QRect(260, 40, 181, 121));
-        listClientsDetailed = new QListWidget(widget1);
+        listClientsDetailed = new QListWidget(widget);
         listClientsDetailed->setObjectName(QStringLiteral("listClientsDetailed"));
         listClientsDetailed->setGeometry(QRect(10, 40, 181, 111));
-        label = new QLabel(widget1);
+        label = new QLabel(widget);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(220, 80, 21, 16));
-        line = new QFrame(widget1);
+        line = new QFrame(widget);
         line->setObjectName(QStringLiteral("line"));
-        line->setGeometry(QRect(10, 20, 411, 16));
+        line->setGeometry(QRect(10, 20, 431, 16));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
-        widget_2 = new QWidget(widget1);
+        widget_2 = new QWidget(widget);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(10, 0, 414, 21));
+        widget_2->setGeometry(QRect(10, 0, 431, 21));
         widget_2->setMinimumSize(QSize(0, 20));
         buttonNext = new QPushButton(widget_2);
         buttonNext->setObjectName(QStringLiteral("buttonNext"));
-        buttonNext->setGeometry(QRect(390, 0, 20, 20));
+        buttonNext->setGeometry(QRect(360, 0, 61, 20));
         buttonBack = new QPushButton(widget_2);
         buttonBack->setObjectName(QStringLiteral("buttonBack"));
-        buttonBack->setGeometry(QRect(0, 0, 20, 20));
+        buttonBack->setGeometry(QRect(0, 0, 61, 20));
+        buttonBack->setMinimumSize(QSize(61, 20));
         tabWidgetDetailed = new QTabWidget(tabDetails);
         tabWidgetDetailed->setObjectName(QStringLiteral("tabWidgetDetailed"));
         tabWidgetDetailed->setGeometry(QRect(0, 70, 451, 311));
@@ -367,17 +370,17 @@ public:
         label_15 = new QLabel(widget_4);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setGeometry(QRect(280, 10, 141, 17));
-        widget2 = new QWidget(tab);
-        widget2->setObjectName(QStringLiteral("widget2"));
-        widget2->setGeometry(QRect(4, 41, 441, 233));
-        verticalLayout = new QVBoxLayout(widget2);
+        layoutWidget1 = new QWidget(tab);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(4, 41, 441, 233));
+        verticalLayout = new QVBoxLayout(layoutWidget1);
         verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        barClTravel = new QProgressBar(widget2);
+        barClTravel = new QProgressBar(layoutWidget1);
         barClTravel->setObjectName(QStringLiteral("barClTravel"));
         barClTravel->setMinimumSize(QSize(150, 0));
         barClTravel->setMaximumSize(QSize(170, 19));
@@ -390,7 +393,7 @@ public:
 
         horizontalLayout->addWidget(barClTravel);
 
-        label_2 = new QLabel(widget2);
+        label_2 = new QLabel(layoutWidget1);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setMinimumSize(QSize(50, 15));
         label_2->setMaximumSize(QSize(16777215, 15));
@@ -398,7 +401,7 @@ public:
 
         horizontalLayout->addWidget(label_2);
 
-        BarAnTravel = new QProgressBar(widget2);
+        BarAnTravel = new QProgressBar(layoutWidget1);
         BarAnTravel->setObjectName(QStringLiteral("BarAnTravel"));
         BarAnTravel->setMinimumSize(QSize(150, 0));
         BarAnTravel->setMaximumSize(QSize(170, 19));
@@ -416,7 +419,7 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        barClChildren = new QProgressBar(widget2);
+        barClChildren = new QProgressBar(layoutWidget1);
         barClChildren->setObjectName(QStringLiteral("barClChildren"));
         barClChildren->setMinimumSize(QSize(170, 0));
         barClChildren->setMaximumSize(QSize(170, 19));
@@ -429,7 +432,7 @@ public:
 
         horizontalLayout_2->addWidget(barClChildren);
 
-        label_3 = new QLabel(widget2);
+        label_3 = new QLabel(layoutWidget1);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setMinimumSize(QSize(50, 15));
         label_3->setMaximumSize(QSize(16777215, 15));
@@ -437,7 +440,7 @@ public:
 
         horizontalLayout_2->addWidget(label_3);
 
-        BarAnChildren = new QProgressBar(widget2);
+        BarAnChildren = new QProgressBar(layoutWidget1);
         BarAnChildren->setObjectName(QStringLiteral("BarAnChildren"));
         BarAnChildren->setMinimumSize(QSize(170, 0));
         BarAnChildren->setMaximumSize(QSize(170, 19));
@@ -455,7 +458,7 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        barClAnimals = new QProgressBar(widget2);
+        barClAnimals = new QProgressBar(layoutWidget1);
         barClAnimals->setObjectName(QStringLiteral("barClAnimals"));
         barClAnimals->setMinimumSize(QSize(170, 0));
         barClAnimals->setMaximumSize(QSize(170, 19));
@@ -468,7 +471,7 @@ public:
 
         horizontalLayout_3->addWidget(barClAnimals);
 
-        label_4 = new QLabel(widget2);
+        label_4 = new QLabel(layoutWidget1);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setMinimumSize(QSize(50, 15));
         label_4->setMaximumSize(QSize(16777215, 15));
@@ -476,7 +479,7 @@ public:
 
         horizontalLayout_3->addWidget(label_4);
 
-        barAnAnimals = new QProgressBar(widget2);
+        barAnAnimals = new QProgressBar(layoutWidget1);
         barAnAnimals->setObjectName(QStringLiteral("barAnAnimals"));
         barAnAnimals->setMinimumSize(QSize(170, 0));
         barAnAnimals->setMaximumSize(QSize(170, 19));
@@ -494,7 +497,7 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        barClStrangers = new QProgressBar(widget2);
+        barClStrangers = new QProgressBar(layoutWidget1);
         barClStrangers->setObjectName(QStringLiteral("barClStrangers"));
         barClStrangers->setMinimumSize(QSize(170, 0));
         barClStrangers->setMaximumSize(QSize(170, 19));
@@ -507,7 +510,7 @@ public:
 
         horizontalLayout_4->addWidget(barClStrangers);
 
-        label_5 = new QLabel(widget2);
+        label_5 = new QLabel(layoutWidget1);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setMinimumSize(QSize(50, 15));
         label_5->setMaximumSize(QSize(16777215, 15));
@@ -515,7 +518,7 @@ public:
 
         horizontalLayout_4->addWidget(label_5);
 
-        barAnStrangers = new QProgressBar(widget2);
+        barAnStrangers = new QProgressBar(layoutWidget1);
         barAnStrangers->setObjectName(QStringLiteral("barAnStrangers"));
         barAnStrangers->setMinimumSize(QSize(170, 0));
         barAnStrangers->setMaximumSize(QSize(170, 19));
@@ -533,7 +536,7 @@ public:
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        barClCrowds = new QProgressBar(widget2);
+        barClCrowds = new QProgressBar(layoutWidget1);
         barClCrowds->setObjectName(QStringLiteral("barClCrowds"));
         barClCrowds->setMinimumSize(QSize(170, 0));
         barClCrowds->setMaximumSize(QSize(170, 19));
@@ -546,7 +549,7 @@ public:
 
         horizontalLayout_5->addWidget(barClCrowds);
 
-        label_6 = new QLabel(widget2);
+        label_6 = new QLabel(layoutWidget1);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setMinimumSize(QSize(50, 15));
         label_6->setMaximumSize(QSize(16777215, 15));
@@ -554,7 +557,7 @@ public:
 
         horizontalLayout_5->addWidget(label_6);
 
-        barAnCrowds = new QProgressBar(widget2);
+        barAnCrowds = new QProgressBar(layoutWidget1);
         barAnCrowds->setObjectName(QStringLiteral("barAnCrowds"));
         barAnCrowds->setMinimumSize(QSize(170, 0));
         barAnCrowds->setMaximumSize(QSize(170, 19));
@@ -572,7 +575,7 @@ public:
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        barClNoise = new QProgressBar(widget2);
+        barClNoise = new QProgressBar(layoutWidget1);
         barClNoise->setObjectName(QStringLiteral("barClNoise"));
         barClNoise->setMinimumSize(QSize(170, 0));
         barClNoise->setMaximumSize(QSize(170, 19));
@@ -585,7 +588,7 @@ public:
 
         horizontalLayout_6->addWidget(barClNoise);
 
-        label_7 = new QLabel(widget2);
+        label_7 = new QLabel(layoutWidget1);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setMinimumSize(QSize(50, 15));
         label_7->setMaximumSize(QSize(16777215, 15));
@@ -593,7 +596,7 @@ public:
 
         horizontalLayout_6->addWidget(label_7);
 
-        barAnNoise = new QProgressBar(widget2);
+        barAnNoise = new QProgressBar(layoutWidget1);
         barAnNoise->setObjectName(QStringLiteral("barAnNoise"));
         barAnNoise->setMinimumSize(QSize(170, 0));
         barAnNoise->setMaximumSize(QSize(170, 19));
@@ -611,7 +614,7 @@ public:
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        barClProtective = new QProgressBar(widget2);
+        barClProtective = new QProgressBar(layoutWidget1);
         barClProtective->setObjectName(QStringLiteral("barClProtective"));
         barClProtective->setMinimumSize(QSize(170, 0));
         barClProtective->setMaximumSize(QSize(170, 19));
@@ -624,7 +627,7 @@ public:
 
         horizontalLayout_7->addWidget(barClProtective);
 
-        label_8 = new QLabel(widget2);
+        label_8 = new QLabel(layoutWidget1);
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setMinimumSize(QSize(50, 15));
         label_8->setMaximumSize(QSize(16777215, 15));
@@ -632,7 +635,7 @@ public:
 
         horizontalLayout_7->addWidget(label_8);
 
-        barAnProtective = new QProgressBar(widget2);
+        barAnProtective = new QProgressBar(layoutWidget1);
         barAnProtective->setObjectName(QStringLiteral("barAnProtective"));
         barAnProtective->setMinimumSize(QSize(170, 0));
         barAnProtective->setMaximumSize(QSize(170, 19));
@@ -650,7 +653,7 @@ public:
 
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        barClEnergetic = new QProgressBar(widget2);
+        barClEnergetic = new QProgressBar(layoutWidget1);
         barClEnergetic->setObjectName(QStringLiteral("barClEnergetic"));
         barClEnergetic->setMinimumSize(QSize(170, 0));
         barClEnergetic->setMaximumSize(QSize(170, 19));
@@ -663,7 +666,7 @@ public:
 
         horizontalLayout_8->addWidget(barClEnergetic);
 
-        label_9 = new QLabel(widget2);
+        label_9 = new QLabel(layoutWidget1);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setMinimumSize(QSize(50, 15));
         label_9->setMaximumSize(QSize(16777215, 15));
@@ -671,7 +674,7 @@ public:
 
         horizontalLayout_8->addWidget(label_9);
 
-        barAnEnergetic = new QProgressBar(widget2);
+        barAnEnergetic = new QProgressBar(layoutWidget1);
         barAnEnergetic->setObjectName(QStringLiteral("barAnEnergetic"));
         barAnEnergetic->setMinimumSize(QSize(170, 0));
         barAnEnergetic->setMaximumSize(QSize(170, 19));
@@ -689,7 +692,7 @@ public:
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        barClFearful = new QProgressBar(widget2);
+        barClFearful = new QProgressBar(layoutWidget1);
         barClFearful->setObjectName(QStringLiteral("barClFearful"));
         barClFearful->setMinimumSize(QSize(170, 0));
         barClFearful->setMaximumSize(QSize(170, 19));
@@ -702,7 +705,7 @@ public:
 
         horizontalLayout_9->addWidget(barClFearful);
 
-        label_10 = new QLabel(widget2);
+        label_10 = new QLabel(layoutWidget1);
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setMinimumSize(QSize(50, 15));
         label_10->setMaximumSize(QSize(16777215, 15));
@@ -710,7 +713,7 @@ public:
 
         horizontalLayout_9->addWidget(label_10);
 
-        barAnFearful = new QProgressBar(widget2);
+        barAnFearful = new QProgressBar(layoutWidget1);
         barAnFearful->setObjectName(QStringLiteral("barAnFearful"));
         barAnFearful->setMinimumSize(QSize(170, 0));
         barAnFearful->setMaximumSize(QSize(170, 19));
@@ -728,7 +731,7 @@ public:
 
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
-        barClAffectionate = new QProgressBar(widget2);
+        barClAffectionate = new QProgressBar(layoutWidget1);
         barClAffectionate->setObjectName(QStringLiteral("barClAffectionate"));
         barClAffectionate->setMinimumSize(QSize(170, 0));
         barClAffectionate->setMaximumSize(QSize(170, 19));
@@ -741,7 +744,7 @@ public:
 
         horizontalLayout_10->addWidget(barClAffectionate);
 
-        label_11 = new QLabel(widget2);
+        label_11 = new QLabel(layoutWidget1);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setMinimumSize(QSize(50, 15));
         label_11->setMaximumSize(QSize(16777215, 15));
@@ -749,7 +752,7 @@ public:
 
         horizontalLayout_10->addWidget(label_11);
 
-        barAnAffectionate = new QProgressBar(widget2);
+        barAnAffectionate = new QProgressBar(layoutWidget1);
         barAnAffectionate->setObjectName(QStringLiteral("barAnAffectionate"));
         barAnAffectionate->setMinimumSize(QSize(170, 0));
         barAnAffectionate->setMaximumSize(QSize(170, 19));
@@ -767,7 +770,7 @@ public:
 
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
-        barClMessy = new QProgressBar(widget2);
+        barClMessy = new QProgressBar(layoutWidget1);
         barClMessy->setObjectName(QStringLiteral("barClMessy"));
         barClMessy->setMinimumSize(QSize(170, 0));
         barClMessy->setMaximumSize(QSize(170, 19));
@@ -780,7 +783,7 @@ public:
 
         horizontalLayout_11->addWidget(barClMessy);
 
-        label_12 = new QLabel(widget2);
+        label_12 = new QLabel(layoutWidget1);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setMinimumSize(QSize(50, 15));
         label_12->setMaximumSize(QSize(16777215, 15));
@@ -788,7 +791,7 @@ public:
 
         horizontalLayout_11->addWidget(label_12);
 
-        barAnMessy = new QProgressBar(widget2);
+        barAnMessy = new QProgressBar(layoutWidget1);
         barAnMessy->setObjectName(QStringLiteral("barAnMessy"));
         barAnMessy->setMinimumSize(QSize(170, 0));
         barAnMessy->setMaximumSize(QSize(170, 19));
@@ -815,18 +818,18 @@ public:
         verticalLayout_2->addWidget(lbDetailedAnimalInfo);
 
         tabWidgetDetailed->addTab(tab_2, QString());
-        widget3 = new QWidget(tabDetails);
-        widget3->setObjectName(QStringLiteral("widget3"));
-        widget3->setGeometry(QRect(10, 10, 421, 40));
-        verticalLayout_6 = new QVBoxLayout(widget3);
+        layoutWidget2 = new QWidget(tabDetails);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(10, 10, 421, 40));
+        verticalLayout_6 = new QVBoxLayout(layoutWidget2);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
-        lbMatchName = new QLabel(widget3);
+        lbMatchName = new QLabel(layoutWidget2);
         lbMatchName->setObjectName(QStringLiteral("lbMatchName"));
 
         verticalLayout_6->addWidget(lbMatchName);
 
-        lbMatchScore = new QLabel(widget3);
+        lbMatchScore = new QLabel(layoutWidget2);
         lbMatchScore->setObjectName(QStringLiteral("lbMatchScore"));
 
         verticalLayout_6->addWidget(lbMatchScore);
@@ -838,7 +841,7 @@ public:
 
         retranslateUi(ViewResults);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
         tabWidgetDetailed->setCurrentIndex(0);
 
 
@@ -851,12 +854,12 @@ public:
         label_13->setText(QApplication::translate("ViewResults", "Optimal Matches", Q_NULLPTR));
         lbClientMatches->setText(QApplication::translate("ViewResults", "X/X out of X clients have an optimal match", Q_NULLPTR));
         lbAnimalMatches->setText(QApplication::translate("ViewResults", "X/X out of X animals have an optimal match", Q_NULLPTR));
-        lbOptimalMatchScore->setText(QApplication::translate("ViewResults", "Match score:", Q_NULLPTR));
+        lbOptimalMatchScore->setText(QString());
         buttonDetailedMatchInfo->setText(QApplication::translate("ViewResults", "View Detailed Information For Selected Match", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tabOptimal), QApplication::translate("ViewResults", "Optimal Matches", Q_NULLPTR));
         label->setText(QApplication::translate("ViewResults", "->", Q_NULLPTR));
-        buttonNext->setText(QApplication::translate("ViewResults", ">", Q_NULLPTR));
-        buttonBack->setText(QApplication::translate("ViewResults", "<", Q_NULLPTR));
+        buttonNext->setText(QApplication::translate("ViewResults", "Next >", Q_NULLPTR));
+        buttonBack->setText(QApplication::translate("ViewResults", "< Back", Q_NULLPTR));
         label_14->setText(QApplication::translate("ViewResults", "Client Preferences:", Q_NULLPTR));
         label_15->setText(QApplication::translate("ViewResults", "Animal Attributes:", Q_NULLPTR));
         label_2->setText(QApplication::translate("ViewResults", "Travel", Q_NULLPTR));
@@ -871,10 +874,10 @@ public:
         label_11->setText(QApplication::translate("ViewResults", "Affectionate", Q_NULLPTR));
         label_12->setText(QApplication::translate("ViewResults", "Messy", Q_NULLPTR));
         tabWidgetDetailed->setTabText(tabWidgetDetailed->indexOf(tab), QApplication::translate("ViewResults", "Tab 1", Q_NULLPTR));
-        lbDetailedAnimalInfo->setText(QApplication::translate("ViewResults", "Detailed animal info", Q_NULLPTR));
+        lbDetailedAnimalInfo->setText(QApplication::translate("ViewResults", "Please select client and animal to match", Q_NULLPTR));
         tabWidgetDetailed->setTabText(tabWidgetDetailed->indexOf(tab_2), QApplication::translate("ViewResults", "Tab 2", Q_NULLPTR));
         lbMatchName->setText(QString());
-        lbMatchScore->setText(QApplication::translate("ViewResults", "Match score:", Q_NULLPTR));
+        lbMatchScore->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tabDetails), QApplication::translate("ViewResults", "Detailed Match Info", Q_NULLPTR));
     } // retranslateUi
 
