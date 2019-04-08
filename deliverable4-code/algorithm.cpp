@@ -471,33 +471,35 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
         while (matchCounts->size() > 0) {
             std::map<int, std::vector<Match*>>::iterator iter;
             // Loop through all clients, add those with a single match to a vector
+            std::vector<int> clientsWithOneMatch;
             for (iter = matchCounts->begin(); iter < matchCounts->end(); iter++) {
-                std::vector<int> clientsWithOneMatch;
                 if (iter->second.size() == 1) {
                     clientsWithOneMatch.push_back(iter->first);
                 }
-                // For each client with one match, loop through all clients with one match and
-                // see if that client has the same animal matched. If so, add those matches to a vector
-                std::vector<int>::iterator vIter;
-                std::vector<int>::iterator vInnerIter;
-                for (vIter = clientsWithOneMatch.begin(); vIter < clientsWithOneMatch.end(); vIter++) {
-                    std::vector<Match*> sameMatches;
-                    for (vInnerIter = clientsWithOneMatch.begin(); vInnerIter < clientsWithOneMatch.end(); vInnerIter++) {
-                        // There will always be at least one match because the original client gets counted
-                        if (matchCounts->at(vIter)[0]->getAnimal()->getId() == matchCounts->at(vInnerIter)[0]->getAnimal()->getId()) {
-                            sameMatches.push_back(matchCounts->at(vIter)[0]);
-                        }
+            }
+            // For each client with one match, loop through all clients with one match and
+            // see if that client has the same animal matched. If so, add those matches to a vector
+            std::vector<int>::iterator vIter;
+            std::vector<int>::iterator vInnerIter;
+            for (vIter = clientsWithOneMatch.begin(); vIter < clientsWithOneMatch.end(); vIter++) {
+                std::vector<Match*> sameMatches;
+                for (vInnerIter = clientsWithOneMatch.begin(); vInnerIter < clientsWithOneMatch.end(); vInnerIter++) {
+                    // There will always be at least one match because the original client gets counted
+                    if (matchCounts->at(vIter)[0]->getAnimal()->getId() == matchCounts->at(vInnerIter)[0]->getAnimal()->getId()) {
+                        sameMatches.push_back(matchCounts->at(vInnerIter)[0]);
                     }
-                    // Find the match in the sameMatches vector with the smallest score
-                    Match* matchWithSmallestScore = NULL;
-                    for (vInnerIter = sameMatches.begin(); vInnerIter < sameMatches.end(); vInnerIter++) {
-                        if (matchWithSmallestScore == NULL || vInnerIter->getScore() <= matchWithSmallestScore->getScore()) {
-                            matchWithSmallestScore = vInnerIter;
-                        }
-                    }
-                    // Make the match with the smallest score
-                    makeMatch(&matchesCopy, optimalMatches, matchWithSmallestScore->getClient()->getId(), matchWithSmallestScore, matchCounts);
                 }
+                // Find the match in the sameMatches vector with the smallest score
+                Match* matchWithSmallestScore = NULL;
+                for (vInnerIter = sameMatches.begin(); vInnerIter < sameMatches.end(); vInnerIter++) {
+                    if (matchWithSmallestScore == NULL || vInnerIter->getScore() <= matchWithSmallestScore->getScore()) {
+                        matchWithSmallestScore = vInnerIter;
+                    }
+                }
+                // Make the match with the smallest score
+                makeMatch(&matchesCopy, optimalMatches, matchWithSmallestScore->getClient()->getId(), matchWithSmallestScore, matchCounts);
+                // Remove that client from the clientsWithOneMatch vector also
+                clientsWithOneMatch.erase(matchWithSmallestScore->getClient()->getId());
             }
         }
         // Increment matchThreshold by 1.00 and do it all again.
