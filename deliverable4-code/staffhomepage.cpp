@@ -112,7 +112,7 @@ void StaffHomepage::on_bRunAlgorithm_clicked()
     //fillMapTesting();
     //optimalMatches.empty();
     //std::vector<Match*> optimalMatches;
-    cerr << QString::fromStdString(std::to_string(optimalMatches.size()));
+    //cerr << QString::fromStdString(std::to_string(optimalMatches.size()));
 
     //std::map<int, std::vector<Match*>> matchesCount = matches;
     //testMakeMatch(&matches,&optimalMatches,optimalMatches.front()->getClient()->getId(), optimalMatches.front(), &matchesCount);

@@ -245,7 +245,7 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
     }
     QTextStream cerr(stderr);
     distance = qSqrt(sum);
-    cerr << "Distance for " << QString::fromStdString(a->getName()) << "and" << QString::fromStdString(c->getFullName()) <<"is: " << distance;
+    cerr << "Distance for " << QString::fromStdString(a->getName() + " | " + a->getSpecies()) << " and " << QString::fromStdString(c->getFullName()) <<" is: " << distance << "\n";
 
     //if animalCategory = clientCategory then auxScore += 5
     distance -= auxScore;
