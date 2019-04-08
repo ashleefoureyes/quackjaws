@@ -20,6 +20,8 @@ ViewResults::~ViewResults()
  *           necessary to display information to the user */
 void ViewResults::showMatchUi(std::map<int, std::vector<Match*>> *matches, std::vector<Match*> *optimalMatches, int numOfAnimals, int numOfClients)
 {
+    ui->tabWidget->setCurrentIndex(0);
+    ui->tabWidget->setCurrentIndex(0);
     this->matches = matches;
     this->optimalMatches = optimalMatches;
     ui->lbAnimalMatches->setText(QString::fromStdString(std::to_string(optimalMatches->size()) + "/" + std::to_string(numOfAnimals)) + " animals have optimal matches");

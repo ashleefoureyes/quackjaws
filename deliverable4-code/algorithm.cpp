@@ -1,6 +1,7 @@
 #include "algorithm.h"
 #include <QtMath>
 #include <QTextStream>
+#include <QMessageBox>
 
 
 Algorithm::Algorithm()
@@ -44,6 +45,8 @@ void Algorithm::runAlgorithm(std::map<int, std::vector<Match*>> *matches, std::v
             else { matches->at(currentClient->getId()).push_back(match); }
         }
     }
+
+    computeOptimalMatches(matches, optimalMatches);
 }
 
 
@@ -508,9 +511,11 @@ void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
         // Add match to optimal matches
         optimalMatches->push_back(match);
 
+
         // Remove client from matches map
         matches->erase(clientId);
         matchCounts->erase(clientId);
+
 
         // Loop through remaining clients in matches map and remove the
         // match from their vector where the animal in `match` is the same
@@ -524,15 +529,31 @@ void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
             std::vector<Match*> *matchVect = &(it->second);
             for(itVect = it->second.begin(); itVect != it->second.end(); itVect++)
             {
+
                 if((*itVect)->getAnimal()->getId() == match->getAnimal()->getId())
                 {
                     matchVect->erase(matchVect->begin() + vectorIndex);
-                    matchCounts->at(cl->getId()).erase(matchCounts->at(cl->getId()).begin() + vectorIndex);
+                    matchCounts->find(cl->getId());
+                     if(matchCounts->find(cl->getId()) != matchCounts->end()) {
+
+                         std::vector<Match*> *animsErase = &(*matchCounts->find(cl->getId())).second;
+                         std::vector<Match*>::iterator eraseIt;
+                         for(eraseIt=animsErase->begin(); eraseIt != animsErase->end(); eraseIt++)
+                         {
+                             if((*eraseIt)->getAnimal()->getId() == match->getAnimal()->getId()) { animsErase->erase(eraseIt); break;}
+                         }
+
+                     }
+                         //matchCounts->at(cl->getId()).erase(matchCounts->at(cl->getId()).begin() + vectorIndex); }
+                    //matchCounts->find(cl->getId())->second.erase(matchCounts->find(cl->getId())->second.begin() + vectorIndex);
+
+
                     break;
                 }
                 ++vectorIndex;
             }
         }
+
 }
 
 void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
@@ -544,6 +565,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
     std::map<int, std::vector<Match*>> matchesCopy = *matches;
     double matchThreshold = 4.00;
     while (matchThreshold <= 10.00) {
+
         // Count number of matches for remaining clients
         std::map<int, std::vector<Match*>> *matchCounts = countMatches(&matchesCopy, matchThreshold);
         // Keep matching those with only one match until none left or there
@@ -625,7 +647,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                     // Make the match with the smallest score
                     makeMatch(&matchesCopy, optimalMatches, matchWithSmallestScore->getClient()->getId(), matchWithSmallestScore, matchCounts);
                     // Remove that client from the clientsWithOneMatch vector also
-                    clientsWithOneMatch.erase(clientsWithOneMatch.begin() + matchWithSmallestScore->getClient()->getId());
+                    //clientsWithOneMatch.erase(clientsWithOneMatch.begin() + matchWithSmallestScore->getClient()->getId());
                     // Remove clients from clientsWithOneMatch who also had matches in sameMatches
                     // Remove that client from the clientsWithOneMatch vector also
 
