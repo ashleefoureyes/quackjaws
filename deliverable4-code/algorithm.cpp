@@ -328,7 +328,7 @@ double Algorithm::categorize(Animal* a){
     return distance;
 }
 
-std::map<int, std::vector<Match*>>* countMatches (std::map<int, std::vector<Match*>> *matches,
+std::map<int, std::vector<Match*>>* Algorithm::countMatches (std::map<int, std::vector<Match*>> *matches,
         double matchThreshold) {
     std::map<int, int> matchCounts;
     std::map<int, std::vector<Match*>>::iterator mIter;
@@ -338,7 +338,7 @@ std::map<int, std::vector<Match*>>* countMatches (std::map<int, std::vector<Matc
         std::vector<Match*>::iterator vIter;
 
         for (vIter = mIter->d.begin(); vIter < mIter->second.end(); vIter++) {
-            if (vIter->getScore() <= matchThreshold) {
+            if (vIter->getScore() <= matchThreshold && vIter->getScore() >= 0.00) {
                 if(matchCounts.count(clientId) == 0) {
                     matchCounts.insert(std::pair<int, std::vector<Match*>>(clientId, std::vector<Match*>()));
                     matchCounts.at(clientId).push_back(vIter);
@@ -352,7 +352,7 @@ std::map<int, std::vector<Match*>>* countMatches (std::map<int, std::vector<Matc
     return &matchCounts;
 }
 
-void makeMatch(std::map<int, std::vector<Match*>> *matches,
+void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
         std::vector<Match*> *optimalMatches, int clientId, Match *match,
         std::map<int, std::vector<Match*>> *matchCounts) {
         // Add match to optimal matches
@@ -362,24 +362,49 @@ void makeMatch(std::map<int, std::vector<Match*>> *matches,
         // as the animal in the match that client's vector
 }
 
-void computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
+void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matches,
         std::vector<Match*> *optimalMatches) {
+    std::map<int, std::vector<Match*>> matchesCopy = *matches;
     double matchThreshold = 4.00;
     while (matchThreshold < 11.00) {
         // Count number of matches for remaining clients
-        std::map<int, std::vector<Match*>> *matchCounts = countMatches(matches, matchThreshold);
+        std::map<int, std::vector<Match*>> *matchCounts = countMatches(&matchesCopy, matchThreshold);
         // Keep matching those with only one match until none left or there
         // exists only clients with 2+ matches. In that case match one client
         // based on their lowest score and keep matching those with only one match.
-        std::map<int, std::vector<Match*>>::iterator iter;
-        for (iter = matchCounts.begin(); iter < matchCounts.end; iter++) {
-            if (iter->second.size() == 1) {
-                makeMatch(matches, optimalMatches, iter->first, iter->second[1], matchCounts)
+        // Repeat until no clients remain in match count
+        while (matchCounts->size() > 0) {
+            std::map<int, std::vector<Match*>>::iterator iter;
+            // Loop through all clients, add those with a single match to a vector
+            for (iter = matchCounts->begin(); iter < matchCounts->end(); iter++) {
+                std::vector<int> clientsWithOneMatch;
+                if (iter->second.size() == 1) {
+                    clientsWithOneMatch.push_back(iter->first);
+                }
+                // For each client with one match, loop through all clients with one match and
+                // see if that client has the same animal matched. If so, add those matches to a vector
+                std::vector<int>::iterator vIter;
+                std::vector<int>::iterator vInnerIter;
+                for (vIter = clientsWithOneMatch.begin(); vIter < clientsWithOneMatch.end(); vIter++) {
+                    std::vector<Match*> sameMatches;
+                    for (vInnerIter = clientsWithOneMatch.begin(); vInnerIter < clientsWithOneMatch.end(); vInnerIter++) {
+                        if (matchCounts->at(vIter)[0]->getAnimal()->getId() == matchCounts->at(vInnerIter)[0]->getAnimal()->getId()) {
+                            sameMatches.push_back(matchCounts->at(vIter)[0]);
+                        }
+                    }
+                    // Find the match in the sameMatches vector with the smallest score
+                    Match* matchWithSmallestScore = NULL;
+                    for (vInnerIter = sameMatches.begin(); vInnerIter < sameMatches.end(); vInnerIter++) {
+                        if (vInnerIter.getScore() <= matchWithSmallestScore.getScore()) {
+                            matchWithSmallestScore = vInnerIter;
+                        }
+                    }
+                    // Make the match with the smallest score
+                    makeMatch(&matchesCopy, optimalMatches, matchWithSmallestScore->getClient()->getId(), matchWithSmallestScore, matchCounts)
+                }
             }
         }
-        // Repeat until no clients remain in match count
         // Increment matchThreshold by 1.00 and do it all again.
         matchThreshold += 1.00;
     }
-
 }
