@@ -537,6 +537,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
                 makeMatch(&matchesCopy, optimalMatches, matchWithSmallestScore->getClient()->getId(), matchWithSmallestScore, matchCounts);
                 // Remove that client from the clientsWithOneMatch vector also
                 clientsWithOneMatch.erase(clientsWithOneMatch.begin() + matchWithSmallestScore->getClient()->getId());
+                // Remove clients from clientsWithOneMatch who also had matches in sameMatches
             }
         }
         // Increment matchThreshold by 1.00 and do it all again.
