@@ -166,8 +166,8 @@ double Algorithm::computeMatchScore(Animal *a, Client *c){
             else { birdGender = 5; }
 
             sum += qPow((birdGender - c->getBirdGender()), 2);
-            sum += qPow((b->getSize() - c->getCatSize()), 2);
-            sum += qPow((b->getFur() - c->getCatFur()), 2);
+            sum += qPow((b->getSize() - c->getBirdSize()), 2);
+            sum += qPow((b->getFur() - c->getBirdFur()), 2);
 
 
             if (QString::compare(QString::fromStdString(c->getBirdColour()), QString::fromStdString(b->getColour()), Qt::CaseInsensitive)){ auxScore+=2; }
@@ -523,6 +523,7 @@ void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
         // Add match to optimal matches
         std::vector<Match*>::iterator opIt;
 
+
         bool inOpt = false;
         for(opIt = optimalMatches->begin(); opIt != optimalMatches->end(); opIt++)
         {
@@ -683,6 +684,66 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
         }
         // Increment matchThreshold by 1.00 and do it all again.
         matchThreshold += 1.00;
+    }
+
+    addRemaining(optimalMatches, matches);
+}
+
+
+/** Function: addRemaining
+    In: std::map<int, std::vector<Match*>> *matches
+    In-out: std::vector<Match*> optimalMatches
+    Purpose: Allows you to fine tune the threshold using remThresh for remaining clients and
+             animals to get some additional matches.
+             To be used in cases where shelter is overcrowded but you don't want
+             to jeopardise your more optimal matches at the expense of matching more animals.
+*/
+void Algorithm::addRemaining(std::vector<Match*> *optimalMatches, std::map<int, std::vector<Match*>> *matches)
+{
+    double remThresh = 11.0;
+
+    if(*(optimalMatches->front()) == (*optimalMatches->back())) { }
+
+    std::vector<Match*>::iterator itV;
+    std::map<int, std::vector<Match*>>::iterator itM;
+
+    for(itM = matches->begin(); itM != matches->end(); itM++)
+    {
+        bool inOpt = false;
+
+        for(itV = optimalMatches->begin(); itV != optimalMatches->end(); itV++)
+        {
+            if((*itV)->getClient()->getId() == (*itM).first) { inOpt = true; break; }
+        }
+        if(inOpt == false)
+        {
+            std::vector<Match*> allMatches = matches->at((*itM).first);
+            //QMessageBox msg; msg.setText("No match for: " + QString::fromStdString(allMatches.front()->getClient()->getFullName())); msg.exec();
+            std::vector<Match*>::iterator itV;
+            std::vector<Match*> availableMatches;
+            for(itV = allMatches.begin(); itV != allMatches.end(); itV++)
+            {
+                if((*itV)->getScore() < 0 || (*itV)->getScore() > remThresh) { continue; }
+
+                std::vector<Match*>::iterator itO;
+                bool animInOpt = false;
+                for(itO = optimalMatches->begin(); itO != optimalMatches->end(); itO++)
+                {
+                    if((*itO)->getAnimal()->getId() == (*itV)->getAnimal()->getId()) { animInOpt = true;}
+                }
+                if(animInOpt == false) { availableMatches.push_back(*itV);}
+            }
+
+            if(availableMatches.size() != 0)
+            {
+                Match* minMatch = availableMatches.front();
+                for(itV = availableMatches.begin(); itV != availableMatches.end(); itV++)
+                {
+                    if((*itV)->getScore() < minMatch->getScore()) {minMatch = (*itV); }
+                }
+                optimalMatches->push_back(minMatch);
+            }
+        }
     }
 }
 
