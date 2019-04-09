@@ -17,6 +17,14 @@ Match::Match()
     this->score = -1;
 }
 
+
+bool operator==(const Match &m1, const Match &m2)
+{
+    if(m1.getAnimal()->getId() != m2.getAnimal()->getId()) { return false; }
+    if(m1.getClient()->getId() != m2.getClient()->getId()) { return false; }
+    return true;
+}
+
 std::string Match::getMatchStr() { return client->getFullName() + " and " + animal->getName(); }
 
 /** Function: speciesTraitsQStr()
