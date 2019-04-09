@@ -340,7 +340,7 @@ std::string Algorithm:: categorizeClient(Client* c){
     std::string classification = "";
     double catWithSmallestScore = 0;
         for (std::map<std::string,double>::iterator it=category.begin(); it!=category.end(); ++it){
-            if(catWithSmallestScore == NULL || it->second <= catWithSmallestScore){
+            if(catWithSmallestScore == 0 || it->second <= catWithSmallestScore){
                 catWithSmallestScore = it->second;
                 classification = it->first;
             }
@@ -473,7 +473,7 @@ std::string Algorithm::categorizeAnimal(Animal* a){
     std::string classification = "";
     double catWithSmallestScore = 0;
         for (std::map<std::string,double>::iterator it=category.begin(); it!=category.end(); ++it){
-            if(catWithSmallestScore == NULL || it->second <= catWithSmallestScore){
+            if(catWithSmallestScore == 0 || it->second <= catWithSmallestScore){
                 catWithSmallestScore = it->second;
                 classification = it->first;
             }
