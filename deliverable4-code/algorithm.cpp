@@ -521,8 +521,15 @@ void Algorithm::makeMatch(std::map<int, std::vector<Match*>> *matches,
         std::vector<Match*> *optimalMatches, int clientId, Match *match,
         std::map<int, std::vector<Match*>> *matchCounts) {
         // Add match to optimal matches
-        optimalMatches->push_back(match);
+        std::vector<Match*>::iterator opIt;
 
+        bool inOpt = false;
+        for(opIt = optimalMatches->begin(); opIt != optimalMatches->end(); opIt++)
+        {
+            if(match->getAnimal()->getId() == (*opIt)->getAnimal()->getId()) { inOpt = true; }
+        }
+
+        if(inOpt == false) { optimalMatches->push_back(match); }
 
         // Remove client from matches map
         matches->erase(clientId);
@@ -581,7 +588,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
     // Make a copy of these matches for use internally because matches also needed in final display
     std::map<int, std::vector<Match*>> matchesCopy = *matches;
     double matchThreshold = 4.00;
-    while (matchThreshold <= 10.00) {
+    while (matchThreshold <= 11.00) {
 
         // Count number of matches for remaining clients
         std::map<int, std::vector<Match*>> *matchCounts = countMatches(&matchesCopy, matchThreshold);
@@ -670,6 +677,7 @@ void Algorithm::computeOptimalMatches(std::map<int, std::vector<Match*>> *matche
 
                     std::vector<int>::iterator eraseIt = std::find(clientsWithOneMatch.begin(), clientsWithOneMatch.end(), matchWithSmallestScore->getClient()->getId());
                     clientsWithOneMatch.erase(eraseIt);
+
                 }
             }
         }
