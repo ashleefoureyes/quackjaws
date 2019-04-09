@@ -29,6 +29,7 @@ public:
 
     double getScore() const;
     void setScore(double value);
+    friend bool operator==(const Match &m1, const Match &m2);
 
 private:
     Client *client;
